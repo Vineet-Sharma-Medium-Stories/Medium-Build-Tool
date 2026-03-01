@@ -1,0 +1,5 @@
+# Standard library components do not need to be listed here.
+# Optional: for clipboard support if we add it later
+pyperclip==1.8.2
+# Optional: if you want to perform advanced markdown analysis
+markdown==3.4.1
