@@ -3,12 +3,13 @@
 Story Final Processor
 Replaces mermaid diagrams and tables in the original story with image blocks
 containing links to their respective .md files on GitHub.
+Optimized for Medium's editor paste behavior.
 """
 
 import os
 import re
 import argparse
-from datetime import datetime  # Add this import
+from datetime import datetime
 from pathlib import Path
 import story_utils as utils
 
@@ -121,20 +122,128 @@ class StoryFinalProcessor:
         """Create the replacement image block with mermaid-01.png for all"""
         type_display = "Mermaid Diagram" if element_type == 'mermaid' else "Table"
         
+        # Using HTML for the caption to ensure proper rendering in Medium
         return f"""
 ![{type_display} {index}: {title}](images/mermaid-01.png)
-*{type_display} {index}: {title} ([View Source]({github_link}))*
+<div style="text-align: center;"><em>{type_display} {index}: {title} (<a href="{github_link}">View Source</a>)</em></div>
 
 """
     
     def _add_footer(self, content):
-        """Add footer text at the end of the story"""
+        """Add footer text with HTML formatting for Medium compatibility"""
         footer = """
 
 ---
-*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*
+<div style="text-align: center;">
+<p><em>Questions? Feedback? Comment? leave a response below.</em><br>
+<em>If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.</em></p>
+</div>
 """
         return content + footer
+    
+    def _fix_formatting_for_medium(self, content):
+        """
+        Comprehensive fix for Medium paste compatibility.
+        
+        Medium requires:
+        - Properly formatted code blocks with fences and no leading spaces inside
+        - Asterisks for bullet points
+        - Consistent spacing
+        """
+        lines = content.split('\n')
+        result_lines = []
+        in_code_block = False
+        code_block_lines = []
+        
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            
+            # Check for code block markers
+            if line.strip().startswith('```'):
+                if not in_code_block:
+                    # Start of code block - ensure it has language specifier
+                    in_code_block = True
+                    code_block_lines = ['```csharp']  # Default to csharp if no language specified
+                else:
+                    # End of code block
+                    in_code_block = False
+                    code_block_lines.append('```')
+                    
+                    # Add the complete code block with proper formatting
+                    result_lines.extend(code_block_lines)
+                    result_lines.append('')  # Add blank line after code block
+                    code_block_lines = []
+                i += 1
+                continue
+            
+            if in_code_block:
+                # Inside code block - remove ALL leading/trailing spaces but preserve indentation
+                # Medium doesn't handle leading spaces well in code blocks
+                stripped_line = line.rstrip()
+                if stripped_line:  # Only add non-empty lines
+                    # Remove leading spaces but preserve one level of indentation for readability
+                    # This helps with code that needs indentation to be readable
+                    if stripped_line.startswith('    '):
+                        # Keep 4 spaces for code indentation
+                        code_block_lines.append(stripped_line)
+                    else:
+                        # Remove all leading spaces
+                        code_block_lines.append(stripped_line.lstrip())
+                i += 1
+                continue
+            
+            # Handle bullet points outside code blocks
+            if line.strip().startswith('- '):
+                # Convert to asterisk bullet
+                bullet_content = line.strip()[2:]  # Remove '- ' prefix
+                result_lines.append(f"* {bullet_content}")
+            elif line.strip().startswith('  - '):
+                # Nested bullet
+                bullet_content = line.strip()[4:]  # Remove '  - ' prefix
+                result_lines.append(f"  * {bullet_content}")
+            else:
+                result_lines.append(line)
+            
+            i += 1
+        
+        # Handle case where code block wasn't closed
+        if in_code_block and code_block_lines:
+            code_block_lines.append('```')
+            result_lines.extend(code_block_lines)
+        
+        # Post-process to ensure code blocks are properly formatted
+        final_lines = []
+        i = 0
+        while i < len(result_lines):
+            line = result_lines[i]
+            
+            # Check for code block start
+            if line.strip().startswith('```') and i + 1 < len(result_lines):
+                final_lines.append(line)  # Add the opening fence
+                i += 1
+                
+                # Add code content until closing fence
+                while i < len(result_lines) and not result_lines[i].strip().startswith('```'):
+                    code_line = result_lines[i]
+                    # Ensure code lines don't have leading spaces except for indentation
+                    if code_line.strip():
+                        # Keep indentation for code readability
+                        final_lines.append(code_line)
+                    i += 1
+                
+                # Add closing fence if found
+                if i < len(result_lines) and result_lines[i].strip().startswith('```'):
+                    final_lines.append('```')
+                    i += 1
+                    # Add blank line after code block
+                    final_lines.append('')
+            else:
+                final_lines.append(line)
+                i += 1
+        
+        # Join with appropriate newlines
+        return '\n'.join(final_lines)
     
     def process(self):
         """Main processing function"""
@@ -196,6 +305,10 @@ class StoryFinalProcessor:
             modified_content = modified_content[:element['start']] + image_block + modified_content[element['end']:]
             self.replacements_made += 1
             self._log(f"Replaced {element['type']} {element['index']}: {element['title']}")
+        
+        # Fix formatting for Medium compatibility
+        modified_content = self._fix_formatting_for_medium(modified_content)
+        self._log("Fixed formatting for Medium paste")
         
         # Add footer
         modified_content = self._add_footer(modified_content)

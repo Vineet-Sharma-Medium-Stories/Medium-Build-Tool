@@ -38,7 +38,18 @@ The image provides a comprehensive cheat sheet for .NET developers. Let's break 
 
 Filtering methods are the gatekeepers of your data, allowing you to pass through only the elements that meet a specific criterion.
 
-### Where
+### `Where`
+
+- **Legacy Implementation:**
+    ```csharp
+    var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
+    var evenNumbers = numbers.Where(n => n % 2 == 0).ToList();
+    // Result: [2, 4, 6]
+    
+    // Legacy EF Core usage
+    var activeUsers = context.Users.Where(u => u.IsActive && u.LastLogin > DateTime.UtcNow.AddDays(-30)).ToList();
+    ```
+
 - **Description:** Filters a sequence based on a predicate function. It's the most fundamental filtering method, evaluating each element against a condition and returning only those that satisfy it.
 - **Detailed Explanation:** `Where` comes in two overloads: one that takes just the element, and another that also provides the index of the element. This allows for position-based filtering like `Where((item, index) => index % 2 == 0)`.
 
