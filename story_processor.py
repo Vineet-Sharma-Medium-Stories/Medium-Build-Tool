@@ -245,7 +245,7 @@ class StoryProcessor:
         self._log(f"Created merged story file: {story_filename}")
         
         # Create log file in base folder
-        log_filename = f"process_log_{self.timestamp}.txt"
+        log_filename = f"process_log_{self.timestamp}.log"
         log_path = os.path.join(self.base_output_dir, log_filename)
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(self.log_entries))

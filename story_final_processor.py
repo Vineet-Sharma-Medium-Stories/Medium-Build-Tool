@@ -16,6 +16,7 @@ class StoryFinalProcessor:
         self.filename = filename
         self.github_base_url = github_base_url.rstrip('/')
         self.story_name = self._sanitize_filename(os.path.splitext(os.path.basename(filename))[0])
+        # Correct folder structure: story-name/content/
         self.content_dir = f"{self.story_name}/content"
         self.output_filename = f"{self.story_name}_final.md"
         self.log_entries = []
@@ -123,10 +124,11 @@ class StoryFinalProcessor:
         return tables
     
     def _get_github_link(self, element_type, index, title):
-        """Generate GitHub link for the element file"""
+        """Generate GitHub link for the element file - matches your URL structure"""
         safe_title = self._sanitize_filename(title)[:30]
         prefix = 'm' if element_type == 'mermaid' else 't'
         filename = f"{index:02d}-{prefix}-{safe_title}.md"
+        # URL format: https://github.com/.../blob/main/story-name/content/filename.md
         return f"{self.github_base_url}/blob/main/{self.content_dir}/{filename}"
     
     def _create_image_block(self, element_type, index, title, github_link):
@@ -222,7 +224,7 @@ class StoryFinalProcessor:
         
         # Create log file
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log_filename = f"final_process_log_{timestamp}.txt"
+        log_filename = f"final_process_log_{timestamp}.log"
         log_path = os.path.join(os.path.dirname(self.filename) or '.', log_filename)
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(self.log_entries))
