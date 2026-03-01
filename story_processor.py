@@ -8,16 +8,16 @@ into separate files with a consistent structure.
 import os
 import re
 import argparse
-from datetime import datetime
 from pathlib import Path
+import story_utils as utils
 
 class StoryProcessor:
     def __init__(self, filename):
         self.filename = filename
-        self.story_name = self._sanitize_filename(os.path.splitext(os.path.basename(filename))[0])
+        self.story_name = utils.sanitize_filename(os.path.splitext(os.path.basename(filename))[0])
         self.base_output_dir = f"{self.story_name}"
         self.content_dir = os.path.join(self.base_output_dir, "content")
-        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.timestamp = utils.get_log_timestamp()
         self.log_entries = []
         
         # Statistics
@@ -25,31 +25,13 @@ class StoryProcessor:
         self.mermaid_count = 0
         self.table_count = 0
         
-    def _sanitize_filename(self, name):
-        """Strip filename to fit git commit standards (lowercase, hyphens, no special chars)"""
-        name = re.sub(r'[\s_]+', '-', name.lower())
-        name = re.sub(r'[^a-z0-9-]', '', name)
-        name = re.sub(r'-+', '-', name)
-        return name.strip('-')
-    
     def _log(self, message, level="INFO"):
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        log_entry = f"[{timestamp}] {level}: {message}"
+        log_entry = utils.format_log_entry(message, level)
         self.log_entries.append(log_entry)
         print(log_entry)
     
     def _count_words(self, text):
         return len(re.findall(r'\b\w+\b', text))
-    
-    def _extract_title_from_content(self, content, start_pos, end_pos):
-        lines_before = content[max(0, start_pos-500):start_pos].split('\n')
-        for line in reversed(lines_before):
-            if re.match(r'^#{1,6}\s+(.+)', line):
-                return re.sub(r'^#{1,6}\s+', '', line).strip()
-        bold_match = re.search(r'\*\*(.+?)\*\*', content[max(0, start_pos-200):start_pos])
-        if bold_match:
-            return bold_match.group(1)
-        return "Untitled"
     
     def _extract_mermaid_diagrams(self, content):
         diagrams = []
@@ -59,23 +41,18 @@ class StoryProcessor:
             line = lines[i]
             if line.strip() == '```mermaid' or line.strip().startswith('```mermaid'):
                 diagram_lines = []
+                start_line = i
                 i += 1
                 while i < len(lines) and not lines[i].strip().startswith('```'):
                     diagram_lines.append(lines[i])
                     i += 1
                 diagram_content = '\n'.join(diagram_lines).strip()
                 if diagram_content:
-                    position = sum(len(l) for l in lines[:i])
-                    title = "Mermaid Diagram"
-                    for j in range(max(0, i-10), i):
-                        if re.match(r'^#{1,6}\s+(.+)', lines[j]):
-                            title = re.sub(r'^#{1,6}\s+', '', lines[j]).strip()
-                            break
-                        elif '**' in lines[j]:
-                            bold_match = re.search(r'\*\*(.+?)\*\*', lines[j])
-                            if bold_match:
-                                title = bold_match.group(1)
-                                break
+                    position = utils.calculate_position(lines, start_line)
+                    
+                    # Extract title using shared utility
+                    title = utils.extract_title_from_content(lines, start_line)
+                    
                     self.mermaid_count += 1
                     diagrams.append({
                         'title': title,
@@ -101,17 +78,11 @@ class StoryProcessor:
                         table_lines.append(lines[j])
                         j += 1
                     table_content = '\n'.join(table_lines)
-                    position = sum(len(l) for l in lines[:table_start])
-                    title = "Table"
-                    for k in range(max(0, table_start-10), table_start):
-                        if re.match(r'^#{1,6}\s+(.+)', lines[k]):
-                            title = re.sub(r'^#{1,6}\s+', '', lines[k]).strip()
-                            break
-                        elif '**' in lines[k]:
-                            bold_match = re.search(r'\*\*(.+?)\*\*', lines[k])
-                            if bold_match:
-                                title = bold_match.group(1)
-                                break
+                    position = utils.calculate_position(lines, table_start)
+                    
+                    # Extract title using shared utility
+                    title = utils.extract_title_from_content(lines, table_start)
+                    
                     self.table_count += 1
                     tables.append({
                         'title': title,
@@ -209,20 +180,18 @@ class StoryProcessor:
             f.write(header_content)
         self._log(f"Created content/header.md")
         
-        # Write individual diagram files to content folder
+        # Write individual diagram files to content folder using shared utility
         for i, diagram in enumerate(diagrams, 1):
-            safe_title = self._sanitize_filename(diagram['title'])
-            filename = f"{i:02d}-m-{safe_title[:30]}.md"
+            filename = utils.get_element_filename('mermaid', i, diagram['title'])
             file_path = os.path.join(self.content_dir, filename)
             diagram_content = f"# Mermaid Diagram {i}: {diagram['title']}\n\n```mermaid\n{diagram['content']}\n```\n"
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(diagram_content)
             self._log(f"Created content/{filename}")
         
-        # Write individual table files to content folder
+        # Write individual table files to content folder using shared utility
         for i, table in enumerate(tables, 1):
-            safe_title = self._sanitize_filename(table['title'])
-            filename = f"{i:02d}-t-{safe_title[:30]}.md"
+            filename = utils.get_element_filename('table', i, table['title'])
             file_path = os.path.join(self.content_dir, filename)
             table_content = f"# Table {i}: {table['title']}\n\n{table['content']}\n"
             with open(file_path, 'w', encoding='utf-8') as f:

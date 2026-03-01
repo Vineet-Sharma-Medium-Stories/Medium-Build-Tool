@@ -34,10 +34,8 @@ They are powered by **three distinct architectural layers**, each addressing a f
 *Mermaid Diagram 1: 🧠 The Cognitive Architecture of Enterprise AI ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/01-m-the-cognitive-architecture-of-.md))*
 
 
-
-
-![Table 1: Table](images/mermaid-01.png)
-*Table 1: Table ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/01-t-table.md))*
+![Table 1: Untitled](images/mermaid-01.png)
+*Table 1: Untitled ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/01-t-untitled.md))*
 
 
 If you are building:
@@ -74,8 +72,6 @@ When you send a prompt to GPT-4, Claude, or Llama, you are not executing code. Y
 ![Mermaid Diagram 2: 🎭 Deep Introduction: The Probability Shaper](images/mermaid-01.png)
 *Mermaid Diagram 2: 🎭 Deep Introduction: The Probability Shaper ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/02-m-deep-introduction-the-probabil.md))*
 
-
-
 The implications are profound:
 
 - **They do not "understand"** like humans understand. They pattern-match across billions of training examples.
@@ -111,10 +107,8 @@ Your Application ↔ Probabilistic Model
 ```
 
 
-![Mermaid Diagram 3: 🏢 The Enterprise Shift: From Cleverness to Contracts](images/mermaid-01.png)
-*Mermaid Diagram 3: 🏢 The Enterprise Shift: From Cleverness to Contracts ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/03-m-the-enterprise-shift-from-clev.md))*
-
-
+![Mermaid Diagram 3: In enterprise AI, prompt engineering is about *contracts*.](images/mermaid-01.png)
+*Mermaid Diagram 3: In enterprise AI, prompt engineering is about *contracts*. ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/03-m-in-enterprise-ai-prompt-engine.md))*
 
 This interface must be:
 
@@ -136,10 +130,8 @@ A prompt is no longer a string. It is **a compiled artifact** in your deployment
 *The baseline. No examples. Pure instruction following.*
 
 
-![Mermaid Diagram 4: Zero-Shot Prompting](images/mermaid-01.png)
-*Mermaid Diagram 4: Zero-Shot Prompting ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/04-m-zero-shot-prompting.md))*
-
-
+![Mermaid Diagram 4: 📚 Types of Prompting: From Zero to Complex](images/mermaid-01.png)
+*Mermaid Diagram 4: 📚 Types of Prompting: From Zero to Complex ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/04-m-types-of-prompting-from-zero-t.md))*
 
 **Example — Ticket Classification**
 
@@ -218,10 +210,8 @@ public class TicketClassificationController : ControllerBase
 *Pattern demonstration. Reliability through examples.*
 
 
-![Mermaid Diagram 5: Few-Shot Prompting](images/mermaid-01.png)
-*Mermaid Diagram 5: Few-Shot Prompting ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/05-m-few-shot-prompting.md))*
-
-
+![Mermaid Diagram 5: ❌ Limitations:](images/mermaid-01.png)
+*Mermaid Diagram 5: ❌ Limitations: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/05-m-limitations.md))*
 
 **The Problem:** Zero-shot works 85% of the time. Enterprise requires 99.9%.
 
@@ -261,10 +251,8 @@ Logistics
 **Enterprise Pattern — Dynamic Few-Shot Selection:**
 
 
-![Mermaid Diagram 6: Enterprise Pattern — Dynamic Few-Shot Selection:](images/mermaid-01.png)
-*Mermaid Diagram 6: Enterprise Pattern — Dynamic Few-Shot Selection: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/06-m-enterprise-pattern-dynamic-few.md))*
-
-
+![Mermaid Diagram 6: Model Output:](images/mermaid-01.png)
+*Mermaid Diagram 6: Model Output: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/06-m-model-output.md))*
 
 ```csharp
 public class DynamicFewShotSelector
@@ -295,10 +283,8 @@ This is **prompt-time retrieval**—a precursor to full RAG.
 *Reasoning transparency. Error reduction through deliberation.*
 
 
-![Mermaid Diagram 7: Chain-of-Thought Prompting](images/mermaid-01.png)
-*Mermaid Diagram 7: Chain-of-Thought Prompting ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/07-m-chain-of-thought-prompting.md))*
-
-
+![Mermaid Diagram 7: prompt-time retrieval](images/mermaid-01.png)
+*Mermaid Diagram 7: prompt-time retrieval ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/07-m-prompt-time-retrieval.md))*
 
 **The Problem:** LLMs, like humans, make fast-thinking errors. They pattern-match to superficial similarities rather than reasoning through constraints.
 
@@ -359,10 +345,8 @@ Income sufficient, DTI within limits, credit score above threshold.
 *From prose to contracts.*
 
 
-![Mermaid Diagram 8: Structured Output Enforcement](images/mermaid-01.png)
-*Mermaid Diagram 8: Structured Output Enforcement ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/08-m-structured-output-enforcement.md))*
-
-
+![Mermaid Diagram 8: The Cognitive Science:](images/mermaid-01.png)
+*Mermaid Diagram 8: The Cognitive Science: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/08-m-the-cognitive-science.md))*
 
 **The Problem:** Enterprise systems don't read paragraphs. They read JSON, XML, and protocol buffers.
 
@@ -474,10 +458,8 @@ public async Task<LoanDecision> EvaluateLoanApplication(LoanApplication applicat
 ## 🏛️ Prompt Engineering in .NET 9/10 Enterprise Architecture
 
 
-![Mermaid Diagram 9: 🏛️ Prompt Engineering in .NET 9/10 Enterprise Architecture](images/mermaid-01.png)
-*Mermaid Diagram 9: 🏛️ Prompt Engineering in .NET 9/10 Enterprise Architecture ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/09-m-prompt-engineering-in-net-910-.md))*
-
-
+![Mermaid Diagram 9: Refusal enforcement](images/mermaid-01.png)
+*Mermaid Diagram 9: Refusal enforcement ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/09-m-refusal-enforcement.md))*
 
 **Core Components:**
 
@@ -517,14 +499,12 @@ public interface IResponseValidator
 **Prompt Engineering is necessary. It is not sufficient.**
 
 
-![Mermaid Diagram 10: ⚠️ The Hard Ceiling: What Prompt Engineering Alone Cannot Do](images/mermaid-01.png)
-*Mermaid Diagram 10: ⚠️ The Hard Ceiling: What Prompt Engineering Alone Cannot Do ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/10-m-the-hard-ceiling-what-prompt-e.md))*
+![Mermaid Diagram 10: A/B testing infrastructure](images/mermaid-01.png)
+*Mermaid Diagram 10: A/B testing infrastructure ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/10-m-ab-testing-infrastructure.md))*
 
 
-
-
-![Table 4: Table](images/mermaid-01.png)
-*Table 4: Table ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/04-t-table.md))*
+![Table 4: Untitled](images/mermaid-01.png)
+*Table 4: Untitled ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/04-t-untitled.md))*
 
 
 **Prompt Engineering improves behavior—not knowledge grounding.**
@@ -549,8 +529,6 @@ Enterprise content is not born ready for AI. It is born in chaos:
 
 ![Mermaid Diagram 11: 🏗️ Deep Introduction: Knowledge Architecture for Machine Reasoning](images/mermaid-01.png)
 *Mermaid Diagram 11: 🏗️ Deep Introduction: Knowledge Architecture for Machine Reasoning ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/11-m-deep-introduction-knowledge-ar.md))*
-
-
 
 This is not a joke. This is SharePoint.
 
@@ -583,8 +561,6 @@ They are not due to prompt engineering mistakes.
 ![Mermaid Diagram 12: 💀 The Hidden Complexity: Why Enterprise Content Engineering Fails](images/mermaid-01.png)
 *Mermaid Diagram 12: 💀 The Hidden Complexity: Why Enterprise Content Engineering Fails ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/12-m-the-hidden-complexity-why-ente.md))*
 
-
-
 **Common Failure Modes:**
 
 
@@ -597,10 +573,8 @@ They are not due to prompt engineering mistakes.
 ## 📦 The Content Engineering Pipeline
 
 
-![Mermaid Diagram 13: 📦 The Content Engineering Pipeline](images/mermaid-01.png)
-*Mermaid Diagram 13: 📦 The Content Engineering Pipeline ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/13-m-the-content-engineering-pipeli.md))*
-
-
+![Mermaid Diagram 13: Inconsistent formats](images/mermaid-01.png)
+*Mermaid Diagram 13: Inconsistent formats ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/13-m-inconsistent-formats.md))*
 
 ---
 
@@ -612,15 +586,11 @@ They are not due to prompt engineering mistakes.
 ![Mermaid Diagram 14: 📄 Chunking Strategy: The Critical Detail](images/mermaid-01.png)
 *Mermaid Diagram 14: 📄 Chunking Strategy: The Critical Detail ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/14-m-chunking-strategy-the-critical.md))*
 
-
-
 **Good Chunking (Semantic):**
 
 
 ![Mermaid Diagram 15: Good Chunking (Semantic):](images/mermaid-01.png)
 *Mermaid Diagram 15: Good Chunking (Semantic): ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/15-m-good-chunking-semantic.md))*
-
-
 
 **Overlap Strategy:**
 
@@ -629,8 +599,6 @@ For long documents with continuity requirements:
 
 ![Mermaid Diagram 16: Overlap Strategy:](images/mermaid-01.png)
 *Mermaid Diagram 16: Overlap Strategy: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/16-m-overlap-strategy.md))*
-
-
 
 **.NET Implementation — Semantic Chunker:**
 
@@ -711,8 +679,6 @@ Imagine a library where books have no titles, no authors, no Dewey Decimal codes
 ![Mermaid Diagram 17: 🏷️ Metadata Strategy: The Knowledge Labeling System](images/mermaid-01.png)
 *Mermaid Diagram 17: 🏷️ Metadata Strategy: The Knowledge Labeling System ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/17-m-metadata-strategy-the-knowledg.md))*
 
-
-
 **Enterprise Metadata Schema:**
 
 ```json
@@ -753,10 +719,8 @@ A multinational corporation operates in:
 - **APAC** — India, Singapore, Japan, Australia
 
 
-![Mermaid Diagram 18: EU](images/mermaid-01.png)
-*Mermaid Diagram 18: EU ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/18-m-eu.md))*
-
-
+![Mermaid Diagram 18: Department scoping](images/mermaid-01.png)
+*Mermaid Diagram 18: Department scoping ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/18-m-department-scoping.md))*
 
 **User query from Frankfurt:** "What are our remote work policies regarding data privacy?"
 
@@ -803,10 +767,8 @@ public async Task<List<DocumentChunk>> GetRelevantChunks(
 **Ingestion Worker Architecture:**
 
 
-![Mermaid Diagram 19: 🏭 Content Engineering in .NET 9/10](images/mermaid-01.png)
-*Mermaid Diagram 19: 🏭 Content Engineering in .NET 9/10 ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/19-m-content-engineering-in-net-910.md))*
-
-
+![Mermaid Diagram 19: Result:](images/mermaid-01.png)
+*Mermaid Diagram 19: Result: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/19-m-result.md))*
 
 **.NET Implementation — Background Service:**
 
@@ -917,8 +879,6 @@ When you tag a document with region="India", version="3.1", status="Active"—an
 ![Mermaid Diagram 20: 🔮 The Output: Deterministic Knowledge](images/mermaid-01.png)
 *Mermaid Diagram 20: 🔮 The Output: Deterministic Knowledge ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/20-m-the-output-deterministic-knowl.md))*
 
-
-
 **This is the difference between:**
 
 - **Without Content Engineering:** "Find me something about leave in India" → *Maybe correct, maybe not*
@@ -940,10 +900,8 @@ When you tag a document with region="India", version="3.1", status="Active"—an
 GPT-4's knowledge ends in October 2023. Claude's in early 2024. Even if tomorrow a new regulation passes, even if this morning your company updated its parental leave policy, even if five minutes ago a critical compliance memo was distributed—**the model does not know.**
 
 
-![Mermaid Diagram 21: 🌊 Deep Introduction: The Grounding Layer](images/mermaid-01.png)
-*Mermaid Diagram 21: 🌊 Deep Introduction: The Grounding Layer ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/21-m-deep-introduction-the-groundin.md))*
-
-
+![Mermaid Diagram 21: *Connecting Models to Live Enterprise Knowledge*](images/mermaid-01.png)
+*Mermaid Diagram 21: *Connecting Models to Live Enterprise Knowledge* ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/21-m-connecting-models-to-live-ente.md))*
 
 **RAG solves this by:**
 
@@ -953,10 +911,8 @@ GPT-4's knowledge ends in October 2023. Claude's in early 2024. Even if tomorrow
 4. **Grounding** every response in verifiable, current, authorized sources
 
 
-![Mermaid Diagram 22: Constraining](images/mermaid-01.png)
-*Mermaid Diagram 22: Constraining ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/22-m-constraining.md))*
-
-
+![Mermaid Diagram 22: RAG solves this by:](images/mermaid-01.png)
+*Mermaid Diagram 22: RAG solves this by: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/22-m-rag-solves-this-by.md))*
 
 **RAG converts a general-purpose foundation model into an enterprise-aware assistant that:**
 
@@ -972,8 +928,6 @@ GPT-4's knowledge ends in October 2023. Claude's in early 2024. Even if tomorrow
 
 ![Mermaid Diagram 23: 🔄 The RAG Pipeline: Step by Step](images/mermaid-01.png)
 *Mermaid Diagram 23: 🔄 The RAG Pipeline: Step by Step ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/23-m-the-rag-pipeline-step-by-step.md))*
-
-
 
 **Step 1: Query Understanding**
 - User submits natural language question
@@ -1008,10 +962,8 @@ GPT-4's knowledge ends in October 2023. Claude's in early 2024. Even if tomorrow
 ## 📝 Sample RAG Flow: Production Reality
 
 
-![Mermaid Diagram 24: 📝 Sample RAG Flow: Production Reality](images/mermaid-01.png)
-*Mermaid Diagram 24: 📝 Sample RAG Flow: Production Reality ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/24-m-sample-rag-flow-production-rea.md))*
-
-
+![Mermaid Diagram 24: Step 6: Validation & Observability](images/mermaid-01.png)
+*Mermaid Diagram 24: Step 6: Validation & Observability ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/24-m-step-6-validation-observabilit.md))*
 
 **User:**
 ```
@@ -1079,10 +1031,8 @@ date at least 4 weeks before leave commencement [Section 2.1.1].
 ### 1. Hybrid Search (Keyword + Vector)
 
 
-![Mermaid Diagram 25: 1. Hybrid Search (Keyword + Vector)](images/mermaid-01.png)
-*Mermaid Diagram 25: 1. Hybrid Search (Keyword + Vector) ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/25-m-1-hybrid-search-keyword-vector.md))*
-
-
+![Mermaid Diagram 25: Grounded. Verifiable. Auditable.](images/mermaid-01.png)
+*Mermaid Diagram 25: Grounded. Verifiable. Auditable. ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/25-m-grounded-verifiable-auditable.md))*
 
 ```csharp
 public async Task<List<DocumentChunk>> HybridSearchAsync(string query)
@@ -1109,8 +1059,6 @@ public async Task<List<DocumentChunk>> HybridSearchAsync(string query)
 ![Mermaid Diagram 26: 2. Re-ranking](images/mermaid-01.png)
 *Mermaid Diagram 26: 2. Re-ranking ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/26-m-2-re-ranking.md))*
 
-
-
 ```csharp
 public async Task<List<DocumentChunk>> RetrieveWithReRankAsync(string query)
 {
@@ -1131,15 +1079,11 @@ public async Task<List<DocumentChunk>> RetrieveWithReRankAsync(string query)
 ![Mermaid Diagram 27: 3. Multi-Hop Retrieval](images/mermaid-01.png)
 *Mermaid Diagram 27: 3. Multi-Hop Retrieval ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/27-m-3-multi-hop-retrieval.md))*
 
-
-
 ### 4. Context Compression
 
 
 ![Mermaid Diagram 28: 4. Context Compression](images/mermaid-01.png)
 *Mermaid Diagram 28: 4. Context Compression ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/28-m-4-context-compression.md))*
-
-
 
 ### 5. Agentic RAG
 
@@ -1147,15 +1091,11 @@ public async Task<List<DocumentChunk>> RetrieveWithReRankAsync(string query)
 ![Mermaid Diagram 29: 5. Agentic RAG](images/mermaid-01.png)
 *Mermaid Diagram 29: 5. Agentic RAG ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/29-m-5-agentic-rag.md))*
 
-
-
 ### 6. Knowledge Graph RAG
 
 
 ![Mermaid Diagram 30: 6. Knowledge Graph RAG](images/mermaid-01.png)
 *Mermaid Diagram 30: 6. Knowledge Graph RAG ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/30-m-6-knowledge-graph-rag.md))*
-
-
 
 ---
 
@@ -1166,8 +1106,6 @@ public async Task<List<DocumentChunk>> RetrieveWithReRankAsync(string query)
 
 ![Mermaid Diagram 31: 🏛️ RAG in .NET 9/10 Enterprise Architecture](images/mermaid-01.png)
 *Mermaid Diagram 31: 🏛️ RAG in .NET 9/10 Enterprise Architecture ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/31-m-rag-in-net-910-enterprise-arch.md))*
-
-
 
 ```csharp
 public class RAGOrchestrator
@@ -1295,8 +1233,6 @@ public class RAGOrchestrator
 ![Mermaid Diagram 32: 🌍 Real Enterprise Scenario: Banking AI Platform](images/mermaid-01.png)
 *Mermaid Diagram 32: 🌍 Real Enterprise Scenario: Banking AI Platform ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/32-m-real-enterprise-scenario-banki.md))*
 
-
-
 **The Challenge:**
 
 A global investment bank maintains:
@@ -1326,10 +1262,8 @@ A global investment bank maintains:
 ## 🏛️ Full Enterprise Architecture
 
 
-![Mermaid Diagram 33: 🏛️ Full Enterprise Architecture](images/mermaid-01.png)
-*Mermaid Diagram 33: 🏛️ Full Enterprise Architecture ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/33-m-full-enterprise-architecture.md))*
-
-
+![Mermaid Diagram 33: Without Prompt Engineering:](images/mermaid-01.png)
+*Mermaid Diagram 33: Without Prompt Engineering: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/33-m-without-prompt-engineering.md))*
 
 ---
 
@@ -1340,10 +1274,8 @@ A global investment bank maintains:
 *Mermaid Diagram 34: 📊 Comparison Table: Three Pillars of Production AI ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/34-m-comparison-table-three-pillars.md))*
 
 
-
-
-![Table 8: Table](images/mermaid-01.png)
-*Table 8: Table ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/08-t-table.md))*
+![Table 8: Untitled](images/mermaid-01.png)
+*Table 8: Untitled ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/08-t-untitled.md))*
 
 
 ---
@@ -1351,10 +1283,8 @@ A global investment bank maintains:
 # 🧠 Final Mental Model
 
 
-![Mermaid Diagram 35: 🧠 Final Mental Model](images/mermaid-01.png)
-*Mermaid Diagram 35: 🧠 Final Mental Model ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/35-m-final-mental-model.md))*
-
-
+![Mermaid Diagram 35: Cost Driver](images/mermaid-01.png)
+*Mermaid Diagram 35: Cost Driver ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/35-m-cost-driver.md))*
 
 **Prompt Engineering = Steering Wheel**
 - Controls direction
@@ -1381,8 +1311,6 @@ A global investment bank maintains:
 ![Mermaid Diagram 36: Together:](images/mermaid-01.png)
 *Mermaid Diagram 36: Together: ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/36-m-together.md))*
 
-
-
 A car with only steering: You can turn, but you're running on empty, lost.
 
 A car with only fuel: You have energy, but no direction or control.
@@ -1404,8 +1332,6 @@ The gap between a ChatGPT conversation and a regulated enterprise AI system is n
 
 ![Mermaid Diagram 37: 🏁 Conclusion: From Demos to Platforms](images/mermaid-01.png)
 *Mermaid Diagram 37: 🏁 Conclusion: From Demos to Platforms ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/37-m-conclusion-from-demos-to-platf.md))*
-
-
 
 - **Prompt Engineering** controls *how* the model behaves—its reasoning, format, tone, and constraints. This is the interface layer between deterministic code and probabilistic inference.
 
@@ -1436,10 +1362,8 @@ The gap between a ChatGPT conversation and a regulated enterprise AI system is n
 ## 📈 The ROI of Three-Layer Architecture
 
 
-![Mermaid Diagram 38: 📈 The ROI of Three-Layer Architecture](images/mermaid-01.png)
-*Mermaid Diagram 38: 📈 The ROI of Three-Layer Architecture ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/38-m-the-roi-of-three-layer-archite.md))*
-
-
+![Mermaid Diagram 38: Add RAG → you get a system.](images/mermaid-01.png)
+*Mermaid Diagram 38: Add RAG → you get a system. ([View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/blob/main/prompt-engineering-vs-content-engineering-vs-rag/content/38-m-add-rag-you-get-a-system.md))*
 
 ---
 
