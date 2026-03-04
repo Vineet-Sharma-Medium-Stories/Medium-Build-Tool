@@ -11,14 +11,21 @@
 ## Mermaid Diagram 1: What Changes in .NET 10:
 
 ```mermaid
-graph TD
-    A[LINQ Query: context.Products.Where(p => p.Price > 100 && p.Category == "Electronics")] --> B[.NET 10 Expression Visitor];
-    B --> C[Normalizes Expression Tree];
-    C --> D[Removes Redundant Sub-expressions];
-    D --> E[Optimizes Constant Folding];
-    E --> F[EF Core Translator];
-    F --> G[Generated SQL: SELECT * FROM Products WHERE Price > 100 AND Category = 'Electronics'];
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart TB
+    A@{ label: "LINQ Query: context.Products.Where(p => p.Price > 100 && p.Category == 'Electronics')" } --> B[".NET 10 Expression Visitor"]
+    B --> C["Normalizes Expression Tree"]
+    C --> D["Removes Redundant Sub-expressions"]
+    D --> E["Optimizes Constant Folding"]
+    E --> F["EF Core Translator"]
+    F --> G@{ label: "Generated SQL: SELECT * FROM Products WHERE Price > 100 AND Category = 'Electronics'" }
+
+    A@{ shape: rect}
+    G@{ shape: rect}
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style G fill:#ccf,stroke:#333,stroke-width:2px
 ```
@@ -28,14 +35,19 @@ graph TD
 ## Mermaid Diagram 2: What Changes in .NET 10:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    A[LINQ Query: context.Orders.Select(o => new OrderDto { Id = o.Id, Total = o.Items.Sum(i => i.Price) })] --> B[.NET 10 Compiled Query Feature];
-    B --> C{First Execution?};
-    C -->|Yes| D[Compile Expression Tree to IL];
-    D --> E[Cache Compiled Delegate];
-    E --> F[Execute Against Database];
+    A["LINQ Query: context.Orders.Select(o => new OrderDto { Id = o.Id, Total = o.Items.Sum(i => i.Price) })"] --> B[".NET 10 Compiled Query Feature"];
+    B --> C{"First Execution?"};
+    C -->|Yes| D["Compile Expression Tree to IL"];
+    D --> E["Cache Compiled Delegate"];
+    E --> F["Execute Against Database"];
     C -->|No| F;
-    F --> G[Return Projected Results];
+    F --> G["Return Projected Results"];
     
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style D fill:#ccf,stroke:#333,stroke-width:2px
@@ -46,14 +58,19 @@ graph TD
 ## Mermaid Diagram 3: What Changes in .NET 10:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: dagre
+---
 graph TD
-    A[LINQ Query: context.Orders.GroupBy(o => o.CustomerId).Select(g => new { Customer = g.Key, Count = g.Count() })] --> B[EF Core 10 Translator];
-    B --> C[Analyzes Grouping Pattern];
-    C --> D[Optimizes for SQL Translation];
-    D --> E{Can Translate Fully?};
-    E -->|Yes| F[Generate SQL with GROUP BY];
-    E -->|No| G[Split Query: Group in Memory];
-    F --> H[SELECT CustomerId, COUNT(*) FROM Orders GROUP BY CustomerId];
+    A["LINQ Query: context.Orders.GroupBy(o => o.CustomerId).Select(g => new { Customer = g.Key, Count = g.Count() })"] --> B[EF Core 10 Translator]
+    B --> C[Analyzes Grouping Pattern]
+    C --> D[Optimizes for SQL Translation]
+    D --> E{Can Translate Fully?}
+    E -->|Yes| F[Generate SQL with GROUP BY]
+    E -->|No| G[Split Query: Group in Memory]
+    F --> H["SELECT CustomerId, COUNT(*) FROM Orders GROUP BY CustomerId"]
     
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style H fill:#ccf,stroke:#333,stroke-width:2px

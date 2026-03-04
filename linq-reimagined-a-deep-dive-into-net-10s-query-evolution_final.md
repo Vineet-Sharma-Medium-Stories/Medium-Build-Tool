@@ -13,10 +13,15 @@ Now, as we look toward **.NET 10**, the evolution of LINQ and EF Core is not jus
 Before diving into the methods, it's crucial to understand the winds of change in .NET 10. The advancements around LINQ and EF Core can be summarized in three key themes:
 
 1.  **NativeAOT and Trim Compatibility:** .NET 10 continues the push toward Native AOT (Ahead-of-Time) compilation. This requires LINQ methods and EF Core to be "trim-safe," meaning the compiler can statically determine which code is necessary, leading to smaller, faster-starting applications. LINQ expressions are now analyzed at compile-time to ensure they don't rely on reflection patterns that break Native AOT .
+
 2.  **Expression and Interceptor Enhancements:** EF Core in .NET 10 will provide even more granular control over the SQL pipeline. New interceptors and the ability to manipulate LINQ expressions at a lower level will allow developers to fine-tune queries in ways previously impossible. The new `IQueryExpressionInterceptor` interface allows for deep customization of how LINQ expressions are translated.
+
 3.  **Performance Micro-optimizations:** From `Enumerable` to `Queryable`, the core LINQ methods are being audited and optimized. We're talking about reducing memory allocations, inlining operations, and smarter iteration, all leading to benchmarks that show significant speed improvements for common scenarios. The new `Span`-based overloads for many LINQ methods provide zero-allocation paths for data processing .
+
 4.  **Enhanced Vectorization:** .NET 10 leverages SIMD (Single Instruction, Multiple Data) instructions more aggressively in LINQ methods, allowing parallel processing of multiple data points with a single CPU instruction, dramatically speeding up operations on large collections .
+
 5.  **Async Enumeration Integration:** `System.Linq.Async` is now part of the base class library, bringing full LINQ support to `IAsyncEnumerable<T>` without requiring external NuGet packages .
+
 6.  **New LINQ Methods:** .NET 10 introduces several new methods including `LeftJoin`, `RightJoin`, `Sequence`, `InfiniteSequence`, and `Shuffle` .
 
 With this landscape in mind, let's explore the complete LINQ toolbox as shown in the image.
@@ -44,8 +49,11 @@ Filtering methods are the gatekeepers of your data, allowing you to pass through
     var activeUsers = context.Users.Where(u => u.IsActive && u.LastLogin > DateTime.UtcNow.AddDays(-30)).ToList();
 ```
 
+
+
 * **Description:** Filters a sequence based on a predicate function. It's the most fundamental filtering method, evaluating each element against a condition and returning only those that satisfy it.
 * **Detailed Explanation:** `Where` comes in two overloads: one that takes just the element, and another that also provides the index of the element. This allows for position-based filtering like `Where((item, index) => index % 2 == 0)`.
+
 * **Legacy Implementation:**
 ```csharp
     var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
