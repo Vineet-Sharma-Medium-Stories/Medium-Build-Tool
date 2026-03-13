@@ -1,4 +1,5 @@
-# Table 3: Harbor (self-hosted)
+# table_03_security-isnt-optionalits-baked-into-every-stag-4304
+
 
 | Tool | Scope | Integration |
 |------|-------|-------------|

@@ -1,4 +1,5 @@
-# Table 1: Phase 2: The CI Pipeline (The Build)
+# table_01_on-aws-you-have-multiple-choices-9915
+
 
 | Tool | Type | Pros | Cons |
 |------|------|------|------|

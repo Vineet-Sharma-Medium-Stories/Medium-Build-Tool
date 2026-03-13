@@ -1,4 +1,5 @@
-# Table 4: Database credentials
+# table_04_secret-management-options-on-aws-4340
+
 
 | Service | Best For | Key Features |
 |---------|----------|--------------|

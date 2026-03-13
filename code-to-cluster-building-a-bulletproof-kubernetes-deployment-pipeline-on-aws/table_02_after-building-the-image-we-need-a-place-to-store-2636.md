@@ -1,4 +1,5 @@
-# Table 2: Component: Container Registry Options
+# table_02_after-building-the-image-we-need-a-place-to-store-2636
+
 
 | Registry | Best For | Key Features |
 |----------|----------|--------------|

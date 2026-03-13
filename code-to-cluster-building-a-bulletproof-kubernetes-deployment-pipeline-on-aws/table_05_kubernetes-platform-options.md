@@ -1,4 +1,5 @@
-# Table 5: Phase 4: Deploy to Kubernetes (The CD)
+# table_05_kubernetes-platform-options
+
 
 | Platform | Description | Use Case |
 |----------|-------------|----------|

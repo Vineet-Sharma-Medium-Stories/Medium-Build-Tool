@@ -1,4 +1,5 @@
-# Table 6: Amazon EKS
+# table_06_you-dont-just-kubectl-apply-raw-yaml-anymore-m-cd2e
+
 
 | Tool | Purpose | Key Feature |
 |------|---------|-------------|

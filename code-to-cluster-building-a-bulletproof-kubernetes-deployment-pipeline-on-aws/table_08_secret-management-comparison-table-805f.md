@@ -1,4 +1,5 @@
-# Table 8: Secret Management Comparison Table
+# table_08_secret-management-comparison-table-805f
+
 
 | Feature | AWS Secrets Manager | Parameter Store | Vault | Sealed Secrets | External Secrets |
 |---------|--------------------|-----------------|--------|----------------|------------------|

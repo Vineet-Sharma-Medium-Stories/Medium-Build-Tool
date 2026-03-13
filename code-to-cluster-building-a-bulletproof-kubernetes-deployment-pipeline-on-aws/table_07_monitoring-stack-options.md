@@ -1,4 +1,5 @@
-# Table 7: Phase 6: Monitoring & Rollback (The Safety Net)
+# table_07_monitoring-stack-options
+
 
 | Category | AWS-Native | Open Source | Commercial |
 |----------|------------|--------------|------------|
