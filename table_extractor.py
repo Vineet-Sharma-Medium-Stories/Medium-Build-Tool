@@ -89,7 +89,7 @@ def generate_png(md_file, include_title_in_image=True):
     try:
         if include_title_in_image:
             # Use original file
-            cmd = ['yyds_md2png', str(md_file)]
+            cmd = ['yyds_md2png', str(md_file), '--width', '1400']
         else:
             # Read the file content
             with open(md_file, 'r', encoding='utf-8') as f:

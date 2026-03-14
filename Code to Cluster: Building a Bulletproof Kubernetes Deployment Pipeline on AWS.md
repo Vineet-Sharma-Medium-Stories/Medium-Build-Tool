@@ -17,19 +17,24 @@ Let's build it.
 Before we dive into the weeds of YAML files and `kubectl` commands, let's look at the high-level flow on AWS.
 
 ```mermaid
+---
+config:
+  theme: default
+  layout: elk
+---
 graph TD
-    A[Developer: git commit] --> B{Code Repository<br/>GitHub / Azure Repos / GitLab};
-    B --> C[CI/CD Trigger<br/>Jenkins / GitHub Actions / Azure Pipelines];
+    A[Developer: git commit] --> B{Code Repository<br/>GitHub / Azure Repos / GitLab}
+    B --> C[CI/CD Trigger<br/>Jenkins / GitHub Actions / Azure Pipelines]
 
     subgraph CI_Pipeline [Continuous Integration - Azure Build]
         direction LR
-        C --> D[Build & Test];
-        D --> E[Security Scan<br/>Trivy / Snyk / SonarQube];
-        E --> F[Build Docker Image];
-        F --> G[Push to Registry];
+        C --> D[Build & Test]
+        D --> E[Security Scan<br/>Trivy / Snyk / SonarQube]
+        E --> F[Build Docker Image]
+        F --> G[Push to Registry]
     end
 
-    G --> H[(Container Registry<br/>ACR / Docker Hub / Harbor)];
+    G --> H[(Container Registry<br/>ACR / Docker Hub / Harbor)]
 
     subgraph Secret_Management [Secret Management Layer]
         I[(Secrets Manager<br/>Azure Key Vault / HashiCorp Vault)]
@@ -38,22 +43,22 @@ graph TD
     end
 
     subgraph CD_Pipeline [Continuous Deployment - AKS]
-        H --> K[Update Deployment Manifest];
-        J --> L[Inject Secrets at Runtime];
-        K --> L;
-        L --> M{Deploy to Cluster};
+        H --> K[Update Deployment Manifest]
+        J --> L[Inject Secrets at Runtime]
+        K --> L
+        L --> M{Deploy to Cluster}
     end
 
-    M --> N[STAGING Environment];
-    M --> O[PRODUCTION Environment];
+    M --> N[STAGING Environment]
+    M --> O[PRODUCTION Environment]
 
     subgraph Observability [Monitoring & Observability]
-        N --> P[Prometheus / Grafana<br/>Azure Monitor / Datadog];
-        O --> P;
-        P --> Q[Alerting / Rollback];
+        N --> P[Prometheus / Grafana<br/>Azure Monitor / Datadog]
+        O --> P
+        P --> Q[Alerting / Rollback]
     end
 
-    Q -- "Rollback Trigger" --> K;
+    Q -- "Rollback Trigger" --> K
 ```
 
 ---

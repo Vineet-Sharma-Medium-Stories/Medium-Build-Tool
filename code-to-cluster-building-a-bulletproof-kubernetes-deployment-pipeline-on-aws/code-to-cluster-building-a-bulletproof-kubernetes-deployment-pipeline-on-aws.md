@@ -19,7 +19,7 @@ Before we dive into the weeds of YAML files and `kubectl` commands, let's look a
 ```mermaid
 ```
 
-![Before we dive into the weeds of YAML files and `kubectl` commands, let's look at the high-level flow on AWS.](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws/images/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.png)
+![Before we dive into the weeds of YAML files and `kubectl` commands, let's look at the high-level flow on AWS.](images/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.md)
 
@@ -62,7 +62,7 @@ This is where code transforms into an artifact. In the Kubernetes world, the art
 
 On AWS, you have multiple choices:
 
-![On AWS, you have multiple choices:](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/images/table_01_on-aws-you-have-multiple-choices-9915.png)
+![On AWS, you have multiple choices:](images/table_01_on-aws-you-have-multiple-choices-9915.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws/table_01_on-aws-you-have-multiple-choices-9915.md)
 
@@ -229,7 +229,7 @@ pipeline {
 
 After building the image, we need a place to store it securely:
 
-![After building the image, we need a place to store it securely:](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/images/table_02_after-building-the-image-we-need-a-place-to-store-2636.png)
+![After building the image, we need a place to store it securely:](images/table_02_after-building-the-image-we-need-a-place-to-store-2636.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws/table_02_after-building-the-image-we-need-a-place-to-store-2636.md)
 
