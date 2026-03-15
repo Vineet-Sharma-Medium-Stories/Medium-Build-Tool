@@ -1,14 +1,6 @@
 # Enterprise AI Architecture Part 1: The Foundation - User Access & Data Ingestion
-
 ## The Foundation: User Access & Data Ingestion
 
-**Author:** Reeshu Patel  
-**Document ID:** EA-AI-2024-003-P1  
-**Classification:** Enterprise Architecture  
-**Reading Time:** 20 minutes  
-**Part:** 1 of 4
-
----
 
 # INTRODUCTION: The Digital Brain Blueprint
 
@@ -68,10 +60,6 @@ graph TD
 
 **The Layman Explanation**: Imagine a chef's kitchen designed for creating and perfecting recipes. Sarah has access to all the ingredients (models), tools (prompts), and testing equipment (evaluation metrics). She can try different combinations, see immediate results, and save her favorite recipes for others to use.
 
-**Image Generation Prompt:**
-```
-A modern, well-lit tech workspace with a large curved monitor displaying an AI development interface. The screen shows code editor with syntax highlighting on the left, a live streaming response on the top right, and model performance metrics on the bottom right. The desk has a mechanical keyboard, coffee mug, and small plant. Style: clean, professional, slightly futuristic with blue ambient lighting. 4K resolution.
-```
 
 **Storage & State Management:**
 ```javascript
@@ -119,11 +107,6 @@ class NL2SQLService:
 
 **The Layman Explanation**: Think of Michael as someone who speaks only English walking into a foreign country where everyone speaks SQL. The Business User Dashboard is like having a real-time translator that not only converts his questions into database language but also draws pictures of the answers.
 
-**Image Generation Prompt:**
-```
-An executive office with a large interactive touchscreen display showing colorful data visualizations - bar charts, pie charts, and line graphs. A professional in business attire is pointing at a specific data point while a floating chat bubble shows a natural language question. Clean, modern office with glass walls. Style: corporate professional, warm lighting, 4K.
-```
-
 ### 1.3 Employee Copilot Interface
 
 **The Persona**: Meet Priya, a new HR Coordinator. She needs to understand the company's parental leave policy, find the form for updating employee records, and check if she has the correct permissions—all while onboarding herself.
@@ -159,10 +142,6 @@ graph LR
 
 **The Layman Explanation**: Imagine having a personal assistant who follows you everywhere—on your computer, your phone, your chat apps—and has read every company document ever created. You can ask questions naturally, and the assistant instantly finds answers across all company knowledge.
 
-**Image Generation Prompt:**
-```
-Split screen showing four different interfaces of the same AI assistant. Top left: Microsoft Teams chat with bot conversation. Top right: Slack window with similar conversation. Bottom left: Mobile phone screen with chat interface. Bottom right: Web widget on company intranet. All show natural language Q&A about HR policies. Clean, modern UI design with company branding. 4K.
-```
 
 ### 1.4 AI Admin Console
 
@@ -195,10 +174,6 @@ const costDashboard = {
 
 **The Layman Explanation**: David is the air traffic controller. While pilots (users) focus on their individual flights, David watches the radar, manages fuel (budgets), ensures no planes get too close (security), and handles emergencies. His console shows the big picture.
 
-**Image Generation Prompt:**
-```
-A network operations center with multiple large screens showing system dashboards. Screens display colorful graphs, real-time metrics, world maps with traffic flows, and alert panels. A technical professional in IT attire stands analyzing the screens with a tablet in hand. Dark room with blue and purple ambient lighting. Professional, high-tech atmosphere. 4K.
-```
 
 ---
 
@@ -258,10 +233,6 @@ sequenceDiagram
 
 **The Layman Explanation**: Think of this like a hotel key card. When you check in, the front desk verifies your identity and gives you a card that works for your specific room, the gym, and the pool—but not the staff areas. The card expires at checkout. Similarly, Sarah gets a digital "key card" (JWT) that works for the AI systems she's authorized to use for a limited time.
 
-**Image Generation Prompt:**
-```
-A stylized digital security checkpoint. A glowing blue shield icon with a checkmark hovers above. Below, streams of digital data flow through a secure gateway with multiple verification layers - biometric scanner, ID card reader, and keypad. Abstract representation of authentication protocols with clean lines and blue/white color scheme. Cyberpunk-lite aesthetic. 4K.
-```
 
 ### 2.2 RBAC & Zero Trust Access
 
@@ -339,10 +310,7 @@ spec:
 
 **The Layman Explanation**: RBAC is like different access cards for different buildings. Sarah's card works for the Engineering building but not Finance. Zero Trust is like having security guards who don't just check your card once—they keep verifying you're supposed to be there, even after you're inside. If you suddenly try to enter a restricted area, they'll stop you immediately.
 
-**Image Generation Prompt:**
-```
-Abstract visualization of layered security. Multiple concentric rings of defense with different colored access levels - red for admin, blue for developer, green for employee. A human silhouette passes through each ring, with certain rings lighting up based on authorization level. Digital, futuristic style with glowing elements. Dark background with neon accents. 4K.
-```
+
 
 ---
 
@@ -419,10 +387,6 @@ class DocumentParser:
 
 **The Layman Explanation**: Imagine a massive mail sorting facility. Documents arrive in all shapes and sizes—letters, packages, postcards, even things written in different languages. The parsing system is like having workers who can open any package, read any language, and extract the important information, regardless of how it arrives. They then put the contents on a conveyor belt for the next step.
 
-**Image Generation Prompt:**
-```
-Industrial document processing facility visualization. Conveyor belts carrying various document types - PDFs, Word docs, images, emails - represented as glowing digital packets. At various stations, robotic arms with scanner heads process documents with blue laser beams. Abstract representation of OCR and text extraction. Clean, futuristic industrial design with blue and white color scheme. 4K.
-```
 
 ### 3.2 Data Privacy Filter (PII Redaction)
 
@@ -482,10 +446,6 @@ class PIIRedactor:
 
 **The Layman Explanation**: Think of this as an automatic privacy filter, like the blurring of faces on Google Street View. As documents flow through, the system automatically detects sensitive information and obscures it—replacing names with "[NAME]", blocking out credit card numbers entirely, or masking email addresses. No human ever sees the original sensitive data.
 
-**Image Generation Prompt:**
-```
-Digital document with sensitive information being processed. Words and numbers glow red as they're detected as PII, then fade to gray with redacted blocks. Multiple detection layers - pattern recognition shown as scanning lines, NER shown as highlighted entities. Clean, cyberpunk aesthetic with red warning indicators and green secure indicators. Abstract data privacy visualization. 4K.
-```
 
 ### 3.3 Chunking Strategies
 
@@ -570,10 +530,6 @@ def semantic_chunking(text):
 
 **The Layman Explanation**: Imagine you have a very long encyclopedia. You can't give the whole thing to someone to read at once. Instead, you break it into articles, then paragraphs, ensuring each piece makes sense on its own. Chunking does this automatically—it knows where paragraphs end, where topics change, and how much each AI model can handle at once.
 
-**Image Generation Prompt:**
-```
-Visualization of document breaking into pieces. On the left, a long scroll of continuous text. In the middle, scissors of different types - some cutting at sentence boundaries, some at topic changes, some at token counts. On the right, neatly stacked chunks with small overlaps between them. Abstract, clean design with blue cutting lines and organized stacks. 4K.
-```
 
 ### 3.4 Embedding Generation
 
@@ -629,10 +585,6 @@ Similarity = cosine(king, car) ≈ 0.12 (far apart)
 
 **The Layman Explanation**: Think of this like creating a fingerprint for each piece of text. Every chunk gets a unique fingerprint—but fingerprints for similar topics look alike. "Quarterly earnings report" and "financial results" have similar fingerprints, while "puppy training tips" looks completely different. These fingerprints let us find similar content instantly.
 
-**Image Generation Prompt:**
-```
-Abstract visualization of text transforming into glowing vectors. On the left, sentences as colorful streams of text. In the middle, a transformation portal where text dissolves into particles. On the right, particles arrange into long sequences of glowing numbers floating in 3D space. Different colored sequences for different topics. Cyberpunk aesthetic with purple and blue neon. 4K.
-```
 
 ### 3.5 Embeddings Cache (Redis)
 
@@ -684,10 +636,6 @@ class EmbeddingCache:
 
 **The Layman Explanation**: Imagine a library with a "frequently asked questions" shelf. Instead of searching through millions of books every time someone asks about vacation policy, the librarian keeps the most popular answers right at the front desk. Our embedding cache does the same—keeping the most common question fingerprints instantly accessible.
 
-**Image Generation Prompt:**
-```
-Visualization of a multi-tier cache system. Three layers: top layer small and fast with lightning bolt (L1 cache), middle layer larger with multiple shelves (Redis cluster), bottom layer huge with gears turning (embedding generation). Arrows show data flowing between layers with hit/miss indicators. Clean, technical diagram style with blue gradient. 4K.
-```
 
 ### 3.6 Vector Database & Indexing
 
@@ -742,13 +690,6 @@ graph TD
 
 **The Layman Explanation**: Imagine you have a massive warehouse with millions of boxes, each labeled with a complex pattern. You need to find the boxes most similar to a query pattern. Vector databases build a "neighborhood map"—boxes with similar patterns are stored near each other. When you search, you go to the rough neighborhood, then the right street, then the specific house. You find what you need without checking every box.
 
-**Image Generation Prompt:**
-```
-Abstract visualization of vector search. A 3D space with millions of glowing points in different colors representing document chunks. A query point enters as a bright white light. Concentric spheres expand from the query, lighting up nearby points. The closest points glow brighter and are pulled toward the query. Abstract data visualization with deep space background and neon points. 4K.
-```
-
----
-
 # PART 1 CONCLUSION
 
 We've built the foundation of our Enterprise AI system. Users can now authenticate securely, documents flow through our ingestion pipeline, are cleaned of sensitive information, broken into meaningful chunks, converted to vector fingerprints, and stored in a searchable database.
@@ -778,13 +719,3 @@ The library now has its books processed and shelved. In Part 2, we'll hire our l
 **Coming Next: Enterprise AI Architecture - Part 2: The Brain - Models, Routing & Agents**
 
 *In Part 2, we'll explore how queries are processed, how we choose between different AI models, and how agents break down complex tasks into executable steps.*
-
----
-
-**Document Control**
-
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | 2024-03-20 | Reeshu Patel | Part 1 initial release |
-
----
