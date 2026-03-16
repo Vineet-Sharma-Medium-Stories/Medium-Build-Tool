@@ -1,7 +1,9 @@
 # Enterprise AI Architecture: A Comprehensive Technical Blueprint - Introduction
 
 ## The Four-Part Journey to Building a Production-Ready AI Platform
-![Enterprise AI Architecture: A Comprehensive Technical Blueprint - Introduction](<Enterprise AI Architecture: A Comprehensive Technical Blueprint - 4 Parts.png>)
+
+![Enterprise AI Architecture: A Comprehensive Technical Blueprint - Introduction](Enterprise%20AI%20Architecture:%20A%20Comprehensive%20Technical%20Blueprint%20-%204%20Parts.png)
+
 # Why This Blueprint Exists
 
 In 2022, a developer could throw together a ChatGPT wrapper in an afternoon and call it an "AI product." In 2023, companies rushed to add "AI-powered" to their marketing materials. But in 2024, we've entered a new phase: the era of **production-ready enterprise AI**.
@@ -36,36 +38,19 @@ This isn't science fiction. This is what a properly architected enterprise AI pl
 
 # THE FOUR-PART JOURNEY
 
-```
-graph TD
-    A[Enterprise AI Architecture] --> B[Part 1: The Foundation]
-    A --> C[Part 2: The Brain]
-    A --> D[Part 3: The Hands]
-    A --> E[Part 4: The Control Room]
-    
-    B --> B1[User Layer - 4 Personas]
-    B --> B2[Identity - 5 Components]
-    B --> B3[Ingestion - 16 Components]
-    B --> B4[Knowledge Sources - 12 Components]
-    
-    C --> C1[Model Infrastructure - 18 Components]
-    C --> C2[Model Routing - 7 Components]
-    C --> C3[Agent Orchestration - 9 Components]
-    C --> C4[Prompt Library - 5 Components]
-    
-    D --> D1[Execution Sandbox - 5 Components]
-    D --> D2[Enterprise APIs - 5 Systems]
-    D --> D3[Database Access - 5 Components]
-    D --> D4[Search Systems - 5 Components]
-    D --> D5[Document Retrieval - 5 Components]
-    D --> D6[External Tools - 5 Components]
-    
-    E --> E1[Observability - 5 Pillars]
-    E --> E2[Governance - 6 Components]
-    E --> E3[Cost Tracking - 6 Components]
-    E --> E4[Security - 5 Layers]
-    E --> E5[Disaster Recovery - 3 Components]
-    
+```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+    A["Enterprise AI Architecture"] --> B["Part 1: The Foundation"] & C["Part 2: The Brain"] & D["Part 3: The Hands"] & E["Part 4: The Control Room"]
+    B --> B1["User Layer - 4 Personas"] & B2["Identity - 5 Components"] & B3["Ingestion - 16 Components"] & B4["Knowledge Sources - 12 Components"]
+    C --> C1["Model Infrastructure - 18 Components"] & C2["Model Routing - 7 Components"] & C3["Agent Orchestration - 9 Components"] & C4["Prompt Library - 5 Components"]
+    D --> D1["Execution Sandbox - 5 Components"] & D2["Enterprise APIs - 5 Systems"] & D3["Database Access - 5 Components"] & D4["Search Systems - 5 Components"] & D5["Document Retrieval - 5 Components"] & D6["External Tools - 5 Components"]
+    E --> E1["Observability - 5 Pillars"] & E2["Governance - 6 Components"] & E3["Cost Tracking - 6 Components"] & E4["Security - 5 Layers"] & E5["Disaster Recovery - 3 Components"]
+
     style B fill:#e1f5fe,stroke:#01579b
     style C fill:#fff3e0,stroke:#e65100
     style D fill:#e8f5e8,stroke:#1b5e20
@@ -76,9 +61,9 @@ graph TD
 
 ## Part 1: The Foundation - User Access & Data Ingestion
 
-**20 minutes read | 37 components | 4 chapters**
+**37 components | 4 chapters**
 
-[_Read Part 1_](./part1-intro.md)
+_Read Part 1 - Comming soon_
 
 We start at the very beginning—how users interact with the system and how we get data into it.
 
@@ -118,9 +103,9 @@ We start at the very beginning—how users interact with the system and how we g
 
 ## Part 2: The Brain - Models, Routing & Intelligent Agents
 
-**20 minutes read | 39 components | 4 chapters**
+**39 components | 4 chapters**
 
-[_Read Part 2_](./part2-intro.md)
+_Read Part 2 - Comming soon_
 
 With data ready, we bring in the intelligence—the models that understand and reason.
 
@@ -161,9 +146,9 @@ With data ready, we bring in the intelligence—the models that understand and r
 
 ## Part 3: The Hands - Agent Execution & Enterprise Integration
 
-**20 minutes read | 35 components | 6 chapters**
+**35 components | 6 chapters**
 
-[_Read Part 3_](./part3-intro.md)
+_Read Part 3 - Comming soon_
 
 Planning is nothing without execution. Part 3 watches agents actually do things.
 
@@ -213,9 +198,9 @@ Planning is nothing without execution. Part 3 watches agents actually do things.
 
 ## Part 4: The Control Room - Observability, Governance & Security
 
-**20 minutes read | 36 components | 5 chapters**
+**36 components | 5 chapters**
 
-[_Read Part 4_](./part4-intro.md)
+_Read Part 4 - Comming soon_
 
 Finally, we build the systems that watch everything—ensuring reliability, compliance, and cost control.
 
@@ -260,13 +245,13 @@ Finally, we build the systems that watch everything—ensuring reliability, comp
 
 # SERIES OVERVIEW
 
-| Part | Title | Chapters | Components | Reading Time | Focus |
-| --- | --- | --- | --- | --- | --- |
-| 1 | The Foundation | 4 | 37 | 20 min | User access, data ingestion, vector storage |
-| 2 | The Brain | 4 | 39 | 20 min | Models, routing, agents, prompts |
-| 3 | The Hands | 6 | 35 | 20 min | Execution, enterprise integration, tools |
-| 4 | The Control Room | 5 | 36 | 20 min | Observability, governance, security, DR |
-| **Total** |   | **19** | **147** | **80 min** | **Complete architecture** |
+| Part | Title | Chapters | Components | Focus |
+| --- | --- | --- | --- | --- |
+| 1 | The Foundation | 4 | 37 | User access, data ingestion, vector storage |
+| 2 | The Brain | 4 | 39 | Models, routing, agents, prompts |
+| 3 | The Hands | 6 | 35 | Execution, enterprise integration, tools |
+| 4 | The Control Room | 5 | 36 | Observability, governance, security, DR |
+| **Total** |   | **19** | **147** | **Complete architecture** |
 
 ---
 
@@ -311,5 +296,6 @@ The journey starts now. By the end of these four parts, you'll have a complete m
 
 ---
 
-
 _This introduction is part of a 4-part series on Enterprise AI Architecture. Total series components: 147 across 8 layers._
+
+_Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges._

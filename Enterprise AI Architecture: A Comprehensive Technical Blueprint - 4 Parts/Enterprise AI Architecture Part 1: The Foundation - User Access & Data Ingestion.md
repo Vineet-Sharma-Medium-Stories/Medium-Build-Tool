@@ -1,6 +1,6 @@
 # Enterprise AI Architecture Part 1: The Foundation - User Access & Data Ingestion
-## The Foundation: User Access & Data Ingestion
 
+## The Foundation: User Access & Data Ingestion
 
 # INTRODUCTION: The Digital Brain Blueprint
 
@@ -34,34 +34,48 @@ In our Enterprise AI system, we have four distinct personas, each with their own
 
 ### 1.1 AI Developer Portal
 
+![AI Developer Portal](images/AI%20Developer%20Portal.png)
+
 **The Persona**: Meet Sarah, a Machine Learning Engineer. She doesn't just want to ask questions; she wants to understand why the model gives certain answers, experiment with different prompts, fine-tune models on specific datasets, and compare performance across versions.
 
 **Technical Deep Dive**: The AI Developer Portal is a sophisticated environment that combines code editing, visualization, and model management. It's built on React 18 for a responsive UI, with Monaco Editor (the same editor that powers VS Code) for prompt engineering. Real-time updates are handled via WebSocket connections, allowing developers to see model outputs stream in character by character.
 
 ```mermaid
-graph TD
-    A[AI Developer Portal] --> B[Prompt Lab]
-    A --> C[Fine-tuning Dashboard]
-    A --> D[Model Comparator]
-    A --> E[Version Control]
-    
-    B --> F[Monaco Editor]
-    B --> G[WebSocket Stream]
-    
-    C --> H[Training Jobs]
-    C --> I[Hyperparameter Tuning]
-    
-    D --> J[Side-by-side Comparison]
-    D --> K[Metrics Visualization]
-    
-    E --> L[Git Integration]
-    E --> M[Model Registry API]
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#f0f0f0'
+    primaryTextColor: '#000'
+    primaryBorderColor: '#555'
+    lineColor: '#333'
+    secondaryColor: '#e0e0e0'
+    tertiaryColor: '#fff'
+  layout: elk
+---
+flowchart TB
+    A["AI Developer Portal"] --> B["Prompt Lab"] & C["Fine-tuning Dashboard"] & D["Model Comparator"] & E["Version Control"]
+    B --> F["Monaco Editor"] & G["WebSocket Stream"]
+    C --> H["Training Jobs"] & I["Hyperparameter Tuning"]
+    D --> J["Side-by-side Comparison"] & K["Metrics Visualization"]
+    E --> L["Git Integration"] & M["Model Registry API"]
+
+     F:::leaf
+     G:::leaf
+     H:::leaf
+     I:::leaf
+     J:::leaf
+     K:::leaf
+     L:::leaf
+     M:::leaf
+    classDef default fill:#e8e8e8,stroke:#333,stroke-width:1px,color:#000
+    classDef leaf fill:#d0e0ff,stroke:#228,stroke-width:1px,color:#000
 ```
 
 **The Layman Explanation**: Imagine a chef's kitchen designed for creating and perfecting recipes. Sarah has access to all the ingredients (models), tools (prompts), and testing equipment (evaluation metrics). She can try different combinations, see immediate results, and save her favorite recipes for others to use.
 
-
 **Storage & State Management:**
+
 ```javascript
 // Session state in Redis
 {
@@ -79,6 +93,7 @@ graph TD
 
 ### 1.2 Business User Dashboard
 
+![Business User Dashboard](images/Business%20User%20Dashboard.png)  
 **The Persona**: Meet Michael, a Product Manager. He needs to understand customer feedback trends, but he doesn't know SQL. He wants to ask "Show me all customer complaints about the new mobile app from last month" and get an instant visualization with insights.
 
 **Technical Deep Dive**: The Business User Dashboard combines natural language processing with business intelligence. Built on Next.js for server-side rendering and SEO, it uses AG Grid for handling large datasets and D3.js for custom visualizations. The magic happens in the NL2SQL (Natural Language to SQL) layer, which converts Michael's question into a database query.
@@ -109,11 +124,18 @@ class NL2SQLService:
 
 ### 1.3 Employee Copilot Interface
 
+![Employee Copilot Interface](images/Employee%20Copilot%20Interface.png)
+
 **The Persona**: Meet Priya, a new HR Coordinator. She needs to understand the company's parental leave policy, find the form for updating employee records, and check if she has the correct permissions—all while onboarding herself.
 
 **Technical Deep Dive**: The Employee Copilot is a multi-channel interface that meets employees where they are—Microsoft Teams, Slack, mobile apps, or web widgets. Built on the Bot Framework SDK for Teams and Slack Bolt for Slack, it maintains conversation context across channels.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Employee] --> B[Teams Bot]
     A --> C[Slack App]
@@ -142,8 +164,9 @@ graph LR
 
 **The Layman Explanation**: Imagine having a personal assistant who follows you everywhere—on your computer, your phone, your chat apps—and has read every company document ever created. You can ask questions naturally, and the assistant instantly finds answers across all company knowledge.
 
-
 ### 1.4 AI Admin Console
+
+![AI Admin Console](images/AI%20Admin%20Console.png)
 
 **The Persona**: Meet David, the IT Director. He doesn't care about individual questions. He cares about costs, security, compliance, and system health. He needs to know which departments are using the most tokens, set budget alerts, review audit logs, and configure access permissions.
 
@@ -174,7 +197,6 @@ const costDashboard = {
 
 **The Layman Explanation**: David is the air traffic controller. While pilots (users) focus on their individual flights, David watches the radar, manages fuel (budgets), ensures no planes get too close (security), and handles emergencies. His console shows the big picture.
 
-
 ---
 
 ## Chapter 2: The Security Checkpoint - API Gateway & Identity
@@ -183,18 +205,23 @@ Before anyone enters our library, they must pass through security. We need to kn
 
 ### 2.1 OAuth2 / OIDC Authentication
 
+![OAuth2 / OIDC Authentication](images/OAuth2%20OIDC%20Authentication.png)
+
 **The Scenario**: Sarah (our ML Engineer) logs in through her company single sign-on. The system needs to verify her identity, understand her role, and generate secure tokens for subsequent API calls.
 
 **Technical Deep Dive**: We use Keycloak as our identity provider, which integrates with corporate Active Directory via SAML. When Sarah logs in, she's issued a JWT (JSON Web Token) containing her identity claims.
 
 ```mermaid
+---
+config:
+  theme: base
+---
 sequenceDiagram
     participant User as Sarah (AI Developer)
-    portal Browser as Developer Portal
+    participant Browser as Developer Portal
     participant Keycloak as Keycloak IdP
     participant AD as Active Directory
     participant API as API Gateway
-    
     User->>Browser: Clicks "Login with SSO"
     Browser->>Keycloak: Redirect to /auth
     Keycloak->>AD: Validate credentials
@@ -209,7 +236,8 @@ sequenceDiagram
 ```
 
 **JWT Token Structure:**
-```json
+
+```
 {
   "header": {
     "alg": "RS256",
@@ -233,15 +261,17 @@ sequenceDiagram
 
 **The Layman Explanation**: Think of this like a hotel key card. When you check in, the front desk verifies your identity and gives you a card that works for your specific room, the gym, and the pool—but not the staff areas. The card expires at checkout. Similarly, Sarah gets a digital "key card" (JWT) that works for the AI systems she's authorized to use for a limited time.
 
-
 ### 2.2 RBAC & Zero Trust Access
+
+![RBAC & Zero Trust Access](images/RBAC%20Zero%20Trust%20Access.png)
 
 **The Scenario**: Sarah should access the model training interface but not the billing dashboard. Even within model training, she should only access models her team owns, not finance department models.
 
 **Technical Deep Dive**: We implement Role-Based Access Control (RBAC) using Open Policy Agent (OPA). Every API request includes the JWT, and OPA evaluates policies to determine if the action is permitted.
 
 **OPA Policy Example (Rego language):**
-```rego
+
+```
 package authz
 
 # Default deny
@@ -273,13 +303,14 @@ resource_allowed {
 }
 ```
 
-**Zero Trust Implementation:**
+**Zero Trust Implementation:**  
 Beyond just authentication, we implement Zero Trust principles:
-- **mTLS**: Every service-to-service call is encrypted and mutually authenticated
-- **Continuous Verification**: Even after authentication, suspicious behavior triggers re-verification
-- **Least Privilege**: Services get minimum permissions needed, rotated regularly
 
-```yaml
+*   **mTLS**: Every service-to-service call is encrypted and mutually authenticated
+*   **Continuous Verification**: Even after authentication, suspicious behavior triggers re-verification
+*   **Least Privilege**: Services get minimum permissions needed, rotated regularly
+
+```
 # Istio mTLS configuration
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
@@ -310,8 +341,6 @@ spec:
 
 **The Layman Explanation**: RBAC is like different access cards for different buildings. Sarah's card works for the Engineering building but not Finance. Zero Trust is like having security guards who don't just check your card once—they keep verifying you're supposed to be there, even after you're inside. If you suddenly try to enter a restricted area, they'll stop you immediately.
 
-
-
 ---
 
 ## Chapter 3: The Loading Dock - RAG Ingestion Pipeline
@@ -320,11 +349,18 @@ Now we enter the heart of our library's operations—the loading dock where mill
 
 ### 3.1 Document Parsing
 
+![Document Parsing](images/Document%20Parsing.png)
+
 **The Scenario**: Our company generates thousands of documents daily—PDF reports, Word docs, PowerPoint presentations, emails, Slack messages, and scanned images. They're in different formats, languages, and quality levels. We need to extract the text content from all of them.
 
 **Technical Deep Dive**: We use Apache Tika as our universal document parser, backed by Tesseract for OCR (Optical Character Recognition) on images and scanned documents. The system processes documents asynchronously through a RabbitMQ queue.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Document Upload] --> B[RabbitMQ Queue]
     B --> C[Parser Worker 1]
@@ -350,10 +386,11 @@ graph TD
 ```
 
 **The Challenge**: Different document types require different approaches:
-- **PDFs**: Extract text with layout preservation, handle forms, extract tables
-- **Word Docs**: Preserve styles, headings, comments
-- **Images**: OCR with language detection, deskewing, noise reduction
-- **Emails**: Extract headers, attachments, thread structure
+
+*   **PDFs**: Extract text with layout preservation, handle forms, extract tables
+*   **Word Docs**: Preserve styles, headings, comments
+*   **Images**: OCR with language detection, deskewing, noise reduction
+*   **Emails**: Extract headers, attachments, thread structure
 
 ```python
 # Document parser worker
@@ -387,8 +424,9 @@ class DocumentParser:
 
 **The Layman Explanation**: Imagine a massive mail sorting facility. Documents arrive in all shapes and sizes—letters, packages, postcards, even things written in different languages. The parsing system is like having workers who can open any package, read any language, and extract the important information, regardless of how it arrives. They then put the contents on a conveyor belt for the next step.
 
-
 ### 3.2 Data Privacy Filter (PII Redaction)
+
+![Data Privacy Filter (PII Redaction)](images/Data%20Privacy%20Filter%20PII%20Redaction.png)
 
 **The Scenario**: Among our documents are employee records with social security numbers, customer contracts with credit card information, and internal emails with personal addresses. Before any document enters the AI system, we must protect this sensitive information.
 
@@ -435,8 +473,9 @@ class PIIRedactor:
 ```
 
 **Detection Accuracy:**
+
 | PII Type | Detection Method | Accuracy | Action |
-|----------|-----------------|----------|--------|
+| --- | --- | --- | --- |
 | SSN | Pattern + Checksum | 99.5% | Block |
 | Credit Card | Luhn Algorithm + Pattern | 99.8% | Block |
 | Email | Regex | 99.9% | Mask |
@@ -444,16 +483,22 @@ class PIIRedactor:
 | Person Name | NER Model | 94% | Replace |
 | Address | NER + Regex | 87% | Generalize |
 
-**The Layman Explanation**: Think of this as an automatic privacy filter, like the blurring of faces on Google Street View. As documents flow through, the system automatically detects sensitive information and obscures it—replacing names with "[NAME]", blocking out credit card numbers entirely, or masking email addresses. No human ever sees the original sensitive data.
-
+**The Layman Explanation**: Think of this as an automatic privacy filter, like the blurring of faces on Google Street View. As documents flow through, the system automatically detects sensitive information and obscures it—replacing names with "\[NAME\]", blocking out credit card numbers entirely, or masking email addresses. No human ever sees the original sensitive data.
 
 ### 3.3 Chunking Strategies
+
+![Chunking Strategies](images/Chunking%20Strategies.png)
 
 **The Scenario**: We now have clean text, but language models can only process limited amounts at once (context windows). A 100-page document won't fit. We need to break documents into smaller, meaningful pieces.
 
 **Technical Deep Dive**: We implement multiple chunking strategies, selecting the best approach based on document type and intended use.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Clean Document Text] --> B{Chunking Strategy}
     
@@ -485,6 +530,7 @@ graph TD
 ```
 
 **Recursive Character Chunking** (General purpose):
+
 ```python
 # LangChain implementation
 text_splitter = RecursiveCharacterTextSplitter(
@@ -497,6 +543,7 @@ chunks = text_splitter.split_text(document_text)
 ```
 
 **Semantic Chunking** (For complex documents):
+
 ```python
 def semantic_chunking(text):
     # Split into sentences
@@ -520,8 +567,9 @@ def semantic_chunking(text):
 ```
 
 **Token-based Chunking** (Model-optimized):
+
 | Model | Max Tokens | Optimal Chunk | Overlap |
-|-------|------------|---------------|---------|
+| --- | --- | --- | --- |
 | GPT-3.5 | 4096 | 3000 | 200 |
 | GPT-4 | 8192 | 6000 | 400 |
 | Claude 2 | 100k | 80k | 1000 |
@@ -530,14 +578,20 @@ def semantic_chunking(text):
 
 **The Layman Explanation**: Imagine you have a very long encyclopedia. You can't give the whole thing to someone to read at once. Instead, you break it into articles, then paragraphs, ensuring each piece makes sense on its own. Chunking does this automatically—it knows where paragraphs end, where topics change, and how much each AI model can handle at once.
 
-
 ### 3.4 Embedding Generation
+
+![Embedding Generation](images/Embedding%20Generation.png)
 
 **The Scenario**: Text chunks are great for humans, but computers need numbers. We need to convert each chunk into a mathematical representation (vector) that captures its meaning.
 
 **Technical Deep Dive**: We use embedding models to convert text into vectors—lists of hundreds of numbers. Similar meanings produce similar vectors, enabling semantic search.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Text Chunks] --> B[Embedding Service]
     B --> C{Model Selection}
@@ -561,14 +615,16 @@ graph LR
 ```
 
 **Embedding Models Comparison**:
+
 | Model | Dimensions | Quality | Speed | Cost | Use Case |
-|-------|------------|---------|-------|------|----------|
+| --- | --- | --- | --- | --- | --- |
 | text-embedding-3-small | 1536 | High | Fast | $0.13/1M | General purpose |
 | text-embedding-3-large | 3072 | Very High | Medium | $0.26/1M | High precision |
 | all-MiniLM-L6-v2 | 384 | Good | Very Fast | Free (local) | Low latency |
 | bge-large-en-v1.5 | 1024 | High | Medium | Free (local) | Quality/cost balance |
 
 **Vector Mathematics**:
+
 ```
 Word: "king"
 Vector: [0.324, -0.123, 0.856, ..., 0.234]  # 1536 numbers
@@ -585,8 +641,9 @@ Similarity = cosine(king, car) ≈ 0.12 (far apart)
 
 **The Layman Explanation**: Think of this like creating a fingerprint for each piece of text. Every chunk gets a unique fingerprint—but fingerprints for similar topics look alike. "Quarterly earnings report" and "financial results" have similar fingerprints, while "puppy training tips" looks completely different. These fingerprints let us find similar content instantly.
 
-
 ### 3.5 Embeddings Cache (Redis)
+
+![Embeddings Cache (Redis)](images/Embeddings%20Cache%20Redis.png)
 
 **The Scenario**: Many queries are repeated—"What's the vacation policy?" might be asked hundreds of times daily. Generating embeddings for the same query repeatedly wastes time and money.
 
@@ -628,22 +685,29 @@ class EmbeddingCache:
 ```
 
 **Cache Performance**:
+
 | Tier | Hit Rate | Latency | Capacity |
-|------|----------|---------|----------|
-| L1 (Memory) | 20% | <1ms | 1000 items |
+| --- | --- | --- | --- |
+| L1 (Memory) | 20% | \<1ms | 1000 items |
 | L2 (Redis) | 70% | 5ms | 1M items |
 | Miss (Generate) | 10% | 200ms | Unlimited |
 
 **The Layman Explanation**: Imagine a library with a "frequently asked questions" shelf. Instead of searching through millions of books every time someone asks about vacation policy, the librarian keeps the most popular answers right at the front desk. Our embedding cache does the same—keeping the most common question fingerprints instantly accessible.
 
-
 ### 3.6 Vector Database & Indexing
+
+![Vector Database & Indexing](images/Vector%20Database%20Indexing.png)
 
 **The Scenario**: We now have millions of document chunks, each with a vector fingerprint. When someone asks a question, we need to find the most relevant chunks among millions in milliseconds.
 
 **Technical Deep Dive**: We use Qdrant as our vector database, which implements HNSW (Hierarchical Navigable Small World) graphs for fast approximate nearest neighbor search.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[All Document Chunks] --> B[(Vector DB)]
     B --> C[HNSW Graph Index]
@@ -661,7 +725,8 @@ graph TD
 ```
 
 **Vector Database Schema**:
-```sql
+
+```
 -- Collection: document_chunks
 {
   "id": "chunk_123456",
@@ -681,8 +746,9 @@ graph TD
 ```
 
 **Search Performance**:
+
 | Collection Size | Index Type | Latency (p95) | Recall@10 |
-|-----------------|------------|----------------|-----------|
+| --- | --- | --- | --- |
 | 100k chunks | HNSW | 10ms | 0.99 |
 | 1M chunks | HNSW | 25ms | 0.98 |
 | 10M chunks | HNSW + Filtering | 50ms | 0.97 |
@@ -695,22 +761,24 @@ graph TD
 We've built the foundation of our Enterprise AI system. Users can now authenticate securely, documents flow through our ingestion pipeline, are cleaned of sensitive information, broken into meaningful chunks, converted to vector fingerprints, and stored in a searchable database.
 
 **What We've Accomplished:**
-- ✅ Four user personas identified with tailored interfaces
-- ✅ Secure authentication with OAuth2/OIDC and Zero Trust
-- ✅ Document parsing handling multiple formats
-- ✅ PII detection and redaction for privacy
-- ✅ Intelligent chunking strategies for different document types
-- ✅ Embedding generation converting text to vectors
-- ✅ Multi-tier caching for performance
-- ✅ Vector database for semantic search
+
+*   ✅ Four user personas identified with tailored interfaces
+*   ✅ Secure authentication with OAuth2/OIDC and Zero Trust
+*   ✅ Document parsing handling multiple formats
+*   ✅ PII detection and redaction for privacy
+*   ✅ Intelligent chunking strategies for different document types
+*   ✅ Embedding generation converting text to vectors
+*   ✅ Multi-tier caching for performance
+*   ✅ Vector database for semantic search
 
 **The Journey Ahead:**
 
 In **Part 2**, we'll bring this knowledge to life. We'll explore:
-- The model infrastructure—connecting to OpenAI, Claude, Mistral, and running local models
-- The intelligent router that decides which model to use based on cost, latency, and capability
-- The prompt library that stores and versions our best prompts
-- The agent orchestrator that turns simple Q&A into complex, multi-step tasks
+
+*   The model infrastructure—connecting to OpenAI, Claude, Mistral, and running local models
+*   The intelligent router that decides which model to use based on cost, latency, and capability
+*   The prompt library that stores and versions our best prompts
+*   The agent orchestrator that turns simple Q&A into complex, multi-step tasks
 
 The library now has its books processed and shelved. In Part 2, we'll hire our librarians.
 
@@ -718,4 +786,6 @@ The library now has its books processed and shelved. In Part 2, we'll hire our l
 
 **Coming Next: Enterprise AI Architecture - Part 2: The Brain - Models, Routing & Agents**
 
-*In Part 2, we'll explore how queries are processed, how we choose between different AI models, and how agents break down complex tasks into executable steps.*
+_In Part 2, we'll explore how queries are processed, how we choose between different AI models, and how agents break down complex tasks into executable steps._
+
+_Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges._
