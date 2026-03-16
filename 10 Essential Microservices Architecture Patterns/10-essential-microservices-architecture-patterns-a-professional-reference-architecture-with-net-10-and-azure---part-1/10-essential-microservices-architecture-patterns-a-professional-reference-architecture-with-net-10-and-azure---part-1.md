@@ -48,74 +48,19 @@ Before diving into individual patterns, let's understand how all the pieces fit 
 ### High-Level Architecture
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    Client[External Client] --> APIM[Azure API Management]
-    APIM --> FrontDoor[Azure Front Door]
-    
-    subgraph "Azure Region - Primary"
-        FrontDoor --> Gateway[API Gateway Service<br/>.NET 10 / YARP]
-        
-        Gateway --> OrderSvc[Order Service<br/>.NET 10]
-        Gateway --> PaymentSvc[Payment Service<br/>.NET 10]
-        Gateway --> InventorySvc[Inventory Service<br/>.NET 10]
-        
-        OrderSvc --> OrderDB[(Azure SQL<br/>Write DB)]
-        OrderSvc --> OrderReadDB[(Azure SQL<br/>Read Replica)]
-        
-        PaymentSvc --> PaymentDB[(Cosmos DB)]
-        InventorySvc --> InventoryDB[(Azure SQL)]
-        
-        OrderSvc -.-> SB[Azure Service Bus]
-        PaymentSvc -.-> SB
-        InventorySvc -.-> SB
-        
-        subgraph "Service Mesh (Dapr)"
-            OrderSvc --> DaprSidecar[Dapr Sidecar]
-            PaymentSvc --> DaprSidecar2[Dapr Sidecar]
-            InventorySvc --> DaprSidecar3[Dapr Sidecar]
-        end
-    end
-    
-    subgraph "Observability"
-        OrderSvc --> AppInsights[Application Insights]
-        PaymentSvc --> AppInsights
-        InventorySvc --> AppInsights
-        Gateway --> AppInsights
-    end
-    
-    subgraph "Security"
-        APIM --> KV[Azure Key Vault]
-        OrderSvc --> KV
-        PaymentSvc --> KV
-        InventorySvc --> KV
-    end
-    
-    subgraph "Scaling Infrastructure"
-        OrderSvc --> ACA[Azure Container Apps<br/>Auto-scaling 2-20 instances]
-        PaymentSvc --> Functions[Azure Functions<br/>Consumption Plan]
-        InventorySvc --> AppService[App Service<br/>Premium Plan]
-    end
 ```
+
+![### High-Level Architecture](images/diagram_01_high-level-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_01_high-level-architecture.md)
+
 
 ### Technology Stack Summary
 
-| Component | Technology | Justification |
-| --- | --- | --- |
-| **Runtime** | .NET 10 | Native AOT, minimal APIs, enhanced performance, improved memory management |
-| **ORM** | EF Core 10 | Compiled models, bulk updates, query splitting, JSON columns support |
-| **API Gateway** | YARP + Azure APIM | Flexibility of custom code + managed service benefits with enterprise features |
-| **Service Mesh** | Dapr on ACA | Language-agnostic, built-in patterns, mTLS, observability without code changes |
-| **Secrets** | Azure Key Vault | HSM-backed, managed identities, automatic rotation, audit logging |
-| **Database** | Azure SQL + Cosmos DB | Polyglot persistence per service need with optimal performance characteristics |
-| **Messaging** | Azure Service Bus | Enterprise-grade, sessions, dead-lettering, duplicate detection, partitioning |
-| **Container** | Docker + ACR | Secure, private registry with vulnerability scanning, geo-replication |
-| **Monitoring** | Application Insights | Distributed tracing, metric collection, log analytics, smart detection |
-| **Compute** | Container Apps + Functions | Flexible scaling options based on workload characteristics |
+![### Technology Stack Summary](images/table_01_technology-stack-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_01_technology-stack-summary.md)
+
 
 ### Design Principles Applied Throughout
 
@@ -156,65 +101,29 @@ The API Gateway pattern addresses a fundamental challenge in microservices archi
 ### The Problem It Solves
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    Client[Client] --> Order[Order Service]
-    Client --> Payment[Payment Service]
-    Client --> Inventory[Inventory Service]
-    Client --> User[User Service]
-    
-    style Order fill:#f9f,stroke:#333
-    style Payment fill:#f9f,stroke:#333
-    style Inventory fill:#f9f,stroke:#333
-    style User fill:#f9f,stroke:#333
-    
-    note1[❌ No security centralization<br/>❌ Client knows too much<br/>❌ Protocol translation complex<br/>❌ Cross-cutting concerns duplicated]
 ```
+
+![### The Problem It Solves](images/diagram_02_the-problem-it-solves.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_02_the-problem-it-solves.md)
+
 
 **The solution architecture:**
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    Client[Client] --> Gateway[API Gateway]
-    
-    Gateway --> Auth[Authentication]
-    Gateway --> Rate[Rate Limiting]
-    Gateway --> Route[Routing]
-    Gateway --> Aggregate[Aggregation]
-    Gateway --> Transform[Protocol Translation]
-    
-    Route --> Order[Order Service]
-    Route --> Payment[Payment Service]
-    Route --> Inventory[Inventory Service]
-    
-    Auth --> KV[Key Vault<br/>JWT Keys]
-    Rate --> Redis[Redis Cache<br/>Rate Counters]
-    
-    style Gateway fill:#6c5,stroke:#333,stroke-width:2px
-    style Auth fill:#fc3,stroke:#333
-    style Rate fill:#fc3,stroke:#333
-    style Route fill:#fc3,stroke:#333
-    
-    note2[✅ Single entry point<br/>✅ Centralized security<br/>✅ Client decoupled<br/>✅ Cross-cutting concerns unified]
 ```
+
+![**The solution architecture:**](images/diagram_03_the-solution-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_03_the-solution-architecture.md)
+
 
 ### Azure Implementation Options
 
-| Option | Best For | Scaling | Cost Model | Features |
-| --- | --- | --- | --- | --- |
-| **Azure API Management** | Enterprise APIs with developer portal | Auto-scale with premium tier | Consumption/Developer/Standard/Premium | Developer portal, analytics, policies, caching |
-| **Azure Application Gateway** | Layer 7 load balancing + WAF | Auto-scaling available | Per hour + data processed | WAF, SSL termination, cookie affinity |
-| **Azure Front Door** | Global HTTP load balancing | Global auto-scaling | Per request + outbound data | Global routing, acceleration, CDN |
-| **Custom YARP in App Service** | Full control, simple needs | App Service scaling | App Service cost only | Full code control, customization |
+![### Azure Implementation Options](images/table_02_azure-implementation-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_02_azure-implementation-options.md)
+
 
 ### Design Patterns Applied
 
@@ -551,37 +460,19 @@ client.BaseAddress = new Uri("http://10.0.0.12:8080"); // Fixed IP? Good luck!
 **With service discovery:**
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    Client[Service A wants to call Service B]
-    Client --> Lookup["Where is Service B?"]
-    Lookup --> Registry[Service Registry 📋]
-    Registry --> Response["Service B is at 10.0.0.45:8080"]
-    Response --> Call[Service A → Service B]
-    
-    subgraph "Registration Process"
-        S1[Service B<br/>Starting] --> Register[Register with Registry]
-        Register --> Heartbeat[Send Heartbeats]
-        Heartbeat --> HealthCheck[Health Check Endpoint]
-    end
-    
-    style Registry fill:#6c5,stroke:#333,stroke-width:2px
-    style Register fill:#fc3,stroke:#333
 ```
+
+![**With service discovery:**](images/diagram_04_with-service-discovery.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_04_with-service-discovery.md)
+
 
 ### Azure Implementation Matrix
 
-| Service | Discovery Mechanism | Use Case | Registration Method |
-| --- | --- | --- | --- |
-| **Azure Container Apps** | Internal DNS + Dapr | Containerized microservices | Automatic via environment |
-| **App Service with VNet** | Private endpoints | Web apps in VNet | Manual via DNS |
-| **AKS** | K8s DNS + Headless services | Complex orchestration | Automatic via K8s API |
-| **Azure Traffic Manager** | DNS routing | Global distribution | Manual configuration |
-| **Azure Front Door** | Global load balancing | CDN + routing | Manual backend config |
+![### Azure Implementation Matrix](images/table_03_azure-implementation-matrix.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_03_azure-implementation-matrix.md)
+
 
 ### Design Patterns Applied
 
@@ -1075,45 +966,19 @@ Load balancing is the art of distributing incoming requests across multiple inst
 ### Visual Distribution
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Load Balancer"
-        LB[Load Balancer]
-        LB --> W1[33% Weight]
-        LB --> W2[33% Weight]
-        LB --> W3[34% Weight]
-    end
-    
-    subgraph "Service Instances"
-        W1 --> I1[Instance 1<br/>2 vCPU, 4GB RAM]
-        W2 --> I2[Instance 2<br/>2 vCPU, 4GB RAM]
-        W3 --> I3[Instance 3<br/>4 vCPU, 8GB RAM]
-    end
-    
-    subgraph "Health Monitoring"
-        I1 --> H1[Health Check<br/>/health]
-        I2 --> H2[Health Check<br/>/health]
-        I3 --> H3[Health Check<br/>/health]
-        H1 --> Detector[Failure Detector]
-        H2 --> Detector
-        H3 --> Detector
-        Detector --> Registry[Update Registry]
-    end
 ```
+
+![### Visual Distribution](images/diagram_05_visual-distribution.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_05_visual-distribution.md)
+
 
 ### Azure Load Balancing Options
 
-| Option | Layer | Algorithm | Session Affinity | Global | WAF | SSL Offload |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Load Balancer** | L4 | Hash, Round Robin | Source IP | No | No | No |
-| **Application Gateway** | L7 | Round Robin, Weighted | Cookie | No | Yes | Yes |
-| **Azure Front Door** | L7 | Latency, Priority, Weighted | Cookie | Yes | Yes | Yes |
-| **Traffic Manager** | DNS | Performance, Priority, Weighted | None | Yes | No | No |
-| **Container Apps** | L7 | Automatic, weighted revisions | Auto | Regional | No | Yes |
+![### Azure Load Balancing Options](images/table_04_azure-load-balancing-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_04_azure-load-balancing-options.md)
+
 
 ### Design Patterns Applied
 
@@ -1573,39 +1438,12 @@ The Circuit Breaker pattern prevents cascading failures in distributed systems b
 ### The State Machine
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-stateDiagram-v2
-    [*] --> Closed
-    
-    state Closed {
-        [*] --> Normal
-        Normal --> FailureCount: Request Fails
-        FailureCount --> Normal: Request Succeeds
-        FailureCount --> ThresholdReached: Failures > Threshold
-    }
-    
-    ThresholdReached --> Open: Open Circuit
-    
-    state Open {
-        [*] --> Waiting
-        Waiting --> TimeoutExpired: Timeout Elapsed
-    }
-    
-    TimeoutExpired --> HalfOpen
-    
-    state HalfOpen {
-        [*] --> Testing
-        Testing --> Success: Test Request OK
-        Testing --> Failure: Test Request Fails
-    }
-    
-    Success --> Closed
-    Failure --> Open
 ```
+
+![### The State Machine](images/diagram_06_the-state-machine.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_06_the-state-machine.md)
+
 
 ### Design Patterns Applied
 
@@ -2209,46 +2047,19 @@ Event-driven communication enables loose coupling between microservices by using
 ### The Pattern
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Producers"
-        P1[Order Service] --> Topic[Order Events Topic]
-        P2[Payment Service] --> Topic
-        P3[Inventory Service] --> Topic
-    end
-    
-    subgraph "Message Broker - Azure Service Bus"
-        Topic --> Sub1[Subscription<br/>Inventory]
-        Topic --> Sub2[Subscription<br/>Notification]
-        Topic --> Sub3[Subscription<br/>Analytics]
-        Topic --> DLQ[Dead Letter Queue]
-    end
-    
-    subgraph "Consumers"
-        Sub1 --> C1[Inventory Consumer<br/>Scale: 0-10]
-        Sub2 --> C2[Email Consumer<br/>Scale: 0-5]
-        Sub3 --> C3[Analytics Consumer<br/>Scale: 0-3]
-    end
-    
-    subgraph "Error Handling"
-        C1 --> Retry[Retry Policy<br/>3 attempts]
-        Retry --> DLQ
-        DLQ --> Monitor[Alert on Dead Letter]
-    end
 ```
+
+![### The Pattern](images/diagram_07_the-pattern.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_07_the-pattern.md)
+
 
 ### Azure Messaging Options
 
-| Service | Pattern | Max Size | Ordering | Exactly-Once | Best For |
-| --- | --- | --- | --- | --- | --- |
-| **Service Bus** | Queue/Topic | 256KB-100MB | Sessions | Via duplicate detection | Enterprise messaging, transactions |
-| **Event Hubs** | Event stream | 1MB | Partition | At-least-once | Telemetry, event ingestion at scale |
-| **Storage Queue** | Simple queue | 64KB | No | At-least-once | Simple, low-cost, large queues |
-| **Event Grid** | Push events | 64KB | No | At-least-once | Reactive event routing, serverless |
+![### Azure Messaging Options](images/table_05_azure-messaging-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_05_azure-messaging-options.md)
+
 
 ### Design Patterns Applied
 
@@ -2846,17 +2657,10 @@ In the second part of this series, we'll tackle advanced patterns for data manag
 
 After completing both parts, we'll release a companion series implementing **the exact same patterns on AWS**:
 
-| Azure Service | AWS Equivalent |
-| --- | --- |
-| Azure API Management | Amazon API Gateway |
-| Azure Service Bus | Amazon SNS/SQS |
-| Azure Container Apps | AWS App Runner / ECS Fargate |
-| Azure SQL | Amazon RDS Aurora |
-| Cosmos DB | Amazon DynamoDB |
-| Application Insights | AWS X-Ray + CloudWatch |
-| Azure Key Vault | AWS Secrets Manager |
-| Azure Front Door | Amazon CloudFront |
-| Azure Container Registry | Amazon ECR |
+![After completing both parts, we'll release a companion series implementing **the exact same patterns on AWS**:](images/table_06_after-completing-both-parts-well-release-a-compa-0d55.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_06_after-completing-both-parts-well-release-a-compa-0d55.md)
+
 
 This side-by-side comparison will help you make informed decisions when choosing between cloud providers while maintaining the same business logic and architectural principles.
 
