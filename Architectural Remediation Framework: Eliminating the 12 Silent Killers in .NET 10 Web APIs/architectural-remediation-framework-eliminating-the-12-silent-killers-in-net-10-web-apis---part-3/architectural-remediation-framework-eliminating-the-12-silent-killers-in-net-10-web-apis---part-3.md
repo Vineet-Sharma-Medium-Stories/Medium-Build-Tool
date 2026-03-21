@@ -26,10 +26,10 @@ This part focuses on security and resilience patterns:
 
 ### Why These Matter
 
-| Anti-Pattern | Silent Killer Mechanism | Production Symptom at 3 AM |
-|--------------|------------------------|---------------------------|
-| **No Rate Limiting** | API open to unlimited requests | DDoS, resource exhaustion, brute force attacks |
-| **No Idempotency** | Retries create duplicate records | Double charges, duplicate orders, data corruption |
+![### Why These Matter](images/table_01_why-these-matter.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_01_why-these-matter.md)
+
 
 ### The Story: What Happened on Black Friday
 
@@ -80,22 +80,19 @@ The team had no rate limiting either. During the surge, malicious actors discove
 
 The two anti-patterns addressed in this part represent the final line of defense for production APIs:
 
-| Anti-Pattern | Solution | Protection Level | Business Impact |
-|--------------|---------|------------------|-----------------|
-| **No Rate Limiting** | Built-in ASP.NET Core rate limiting | Prevents abuse, ensures fair usage | Prevents DDoS, protects resources |
-| **No Idempotency** | Redis-based idempotency keys | Safe retries, no duplicate processing | Prevents double charges, data corruption |
+![The two anti-patterns addressed in this part represent the final line of defense for production APIs:](images/table_02_the-two-anti-patterns-addressed-in-this-part-repre-3985.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_02_the-two-anti-patterns-addressed-in-this-part-repre-3985.md)
+
 
 ### 1.2 The Black Friday Post-Mortem
 
 The incident revealed multiple failures:
 
-| Failure Point | What Happened | Root Cause |
-|---------------|---------------|------------|
-| **Rate Limiting** | Malicious actors sent 10,000 requests/second | No rate limiting configured |
-| **Idempotency** | Client retries created duplicate orders | No idempotency keys implemented |
-| **Payment Processing** | Payment gateway charged each retry | API forwarded every request to payment service |
-| **Customer Support** | 500+ duplicate charge complaints | System couldn't detect duplicates |
-| **Refund Processing** | $10,000+ in refunds | Each duplicate required manual refund |
+![The incident revealed multiple failures:](images/table_03_the-incident-revealed-multiple-failures-b1d7.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_03_the-incident-revealed-multiple-failures-b1d7.md)
+
 
 ### 1.3 Remediation Approach
 
@@ -104,14 +101,10 @@ The incident revealed multiple failures:
 
 ### 1.4 Success Metrics
 
-| Metric | Before Black Friday | After Part 3 | Improvement |
-|--------|---------------------|--------------|-------------|
-| Duplicate Order Incidents | 12/month (500+ on Black Friday) | 0/month | **100%** ↓ |
-| Abuse Attempts Blocked | 0 | 100% blocked | **100%** ↑ |
-| API Availability under Attack | Degraded | Full availability | **100%** ↑ |
-| Customer Support Tickets | 50/month | 5/month | **90%** ↓ |
-| Payment Gateway Load | 10,000 req/sec | 100 req/sec | **99%** ↓ |
-| Refund Processing Cost | $10,000/month | $0/month | **100%** ↓ |
+![### 1.4 Success Metrics](images/table_04_14-success-metrics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_04_14-success-metrics.md)
+
 
 ---
 
@@ -120,101 +113,39 @@ The incident revealed multiple failures:
 ### 2.1 Attack Surface Without Protection
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart TD
-    subgraph "Without Rate Limiting - Black Friday Incident"
-        A[Attacker/Malicious Bot] --> B[10,000 requests/second]
-        B --> C[API Server]
-        C --> D[Database Connection Pool Exhausted]
-        C --> E[Thread Pool Exhausted]
-        C --> F[Memory Exhausted]
-        D & E & F --> G[Service Outage]
-        G --> H[Legitimate Customers Blocked]
-    end
-    
-    subgraph "Without Idempotency - Black Friday Incident"
-        I[Customer Click] --> J[First Request - Timeout]
-        J --> K[Client Retry #1]
-        K --> L[Client Retry #2]
-        L --> M[Client Retry #3]
-        
-        J --> N[Order Created #1]
-        K --> O[Order Created #2]
-        L --> P[Order Created #3]
-        M --> Q[Order Created #4]
-        
-        N & O & P & Q --> R[Four Charges to Credit Card]
-        R --> S[Angry Customer Calls Support]
-        S --> T[Manual Refunds Required]
-    end
 ```
+
+![### 2.1 Attack Surface Without Protection](images/diagram_01_21-attack-surface-without-protection-0e22.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_01_21-attack-surface-without-protection-0e22.md)
+
 
 ### 2.2 Anti-Pattern Severity Matrix - Part 3 Focus
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-quadrantChart
-    title Part 3 Anti-Pattern Impact vs. Frequency
-    x-axis "Low Frequency" --> "High Frequency"
-    y-axis "Low Impact" --> "High Impact"
-    quadrant-1 "CRITICAL - Immediate Action"
-    quadrant-2 "PRIORITY - This Sprint"
-    quadrant-3 "MONITOR"
-    quadrant-4 "MINOR"
-    
-    "No Idempotency": [0.62, 0.96]
-    "No Rate Limiting": [0.58, 0.87]
 ```
+
+![### 2.2 Anti-Pattern Severity Matrix - Part 3 Focus](images/diagram_02_22-anti-pattern-severity-matrix---part-3-focu-e27c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_02_22-anti-pattern-severity-matrix---part-3-focu-e27c.md)
+
 
 ### 2.3 Root Cause Analysis - Security & Resilience
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    A[Root Causes - Security & Resilience] --> B[Design Gaps]
-    A --> C[Testing Gaps]
-    A --> D[Knowledge Gaps]
-    
-    B --> B1[No rate limiting architecture]
-    B --> B2[No idempotency design]
-    B --> B3[Retry-unfriendly endpoints]
-    
-    C --> C1[No load testing with retries]
-    C --> C2[No DDoS simulation]
-    C --> C3[No chaos engineering]
-    
-    D --> D1[Unfamiliar with RFC 7231 idempotency]
-    D --> D2[Don't understand distributed locking]
-    D --> D3[No knowledge of rate limiting patterns]
-    
-    B1 & C1 & D1 --> E[Security & Resilience Anti-Patterns]
-    E --> F[Black Friday Collapse]
-    
-    F --> G[Duplicate Charges]
-    F --> H[Service Unavailability]
-    G & H --> I[Customer Churn]
 ```
+
+![### 2.3 Root Cause Analysis - Security & Resilience](images/diagram_03_23-root-cause-analysis---security--resilienc-7c58.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_03_23-root-cause-analysis---security--resilienc-7c58.md)
+
 
 ### 2.4 Technical Debt Assessment - Security & Resilience
 
-| Component | Anti-Patterns | Debt Days | Priority | Business Impact |
-|-----------|---------------|-----------|----------|-----------------|
-| **API Endpoints** | No Rate Limiting | 3 days | Critical | DDoS vulnerability, resource exhaustion |
-| **Checkout Flow** | No Idempotency | 5 days | Critical | Double charges, data corruption |
-| **Payment Integration** | No Idempotency | 2 days | Critical | Financial loss, refund costs |
-| **Total Security Debt** | | **10 days** | | $50,000+ in Black Friday losses |
+![### 2.4 Technical Debt Assessment - Security & Resilience](images/table_05_24-technical-debt-assessment---security--res-a2bf.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_05_24-technical-debt-assessment---security--res-a2bf.md)
+
 
 ---
 
@@ -223,95 +154,41 @@ flowchart LR
 ### 3.1 Core Principles for Part 3
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Resilience Principles"
-        A[Defense in Depth] --> A1[Rate limiting at edge]
-        A --> A2[Idempotency at API]
-        A --> A3[Retry policies with backoff]
-        
-        B[Fail Gracefully] --> B1[429 responses with Retry-After]
-        B --> B2[Clear error messages]
-        B --> B3[Cached results for retries]
-        
-        C[Distributed State] --> C1[Redis for idempotency keys]
-        C --> C2[Redis for rate limiting state]
-        C --> C3[Consistent across instances]
-        
-        D[Idempotent by Design] --> D1[Idempotency keys required]
-        D --> D2[Same result for same input]
-        D --> D3[Safe for automated retries]
-    end
 ```
+
+![### 3.1 Core Principles for Part 3](images/diagram_04_31-core-principles-for-part-3.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_04_31-core-principles-for-part-3.md)
+
 
 ### 3.2 The Architectural Shift
 
 Before remediation, the checkout flow looked like this:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "Before: Retry Disaster"
-        A[Client Click] --> B[POST /api/orders]
-        B --> C[Database Insert]
-        C --> D[Payment Charge]
-        D --> E[200 OK - Timeout?]
-        
-        E --> F[Client Timeout]
-        F --> G[Retry #1]
-        G --> H[Database Insert #2]
-        H --> I[Payment Charge #2]
-        I --> J[Duplicate Order Created]
-        
-        J --> K[Customer Charged Twice]
-    end
 ```
+
+![Before remediation, the checkout flow looked like this:](images/diagram_05_before-remediation-the-checkout-flow-looked-like-d9dd.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_05_before-remediation-the-checkout-flow-looked-like-d9dd.md)
+
 
 After remediation, the checkout flow becomes:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "After: Idempotent & Rate Limited"
-        A[Client Click with Idempotency Key] --> B[Rate Limiting Check]
-        
-        B --> C{Rate Limit Exceeded?}
-        C -->|Yes| D[429 Too Many Requests]
-        C -->|No| E[Check Redis for Key]
-        
-        E --> F{Key Exists?}
-        F -->|Yes| G[Return Cached Response]
-        F -->|No| H[Acquire Distributed Lock]
-        
-        H --> I[Process Once]
-        I --> J[Store Result in Redis]
-        J --> K[Return Response]
-        
-        G --> L[No Duplicate Processing]
-        K --> L
-    end
 ```
+
+![After remediation, the checkout flow becomes:](images/diagram_06_after-remediation-the-checkout-flow-becomes-1584.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_06_after-remediation-the-checkout-flow-becomes-1584.md)
+
 
 ### 3.3 Technology Stack - Part 3 Focus
 
-| Layer | Technology | Version | Purpose | Anti-Pattern Addressed |
-|-------|------------|---------|---------|------------------------|
-| **Rate Limiting** | ASP.NET Core Rate Limiting | 10.0 | Built-in middleware | #10 No Rate Limiting |
-| **Distributed Locking** | Redis | 7.2 | Idempotency key coordination | #12 No Idempotency |
-| **Caching** | Redis | 7.2 | Store idempotency results | #12 No Idempotency |
-| **Idempotency** | Custom Redis Service | N/A | Idempotency key management | #12 No Idempotency |
+![### 3.3 Technology Stack - Part 3 Focus](images/table_06_33-technology-stack---part-3-focus-b7c0.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_06_33-technology-stack---part-3-focus-b7c0.md)
+
 
 ---
 
@@ -338,12 +215,10 @@ The system collapsed under the weight. Legitimate customers received 500 errors 
 
 **Real-World Consequences**:
 
-| Attack Vector | Mechanism | Impact on Black Friday |
-|---------------|-----------|------------------------|
-| **DDoS** | 10,000 requests/second from distributed sources | Service unavailability for 45 minutes |
-| **Brute Force** | Repeated authentication attempts | Account lockouts, support calls |
-| **Resource Exhaustion** | Expensive queries repeated rapidly | Database connection pool exhaustion |
-| **Inventory Hoarding** | Rapid add-to-cart requests | Stock manipulation, overselling |
+![**Real-World Consequences**:](images/table_07_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_07_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -646,13 +521,10 @@ public async Task<IActionResult> Webhook(WebhookCommand command, CancellationTok
 
 **Benefits Summary**:
 
-| Aspect | Before (No Rate Limiting) | After (Rate Limiting) | Improvement |
-|--------|--------------------------|----------------------|-------------|
-| **DDoS Protection** | None - crashed at 10k req/sec | 100% blocked | **100%** protection |
-| **Brute Force Protection** | Unlimited attempts | 5 attempts per minute | **100%** prevention |
-| **Resource Usage** | 100% CPU, 95% DB | 35% CPU, 35% DB | **65%** reduction |
-| **Legitimate Users** | Blocked during attack | Unaffected | **100%** availability |
-| **API Availability** | 45 minutes downtime | 0 minutes downtime | **100%** uptime |
+![**Benefits Summary**:](images/table_08_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_08_benefits-summary.md)
+
 
 ---
 
@@ -668,12 +540,10 @@ The root cause was simple: the API had no way to recognize that a retry was for 
 
 **Business Impact**:
 
-| Scenario | Consequence | Financial Impact on Black Friday |
-|----------|-------------|----------------------------------|
-| **Duplicate Orders** | Customer charged twice for single purchase | 500+ duplicate charges |
-| **Duplicate Payments** | Same payment processed multiple times | $50,000+ in duplicate charges |
-| **Refund Processing** | Manual refunds required | $10,000+ in staff time |
-| **Customer Churn** | Angry customers leave | Unknown long-term revenue loss |
+![**Business Impact**:](images/table_09_business-impact.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_09_business-impact.md)
+
 
 #### Architectural Solution
 
@@ -1311,13 +1181,10 @@ try {
 
 **Benefits Summary**:
 
-| Aspect | Before (No Idempotency) | After (Idempotency) | Improvement |
-|--------|------------------------|---------------------|-------------|
-| **Duplicate Orders** | 500+ on Black Friday | 0 | **100%** elimination |
-| **Double Charges** | $50,000+ losses | $0 | **100%** elimination |
-| **Customer Support** | 500+ angry calls | 0 | **100%** reduction |
-| **Refund Processing** | $10,000+ staff time | $0 | **100%** elimination |
-| **Data Integrity** | Duplicate records | Clean data | **100%** integrity |
+![**Benefits Summary**:](images/table_10_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_10_benefits-summary.md)
+
 
 ---
 
@@ -1708,45 +1575,19 @@ groups:
 ### 7.1 Phased Approach for Security & Resilience Remediation
 
 ```mermaid
-
-gantt
-    title Part 3: Security & Resilience Remediation Timeline
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    
-    section Phase 3A - Redis Infrastructure (Week 1)
-    Redis Cluster Setup           :phase3a1, 2026-05-13, 2d
-    Connection Configuration      :phase3a2, after phase3a1, 1d
-    Idempotency Key Schema        :phase3a3, after phase3a2, 1d
-    
-    section Phase 3B - Rate Limiting (Week 1-2)
-    Global Rate Limiting          :phase3b1, 2026-05-16, 2d
-    Endpoint-Specific Policies    :phase3b2, after phase3b1, 2d
-    Custom Rejection Handler      :phase3b3, after phase3b2, 1d
-    Load Testing                  :phase3b4, after phase3b3, 1d
-    
-    section Phase 3C - Idempotency (Week 2-3)
-    Idempotency Service           :phase3c1, 2026-05-20, 2d
-    MediatR Behavior              :phase3c2, after phase3c1, 2d
-    Header Middleware             :phase3c3, after phase3c2, 1d
-    Background Cleanup            :phase3c4, after phase3c3, 1d
-    
-    section Phase 3D - Client Integration (Week 3)
-    Client SDK Update             :phase3d1, 2026-05-27, 2d
-    Retry Logic Implementation    :phase3d2, after phase3d1, 2d
-    Monitoring Dashboard          :phase3d3, after phase3d2, 1d
-    Production Rollout            :phase3d4, after phase3d3, 2d
 ```
+
+![### 7.1 Phased Approach for Security & Resilience Remediation](images/diagram_07_71-phased-approach-for-security--resilience-d320.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_07_71-phased-approach-for-security--resilience-d320.md)
+
 
 ### 7.2 Risk Mitigation - Part 3
 
-| Risk | Probability | Impact | Mitigation Strategy |
-|------|------------|--------|---------------------|
-| **Redis Failure** | Low | Critical | Redis cluster, connection resilience, fallback to in-memory |
-| **Idempotency Key Exhaustion** | Low | Medium | TTL on keys, background cleanup, monitoring |
-| **Rate Limiting False Positives** | Medium | Medium | Gradual rollout, whitelist for trusted IPs, monitoring |
-| **Client Incompatibility** | Medium | High | Feature flags, backward compatibility, client documentation |
-| **Performance Overhead** | Low | Medium | Redis is sub-millisecond, measure and optimize |
+![### 7.2 Risk Mitigation - Part 3](images/table_11_72-risk-mitigation---part-3.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_11_72-risk-mitigation---part-3.md)
+
 
 ### 7.3 Rollback Strategy - Part 3
 
@@ -1813,13 +1654,10 @@ public class ResilientIdempotencyService : IIdempotencyService
 
 ### 7.4 Training & Adoption - Part 3
 
-| Training Topic | Duration | Audience | Format |
-|----------------|----------|----------|--------|
-| Idempotency in REST APIs (RFC 7231) | 2 hours | All Developers | Workshop |
-| Rate Limiting Patterns | 2 hours | API Developers | Architecture Review |
-| Redis for Distributed State | 3 hours | Backend Developers | Hands-on Lab |
-| Client Retry Strategies | 1 hour | Frontend Developers | Lunch & Learn |
-| Black Friday Post-Mortem | 1 hour | All Teams | Retrospective |
+![### 7.4 Training & Adoption - Part 3](images/table_12_74-training--adoption---part-3.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_12_74-training--adoption---part-3.md)
+
 
 ---
 
@@ -1827,77 +1665,27 @@ public class ResilientIdempotencyService : IIdempotencyService
 
 ### 8.1 The Complete Anti-Pattern Remediation Framework
 
-| Part | Anti-Patterns | Solution | Key Technology | Business Impact |
-|------|---------------|----------|----------------|-----------------|
-| **Part 1** | #1 Fat Controllers, #2 No Validation, #3 Raw Exceptions, #4 Blocking Async, #5 No Cancellation, #11 No Observability | MediatR, FluentValidation, Problem Details, Async/Await, OpenTelemetry | MediatR, Serilog, OpenTelemetry | 86% faster response, 83% faster debugging |
-| **Part 2** | #6 No Pagination, #7 Wrong Status Codes, #8 Over-fetching, #9 EF Entities as Response | Pagination, Proper HTTP, Projections, DTOs | EF Core, AutoMapper | 99.5% less data transfer, 98% faster queries |
-| **Part 3** | #10 No Rate Limiting, #12 No Idempotency | Rate limiting middleware, Redis idempotency | ASP.NET Core Rate Limiting, Redis | 100% duplicate elimination, 100% DDoS protection |
+![### 8.1 The Complete Anti-Pattern Remediation Framework](images/table_13_81-the-complete-anti-pattern-remediation-fram-860a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_13_81-the-complete-anti-pattern-remediation-fram-860a.md)
+
 
 ### 8.2 Final Architecture Diagram
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "Client Layer"
-        Client[Web/Mobile Clients]
-    end
-    
-    subgraph "Edge Protection"
-        RateLimit[Rate Limiting Middleware<br/>Part 3 - Anti-Pattern #10]
-    end
-    
-    subgraph "ASP.NET Core 10 API"
-        IdempotencyMiddleware[Idempotency Header Middleware<br/>Part 3 - Anti-Pattern #12]
-        ExceptionHandler[Global Exception Handler<br/>Part 1 - Anti-Pattern #3]
-        Controller[Thin Controllers<br/>Part 1 - Anti-Pattern #1]
-        
-        subgraph "MediatR Pipeline"
-            Validation[FluentValidation Behavior<br/>Part 1 - Anti-Pattern #2]
-            Idempotency[Idempotency Behavior<br/>Part 3 - Anti-Pattern #12]
-            Handler[MediatR Handlers<br/>Part 1 - Anti-Pattern #1]
-        end
-        
-        subgraph "Data Access"
-            Repo[Repository<br/>Part 2]
-            Projection[DTO Projection<br/>Part 2 - Anti-Pattern #8, #9]
-            Pagination[Pagination<br/>Part 2 - Anti-Pattern #6]
-        end
-        
-        Observability[OpenTelemetry + Serilog<br/>Part 1 - Anti-Pattern #11]
-        StatusCodes[Proper HTTP Status Codes<br/>Part 2 - Anti-Pattern #7]
-    end
-    
-    subgraph "Data Layer"
-        SQL[(SQL Server)]
-        Redis[(Redis Cluster<br/>Idempotency & Rate Limiting State)]
-    end
-    
-    Client --> RateLimit --> IdempotencyMiddleware --> ExceptionHandler --> Controller
-    Controller --> Validation --> Idempotency --> Handler
-    Handler --> Repo --> Projection --> Pagination --> SQL
-    Handler --> Redis
-    Handler -.-> Observability
-    Handler -.-> StatusCodes
 ```
+
+![### 8.2 Final Architecture Diagram](images/diagram_08_82-final-architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/diagram_08_82-final-architecture-diagram.md)
+
 
 ### 8.3 Final Performance Summary
 
-| Metric | Before | After All Parts | Improvement |
-|--------|--------|-----------------|-------------|
-| API Response Time (p95) | 850ms | 120ms | **86%** ↓ |
-| Throughput (req/sec) | 500 | 8,500 | **1,600%** ↑ |
-| Database CPU | 95% | 35% | **63%** ↓ |
-| Thread Pool Utilization | 85% | 25% | **70%** ↓ |
-| Error Rate | 2.5% | 0.1% | **96%** ↓ |
-| Duplicate Order Incidents | 500/month | 0/month | **100%** ↓ |
-| Mean Time to Debug | 2 hours | 15 minutes | **87%** ↓ |
-| Data Transferred per Request | 10 MB | 50 KB | **99.5%** ↓ |
-| DDoS Attack Survival | 0% | 100% | **100%** ↑ |
-| Customer Support Tickets | 50/month | 5/month | **90%** ↓ |
+![### 8.3 Final Performance Summary](images/table_14_83-final-performance-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_14_83-final-performance-summary.md)
+
 
 ### 8.4 Key Takeaways - Complete Framework
 
@@ -2043,10 +1831,9 @@ idempotency_key:
 
 ## Complete Series Summary
 
-| Part | Title | Focus | Key Deliverables |
-|------|-------|-------|------------------|
-| **Part 1** | Foundations | Observability, Async, Exception Handling | MediatR, FluentValidation, Problem Details, OpenTelemetry |
-| **Part 2** | Data Access | Pagination, Projections, DTOs | EF Core Projections, DTOs, Proper HTTP Status Codes |
-| **Part 3** | Security & Resilience | Rate Limiting, Idempotency | ASP.NET Core Rate Limiting, Redis Idempotency |
+![## Complete Series Summary](images/table_15_complete-series-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-3/table_15_complete-series-summary.md)
+
 
 **The Silent Killers Are Now Silent No More.**

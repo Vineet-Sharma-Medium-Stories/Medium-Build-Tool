@@ -18,11 +18,10 @@ This three-part architectural framework documents the remediation strategy imple
 
 ### The Twelve Silent Killers
 
-| Part | Anti-Patterns | Focus Area |
-|------|---------------|------------|
-| **Part 1** | #1 Fat Controllers, #2 No Input Validation, #3 Raw Exceptions, #4 Blocking Async, #5 Ignoring CancellationTokens, #11 No Observability | Foundation, Observability, Async |
-| **Part 2** | #6 No Pagination, #7 Wrong HTTP Status Codes, #8 Over-fetching Data, #9 Returning EF Entities | Data Access, API Contracts |
-| **Part 3** | #10 No Rate Limiting, #12 No Idempotency on Mutating Endpoints | Security, Resilience, Idempotency |
+![### The Twelve Silent Killers](images/table_01_the-twelve-silent-killers.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_01_the-twelve-silent-killers.md)
+
 
 ### Why This Matters
 
@@ -69,14 +68,10 @@ This first part establishes the foundation upon which all other improvements dep
 
 Most .NET applications fail not because of complex business logic errors, but because fundamental architectural principles were violated during development. The six anti-patterns addressed in this part represent the foundation of any production-ready API:
 
-| Anti-Pattern | Silent Killer Mechanism | Production Symptom |
-|--------------|------------------------|-------------------|
-| **Fat Controllers** | Business logic scattered across HTTP layer | Impossible to test, every change breaks something |
-| **No Validation** | Invalid data enters the system | Data corruption, unexpected exceptions |
-| **Raw Exceptions** | Internal details exposed to clients | Security vulnerabilities, confused API consumers |
-| **Blocking Async** | Thread pool starvation | System collapses under moderate load |
-| **No Cancellation** | Resources wasted on abandoned requests | DB connection pool exhaustion, memory leaks |
-| **No Observability** | Blind debugging | Hours to diagnose issues, reactive alerting |
+![Most .NET applications fail not because of complex business logic errors, but because fundamental architectural principles were violated during development. The six anti-patterns addressed in this part represent the foundation of any production-ready API:](images/table_02_most-net-applications-fail-not-because-of-complex-685a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_02_most-net-applications-fail-not-because-of-complex-685a.md)
+
 
 ### 1.2 The Story: What Went Wrong
 
@@ -141,13 +136,10 @@ Over the next four weeks, we systematically eliminated these anti-patterns. This
 
 ### 1.4 Success Metrics
 
-| Metric | Current Baseline | Target After Part 1 | Improvement |
-|--------|------------------|---------------------|-------------|
-| Thread Pool Utilization | 85% | < 30% | **65%** ↓ |
-| Mean Time to Debug | 2 hours | 20 minutes | **83%** ↓ |
-| Error Response Consistency | Inconsistent | RFC 7807 compliant | **100%** ↑ |
-| Code Testability | 35% coverage | > 80% coverage | **128%** ↑ |
-| Request Cancellation | Not implemented | Full support | **N/A** |
+![### 1.4 Success Metrics](images/table_03_14-success-metrics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_03_14-success-metrics.md)
+
 
 ---
 
@@ -156,69 +148,29 @@ Over the next four weeks, we systematically eliminated these anti-patterns. This
 ### 2.1 Anti-Pattern Severity Matrix - Part 1 Focus
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-quadrantChart
-    title Part 1 Anti-Pattern Impact vs. Frequency
-    x-axis "Low Frequency" --> "High Frequency"
-    y-axis "Low Impact" --> "High Impact"
-    quadrant-1 "CRITICAL - Immediate Action"
-    quadrant-2 "PRIORITY - This Sprint"
-    quadrant-3 "MONITOR"
-    quadrant-4 "MINOR"
-    
-    "Blocking Async (.Result/.Wait)": [0.85, 0.92]
-    "No Observability": [0.72, 0.82]
-    "Fat Controllers": [0.82, 0.72]
-    "No CancellationTokens": [0.88, 0.68]
-    "Raw Exception Exposure": [0.68, 0.76]
-    "No Input Validation": [0.86, 0.52]
 ```
+
+![### 2.1 Anti-Pattern Severity Matrix - Part 1 Focus](images/diagram_01_21-anti-pattern-severity-matrix---part-1-focu-a36b.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_01_21-anti-pattern-severity-matrix---part-1-focu-a36b.md)
+
 
 ### 2.2 Root Cause Analysis - Part 1 Patterns
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart TD
-    A[Root Causes - Foundation Layer] --> B[Cultural Factors]
-    A --> C[Process Factors]
-    A --> D[Technical Factors]
-    
-    B --> B1["'Ship it now' mentality"]
-    B --> B2[No code review focus on async]
-    
-    C --> C1[No performance benchmarks]
-    C --> C2[Missing observability requirements]
-    
-    D --> D1[Unfamiliarity with async patterns]
-    D --> D2[No structured logging training]
-    D --> D3[Controller-centric tutorials]
-    
-    B1 & C1 & D1 --> E[Foundation Anti-Patterns]
-    E --> F[Silent Accumulation]
-    F --> G[Production Collapse Under Load]
-    
-    G --> H["The 3:47 AM Pager"]
-    H --> I[Emergency Firefighting]
-    I --> B1
 ```
+
+![### 2.2 Root Cause Analysis - Part 1 Patterns](images/diagram_02_22-root-cause-analysis---part-1-patterns-f911.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_02_22-root-cause-analysis---part-1-patterns-f911.md)
+
 
 ### 2.3 Technical Debt Assessment - Foundation Layer
 
-| Component | Anti-Patterns | Debt Days | Priority | Business Impact |
-|-----------|---------------|-----------|----------|-----------------|
-| **Controllers** | Fat Controllers, No Validation | 12 days | Critical | 3,200 lines of untestable code |
-| **Exception Handling** | Raw Exceptions | 4 days | Critical | Security vulnerabilities, poor UX |
-| **Async Patterns** | Blocking Async, No Cancellation | 8 days | Critical | Thread pool exhaustion under load |
-| **Logging** | No Observability | 5 days | High | 2-hour debugging sessions |
-| **Total Foundation Debt** | | **29 days** | | $50,000+ in incident costs/month |
+![### 2.3 Technical Debt Assessment - Foundation Layer](images/table_04_23-technical-debt-assessment---foundation-lay-83dd.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_04_23-technical-debt-assessment---foundation-lay-83dd.md)
+
 
 ---
 
@@ -227,90 +179,41 @@ flowchart TD
 ### 3.1 Core Principles for Part 1
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    subgraph "Foundation Principles"
-        A[Separation of Concerns] --> A1[Thin Controllers]
-        A --> A2[Business Logic in Handlers]
-        A --> A3[Data Access in Repositories]
-        
-        B[Async All The Way] --> B1[No .Result/.Wait]
-        B --> B2[CancellationToken Propagation]
-        B --> B3[IAsyncEnumerable for Streaming]
-        
-        C[Observability by Default] --> C1[Structured Logging]
-        C --> C2[Distributed Tracing]
-        C --> C3[Business Metrics]
-        
-        D[Fail Fast] --> D1[Early Validation]
-        D --> D2[Problem Details Responses]
-        D --> D3[Clear Error Messages]
-    end
 ```
+
+![### 3.1 Core Principles for Part 1](images/diagram_03_31-core-principles-for-part-1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_03_31-core-principles-for-part-1.md)
+
 
 ### 3.2 The Architectural Shift
 
 Before remediation, the architecture looked like this:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart TD
-    subgraph "Before: Monolithic Controller"
-        A[HTTP Request] --> B[Fat Controller]
-        B --> C[Validation Logic]
-        B --> D[Business Logic]
-        B --> E[Data Access]
-        B --> F[External Calls]
-        B --> G[Response Formatting]
-        C & D & E & F & G --> H[HTTP Response]
-    end
 ```
+
+![Before remediation, the architecture looked like this:](images/diagram_04_before-remediation-the-architecture-looked-like-t-f2ed.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_04_before-remediation-the-architecture-looked-like-t-f2ed.md)
+
 
 After remediation, the architecture becomes:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart TD
-    subgraph "After: Clean Architecture"
-        A[HTTP Request] --> B[Thin Controller]
-        B --> C[MediatR Pipeline]
-        C --> D[Validation Behavior]
-        D --> E[Logging Behavior]
-        E --> F[Idempotency Behavior]
-        F --> G[Command Handler]
-        G --> H[Domain Services]
-        G --> I[Repository]
-        I --> J[Database]
-        G --> K[External Services]
-        H & I & K --> L[Response DTO]
-        L --> B
-    end
 ```
+
+![After remediation, the architecture becomes:](images/diagram_05_after-remediation-the-architecture-becomes-eb9a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_05_after-remediation-the-architecture-becomes-eb9a.md)
+
 
 ### 3.3 Technology Stack - Part 1 Focus
 
-| Layer | Technology | Version | Purpose | Anti-Pattern Addressed |
-|-------|------------|---------|---------|------------------------|
-| **Mediation** | MediatR | 12.0 | Decouple HTTP from business logic | #1 Fat Controllers |
-| **Validation** | FluentValidation | 11.0 | Declarative validation rules | #2 No Validation |
-| **Error Handling** | Problem Details | Built-in | RFC 7807 compliant errors | #3 Raw Exceptions |
-| **Async** | .NET 10 Native | 10.0 | Async/await patterns | #4 Blocking Async |
-| **Cancellation** | CancellationToken | Built-in | Resource cleanup | #5 No Cancellation |
-| **Logging** | Serilog | 4.0 | Structured logging | #11 No Observability |
-| **Tracing** | OpenTelemetry | 1.7 | Distributed tracing | #11 No Observability |
-| **Metrics** | OpenTelemetry | 1.7 | Business & system metrics | #11 No Observability |
+![### 3.3 Technology Stack - Part 1 Focus](images/table_05_33-technology-stack---part-1-focus-094d.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_05_33-technology-stack---part-1-focus-094d.md)
+
 
 ---
 
@@ -326,12 +229,10 @@ flowchart TD
 
 **Real-World Consequences**:
 
-| Consequence | Impact | Real Example from the Incident |
-|-------------|--------|--------------------------------|
-| **Untestable** | 0% unit test coverage | Mocking HTTP context, database, and external services simultaneously was impossible |
-| **Merge Conflicts** | 3-4 hours per merge | Two developers modified the same 3,200-line file, losing a day to merge resolution |
-| **Bug Propagation** | Regression in 40% of changes | Changing the discount logic broke payment processing |
-| **Cognitive Load** | 2-3x development time | Understanding 3,200 lines to fix a simple bug took 4 hours |
+![**Real-World Consequences**:](images/table_06_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_06_real-world-consequences.md)
+
 
 **Code Smells Identification**:
 
@@ -353,13 +254,10 @@ flowchart TD
 
 **Component Responsibilities**:
 
-| Component | Responsibility | Target Lines |
-|-----------|---------------|--------------|
-| **Controller** | HTTP routing, model binding, response formatting | < 50 |
-| **Command/Query** | Input DTO with validation rules | < 100 |
-| **Handler** | Business logic orchestration | < 200 |
-| **Validator** | Input validation rules | < 100 |
-| **Service** | Domain operations | Variable |
+![**Component Responsibilities**:](images/table_07_component-responsibilities.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_07_component-responsibilities.md)
+
 
 **Complete Implementation**:
 
@@ -642,13 +540,10 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, ErrorOr<Or
 
 **Benefits Summary**:
 
-| Aspect | Before (Fat Controller) | After (MediatR Pattern) | Improvement |
-|--------|-------------------------|-------------------------|-------------|
-| **Testability** | Mock HTTP context, database, services | Simple unit test with mocked dependencies | **100%** ↑ |
-| **Maintainability** | 3,200 lines, 40% duplicate code | 50 lines per controller, 0% duplication | **98%** ↓ lines |
-| **Development Speed** | 3 days per new endpoint | 4 hours per new endpoint | **83%** faster |
-| **Bug Rate** | 8 bugs per 1000 lines | 1 bug per 1000 lines | **87%** reduction |
-| **Merge Conflicts** | Daily conflicts | Rare conflicts | **95%** reduction |
+![**Benefits Summary**:](images/table_08_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_08_benefits-summary.md)
+
 
 ---
 
@@ -664,13 +559,10 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, ErrorOr<Or
 
 **Real-World Consequences**:
 
-| Violation | Impact | Real Example from the Incident |
-|-----------|--------|--------------------------------|
-| **Missing null checks** | NullReferenceException in production | Optional field omitted caused crash |
-| **No length limits** | Database overflow, DoS attacks | 10MB string stored, filling transaction log |
-| **No format validation** | Data inconsistency | Email addresses with invalid format stored |
-| **No business validation** | Invalid business states | Order with negative quantity processed |
-| **No SQL parameterization** | SQL injection | Direct string concatenation in queries |
+![**Real-World Consequences**:](images/table_09_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_09_real-world-consequences.md)
+
 
 **Anti-Pattern #3: Returning Raw Exceptions**
 
@@ -680,12 +572,10 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, ErrorOr<Or
 
 **Real-World Consequences**:
 
-| Violation | Impact | Real Example from the Incident |
-|-----------|--------|--------------------------------|
-| **Stack trace exposure** | Security vulnerability | Database connection string in error response |
-| **Internal error codes** | Confusing API consumers | SQL error code returned to frontend |
-| **No error correlation** | Difficult debugging | Cannot trace error to specific request |
-| **Inconsistent error format** | Poor client experience | Each endpoint returned different error structure |
+![**Real-World Consequences**:](images/table_10_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_10_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -1134,13 +1024,10 @@ public class ConflictException : DomainException
 
 **Benefits Summary**:
 
-| Aspect | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **Error Response Format** | Inconsistent, raw stack traces | RFC 7807 Problem Details | **100%** consistent |
-| **Validation Rules** | Scattered if statements | Centralized, reusable validators | **90%** less code |
-| **Security** | Exposed internal details | Sanitized, consistent errors | Vulnerabilities eliminated |
-| **Debugging** | No correlation between errors | Trace ID across all responses | **83%** faster debugging |
-| **Client Experience** | Confusing error messages | Clear, actionable error details | **100%** improvement |
+![**Benefits Summary**:](images/table_11_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_11_benefits-summary.md)
+
 
 ---
 
@@ -1157,33 +1044,12 @@ public class ConflictException : DomainException
 **Thread Pool Starvation Mechanics**:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "Thread Pool Under Load - The Incident"
-        A[Request 1] --> B[Thread 1]
-        C[Request 2] --> D[Thread 2]
-        E[Request 3] --> F[Thread 3]
-        G[Request 4] --> H[Thread 4]
-        
-        B --> I[.Result on async DB call]
-        D --> I
-        F --> I
-        H --> I
-        
-        I --> J[Thread 1 Blocked<br/>Waiting for I/O]
-        I --> K[Thread 2 Blocked<br/>Waiting for I/O]
-        I --> L[Thread 3 Blocked<br/>Waiting for I/O]
-        I --> M[Thread 4 Blocked<br/>Waiting for I/O]
-        
-        N[Request 5] --> O[No threads available]
-        O --> P[Queue Length Increases]
-        P --> Q[Request Timeouts]
-    end
 ```
+
+![**Thread Pool Starvation Mechanics**:](images/diagram_06_thread-pool-starvation-mechanics-a815.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_06_thread-pool-starvation-mechanics-a815.md)
+
 
 **Consequences**:
 - **Deadlocks**: In ASP.NET Core with `SynchronizationContext`, `.Result` can cause deadlocks
@@ -1481,41 +1347,19 @@ public class BulkOrderProcessor : IAsyncDisposable
 **Performance Comparison**:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    subgraph "Blocking Async (.Result) - The Incident"
-        A[Request] --> B[Thread Allocated]
-        B --> C[I/O Operation Started]
-        C --> D[Thread Blocked]
-        D --> E[Thread Pool Starvation]
-        E --> F[Additional Requests Queued]
-        F --> G[Timeouts & Failures]
-    end
-    
-    subgraph "True Async (await) - After Fix"
-        A2[Request] --> B2[Thread Allocated]
-        B2 --> C2[I/O Operation Started]
-        C2 --> D2[Thread Returned to Pool]
-        D2 --> E2[Thread Available for Other Requests]
-        E2 --> F2[I/O Completes]
-        F2 --> G2[Thread Reallocated]
-        G2 --> H2[Response Returned]
-    end
 ```
+
+![**Performance Comparison**:](images/diagram_07_performance-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_07_performance-comparison.md)
+
 
 **Benefits Summary**:
 
-| Metric | Sync-over-Async (.Result) | True Async (await) | Improvement |
-|--------|---------------------------|-------------------|-------------|
-| **Threads Used per Request** | 1 (blocked) | ~0.1 (only during CPU work) | **90%** reduction |
-| **Max Concurrent Requests (4 CPU cores)** | ~40 (thread pool limit) | ~10,000 (I/O bound) | **250x** increase |
-| **Memory per Request** | 1MB+ (thread stack) | <100KB | **90%** reduction |
-| **Response Time under Load** | Exponential degradation | Linear scaling | **95%** improvement |
-| **Cancellation Support** | None | Full support | **100%** coverage |
+![**Benefits Summary**:](images/table_12_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_12_benefits-summary.md)
+
 
 ---
 
@@ -1529,12 +1373,10 @@ graph LR
 
 **Observability Gap Consequences**:
 
-| Gap | Consequence | Resolution Time |
-|-----|-------------|-----------------|
-| **No Logs** | Can't determine what happened | Hours (reproducing issue) |
-| **No Tracing** | Can't identify bottleneck across services | Days (manual correlation) |
-| **No Metrics** | Can't predict capacity needs | Reactive scaling only |
-| **No Alerts** | Problems discovered by users first | Customer impact before detection |
+![**Observability Gap Consequences**:](images/table_13_observability-gap-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_13_observability-gap-consequences.md)
+
 
 #### Architectural Solution
 
@@ -2327,73 +2169,21 @@ groups:
 ### 6.3 Distributed Tracing Architecture
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "Client"
-        Browser[Browser/App]
-    end
-    
-    subgraph "Edge"
-        LB[Load Balancer]
-    end
-    
-    subgraph "Application"
-        API1[API Instance 1]
-        API2[API Instance 2]
-        API3[API Instance 3]
-    end
-    
-    subgraph "Services"
-        DB[(Database)]
-        Redis[(Redis)]
-        Payment[Payment Service]
-        Inventory[Inventory Service]
-    end
-    
-    subgraph "Observability"
-        Collector[OpenTelemetry Collector]
-        Jaeger[Jaeger]
-        Tempo[Tempo]
-        Grafana[Grafana]
-    end
-    
-    Browser --> LB --> API1 & API2 & API3
-    
-    API1 --> DB
-    API1 --> Redis
-    API1 --> Payment
-    API1 --> Inventory
-    
-    API1 & API2 & API3 --> Collector
-    DB --> Collector
-    Redis --> Collector
-    Payment --> Collector
-    Inventory --> Collector
-    
-    Collector --> Jaeger
-    Collector --> Tempo
-    Collector --> Grafana
-    
-    Grafana --> Jaeger
-    Grafana --> Tempo
 ```
+
+![### 6.3 Distributed Tracing Architecture](images/diagram_08_63-distributed-tracing-architecture-4e74.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_08_63-distributed-tracing-architecture-4e74.md)
+
 
 ### 6.4 Logging Strategy
 
 **Log Levels and Usage:**
 
-| Level | Usage | Example |
-|-------|-------|---------|
-| **Trace** | Development debugging, detailed execution flow | Entering method with parameters |
-| **Debug** | Development diagnostics, non-production | Cache hits/misses, query execution |
-| **Information** | Business events, operational milestones | Order created, user logged in |
-| **Warning** | Recoverable issues, potential problems | Retry attempts, slow queries |
-| **Error** | Exceptions, business rule violations | Payment failure, validation errors |
-| **Critical** | System failures, data corruption | Database unavailable, service crash |
+![**Log Levels and Usage:**](images/table_14_log-levels-and-usage.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_14_log-levels-and-usage.md)
+
 
 **Structured Log Format:**
 
@@ -2425,44 +2215,19 @@ flowchart LR
 ### 7.1 Phased Approach for Foundation Remediation
 
 ```mermaid
-
-gantt
-    title Part 1: Foundation Remediation Timeline
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    
-    section Phase 1A - Observability (Week 1)
-    Serilog Configuration           :phase1a1, 2026-04-01, 1d
-    OpenTelemetry Setup             :phase1a2, after phase1a1, 1d
-    Metrics Instrumentation         :phase1a3, after phase1a2, 1d
-    Dashboard Creation              :phase1a4, after phase1a3, 1d
-    
-    section Phase 1B - Exception Handling (Week 1-2)
-    Global Exception Handler        :phase1b1, 2026-04-03, 1d
-    Problem Details Implementation  :phase1b2, after phase1b1, 1d
-    Custom Exception Types          :phase1b3, after phase1b2, 1d
-    
-    section Phase 1C - Async Conversion (Week 2-3)
-    Database Async Migration        :phase1c1, 2026-04-08, 2d
-    External Calls Async Migration  :phase1c2, after phase1c1, 2d
-    CancellationToken Addition      :phase1c3, after phase1c2, 1d
-    Load Testing                    :phase1c4, after phase1c3, 1d
-    
-    section Phase 1D - Controller Refactor (Week 3-4)
-    MediatR Implementation          :phase1d1, 2026-04-15, 2d
-    Command/Handler Creation        :phase1d2, after phase1d1, 3d
-    Validation Migration            :phase1d3, after phase1d2, 2d
-    Testing & Rollout               :phase1d4, after phase1d3, 2d
 ```
+
+![### 7.1 Phased Approach for Foundation Remediation](images/diagram_09_71-phased-approach-for-foundation-remediation-c079.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/diagram_09_71-phased-approach-for-foundation-remediation-c079.md)
+
 
 ### 7.2 Risk Mitigation - Part 1
 
-| Risk | Probability | Impact | Mitigation Strategy |
-|------|------------|--------|---------------------|
-| **Async Conversion Breaking Changes** | Medium | High | Feature flags, gradual rollout, performance baselines |
-| **Observability Overhead** | Low | Medium | Sampling rates, async logging, metrics aggregation |
-| **Thread Pool Changes** | Medium | High | Canary deployment, immediate rollback capability |
-| **Exception Handler Compatibility** | Low | Medium | Backward compatibility layer, client notification |
+![### 7.2 Risk Mitigation - Part 1](images/table_15_72-risk-mitigation---part-1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_15_72-risk-mitigation---part-1.md)
+
 
 ### 7.3 Rollback Strategy - Part 1
 
@@ -2509,13 +2274,10 @@ public class OrdersController : ControllerBase
 
 ### 7.4 Training & Adoption - Part 1
 
-| Training Topic | Duration | Audience | Format |
-|----------------|----------|----------|--------|
-| Async/Await Best Practices | 2 hours | All Developers | Workshop with hands-on exercises |
-| Observability with OpenTelemetry | 2 hours | DevOps & Backend | Demo + Lab |
-| MediatR and CQRS Patterns | 3 hours | Backend Developers | Code Review Session |
-| FluentValidation Deep Dive | 1 hour | All Developers | Lunch & Learn |
-| Problem Details and RFC 7807 | 1 hour | API Developers | Architecture Review |
+![### 7.4 Training & Adoption - Part 1](images/table_16_74-training--adoption---part-1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_16_74-training--adoption---part-1.md)
+
 
 ---
 
@@ -2523,25 +2285,17 @@ public class OrdersController : ControllerBase
 
 ### 8.1 Part 1 Accomplishments
 
-| Anti-Pattern | Solution Implemented | Key Outcome |
-|--------------|---------------------|-------------|
-| **#1 Fat Controllers** | MediatR with CQRS | Controllers reduced from 3,200 to <50 lines |
-| **#2 No Validation** | FluentValidation with async rules | 100% of inputs validated before processing |
-| **#3 Raw Exceptions** | Global exception handler with ProblemDetails | Consistent RFC 7807 error responses |
-| **#4 Blocking Async** | True async/await patterns | Thread usage reduced by 98% |
-| **#5 No Cancellation** | CancellationToken propagation | Resources freed on client disconnect |
-| **#11 No Observability** | OpenTelemetry + Serilog | Full visibility into application behavior |
+![### 8.1 Part 1 Accomplishments](images/table_17_81-part-1-accomplishments.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_17_81-part-1-accomplishments.md)
+
 
 ### 8.2 Performance Improvements - Part 1
 
-| Metric | Before Incident | After Part 1 | Improvement |
-|--------|-----------------|--------------|-------------|
-| Thread Pool Utilization | 85% | 25% | **70%** ↓ |
-| Mean Time to Debug | 2 hours | 20 minutes | **83%** ↓ |
-| Error Response Consistency | Inconsistent | RFC 7807 compliant | **100%** ↑ |
-| Code Testability | 35% coverage | 80% coverage | **128%** ↑ |
-| Memory Usage | 8.2 GB | 1.2 GB | **85%** ↓ |
-| Max Concurrent Requests (4 CPU) | 40 | 10,000 | **250x** ↑ |
+![### 8.2 Performance Improvements - Part 1](images/table_18_82-performance-improvements---part-1-dffb.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-1/table_18_82-performance-improvements---part-1-dffb.md)
+
 
 ### 8.3 Key Takeaways - Part 1
 

@@ -39,12 +39,10 @@ This part focuses on the data access layer and API contract design:
 
 ### The Cost of Data Anti-Patterns
 
-| Anti-Pattern | Hidden Cost | Production Impact at 3 AM |
-|--------------|-------------|---------------------------|
-| **No Pagination** | 10,000+ rows transferred per request | Browser crashes, network timeouts |
-| **Over-fetching** | 10x more data than needed | Database I/O saturation |
-| **EF Entities as Response** | Circular references, sensitive data exposure | JSON serialization errors, security breaches |
-| **Wrong Status Codes** | All responses return 200 OK | Frontend cannot distinguish success from error |
+![### The Cost of Data Anti-Patterns](images/table_01_the-cost-of-data-anti-patterns.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_01_the-cost-of-data-anti-patterns.md)
+
 
 ---
 
@@ -71,12 +69,10 @@ This part focuses on the data access layer and API contract design:
 
 Most API performance issues stem not from complex algorithms but from inefficient data access patterns. The four anti-patterns addressed in this part represent the most common and damaging data access mistakes:
 
-| Anti-Pattern | Silent Killer Mechanism | Production Symptom |
-|--------------|------------------------|-------------------|
-| **No Pagination** | Entire tables serialized | Browser memory overflow, API timeouts |
-| **Wrong Status Codes** | All responses return 200 OK | Frontend cannot distinguish success from error |
-| **Over-fetching** | SELECT * queries | Database CPU saturation, network latency |
-| **EF Entities as Response** | Domain models exposed | Circular reference errors, security leaks |
+![Most API performance issues stem not from complex algorithms but from inefficient data access patterns. The four anti-patterns addressed in this part represent the most common and damaging data access mistakes:](images/table_02_most-api-performance-issues-stem-not-from-complex-b688.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_02_most-api-performance-issues-stem-not-from-complex-b688.md)
+
 
 ### 1.2 The Story: What We Found
 
@@ -127,14 +123,10 @@ The architecture described herein establishes:
 
 ### 1.4 Success Metrics
 
-| Metric | Current Baseline | Target After Part 2 | Improvement |
-|--------|------------------|---------------------|-------------|
-| Data Transferred per Request | 10 MB | 50 KB | **99.5%** ↓ |
-| Query Time | 2.5 seconds | 50 ms | **98%** ↓ |
-| API Response Time | 3 seconds | 100 ms | **97%** ↓ |
-| Database CPU | 95% | 35% | **63%** ↓ |
-| Error Response Consistency | 0% | 100% | **100%** ↑ |
-| Browser Render Time | 5 seconds | < 100 ms | **98%** ↓ |
+![### 1.4 Success Metrics](images/table_03_14-success-metrics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_03_14-success-metrics.md)
+
 
 ---
 
@@ -143,95 +135,39 @@ The architecture described herein establishes:
 ### 2.1 Anti-Pattern Severity Matrix - Part 2 Focus
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-quadrantChart
-    title Part 2 Anti-Pattern Impact vs. Frequency
-    x-axis "Low Frequency" --> "High Frequency"
-    y-axis "Low Impact" --> "High Impact"
-    quadrant-1 "CRITICAL - Immediate Action"
-    quadrant-2 "PRIORITY - This Sprint"
-    quadrant-3 "MONITOR"
-    quadrant-4 "MINOR"
-    
-    "No Pagination": [0.78, 0.88]
-    "Over-fetching Data": [0.79, 0.69]
-    "EF Entities as Response": [0.74, 0.64]
-    "Wrong HTTP Status Codes": [0.71, 0.58]
 ```
+
+![### 2.1 Anti-Pattern Severity Matrix - Part 2 Focus](images/diagram_01_21-anti-pattern-severity-matrix---part-2-focu-7368.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_01_21-anti-pattern-severity-matrix---part-2-focu-7368.md)
+
 
 ### 2.2 Data Flow Anti-Pattern Visualization
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "Anti-Pattern Data Flow - The Incident"
-        A[API Request] --> B[EF Core Query]
-        B --> C["SELECT * FROM Orders<br/>LEFT JOIN OrderItems<br/>LEFT JOIN Products<br/>LEFT JOIN Customers<br/>LEFT JOIN Payments<br/>LEFT JOIN Shipments"]
-        C --> D[10,000+ rows<br/>50+ columns per row]
-        D --> E[Entity Materialization<br/>with Change Tracking]
-        E --> F[JSON Serialization<br/>with Circular References]
-        F --> G[50 MB Response]
-        G --> H[Browser Memory Overflow]
-    end
-    
-    subgraph "Fixed Data Flow - After Remediation"
-        A2[API Request with Pagination] --> B2[EF Core Query]
-        B2 --> C2["SELECT Id, OrderNumber, Total, Status, OrderDate<br/>FROM Orders<br/>WHERE CustomerId = @p0<br/>AND IsDeleted = 0<br/>ORDER BY OrderDate DESC<br/>OFFSET @p1 ROWS<br/>FETCH NEXT @p2 ROWS ONLY"]
-        C2 --> D2[20 rows<br/>5 columns per row]
-        D2 --> E2[DTO Projection<br/>No Change Tracking]
-        E2 --> F2[50 KB Response]
-        F2 --> G2[Browser Renders Quickly]
-    end
 ```
+
+![### 2.2 Data Flow Anti-Pattern Visualization](images/diagram_02_22-data-flow-anti-pattern-visualization-d52c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_02_22-data-flow-anti-pattern-visualization-d52c.md)
+
 
 ### 2.3 Root Cause Analysis - Data Layer
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart TD
-    A[Root Causes - Data Layer] --> B[Testing Gaps]
-    A --> C[Knowledge Gaps]
-    A --> D[Design Gaps]
-    
-    B --> B1[Tested with 3 orders in dev]
-    B --> B2[No performance testing]
-    B --> B3[No load testing]
-    
-    C --> C1[Unfamiliar with EF Core projections]
-    C --> C2[No knowledge of pagination patterns]
-    C --> C3[Don't understand HTTP semantics]
-    
-    D --> D1[No DTO layer]
-    D --> D2[Domain entities exposed]
-    D --> D3[No API versioning strategy]
-    
-    B1 & C1 & D1 --> E[Data Anti-Patterns]
-    E --> F[Production Collapse Under Load]
-    
-    F --> G[The 50MB Response]
-    G --> H[Customer Abandonment]
 ```
+
+![### 2.3 Root Cause Analysis - Data Layer](images/diagram_03_23-root-cause-analysis---data-layer-df4c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_03_23-root-cause-analysis---data-layer-df4c.md)
+
 
 ### 2.4 Technical Debt Assessment - Data Layer
 
-| Component | Anti-Patterns | Debt Days | Priority | Business Impact |
-|-----------|---------------|-----------|----------|-----------------|
-| **Order Queries** | No Pagination, Over-fetching | 8 days | Critical | 50MB responses, 3-second queries |
-| **API Responses** | EF Entities Exposed | 4 days | Critical | Security vulnerabilities, circular references |
-| **Error Handling** | Wrong Status Codes | 2 days | High | Frontend can't distinguish errors |
-| **Total Data Layer Debt** | | **14 days** | | $30,000+ in cloud costs/month |
+![### 2.4 Technical Debt Assessment - Data Layer](images/table_04_24-technical-debt-assessment---data-layer-1c5f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_04_24-technical-debt-assessment---data-layer-1c5f.md)
+
 
 ---
 
@@ -240,85 +176,41 @@ flowchart TD
 ### 3.1 Core Principles for Part 2
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Data Access Principles"
-        A[Pagination by Default] --> A1[Skip/Take for all collections]
-        A --> A2[Cursor-based for large datasets]
-        A --> A3[Metadata in response headers]
-        
-        B[Project Only What You Need] --> B1[Select projections]
-        B --> B2[No SELECT *]
-        B --> B3[Explicit column lists]
-        
-        C[DTOs for API Contracts] --> C1[Decouple from domain]
-        C --> C2[Version independently]
-        C --> C3[Security through omission]
-        
-        D[Proper HTTP Status Codes] --> D1[2xx for success]
-        D --> D2[4xx for client errors]
-        D --> D3[5xx for server errors]
-        D --> D4[Problem Details for errors]
-    end
 ```
+
+![### 3.1 Core Principles for Part 2](images/diagram_04_31-core-principles-for-part-2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_04_31-core-principles-for-part-2.md)
+
 
 ### 3.2 The Architectural Shift
 
 Before remediation, the data flow looked like this:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
- subgraph subGraph0["Before: Database-First API"]
-        B["Controller"]
-        A["HTTP Request"]
-        C["EF Core Query with Include"]
-        D["Entity Materialization"]
-        E["Return Raw Entity"]
-        F["JSON Serialization"]
-        G["Browser Crash"]
-  end
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
 ```
+
+![Before remediation, the data flow looked like this:](images/diagram_05_before-remediation-the-data-flow-looked-like-this-8d32.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_05_before-remediation-the-data-flow-looked-like-this-8d32.md)
+
 
 After remediation, the data flow becomes:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-flowchart LR
-    subgraph "After: Contract-First API"
-        A[HTTP Request with Pagination] --> B[Controller]
-        B --> C[Repository with Projection]
-        C --> D[SELECT only needed columns]
-        D --> E[DTO Projection]
-        E --> F[Return DTO]
-        F --> G[Browser Renders]
-    end
 ```
+
+![After remediation, the data flow becomes:](images/diagram_06_after-remediation-the-data-flow-becomes-2598.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_06_after-remediation-the-data-flow-becomes-2598.md)
+
 
 ### 3.3 SQL Query Comparison
 
-| Approach | Generated SQL | Data Transferred | Query Time |
-|----------|--------------|------------------|------------|
-| **Anti-Pattern** | `SELECT * FROM Orders o LEFT JOIN OrderItems i ON o.Id = i.OrderId LEFT JOIN Products p ON i.ProductId = p.Id LEFT JOIN Customers c ON o.CustomerId = c.Id` | All columns from 4 tables, all rows | 2.5 seconds |
-| **Fixed** | `SELECT o.Id, o.OrderNumber, o.OrderDate, o.Total, o.Status FROM Orders o WHERE o.CustomerId = @p0 AND o.IsDeleted = 0 ORDER BY o.OrderDate DESC OFFSET @p1 ROWS FETCH NEXT @p2 ROWS ONLY` | Only needed columns, paginated rows | 50 ms |
+![### 3.3 SQL Query Comparison](images/table_05_33-sql-query-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_05_33-sql-query-comparison.md)
+
 
 ---
 
@@ -334,13 +226,10 @@ flowchart LR
 
 **Real-World Consequences**:
 
-| Consequence | Impact | Real Example from the Incident |
-|-------------|--------|--------------------------------|
-| **Browser Memory** | 10,000 rows = 50MB+ DOM | Browser tab crashed |
-| **Mobile App** | 50MB download | Mobile data plan exhausted |
-| **Network Transfer** | 50MB per request | API timeouts on slow networks |
-| **Database Load** | Full table scans | CPU saturation at 95% |
-| **API Timeouts** | Queries exceed 30 seconds | 500 errors |
+![**Real-World Consequences**:](images/table_06_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_06_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -688,13 +577,10 @@ public class OrdersController : ControllerBase
 
 **Benefits Summary**:
 
-| Aspect | Before (No Pagination) | After (Pagination) | Improvement |
-|--------|------------------------|--------------------|-------------|
-| **Data Transferred** | 50 MB for 10,000 orders | 50 KB for 20 orders | **99.9%** reduction |
-| **Query Time** | 2.5 seconds | 50 ms | **98%** faster |
-| **Browser Memory** | 500 MB DOM | 2 MB DOM | **99.6%** reduction |
-| **Database CPU** | 95% | 35% | **63%** reduction |
-| **Mobile Data Usage** | 50 MB per view | 50 KB per view | **99.9%** reduction |
+![**Benefits Summary**:](images/table_07_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_07_benefits-summary.md)
+
 
 ---
 
@@ -708,12 +594,10 @@ public class OrdersController : ControllerBase
 
 **Real-World Consequences**:
 
-| Violation | Impact | Real Example from the Incident |
-|-----------|--------|--------------------------------|
-| **200 for errors** | Monitoring blind | No alerts when database down |
-| **200 for not found** | Confusing logs | 404 not logged |
-| **200 for validation** | Poor UX | Client can't show proper error UI |
-| **200 for unauthorized** | Security risk | Unauthorized access not logged |
+![**Real-World Consequences**:](images/table_08_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_08_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -935,12 +819,10 @@ public static class HttpStatusCodes
 
 **Benefits Summary**:
 
-| Aspect | Before (200 for everything) | After (Proper Status Codes) | Improvement |
-|--------|----------------------------|----------------------------|-------------|
-| **Monitoring** | No visibility into errors | Alerts on 5xx errors | **100%** visibility |
-| **Client Logic** | Parse response body for errors | Check status code | **90%** simpler code |
-| **Security** | Unauthorized not logged | 401 logged and monitored | **100%** auditable |
-| **Debugging** | No error correlation | Trace ID in all responses | **83%** faster debugging |
+![**Benefits Summary**:](images/table_09_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_09_benefits-summary.md)
+
 
 ---
 
@@ -954,12 +836,10 @@ public static class HttpStatusCodes
 
 **Real-World Consequences**:
 
-| Violation | Impact | Real Example from the Incident |
-|-----------|--------|--------------------------------|
-| **Database I/O** | 10x more data read from disk | 95% CPU, slow queries |
-| **Network Transfer** | 10x more data over network | API timeouts on slow connections |
-| **Memory Allocation** | 10x more memory in API | 8GB memory usage, GC pressure |
-| **Serialization** | 10x more JSON to serialize | Response time dominated by serialization |
+![**Real-World Consequences**:](images/table_10_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_10_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -1168,13 +1048,10 @@ public class OrderRepository : IOrderRepository
 
 **Benefits Summary**:
 
-| Aspect | Before (SELECT *) | After (Projections) | Improvement |
-|--------|-------------------|---------------------|-------------|
-| **Columns Returned** | 50 columns | 6 columns | **88%** reduction |
-| **Data Read from Disk** | 10 MB | 0.5 MB | **95%** reduction |
-| **Network Transfer** | 50 MB | 50 KB | **99.9%** reduction |
-| **Memory Allocation** | 500 MB | 5 MB | **99%** reduction |
-| **Serialization Time** | 500 ms | 10 ms | **98%** faster |
+![**Benefits Summary**:](images/table_11_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_11_benefits-summary.md)
+
 
 ---
 
@@ -1195,12 +1072,10 @@ When a developer added a new property to the `Order` entity for internal use, it
 
 **Real-World Consequences**:
 
-| Violation | Impact | Real Example from the Incident |
-|-----------|--------|--------------------------------|
-| **Password hash exposed** | Security breach | Customer passwords in API responses |
-| **Credit card data exposed** | PCI violation | Full card numbers in logs |
-| **Circular references** | JSON serialization errors | API crashes on certain queries |
-| **Tight coupling** | Database changes break API | New fields appear without consent |
+![**Real-World Consequences**:](images/table_12_real-world-consequences.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_12_real-world-consequences.md)
+
 
 #### Architectural Solution
 
@@ -1459,13 +1334,10 @@ public class OrdersController : ControllerBase
 
 **Benefits Summary**:
 
-| Aspect | Before (EF Entities) | After (DTOs) | Improvement |
-|--------|---------------------|--------------|-------------|
-| **Security** | Password hash exposed | Sensitive fields excluded | **100%** secure |
-| **PCI Compliance** | Full card numbers exposed | Only last 4 digits | **100%** compliant |
-| **API Stability** | Database changes break API | API versioned independently | **100%** backward compatible |
-| **Serialization** | Circular reference errors | Clean DTO structure | **100%** reliable |
-| **Documentation** | Unclear what fields are public | Clear, explicit contract | **100%** documented |
+![**Benefits Summary**:](images/table_13_benefits-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_13_benefits-summary.md)
+
 
 ---
 
@@ -1943,45 +1815,19 @@ groups:
 ### 7.1 Phased Approach for Data Layer Remediation
 
 ```mermaid
-
-gantt
-    title Part 2: Data Layer Remediation Timeline
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    
-    section Phase 2A - Pagination (Week 1)
-    Add Pagination Parameters      :phase2a1, 2026-04-22, 1d
-    Implement Skip/Take Logic      :phase2a2, after phase2a1, 2d
-    Add Response Headers           :phase2a3, after phase2a2, 1d
-    Update Frontend                :phase2a4, after phase2a3, 1d
-    
-    section Phase 2B - Projections (Week 1-2)
-    Create DTOs                    :phase2b1, 2026-04-24, 2d
-    Convert Queries to Projections :phase2b2, after phase2b1, 2d
-    Remove Include() Calls         :phase2b3, after phase2b2, 1d
-    Performance Testing            :phase2b4, after phase2b3, 1d
-    
-    section Phase 2C - HTTP Status Codes (Week 2)
-    Add Proper Status Codes        :phase2c1, 2026-04-29, 2d
-    Implement Problem Details      :phase2c2, after phase2c1, 1d
-    Update Client Error Handling   :phase2c3, after phase2c2, 1d
-    
-    section Phase 2D - DTO Migration (Week 3)
-    Create DTO Contracts           :phase2d1, 2026-05-06, 2d
-    Map Entities to DTOs           :phase2d2, after phase2d1, 2d
-    Remove Entity Exposure         :phase2d3, after phase2d2, 1d
-    API Versioning                 :phase2d4, after phase2d3, 1d
-    Deprecate Old Endpoints        :phase2d5, after phase2d4, 1d
 ```
+
+![### 7.1 Phased Approach for Data Layer Remediation](images/diagram_07_71-phased-approach-for-data-layer-remediation-9739.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/diagram_07_71-phased-approach-for-data-layer-remediation-9739.md)
+
 
 ### 7.2 Risk Mitigation - Part 2
 
-| Risk | Probability | Impact | Mitigation Strategy |
-|------|------------|--------|---------------------|
-| **Breaking API Contracts** | Medium | High | API versioning, parallel endpoints, deprecation headers |
-| **Performance Regression** | Medium | Medium | Performance baselines, canary deployment, A/B testing |
-| **Missing Indexes** | High | Medium | Database migration scripts, query plan analysis |
-| **Cache Invalidation** | Medium | Medium | Redis cache with TTL, cache versioning |
+![### 7.2 Risk Mitigation - Part 2](images/table_14_72-risk-mitigation---part-2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_14_72-risk-mitigation---part-2.md)
+
 
 ### 7.3 Rollback Strategy - Data Layer
 
@@ -2028,13 +1874,10 @@ public class OrderRepository : IOrderRepository
 
 ### 7.4 Training & Adoption - Part 2
 
-| Training Topic | Duration | Audience | Format |
-|----------------|----------|----------|--------|
-| EF Core Projections Deep Dive | 3 hours | Backend Developers | Workshop with hands-on exercises |
-| Pagination Patterns (Offset vs Cursor vs Keyset) | 2 hours | All Developers | Architecture Review |
-| HTTP Status Codes Best Practices | 1 hour | API Developers | Lunch & Learn |
-| DTO Design and API Versioning | 2 hours | All Developers | Code Review Session |
-| Database Performance Tuning | 3 hours | Backend + DBA | Workshop |
+![### 7.4 Training & Adoption - Part 2](images/table_15_74-training--adoption---part-2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_15_74-training--adoption---part-2.md)
+
 
 ---
 
@@ -2042,23 +1885,17 @@ public class OrderRepository : IOrderRepository
 
 ### 8.1 Part 2 Accomplishments
 
-| Anti-Pattern | Solution Implemented | Key Outcome |
-|--------------|---------------------|-------------|
-| **#6 No Pagination** | Skip/Take with metadata headers | Data transferred reduced by 99.5% |
-| **#7 Wrong Status Codes** | Proper HTTP semantics with Problem Details | Clients can distinguish errors |
-| **#8 Over-fetching Data** | Projections with .Select() | Query time reduced by 98% |
-| **#9 Returning EF Entities** | DTOs with AutoMapper | Complete decoupling from database |
+![### 8.1 Part 2 Accomplishments](images/table_16_81-part-2-accomplishments.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_16_81-part-2-accomplishments.md)
+
 
 ### 8.2 Performance Improvements - Part 2
 
-| Metric | Before | After Part 2 | Improvement |
-|--------|--------|--------------|-------------|
-| Data Transferred per Request | 10 MB | 50 KB | **99.5%** ↓ |
-| Query Time | 2.5 seconds | 50 ms | **98%** ↓ |
-| API Response Time | 3 seconds | 100 ms | **97%** ↓ |
-| Database CPU | 95% | 35% | **63%** ↓ |
-| Memory Usage | 8.2 GB | 1.2 GB | **85%** ↓ |
-| Browser Render Time | 5 seconds | < 100 ms | **98%** ↓ |
+![### 8.2 Performance Improvements - Part 2](images/table_17_82-performance-improvements---part-2-a10c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architectural-remediation-framework-eliminating-the-12-silent-killers-in-net-10-web-apis---part-2/table_17_82-performance-improvements---part-2-a10c.md)
+
 
 ### 8.3 Key Takeaways - Part 2
 
