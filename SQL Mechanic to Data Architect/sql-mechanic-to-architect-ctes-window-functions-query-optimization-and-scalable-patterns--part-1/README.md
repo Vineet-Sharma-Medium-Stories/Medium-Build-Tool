@@ -1,6 +1,6 @@
 # Sql Mechanic To Architect Ctes Window Functions Query Optimization And Scalable Patterns  Part 1
 
-Generated: 2026-03-25 00:37:21
+Generated: 2026-03-25 00:41:07
 
 ## Summary
 - Tables: 1
