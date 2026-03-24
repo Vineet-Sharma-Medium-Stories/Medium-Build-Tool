@@ -1,7 +1,7 @@
 # SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1
 ## From reactive queries to proactive insights: modular CTEs, window functions, and the debugging patterns that get you promoted.
 
-![alt text](<images/SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.png>)
 
 I've sat on both sides of the table—as a junior analyst writing fragile queries and as a hiring manager reviewing SQL assessments. The difference between someone who gets hired and someone who gets promoted isn't about knowing more functions. It's about understanding *when* and *why* to use them.
 
@@ -21,7 +21,7 @@ Before diving into the concepts, let's visualize the transformation we're aiming
 ```mermaid
 ```
 
-![Before diving into the concepts, let's visualize the transformation we're aiming for:](images/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.png)
+![Before diving into the concepts, let's visualize the transformation we're aiming for:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.md)
 
@@ -41,7 +41,7 @@ Basic SQL practitioners react to requests literally. Advanced SQL practitioners 
 ```mermaid
 ```
 
-![Basic SQL practitioners react to requests literally. Advanced SQL practitioners think strategically about what the business actually needs, not just what was asked. This is the difference between being an order-taker and being a strategic partner.](images/diagram_02_basic-sql-practitioners-react-to-requests-literall-ddee.png)
+![Basic SQL practitioners react to requests literally. Advanced SQL practitioners think strategically about what the business actually needs, not just what was asked. This is the difference between being an order-taker and being a strategic partner.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_02_basic-sql-practitioners-react-to-requests-literall-ddee.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_02_basic-sql-practitioners-react-to-requests-literall-ddee.md)
 
@@ -161,7 +161,7 @@ Code that's readable is maintainable. Code that's maintainable scales with your 
 ```mermaid
 ```
 
-![Code that's readable is maintainable. Code that's maintainable scales with your team. Long linear queries break easily, are hard to debug, and create knowledge silos when only the author understands them.](images/diagram_03_code-thats-readable-is-maintainable-code-thats-e563.png)
+![Code that's readable is maintainable. Code that's maintainable scales with your team. Long linear queries break easily, are hard to debug, and create knowledge silos when only the author understands them.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_03_code-thats-readable-is-maintainable-code-thats-e563.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_03_code-thats-readable-is-maintainable-code-thats-e563.md)
 
@@ -300,7 +300,7 @@ When business rules change (and they always do), hardcoded values create mainten
 ```mermaid
 ```
 
-![When business rules change (and they always do), hardcoded values create maintenance nightmares. Different reports end up with different rules. Modular config means one change updates everything, ensuring consistency across all analyses.](images/diagram_04_when-business-rules-change-and-they-always-do-h-7ec6.png)
+![When business rules change (and they always do), hardcoded values create maintenance nightmares. Different reports end up with different rules. Modular config means one change updates everything, ensuring consistency across all analyses.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_04_when-business-rules-change-and-they-always-do-h-7ec6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_04_when-business-rules-change-and-they-always-do-h-7ec6.md)
 
@@ -425,7 +425,7 @@ Queries that work on 10,000 rows often fail catastrophically on 10 million rows.
 ```mermaid
 ```
 
-![Queries that work on 10,000 rows often fail catastrophically on 10 million rows. Performance issues surface after deployment, damaging trust with engineering and stakeholders. Understanding query optimization is what separates junior from senior.](images/diagram_05_queries-that-work-on-10000-rows-often-fail-catast-1a10.png)
+![Queries that work on 10,000 rows often fail catastrophically on 10 million rows. Performance issues surface after deployment, damaging trust with engineering and stakeholders. Understanding query optimization is what separates junior from senior.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_05_queries-that-work-on-10000-rows-often-fail-catast-1a10.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_05_queries-that-work-on-10000-rows-often-fail-catast-1a10.md)
 
@@ -525,7 +525,7 @@ Raw data requires stakeholders to do their own analysis. Business insights enabl
 ```mermaid
 ```
 
-![Raw data requires stakeholders to do their own analysis. Business insights enable immediate action. This is the difference between being a data puller and being a strategic partner who drives business decisions.](images/diagram_06_raw-data-requires-stakeholders-to-do-their-own-ana-57d3.png)
+![Raw data requires stakeholders to do their own analysis. Business insights enable immediate action. This is the difference between being a data puller and being a strategic partner who drives business decisions.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_06_raw-data-requires-stakeholders-to-do-their-own-ana-57d3.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_06_raw-data-requires-stakeholders-to-do-their-own-ana-57d3.md)
 
@@ -640,7 +640,7 @@ Code that only you understand creates a knowledge silo. When you're out sick or 
 ```mermaid
 ```
 
-![Code that only you understand creates a knowledge silo. When you're out sick or get promoted, work stops. Team collaboration multiplies impact and makes you a force multiplier rather than a bottleneck.](images/diagram_07_code-that-only-you-understand-creates-a-knowledge-dab6.png)
+![Code that only you understand creates a knowledge silo. When you're out sick or get promoted, work stops. Team collaboration multiplies impact and makes you a force multiplier rather than a bottleneck.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_07_code-that-only-you-understand-creates-a-knowledge-dab6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_07_code-that-only-you-understand-creates-a-knowledge-dab6.md)
 
@@ -771,7 +771,7 @@ Stakeholders often don't know exactly what they need. Taking requests literally 
 ```mermaid
 ```
 
-![Stakeholders often don't know exactly what they need. Taking requests literally delivers the wrong metric. Pushing back ensures you're measuring the right thing and saves everyone from rework.](images/diagram_08_stakeholders-often-dont-know-exactly-what-they-ne-3990.png)
+![Stakeholders often don't know exactly what they need. Taking requests literally delivers the wrong metric. Pushing back ensures you're measuring the right thing and saves everyone from rework.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_08_stakeholders-often-dont-know-exactly-what-they-ne-3990.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_08_stakeholders-often-dont-know-exactly-what-they-ne-3990.md)
 
@@ -883,7 +883,7 @@ One-off queries create duplicated work and inconsistent definitions. Reusable vi
 ```mermaid
 ```
 
-![One-off queries create duplicated work and inconsistent definitions. Reusable views and templates ensure everyone uses the same logic, reducing errors and speeding up development.](images/diagram_09_one-off-queries-create-duplicated-work-and-inconsi-6811.png)
+![One-off queries create duplicated work and inconsistent definitions. Reusable views and templates ensure everyone uses the same logic, reducing errors and speeding up development.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_09_one-off-queries-create-duplicated-work-and-inconsi-6811.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_09_one-off-queries-create-duplicated-work-and-inconsi-6811.md)
 
@@ -1039,7 +1039,7 @@ Real data is messy. NULLs, duplicates, and edge cases are everywhere. Basic SQL 
 ```mermaid
 ```
 
-![Real data is messy. NULLs, duplicates, and edge cases are everywhere. Basic SQL breaks silently. Advanced SQL anticipates and handles these issues proactively, building trust through accuracy.](images/diagram_10_real-data-is-messy-nulls-duplicates-and-edge-ca-0452.png)
+![Real data is messy. NULLs, duplicates, and edge cases are everywhere. Basic SQL breaks silently. Advanced SQL anticipates and handles these issues proactively, building trust through accuracy.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_10_real-data-is-messy-nulls-duplicates-and-edge-ca-0452.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_10_real-data-is-messy-nulls-duplicates-and-edge-ca-0452.md)
 
@@ -1186,7 +1186,7 @@ When you consistently deliver accurate, well-documented, and insightful work, yo
 ```mermaid
 ```
 
-![When you consistently deliver accurate, well-documented, and insightful work, you become the go-to person for data decisions. This trust is what drives promotions.](images/diagram_11_when-you-consistently-deliver-accurate-well-docum-5c6b.png)
+![When you consistently deliver accurate, well-documented, and insightful work, you become the go-to person for data decisions. This trust is what drives promotions.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_11_when-you-consistently-deliver-accurate-well-docum-5c6b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_11_when-you-consistently-deliver-accurate-well-docum-5c6b.md)
 
@@ -1303,7 +1303,7 @@ Reusable views and templates multiply your impact. Instead of solving the same p
 ```mermaid
 ```
 
-![Reusable views and templates multiply your impact. Instead of solving the same problem 20 times, you solve it once and enable the entire team. This is how you become a force multiplier.](images/diagram_12_reusable-views-and-templates-multiply-your-impact-1c8f.png)
+![Reusable views and templates multiply your impact. Instead of solving the same problem 20 times, you solve it once and enable the entire team. This is how you become a force multiplier.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_12_reusable-views-and-templates-multiply-your-impact-1c8f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_12_reusable-views-and-templates-multiply-your-impact-1c8f.md)
 
@@ -1455,7 +1455,7 @@ Let's visualize the complete transformation we've explored across all 11 concept
 ```mermaid
 ```
 
-![Let's visualize the complete transformation we've explored across all 11 concepts:](images/diagram_13_lets-visualize-the-complete-transformation-weve-d4d6.png)
+![Let's visualize the complete transformation we've explored across all 11 concepts:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/diagram_13_lets-visualize-the-complete-transformation-weve-d4d6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/diagram_13_lets-visualize-the-complete-transformation-weve-d4d6.md)
 
@@ -1470,7 +1470,7 @@ Throughout this guide, we've explored 11 fundamental concepts that separate Basi
 
 The journey from Basic to Advanced SQL isn't about learning more functions. It's about changing *how* you think about your work:
 
-![The journey from Basic to Advanced SQL isn't about learning more functions. It's about changing *how* you think about your work:](images/table_01_the-journey-from-basic-to-advanced-sql-isnt-about-b0ab.png)
+![The journey from Basic to Advanced SQL isn't about learning more functions. It's about changing *how* you think about your work:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/images/table_01_the-journey-from-basic-to-advanced-sql-isnt-about-b0ab.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-ctes-window-functions-query-optimization-and-scalable-patterns--part-1/table_01_the-journey-from-basic-to-advanced-sql-isnt-about-b0ab.md)
 

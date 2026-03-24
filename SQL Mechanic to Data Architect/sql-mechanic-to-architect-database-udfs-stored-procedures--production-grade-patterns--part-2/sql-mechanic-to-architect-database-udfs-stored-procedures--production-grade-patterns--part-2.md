@@ -1,7 +1,8 @@
 # SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2
 ## Encapsulate logic, automate pipelines, enforce governance, and build the production-grade systems that earn you Staff Engineer.
 
-![alt text](<images/SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.png>)
+
 
 In [Part 1](link-to-part-1), we explored the 11 foundational concepts that separate Basic SQL from Advanced SQL—from reactive vs proactive mindsets to CTEs, window functions, and building reusable views. We learned how to write queries that are modular, debuggable, scalable, and trusted.
 
@@ -25,7 +26,7 @@ Before diving into the concepts, let's visualize the next transformation:
 ```mermaid
 ```
 
-![Before diving into the concepts, let's visualize the next transformation:](images/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.png)
+![Before diving into the concepts, let's visualize the next transformation:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.md)
 
@@ -45,7 +46,7 @@ Without UDFs, the same business logic—like revenue calculation, tax computatio
 ```mermaid
 ```
 
-![Without UDFs, the same business logic—like revenue calculation, tax computation, or customer tier assignment—gets rewritten in dozens of places. When rules change, you must find and update every instance. UDFs create a **single source of truth** for business logic that the entire organization can rely on.](images/diagram_02_without-udfs-the-same-business-logiclike-revenue-f143.png)
+![Without UDFs, the same business logic—like revenue calculation, tax computation, or customer tier assignment—gets rewritten in dozens of places. When rules change, you must find and update every instance. UDFs create a **single source of truth** for business logic that the entire organization can rely on.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_02_without-udfs-the-same-business-logiclike-revenue-f143.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_02_without-udfs-the-same-business-logiclike-revenue-f143.md)
 
@@ -242,7 +243,7 @@ Without stored procedures, data pipelines are built as fragmented scripts run by
 ```mermaid
 ```
 
-![Without stored procedures, data pipelines are built as fragmented scripts run by different people at different times. Stored procedures provide **atomic, repeatable, and auditable** workflows that ensure data consistency and enable automation.](images/diagram_03_without-stored-procedures-data-pipelines-are-buil-279a.png)
+![Without stored procedures, data pipelines are built as fragmented scripts run by different people at different times. Stored procedures provide **atomic, repeatable, and auditable** workflows that ensure data consistency and enable automation.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_03_without-stored-procedures-data-pipelines-are-buil-279a.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_03_without-stored-procedures-data-pipelines-are-buil-279a.md)
 
@@ -500,7 +501,7 @@ Static queries are rigid—they work for specific scenarios but fail when requir
 ```mermaid
 ```
 
-![Static queries are rigid—they work for specific scenarios but fail when requirements vary. Dynamic SQL enables **flexible, reusable systems** that adapt to different tables, columns, filters, and sorting criteria without rewriting code.](images/diagram_04_static-queries-are-rigidthey-work-for-specific-sc-0a2f.png)
+![Static queries are rigid—they work for specific scenarios but fail when requirements vary. Dynamic SQL enables **flexible, reusable systems** that adapt to different tables, columns, filters, and sorting criteria without rewriting code.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_04_static-queries-are-rigidthey-work-for-specific-sc-0a2f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_04_static-queries-are-rigidthey-work-for-specific-sc-0a2f.md)
 
@@ -876,7 +877,7 @@ Without error handling, a single unexpected NULL, division by zero, or constrain
 ```mermaid
 ```
 
-![Without error handling, a single unexpected NULL, division by zero, or constraint violation can crash an entire pipeline, leaving corrupted data and no trace of what happened. Robust error handling makes systems **production-ready and self-healing**.](images/diagram_05_without-error-handling-a-single-unexpected-null-5977.png)
+![Without error handling, a single unexpected NULL, division by zero, or constraint violation can crash an entire pipeline, leaving corrupted data and no trace of what happened. Robust error handling makes systems **production-ready and self-healing**.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_05_without-error-handling-a-single-unexpected-null-5977.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_05_without-error-handling-a-single-unexpected-null-5977.md)
 
@@ -1295,7 +1296,7 @@ As data volumes grow, even well-written queries can become slow. Advanced perfor
 ```mermaid
 ```
 
-![As data volumes grow, even well-written queries can become slow. Advanced performance optimization ensures systems remain responsive at scale, reducing costs and maintaining user trust.](images/diagram_06_as-data-volumes-grow-even-well-written-queries-ca-3bbc.png)
+![As data volumes grow, even well-written queries can become slow. Advanced performance optimization ensures systems remain responsive at scale, reducing costs and maintaining user trust.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_06_as-data-volumes-grow-even-well-written-queries-ca-3bbc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_06_as-data-volumes-grow-even-well-written-queries-ca-3bbc.md)
 
@@ -1570,7 +1571,7 @@ Without governance, different departments define metrics differently, access con
 ```mermaid
 ```
 
-![Without governance, different departments define metrics differently, access controls are inconsistent, and compliance becomes impossible. Data governance ensures **trust, security, and scalability** as the organization grows.](images/diagram_07_without-governance-different-departments-define-m-5afd.png)
+![Without governance, different departments define metrics differently, access controls are inconsistent, and compliance becomes impossible. Data governance ensures **trust, security, and scalability** as the organization grows.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_07_without-governance-different-departments-define-m-5afd.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_07_without-governance-different-departments-define-m-5afd.md)
 
@@ -1909,7 +1910,7 @@ Let's visualize the full transformation we've covered across both parts:
 ```mermaid
 ```
 
-![Let's visualize the full transformation we've covered across both parts:](images/diagram_08_lets-visualize-the-full-transformation-weve-cove-214d.png)
+![Let's visualize the full transformation we've covered across both parts:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/diagram_08_lets-visualize-the-full-transformation-weve-cove-214d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_08_lets-visualize-the-full-transformation-weve-cove-214d.md)
 
@@ -1922,7 +1923,7 @@ Throughout this two-part series, we've journeyed from Basic SQL syntax to Advanc
 
 ### The Complete Transformation
 
-![### The Complete Transformation](images/table_01_the-complete-transformation.png)
+![### The Complete Transformation](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/images/table_01_the-complete-transformation.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/table_01_the-complete-transformation.md)
 

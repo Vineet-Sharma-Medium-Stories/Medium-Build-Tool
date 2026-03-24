@@ -1,6 +1,7 @@
 # SQL Mechanic to Data Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey
 ## Master concepts that separate data pullers from decision drivers—your complete roadmap from entry-level to Staff Engineer.
-![alt text](<images/SQL Mechanic to Data Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/images/SQL Mechanic to Data Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.png>)
+
 
 ## Introduction: The Two Promotions
 
@@ -56,7 +57,7 @@ Together, these two guides form a complete roadmap from SQL beginner to Data Arc
 ```mermaid
 ```
 
-![Together, these two guides form a complete roadmap from SQL beginner to Data Architect:](images/diagram_01_together-these-two-guides-form-a-complete-roadmap-1c4a.png)
+![Together, these two guides form a complete roadmap from SQL beginner to Data Architect:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/images/diagram_01_together-these-two-guides-form-a-complete-roadmap-1c4a.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/diagram_01_together-these-two-guides-form-a-complete-roadmap-1c4a.md)
 
@@ -67,14 +68,14 @@ Together, these two guides form a complete roadmap from SQL beginner to Data Arc
 
 ### [Part 1: Core Query Foundations](link-to-part-1) — 11 Concepts, 20 Minutes
 
-![### [Part 1: Core Query Foundations](link-to-part-1) — 11 Concepts, 20 Minutes](images/table_01_part-1-core-query-foundationslink-to-part-0d45.png)
+![### [Part 1: Core Query Foundations](link-to-part-1) — 11 Concepts, 20 Minutes](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/images/table_01_part-1-core-query-foundationslink-to-part-0d45.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/table_01_part-1-core-query-foundationslink-to-part-0d45.md)
 
 
 ### [Part 2: Advanced Database Programming](link-to-part-2) — 6 Concepts, 25 Minutes
 
-![### [Part 2: Advanced Database Programming](link-to-part-2) — 6 Concepts, 25 Minutes](images/table_02_part-2-advanced-database-programminglink-t-3050.png)
+![### [Part 2: Advanced Database Programming](link-to-part-2) — 6 Concepts, 25 Minutes](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/images/table_02_part-2-advanced-database-programminglink-t-3050.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-advanced-queries-sps--scalable-systems---the-complete-journey/table_02_part-2-advanced-database-programminglink-t-3050.md)
 

@@ -2,8 +2,9 @@
 
 ## Enterprise-Grade Implementation Guide for Cloud-Native Systems
 
-![alt text](<images/Azure Part 2.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/Azure Part 2.png>)
 ## Introduction
+
 
 The journey from monolithic applications to microservices is paved with both opportunity and complexity. After architecting distributed systems for Fortune 500 companies over the past decade, I've learned that success isn't about adopting every pattern—it's about understanding which patterns solve specific problems and implementing them correctly.
 
@@ -49,69 +50,19 @@ Before diving into individual patterns, let's understand how all the pieces fit 
 ### High-Level Architecture
 
 ```mermaid
-graph TB
-    Client[External Client] --> APIM[Azure API Management]
-    APIM --> FrontDoor[Azure Front Door]
-    
-    subgraph "Azure Region - Primary"
-        FrontDoor --> Gateway[API Gateway Service<br/>.NET 10 / YARP]
-        
-        Gateway --> OrderSvc[Order Service<br/>.NET 10]
-        Gateway --> PaymentSvc[Payment Service<br/>.NET 10]
-        Gateway --> InventorySvc[Inventory Service<br/>.NET 10]
-        
-        OrderSvc --> OrderDB[(Azure SQL<br/>Write DB)]
-        OrderSvc --> OrderReadDB[(Azure SQL<br/>Read Replica)]
-        
-        PaymentSvc --> PaymentDB[(Cosmos DB)]
-        InventorySvc --> InventoryDB[(Azure SQL)]
-        
-        OrderSvc -.-> SB[Azure Service Bus]
-        PaymentSvc -.-> SB
-        InventorySvc -.-> SB
-        
-        subgraph "Service Mesh (Dapr)"
-            OrderSvc --> DaprSidecar[Dapr Sidecar]
-            PaymentSvc --> DaprSidecar2[Dapr Sidecar]
-            InventorySvc --> DaprSidecar3[Dapr Sidecar]
-        end
-    end
-    
-    subgraph "Observability"
-        OrderSvc --> AppInsights[Application Insights]
-        PaymentSvc --> AppInsights
-        InventorySvc --> AppInsights
-        Gateway --> AppInsights
-    end
-    
-    subgraph "Security"
-        APIM --> KV[Azure Key Vault]
-        OrderSvc --> KV
-        PaymentSvc --> KV
-        InventorySvc --> KV
-    end
-    
-    subgraph "Scaling Infrastructure"
-        OrderSvc --> ACA[Azure Container Apps<br/>Auto-scaling 2-20 instances]
-        PaymentSvc --> Functions[Azure Functions<br/>Consumption Plan]
-        InventorySvc --> AppService[App Service<br/>Premium Plan]
-    end
 ```
+
+![### High-Level Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_01_high-level-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_01_high-level-architecture.md)
+
 
 ### Technology Stack Summary
 
-| Component | Technology | Justification |
-|-----------|------------|---------------|
-| **Runtime** | .NET 10 | Native AOT, minimal APIs, enhanced performance, improved memory management |
-| **ORM** | EF Core 10 | Compiled models, bulk updates, query splitting, JSON columns support |
-| **API Gateway** | YARP + Azure APIM | Flexibility of custom code + managed service benefits with enterprise features |
-| **Service Mesh** | Dapr on ACA | Language-agnostic, built-in patterns, mTLS, observability without code changes |
-| **Secrets** | Azure Key Vault | HSM-backed, managed identities, automatic rotation, audit logging |
-| **Database** | Azure SQL + Cosmos DB | Polyglot persistence per service need with optimal performance characteristics |
-| **Messaging** | Azure Service Bus | Enterprise-grade, sessions, dead-lettering, duplicate detection, partitioning |
-| **Container** | Docker + ACR | Secure, private registry with vulnerability scanning, geo-replication |
-| **Monitoring** | Application Insights | Distributed tracing, metric collection, log analytics, smart detection |
-| **Compute** | Container Apps + Functions | Flexible scaling options based on workload characteristics |
+![### Technology Stack Summary](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_01_technology-stack-summary.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_01_technology-stack-summary.md)
+
 
 ### Design Principles Applied Throughout
 
@@ -131,7 +82,7 @@ graph TB
 ---
 
 ## Pattern 6: CQRS (Command Query Responsibility Segregation)
-![alt text](<images/CQRS Azure.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/CQRS Azure.png>)
 
 ### Concept Overview
 
@@ -152,42 +103,19 @@ CQRS separates read and write operations into different models, allowing each to
 ### Architecture
 
 ```mermaid
-graph TB
-    subgraph "Client"
-        C[Client Application]
-    end
-    
-    subgraph "Command Side - Write Model"
-        C --> Command[Command Handler]
-        Command --> Validation[Validation]
-        Validation --> Domain[Domain Model]
-        Domain --> WriteDB[(Write DB<br/>Normalized)]
-        Domain --> Events[Domain Events]
-        Events --> Bus[Event Bus]
-    end
-    
-    subgraph "Read Side - Read Model"
-        Bus --> Projection[Projection Handler]
-        Projection --> ReadDB[(Read DB<br/>Denormalized)]
-        C --> Query[Query Handler]
-        Query --> ReadDB
-        Query --> Cache[Redis Cache]
-    end
-    
-    subgraph "Sync Process"
-        WriteDB -.-> Sync[Change Data Capture<br/>Optional]
-        Sync -.-> ReadDB
-    end
 ```
+
+![### Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_02_architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_02_architecture.md)
+
 
 ### Database Options Comparison
 
-| Database | Write Perf | Read Perf | Consistency | Scaling | Best For |
-|----------|------------|-----------|-------------|---------|----------|
-| **Azure SQL (Hyperscale)** | Good | Excellent | Strong | 100TB+ | Transactional writes, complex queries |
-| **Cosmos DB** | Excellent | Excellent | Tunable | Global | Global scale, high throughput |
-| **Azure SQL + Redis** | Good | Excellent | Eventual | Read scale-out | Read-heavy workloads |
-| **SQL + Azure Synapse** | Good | Excellent | Snapshot | Petabyte | Analytics, reporting |
+![### Database Options Comparison](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_02_database-options-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_02_database-options-comparison.md)
+
 
 ### Design Patterns Applied
 
@@ -1043,7 +971,7 @@ app.MapPost("/api/queries/orders/search", async (
 
 ## Pattern 7: Saga Pattern
 
-![alt text](<images/SAGA Azure.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/SAGA Azure.png>)
 ### Concept Overview
 
 The Saga pattern manages distributed transactions across multiple microservices by breaking them into a series of local transactions with compensating actions for rollback.
@@ -1063,43 +991,19 @@ The Saga pattern manages distributed transactions across multiple microservices 
 ### Saga Flow
 
 ```mermaid
-graph TB
-    subgraph "Saga Orchestrator"
-        O[Saga Orchestrator]
-        O --> State[Saga State Machine]
-    end
-    
-    subgraph "Order Service"
-        O --> T1[Create Order<br/>Transaction]
-        T1 --> C1[Compensation<br/>Cancel Order]
-    end
-    
-    subgraph "Payment Service"
-        O --> T2[Process Payment<br/>Transaction]
-        T2 --> C2[Compensation<br/>Refund Payment]
-    end
-    
-    subgraph "Inventory Service"
-        O --> T3[Reserve Inventory<br/>Transaction]
-        T3 --> C3[Compensation<br/>Release Inventory]
-    end
-    
-    subgraph "Shipping Service"
-        O --> T4[Create Shipment<br/>Transaction]
-        T4 --> C4[Compensation<br/>Cancel Shipment]
-    end
-    
-    T1 --> T2 --> T3 --> T4
-    C4 --> C3 --> C2 --> C1
 ```
+
+![### Saga Flow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_03_saga-flow.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_03_saga-flow.md)
+
 
 ### Saga Implementation Options
 
-| Pattern | Coordination | Complexity | Visibility | Best For |
-|---------|--------------|------------|------------|----------|
-| **Choreography** | Decentralized (events) | Lower | Less visibility | Simple workflows with few services |
-| **Orchestration** | Centralized orchestrator | Higher | Full visibility | Complex workflows, business processes |
-| **State Machine** | Durable Functions | Medium | Good visibility | Long-running processes with human steps |
+![### Saga Implementation Options](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_03_saga-implementation-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_03_saga-implementation-options.md)
+
 
 ### Design Patterns Applied
 
@@ -2003,7 +1907,7 @@ public class SagaHost : BackgroundService
 ---
 
 ## Pattern 8: Service Mesh
-![alt text](<images/Service Discovery Azure.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/Service Discovery Azure.png>)
 
 ### Concept Overview
 
@@ -2025,43 +1929,19 @@ A service mesh is a dedicated infrastructure layer that handles service-to-servi
 ### Architecture
 
 ```mermaid
-graph TB
-    subgraph "Service A"
-        AppA[Application Code<br/>.NET 10]
-        SidecarA[Sidecar Proxy<br/>Envoy/Dapr]
-        AppA --> SidecarA
-    end
-    
-    subgraph "Service B"
-        AppB[Application Code<br/>.NET 10]
-        SidecarB[Sidecar Proxy<br/>Envoy/Dapr]
-        AppB --> SidecarB
-    end
-    
-    subgraph "Control Plane"
-        CP[Control Plane<br/>Configuration & Management]
-        CP --> SidecarA
-        CP --> SidecarB
-    end
-    
-    SidecarA == mTLS ==> SidecarB
-    
-    subgraph "Service Mesh Features"
-        Traffic[Traffic Management<br/>Routing, Canary, Timeouts]
-        Security[Security/mTLS<br/>AuthZ, AuthN, Encryption]
-        Observability[Observability<br/>Metrics, Tracing, Logs]
-        Resilience[Resilience<br/>Retry, Timeout, Circuit Breaker]
-    end
 ```
+
+![### Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_04_architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_04_architecture.md)
+
 
 ### Azure Service Mesh Options
 
-| Solution | Features | Complexity | Learning Curve | Best For |
-|----------|----------|------------|----------------|----------|
-| **Dapr on ACA** | Building blocks, HTTP/gRPC, state management | Low | Easy | .NET microservices, rapid development |
-| **Istio on AKS** | Full-featured, traffic management, security | High | Steep | Enterprise, complex policies |
-| **Linkerd on AKS** | Lightweight, fast, minimal features | Medium | Moderate | Performance-focused, simple needs |
-| **Open Service Mesh** | SMI-compliant, integrated with Azure | Medium | Moderate | Azure-native, SMI standard |
+![### Azure Service Mesh Options](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_04_azure-service-mesh-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_04_azure-service-mesh-options.md)
+
 
 ### Design Patterns Applied
 
@@ -2931,7 +2811,7 @@ app.Run();
 
 ## Pattern 9: Distributed Tracing
 
-![alt text](<images/Distributed Tracing Azure.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/Distributed Tracing Azure.png>)
 
 ### Concept Overview
 
@@ -2953,35 +2833,19 @@ Distributed tracing tracks requests as they flow through multiple services, prov
 ### Trace Tree
 
 ```mermaid
-graph TB
-    Client[Client Request] --> Gateway[API Gateway<br/>Span 1: 245ms]
-    
-    Gateway --> Auth[Auth Service<br/>Span 2: 150ms]
-    Auth --> DB1[(Auth DB<br/>Span 3: 50ms)]
-    
-    Gateway --> Order[Order Service<br/>Span 4: 300ms]
-    Order --> DB2[(Order DB<br/>Span 5: 100ms)]
-    Order --> Payment[Payment Service<br/>Span 6: 180ms]
-    Payment --> DB3[(Payment DB<br/>Span 7: 60ms)]
-    Payment --> External[External Gateway<br/>Span 8: 120ms]
-    
-    subgraph "Trace ID: abc-123"
-        Gateway
-        Auth
-        Order
-        Payment
-    end
 ```
+
+![### Trace Tree](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_05_trace-tree.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_05_trace-tree.md)
+
 
 ### Azure Observability Options
 
-| Service | Purpose | Features | Integration |
-|---------|---------|----------|-------------|
-| **Application Insights** | APM, traces, metrics | Distributed tracing, profiler, availability tests | OpenTelemetry, SDK |
-| **Azure Monitor** | Metrics, logs, alerts | Platform metrics, log analytics, workbooks | Agent, diagnostics |
-| **Log Analytics** | Log aggregation | KQL queries, custom logs, retention | Workspace, data sources |
-| **Azure Dashboard** | Visualization | Custom dashboards, workbooks | Multiple data sources |
-| **Azure Data Explorer** | Analytics | High-performance querying, time-series | SDK, connectors |
+![### Azure Observability Options](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_05_azure-observability-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_05_azure-observability-options.md)
+
 
 ### Design Patterns Applied
 
@@ -3772,7 +3636,7 @@ traces
 ---
 
 ## Pattern 10: Containerization
-![alt text](<images/Containarization Azure.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/Containarization Azure.png>)
 
 ### Concept Overview
 
@@ -3794,39 +3658,19 @@ Containerization packages an application with its dependencies into a standardiz
 ### Container Layers
 
 ```mermaid
-graph TB
-    subgraph "Container Image Layers"
-        L1[Application Layer<br/>.NET DLLs, Configs]
-        L2[Runtime Layer<br/>ASP.NET 10]
-        L3[System Layer<br/>Ubuntu Jammy]
-        L4[Base Layer<br/>Container OS]
-    end
-    
-    subgraph "Build Process"
-        Source[Source Code] --> Build[Build Stage<br/>SDK Image]
-        Build --> Test[Test Stage<br/>Run Unit Tests]
-        Test --> Publish[Publish Stage<br/>dotnet publish]
-        Publish --> Package[Package Image<br/>Docker build]
-    end
-    
-    subgraph "Deployment Targets"
-        Package --> Registry[Container Registry<br/>ACR/Docker Hub]
-        Registry --> ACA[Azure Container Apps]
-        Registry --> AKS[AKS/Kubernetes]
-        Registry --> Functions[Azure Functions<br/>Custom Container]
-        Registry --> AppService[App Service<br/>Linux Container]
-    end
 ```
+
+![### Container Layers](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/diagram_06_container-layers.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/diagram_06_container-layers.md)
+
 
 ### Container Registry Options
 
-| Registry | Features | Security | Geo-Replication | Cost |
-|----------|----------|----------|-----------------|------|
-| **Azure Container Registry** | ACR Tasks, vulnerability scan, Helm repos | Managed identity, firewall | Premium tier | Pay per storage + premium features |
-| **Docker Hub** | Public/private repos, automated builds | Basic | No | Free for public, paid for private |
-| **GitHub Container Registry** | Integrated with GitHub Actions | Fine-grained permissions | No | Included with GitHub |
-| **Harbor (self-hosted)** | Vulnerability scanning, replication | Full control | Manual | Infrastructure cost |
-| **Amazon ECR** | Integrated with AWS | IAM roles, VPC | Regional | Pay per storage |
+![### Container Registry Options](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_06_container-registry-options.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_06_container-registry-options.md)
+
 
 ### Design Patterns Applied
 
@@ -4541,18 +4385,10 @@ Each pattern included:
 
 ### Key Architectural Decisions Summary
 
-| Pattern | Azure Service | Key Benefits |
-|---------|--------------|--------------|
-| API Gateway | Azure API Management + YARP | Centralized security, routing, rate limiting |
-| Service Discovery | Azure Container Apps DNS | Dynamic service location without hardcoding |
-| Load Balancing | Azure Front Door + Container Apps | Global distribution, auto-scaling |
-| Circuit Breaker | Polly + Application Insights | Resilience, failure isolation |
-| Event-Driven | Azure Service Bus | Decoupled communication, scalability |
-| CQRS | Azure SQL + Cosmos DB | Optimized read/write performance |
-| Saga | Dapr + Cosmos DB | Distributed transaction management |
-| Service Mesh | Dapr on ACA | Zero-code infrastructure features |
-| Distributed Tracing | Application Insights + OpenTelemetry | End-to-end visibility |
-| Containerization | ACR + ACA | Consistent deployment, portability |
+![### Key Architectural Decisions Summary](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_07_key-architectural-decisions-summary-6c24.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_07_key-architectural-decisions-summary-6c24.md)
+
 
 ### Production Readiness Checklist
 
@@ -4570,18 +4406,10 @@ Before deploying to production, ensure:
 
 We'll release a companion series implementing **the exact same patterns on AWS**:
 
-| Azure Service | AWS Equivalent |
-|--------------|----------------|
-| Azure API Management | Amazon API Gateway |
-| Azure Service Bus | Amazon SNS/SQS |
-| Azure Container Apps | AWS App Runner / ECS Fargate |
-| Azure SQL | Amazon RDS Aurora |
-| Cosmos DB | Amazon DynamoDB |
-| Application Insights | AWS X-Ray + CloudWatch |
-| Azure Key Vault | AWS Secrets Manager |
-| Azure Front Door | Amazon CloudFront |
-| Azure Container Registry | Amazon ECR |
-| Dapr on ACA | AWS App Mesh |
+![We'll release a companion series implementing **the exact same patterns on AWS**:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/images/table_08_well-release-a-companion-series-implementing-th-4d19.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-2/table_08_well-release-a-companion-series-implementing-th-4d19.md)
+
 
 The AWS implementation will demonstrate the same SOLID principles and architectural patterns, highlighting the differences in cloud-native services while maintaining identical business logic. This side-by-side comparison will help you make informed decisions when choosing between cloud providers.
 
