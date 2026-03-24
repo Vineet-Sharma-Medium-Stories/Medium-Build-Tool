@@ -1,5 +1,6 @@
 # Code to Cluster: Building a Bulletproof Kubernetes Deployment Pipeline on AWS
 
+![alt text](<images/Code to Cluster: Building a Bulletproof Kubernetes Deployment Pipeline on AWS.png>)
 In the modern cloud-native era, getting your code from a developer's laptop into a live, scalable environment is half the battle. We often talk about "shifting left" and "DevOps culture," but the tangible artifact of that culture is the **CI/CD Pipeline**.
 
 Recently, I visualized a standard, robust pipeline in a simple flowchart. Today, we are going to dissect that flowchart. We will move from a theoretical "Kubernetes Deployment Pipeline" diagram to a practical, hands-on guide for implementing it specifically on **Amazon Web Services (AWS)** .

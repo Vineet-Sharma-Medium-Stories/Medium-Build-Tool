@@ -1,5 +1,7 @@
 # Code to Cluster: Building a Bulletproof Kubernetes Deployment Pipeline on Azure
 
+![alt text](<images/Code to Cluster: Building a Bulletproof Kubernetes Deployment Pipeline on Azure.png>)
+
 In my previous story, we built a comprehensive Kubernetes deployment pipeline on AWS—exploring ECR, EKS, CodeBuild, GitHub Actions, AWS Secrets Manager, and the entire ecosystem of tools that make cloud-native development possible on Amazon's platform. We walked through every stage: from `git push` to build, security scanning, secret management, deployment, and monitoring.
 
 Today, we're taking that exact blueprint and migrating it to **Microsoft Azure**. The architecture remains identical; only the building blocks change. If you read the AWS version, you'll feel right at home—just with different CLI commands and service names.
