@@ -1,6 +1,7 @@
 # SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1
- 
-**Reading time: 20 minutes**
+## From reactive queries to proactive insights: modular CTEs, window functions, and the debugging patterns that get you promoted.
+
+![alt text](<images/SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.png>)
 
 I've sat on both sides of the table—as a junior analyst writing fragile queries and as a hiring manager reviewing SQL assessments. The difference between someone who gets hired and someone who gets promoted isn't about knowing more functions. It's about understanding *when* and *why* to use them.
 
@@ -24,24 +25,24 @@ config:
   layout: elk
 ---
 graph LR
-    subgraph Basic SQL Mindset
-        A[Reactive<br/>Wait for Questions] --> B[Linear Queries<br/>One-off Solutions]
-        B --> C[Hardcoded Logic<br/>Brittle Code]
-        C --> D[Raw Data Output<br/>No Context]
-        D --> E[Personal Scripts<br/>Knowledge Silo]
+    subgraph Basic["Basic SQL Mindset"]
+        A["Reactive<br/>Wait for Questions"] --> B["Linear Queries<br/>One-off Solutions"]
+        B --> C["Hardcoded Logic<br/>Brittle Code"]
+        C --> D["Raw Data Output<br/>No Context"]
+        D --> E["Personal Scripts<br/>Knowledge Silo"]
     end
     
-    subgraph Advanced SQL Mindset
-        F[Proactive<br/>Anticipate Needs] --> G[Modular CTEs<br/>Reusable Components]
-        G --> H[Config-Driven<br/>Maintainable]
-        H --> I[Business Insights<br/>Strategic Value]
-        I --> J[Team Assets<br/>Force Multiplier]
+    subgraph Advanced["Advanced SQL Mindset"]
+        F["Proactive<br/>Anticipate Needs"] --> G["Modular CTEs<br/>Reusable Components"]
+        G --> H["Config-Driven<br/>Maintainable"]
+        H --> I["Business Insights<br/>Strategic Value"]
+        I --> J["Team Assets<br/>Force Multiplier"]
     end
     
-    Basic SQL Mindset -->|Promotion Path| Advanced SQL Mindset
+    Basic -->|Promotion Path| Advanced
     
-    style Basic SQL Mindset fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced SQL Mindset fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
 
 This transformation is what separates analysts who get hired from those who get promoted. Let's explore each concept that enables this journey.
@@ -60,23 +61,20 @@ Basic SQL practitioners react to requests literally. Advanced SQL practitioners 
 ---
 config:
   theme: base
-  layout: elk
 ---
 graph LR
-    subgraph Basic [Basic SQL: Reactive]
-        direction TB
-        R1[Stakeholder Asks<br/>"Show monthly sales"] --> R2[Write Query for<br/>Exactly That]
-        R2 --> R3[Deliver Numbers<br/>125k, 135k, 142k]
-        R3 --> R4[Stakeholder Asks<br/>"What about growth?"]
-        R4 --> R5[Write Another Query<br/>Time Wasted]
+    subgraph Basic["Basic SQL: Reactive"]
+        R1["Stakeholder Asks<br/>'Show monthly sales'"] --> R2["Write Query for<br/>Exactly That"]
+        R2 --> R3["Deliver Numbers<br/>125k, 135k, 142k"]
+        R3 --> R4["Stakeholder Asks<br/>'What about growth?'"]
+        R4 --> R5["Write Another Query<br/>Time Wasted"]
     end
     
-    subgraph Advanced [Advanced SQL: Proactive]
-        direction TB
-        P1[Stakeholder Asks<br/>"Show monthly sales"] --> P2[Anticipate:<br/>Growth? Trends? Rankings?]
-        P2 --> P3[Write Single Query<br/>With All Context]
-        P3 --> P4[Deliver Insights<br/>"5.2% growth, best month"]
-        P4 --> P5[No Follow-up Needed<br/>Decision Ready]
+    subgraph Advanced["Advanced SQL: Proactive"]
+        P1["Stakeholder Asks<br/>'Show monthly sales'"] --> P2["Anticipate:<br/>Growth? Trends? Rankings?"]
+        P2 --> P3["Write Single Query<br/>With All Context"]
+        P3 --> P4["Deliver Insights<br/>'5.2% growth, best month'"]
+        P4 --> P5["No Follow-up Needed<br/>Decision Ready"]
     end
     
     style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
@@ -628,19 +626,19 @@ config:
   theme: base
   layout: elk
 ---
-graph LR
+graph TB
     subgraph Basic [Basic SQL: Raw Data Output]
         direction TB
-        R1[Query Returns<br/>125k, 135k, 142k] --> R2[Stakeholder: "Is that good?"]
-        R2 --> R3[Stakeholder: "What's the trend?"]
-        R3 --> R4[Stakeholder: "Which month was best?"]
+        R1[Query Returns<br/>125k, 135k, 142k] --> R2[Stakeholder: Is that good?]
+        R2 --> R3[Stakeholder: What's the trend?]
+        R3 --> R4[Stakeholder: Which month was best?]
         R4 --> R5[Multiple Follow-up Queries<br/>Time Wasted]
     end
     
     subgraph Advanced [Advanced SQL: Business Insight]
         direction TB
-        I1[Query Returns<br/>Sales + Growth + Rank + Alert] --> I2[Stakeholder: "5.2% growth,<br/>best month ever"]
-        I2 --> I3[Stakeholder: "Let's<br/>replicate March strategy"]
+        I1[Query Returns<br/>Sales + Growth + Rank + Alert] --> I2[Stakeholder: 5.2% growth,<br/>best month ever]
+        I2 --> I3[Stakeholder: Let's<br/>replicate March strategy]
         I3 --> I4[Decision Made<br/>Action Taken]
     end
     
@@ -912,21 +910,21 @@ config:
   theme: base
   layout: elk
 ---
-graph LR
+graph TB
     subgraph Basic [Basic SQL: Answer Literally]
         direction TB
-        A1["Stakeholder:<br/>'Show revenue by month'"] --> A2[Write Query<br/>SUM(total_amount)]
-        A2 --> A3[Deliver Numbers]
-        A3 --> A4["Stakeholder:<br/>'That's gross revenue,<br/>I needed net'"]
-        A4 --> A5[Rework Query<br/>Time Wasted]
+        A1["Stakeholder: 'Show revenue by month'"] --> A2["Write Query SUM(total_amount)"]
+        A2 --> A3["Deliver Numbers"]
+        A3 --> A4["Stakeholder: 'That's gross revenue, I needed net'"]
+        A4 --> A5["Rework Query Time Wasted"]
     end
     
     subgraph Advanced [Advanced SQL: Push Back]
         direction TB
-        B1["Stakeholder:<br/>'Show revenue by month'"] --> B2["Ask:<br/>'Gross or net?<br/>Include refunds?<br/>Completed only?'"]
-        B2 --> B3[Write Query Once<br/>With Correct Definition]
-        B3 --> B4[Deliver Right Numbers<br/>First Time]
-        B4 --> B5[Trust Built<br/>Time Saved]
+        B1["Stakeholder: 'Show revenue by month'"] --> B2["Ask: 'Gross or net? Include refunds? Completed only?'"]
+        B2 --> B3["Write Query Once With Correct Definition"]
+        B3 --> B4["Deliver Right Numbers First Time"]
+        B4 --> B5["Trust Built Time Saved"]
     end
     
     style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
@@ -1389,23 +1387,23 @@ config:
   theme: base
   layout: elk
 ---
-graph LR
+graph TB
     subgraph Basic [Basic SQL: Trust Built Slowly]
         direction TB
-        T1[Deliver Numbers] --> T2[Stakeholder: "Are you sure?"]
-        T2 --> T3[Verify Again]
-        T3 --> T4[Deliver Again]
-        T4 --> T5[Slow Trust Accumulation]
-        T5 --> T6[Still Questioned<br/>Every Time]
+        T1["Deliver Numbers"] --> T2["Stakeholder: Are you sure?"]
+        T2 --> T3["Verify Again"]
+        T3 --> T4["Deliver Again"]
+        T4 --> T5["Slow Trust Accumulation"]
+        T5 --> T6["Still Questioned Every Time"]
     end
     
     subgraph Advanced [Advanced SQL: Becomes Go-To Person]
         direction TB
-        G1[Build Validated Views] --> G2[Add Quality Checks]
-        G2 --> G3[Consistent Accurate Output]
-        G3 --> G4[Stakeholder: "I trust Jane's numbers"]
-        G4 --> G5[Go-To for Decisions]
-        G5 --> G6[Promoted for<br/>Strategic Impact]
+        G1["Build Validated Views"] --> G2["Add Quality Checks"]
+        G2 --> G3["Consistent Accurate Output"]
+        G3 --> G4["Stakeholder: I trust Jane's numbers"]
+        G4 --> G5["Go-To for Decisions"]
+        G5 --> G6["Promoted for Strategic Impact"]
     end
     
     style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
@@ -1701,9 +1699,9 @@ config:
   layout: elk
 ---
 graph TB
-    subgraph "Basic SQL - What Gets You Hired"
+    subgraph BASIC [Basic SQL - What Gets You Hired]
         direction TB
-        B1["Reactive: Answers literally"] 
+        B1["Reactive: Answers literally"]
         B2["Linear Queries: 50-line blocks"]
         B3["Hardcoded: Magic numbers buried"]
         B4["Small Data: Works locally"]
@@ -1716,7 +1714,7 @@ graph TB
         B11["Solo Impact: Individual output"]
     end
     
-    subgraph "Advanced SQL - What Gets You Promoted"
+    subgraph ADVANCED [Advanced SQL - What Gets You Promoted]
         direction TB
         A1["Proactive: Anticipates needs"]
         A2["CTEs: Modular, debuggable layers"]
@@ -1743,10 +1741,22 @@ graph TB
     B10 --> A10
     B11 --> A11
     
-    A1 & A2 & A3 & A4 & A5 & A6 & A7 & A8 & A9 & A10 & A11 --> P[Promotion:<br/>Strategic Data Leader]
+    A1 --> P
+    A2 --> P
+    A3 --> P
+    A4 --> P
+    A5 --> P
+    A6 --> P
+    A7 --> P
+    A8 --> P
+    A9 --> P
+    A10 --> P
+    A11 --> P
     
-    style "Basic SQL - What Gets You Hired" fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style "Advanced SQL - What Gets You Promoted" fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    P["Promotion: Strategic Data Leader"]
+    
+    style BASIC fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style ADVANCED fill:#ccffcc,stroke:#00aa00,stroke-width:2px
     style P fill:#90EE90,stroke:#006600,stroke-width:3px
 ```
 

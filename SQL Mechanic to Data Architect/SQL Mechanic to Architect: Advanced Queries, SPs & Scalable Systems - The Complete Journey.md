@@ -1,10 +1,6 @@
 # SQL Mechanic to Data Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey
-
-SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2
-
-**Reading time: 45 minutes total | Part 1: 20 mins | Part 2: 25 mins**
-
----
+## Master concepts that separate data pullers from decision drivers—your complete roadmap from entry-level to Staff Engineer.
+![alt text](<images/SQL Mechanic to Data Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.png>)
 
 ## Introduction: The Two Promotions
 
@@ -30,7 +26,7 @@ The first level is about transforming how you write queries. It's the shift from
 
 This is what separates Senior Analysts and Engineers from their mid-level counterparts. When you master these 11 concepts, you stop being seen as someone who "pulls data" and start being seen as someone who "drives decisions."
 
-I wrote **[Part 1: Core Query Foundations — CTEs, Window Functions, Query Optimization, and Scalable Patterns](link-to-part-1)** to capture exactly this transformation. It's the foundation that every data professional needs to build before they can think about systems.
+**[SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1](link-to-part-1)** (Comming soon)  to capture exactly this transformation. It's the foundation that every data professional needs to build before they can think about systems.
 
 ---
 
@@ -49,7 +45,7 @@ At this level, you stop thinking about queries and start thinking about **system
 
 This is the level where you become a **force multiplier**. Instead of solving one problem at a time, you build components that enable everyone around you to solve problems faster. Instead of writing code that works today, you build systems that scale for years.
 
-**[Part 2: Advanced Database Programming — UDFs, Stored Procedures, and Production-Grade Patterns](link-to-part-2)** explores exactly this transformation. It's the bridge from being a skilled practitioner to being a systems architect.
+**[SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2](link-to-part-2)** (Comming Soon) explores exactly this transformation. It's the bridge from being a skilled practitioner to being a systems architect.
 
 ---
 
@@ -152,5 +148,5 @@ The journey from SQL Mechanic to Data Architect isn't about learning every funct
 
 ## Continue Reading
 
-- **[Part 1: Core Query Foundations — CTEs, Window Functions, Query Optimization, and Scalable Patterns](link-to-part-1)**
-- **[Part 2: Advanced Database Programming — UDFs, Stored Procedures, and Production-Grade Patterns](link-to-part-2)**
+- **[SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1](link-to-part-1)**
+- **[SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2](link-to-part-2)**

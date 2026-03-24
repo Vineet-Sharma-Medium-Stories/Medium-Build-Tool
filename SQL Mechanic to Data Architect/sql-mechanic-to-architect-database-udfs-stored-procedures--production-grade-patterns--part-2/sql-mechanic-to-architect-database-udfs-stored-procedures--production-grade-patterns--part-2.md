@@ -1,7 +1,7 @@
 # SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2
+## Encapsulate logic, automate pipelines, enforce governance, and build the production-grade systems that earn you Staff Engineer.
 
-
-**Reading time: 20 minutes**
+![alt text](<images/SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.png>)
 
 In [Part 1](link-to-part-1), we explored the 11 foundational concepts that separate Basic SQL from Advanced SQL—from reactive vs proactive mindsets to CTEs, window functions, and building reusable views. We learned how to write queries that are modular, debuggable, scalable, and trusted.
 
@@ -23,30 +23,12 @@ Let's explore each of these advanced concepts with the same rigor we applied in 
 Before diving into the concepts, let's visualize the next transformation:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    subgraph Advanced SQL Practitioner
-        A[Modular CTEs<br/>Reusable Views] --> B[Config-Driven Logic<br/>Business Rules]
-        B --> C[Window Functions<br/>Analytical Insights]
-        C --> D[Query Optimization<br/>EXPLAIN Mastery]
-    end
-    
-    subgraph Data Architect / Staff Engineer
-        E[UDFs: Encapsulated<br/>Business Logic] --> F[Stored Procedures:<br/>Automated Pipelines]
-        F --> G[Dynamic SQL:<br/>Flexible Systems]
-        G --> H[Error Handling:<br/>Production Resilience]
-        H --> I[Data Governance:<br/>Compliance at Scale]
-    end
-    
-    Advanced SQL Practitioner -->|Staff Track| Data Architect
-    
-    style Advanced SQL Practitioner fill:#ccffcc,stroke:#00aa00,stroke-width:2px
-    style Data Architect fill:#90EE90,stroke:#006600,stroke-width:3px
 ```
+
+![Before diving into the concepts, let's visualize the next transformation:](images/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_01_before-diving-into-the-concepts-lets-visualize-t-99f6.md)
+
 
 This transformation is what separates Senior Analysts and Engineers from Staff-level technical leaders. Let's explore each concept.
 
@@ -61,36 +43,12 @@ User-Defined Functions encapsulate reusable logic that can be called repeatedly 
 Without UDFs, the same business logic—like revenue calculation, tax computation, or customer tier assignment—gets rewritten in dozens of places. When rules change, you must find and update every instance. UDFs create a **single source of truth** for business logic that the entire organization can rely on.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [Without UDFs: Duplicated Logic]
-        direction TB
-        B1[Query 1: CASE WHEN revenue > 10000...] --> B5[Inconsistent Logic]
-        B2[Query 2: CASE WHEN revenue > 10000...] --> B5
-        B3[Query 3: CASE WHEN revenue > 10000...] --> B5
-        B4[Query 4: CASE WHEN revenue > 10000...] --> B5
-        B5 --> B6[Update 20+ Places<br/>When Rule Changes]
-    end
-    
-    subgraph Advanced [With UDFs: Single Source of Truth]
-        direction TB
-        U1[CREATE FUNCTION<br/>get_customer_tier] --> U2[Query 1: SELECT get_customer_tier(...)]
-        U1 --> U3[Query 2: SELECT get_customer_tier(...)]
-        U1 --> U4[Query 3: SELECT get_customer_tier(...)]
-        U1 --> U5[Query 4: SELECT get_customer_tier(...)]
-        U2 --> U6[Consistent Logic<br/>Update Once]
-        U3 --> U6
-        U4 --> U6
-        U5 --> U6
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![Without UDFs, the same business logic—like revenue calculation, tax computation, or customer tier assignment—gets rewritten in dozens of places. When rules change, you must find and update every instance. UDFs create a **single source of truth** for business logic that the entire organization can rely on.](images/diagram_02_without-udfs-the-same-business-logiclike-revenue-f143.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_02_without-udfs-the-same-business-logiclike-revenue-f143.md)
+
 
 ### Basic SQL: Duplicated logic across queries
 
@@ -282,32 +240,12 @@ Stored Procedures are pre-compiled SQL programs that encapsulate complex workflo
 Without stored procedures, data pipelines are built as fragmented scripts run by different people at different times. Stored procedures provide **atomic, repeatable, and auditable** workflows that ensure data consistency and enable automation.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [Ad-hoc Scripts: Fragmented Pipelines]
-        direction TB
-        B1[Analyst runs<br/>Python script] --> B5[Inconsistent Timing]
-        B2[Engineer runs<br/>SQL manually] --> B5
-        B3[Schedule breaks<br/>No one notices] --> B5
-        B4[Partial failures<br/>Data corrupted] --> B5
-        B5 --> B6[No Audit Trail<br/>Unreliable Data]
-    end
-    
-    subgraph Advanced [Stored Procedures: Automated Workflows]
-        direction TB
-        A1[Stored Procedure<br/>with Transaction Control] --> A2[Scheduled Job<br/>Runs at 2am]
-        A2 --> A3[All-or-Nothing<br/>Atomic Operations]
-        A3 --> A4[Error Logging<br/>Alert on Failure]
-        A4 --> A5[Audit Trail<br/>Trusted Pipeline]
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![Without stored procedures, data pipelines are built as fragmented scripts run by different people at different times. Stored procedures provide **atomic, repeatable, and auditable** workflows that ensure data consistency and enable automation.](images/diagram_03_without-stored-procedures-data-pipelines-are-buil-279a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_03_without-stored-procedures-data-pipelines-are-buil-279a.md)
+
 
 ### Basic SQL: Fragmented ad-hoc scripts
 
@@ -560,33 +498,12 @@ Dynamic SQL allows you to construct and execute SQL statements dynamically at ru
 Static queries are rigid—they work for specific scenarios but fail when requirements vary. Dynamic SQL enables **flexible, reusable systems** that adapt to different tables, columns, filters, and sorting criteria without rewriting code.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [Static Queries: Rigid]
-        direction TB
-        S1[Query for USA Sales] --> S4[20 Similar Queries]
-        S2[Query for Canada Sales] --> S4
-        S3[Query for UK Sales] --> S4
-        S4 --> S5[Each Query Maintained<br/>Separately]
-    end
-    
-    subgraph Advanced [Dynamic SQL: Flexible]
-        direction TB
-        D1[Single Dynamic Query] --> D2[Parameter: country]
-        D1 --> D3[Parameter: date_range]
-        D1 --> D4[Parameter: sort_by]
-        D2 --> D5[One Query Handles<br/>All Scenarios]
-        D3 --> D5
-        D4 --> D5
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![Static queries are rigid—they work for specific scenarios but fail when requirements vary. Dynamic SQL enables **flexible, reusable systems** that adapt to different tables, columns, filters, and sorting criteria without rewriting code.](images/diagram_04_static-queries-are-rigidthey-work-for-specific-sc-0a2f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_04_static-queries-are-rigidthey-work-for-specific-sc-0a2f.md)
+
 
 ### Basic SQL: Static queries for every scenario
 
@@ -957,31 +874,12 @@ Error handling is the practice of anticipating, capturing, and responding to fai
 Without error handling, a single unexpected NULL, division by zero, or constraint violation can crash an entire pipeline, leaving corrupted data and no trace of what happened. Robust error handling makes systems **production-ready and self-healing**.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [No Error Handling: Fragile]
-        direction TB
-        B1[Query encounters<br/>division by zero] --> B2[Query fails silently]
-        B2 --> B3[Partial data loaded<br/>Pipeline continues]
-        B3 --> B4[Corrupted reports<br/>No one notices]
-        B4 --> B5[Trust eroded<br/>Hours to debug]
-    end
-    
-    subgraph Advanced [Robust Error Handling: Resilient]
-        direction TB
-        A1[Wrap in<br/>TRY/CATCH] --> A2[Log error with<br/>context]
-        A2 --> A3[Rollback transaction<br/>No partial data]
-        A3 --> A4[Send alert<br/>Notify team]
-        A4 --> A5[Retry or fail<br/>safely with diagnostics]
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![Without error handling, a single unexpected NULL, division by zero, or constraint violation can crash an entire pipeline, leaving corrupted data and no trace of what happened. Robust error handling makes systems **production-ready and self-healing**.](images/diagram_05_without-error-handling-a-single-unexpected-null-5977.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_05_without-error-handling-a-single-unexpected-null-5977.md)
+
 
 ### Basic SQL: No error handling, fragile execution
 
@@ -1395,32 +1293,12 @@ Advanced performance optimization goes beyond basic indexing to master execution
 As data volumes grow, even well-written queries can become slow. Advanced performance optimization ensures systems remain responsive at scale, reducing costs and maintaining user trust.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [Basic Tuning: Reactive]
-        direction TB
-        B1[Query slow in prod] --> B2[Add random indexes]
-        B2 --> B3[Still slow]
-        B3 --> B4[Guess and check]
-        B4 --> B5[Wasted time<br/>No improvement]
-    end
-    
-    subgraph Advanced [Advanced Optimization: Systematic]
-        direction TB
-        A1[EXPLAIN ANALYZE<br/>Identify bottleneck] --> A2[Analyze join order<br/>and row estimates]
-        A2 --> A3[Create targeted<br/>covering indexes]
-        A3 --> A4[Partition large tables<br/>for pruning]
-        A4 --> A5[Optimize statistics<br/>and vacuum]
-        A5 --> A6[Query runs 100x faster]
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![As data volumes grow, even well-written queries can become slow. Advanced performance optimization ensures systems remain responsive at scale, reducing costs and maintaining user trust.](images/diagram_06_as-data-volumes-grow-even-well-written-queries-ca-3bbc.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_06_as-data-volumes-grow-even-well-written-queries-ca-3bbc.md)
+
 
 ### Basic SQL: Reactive, guess-based optimization
 
@@ -1690,31 +1568,12 @@ Data governance is the practice of defining, documenting, and enforcing consiste
 Without governance, different departments define metrics differently, access controls are inconsistent, and compliance becomes impossible. Data governance ensures **trust, security, and scalability** as the organization grows.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph Basic [No Governance: Chaos]
-        direction TB
-        B1[Marketing: "Active" = last 30 days] --> B5[Inconsistent Reports]
-        B2[Sales: "Active" = last 90 days] --> B5
-        B3[Anyone can access<br/>any data] --> B6[Security Risk]
-        B4[No audit trail<br/>No compliance] --> B7[Regulatory Exposure]
-    end
-    
-    subgraph Advanced [Data Governance: Controlled]
-        direction TB
-        G1[Business Glossary<br/>Single definitions] --> G5[Consistent Metrics]
-        G2[Row-Level Security<br/>Access controls] --> G6[Data Protected]
-        G3[Audit Logs<br/>Compliance tracking] --> G7[Regulatory Ready]
-        G4[Data Lineage<br/>Traceability] --> G8[Full Visibility]
-    end
-    
-    style Basic fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style Advanced fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
+
+![Without governance, different departments define metrics differently, access controls are inconsistent, and compliance becomes impossible. Data governance ensures **trust, security, and scalability** as the organization grows.](images/diagram_07_without-governance-different-departments-define-m-5afd.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_07_without-governance-different-departments-define-m-5afd.md)
+
 
 ### Basic SQL: No governance, inconsistent definitions
 
@@ -2048,45 +1907,12 @@ CREATE TABLE query_usage_log (
 Let's visualize the full transformation we've covered across both parts:
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Part 1: Core Query Foundations"
-        direction TB
-        P1["CTEs: Modular, Debuggable"] 
-        P2["Window Functions: Proactive Context"]
-        P3["Config-Driven: Single Source of Truth"]
-        P4["Scalable: EXPLAIN, Indexes, Partitioning"]
-        P5["Insights: Trends, Alerts, Decisions"]
-        P6["Collaborative: Documented, Shared"]
-    end
-    
-    subgraph "Part 2: Advanced Database Programming"
-        direction TB
-        P2A["UDFs: Encapsulated Business Logic"]
-        P2B["Stored Procedures: Automated Pipelines"]
-        P2C["Dynamic SQL: Flexible Systems"]
-        P2D["Error Handling: Production Resilience"]
-        P2E["Performance Tuning: Systematic Optimization"]
-        P2F["Data Governance: Trust & Compliance"]
-    end
-    
-    P1 --> P2A
-    P2 --> P2A
-    P3 --> P2B
-    P4 --> P2E
-    P5 --> P2C
-    P6 --> P2F
-    
-    P2A & P2B & P2C & P2D & P2E & P2F --> S[Staff Engineer / Data Architect<br/>Systems Builder, Strategic Leader]
-    
-    style "Part 1: Core Query Foundations" fill:#ccffcc,stroke:#00aa00,stroke-width:2px
-    style "Part 2: Advanced Database Programming" fill:#90EE90,stroke:#006600,stroke-width:2px
-    style S fill:#FFD700,stroke:#AA6F00,stroke-width:3px
 ```
+
+![Let's visualize the full transformation we've covered across both parts:](images/diagram_08_lets-visualize-the-full-transformation-weve-cove-214d.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/diagram_08_lets-visualize-the-full-transformation-weve-cove-214d.md)
+
 
 ---
 
@@ -2096,11 +1922,10 @@ Throughout this two-part series, we've journeyed from Basic SQL syntax to Advanc
 
 ### The Complete Transformation
 
-| Level | Mindset | Output | Impact |
-|-------|---------|--------|--------|
-| **Basic SQL** | "Get the data" | Raw numbers | Hired |
-| **Advanced SQL** | "Deliver insights" | Decisions | Promoted |
-| **Staff/Architect** | "Build systems" | Scalable, trusted infrastructure | Leadership |
+![### The Complete Transformation](images/table_01_the-complete-transformation.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/sql-mechanic-to-architect-database-udfs-stored-procedures--production-grade-patterns--part-2/table_01_the-complete-transformation.md)
+
 
 ### The Key Takeaways
 
