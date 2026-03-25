@@ -6,7 +6,7 @@
 
 **Total Stories:** 70
 **📝 Draft:** 54
-**✅ Published:** 12
+**✅ Published:** 13
 
 ---
 
@@ -104,11 +104,11 @@
 | [SOLID Principles: Part 5 - Interface Segregation Principl.md](SOLID%20Principles/SOLID%20Principles%3A%20Part%205%20-%20Interface%20Segregation%20Principl.md) | Draft | -- | 25/03/2026 |
 | [SOLID Principles: Part 6 - Dependency Inversion Principle.md](SOLID%20Principles/SOLID%20Principles%3A%20Part%206%20-%20Dependency%20Inversion%20Principle.md) | Draft | -- | 25/03/2026 |
 
-### SQL Mechanic to Data Architect (3 stories, 0 published)
+### SQL Mechanic to Data Architect (3 stories, 1 published)
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
-| [SQL Mechanic to Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Advanced%20Queries,%20SPs%20&%20Scalable%20Systems%20-%20The%20Complete%20Journey.md) | Done | -- | 25/03/2026 |
+| [SQL Mechanic to Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Advanced%20Queries,%20SPs%20&%20Scalable%20Systems%20-%20The%20Complete%20Journey.md) | Done | ✅ 25/03/2026 | 25/03/2026 |
 | [SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20CTEs,%20Window%20Functions,%20Query%20Optimization,%20and%20Scalable%20Patterns-%20Part%201.md) | Done | -- | 25/03/2026 |
 | [SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Database%20UDFs,%20Stored%20Procedures,%20&%20Production-Grade%20Patterns%20—%20Part%202.md) | Done | -- | 25/03/2026 |
 
@@ -154,4 +154,4 @@
 
 ---
 
-*Last updated: 2026-03-25 16:30:53*
+*Last updated: 2026-03-25 20:20:28*
