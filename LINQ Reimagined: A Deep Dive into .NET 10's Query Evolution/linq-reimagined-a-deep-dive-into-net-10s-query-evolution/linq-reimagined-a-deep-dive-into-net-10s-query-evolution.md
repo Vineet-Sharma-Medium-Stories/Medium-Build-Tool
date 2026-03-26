@@ -84,30 +84,12 @@ Filtering methods are the gatekeepers of your data, allowing you to pass through
 - **What Changes in .NET 10:** In .NET 10, `Where` clauses in EF Core are analyzed more deeply using a new expression visitor that understands database-specific function mappings. The benefit is smarter translation of complex predicates into highly optimized SQL `WHERE` clauses, especially when combined with user-defined functions or database-specific features. The in-memory `Enumerable.Where` also sees performance gains through improved iterator state management and reduced boxing of value types in closures. The internal `WhereEnumerableIterator` has been rewritten to use `ref` returns and avoid allocations per iteration. For EF Core, a new `SqlExpressionNormalizer` runs before translation to simplify and optimize the expression tree. Additionally, `Where` now works seamlessly with `IAsyncEnumerable<T>` without needing external packages .
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A["LINQ Query: context.Products.Where(p => p.Price > 100 && p.Category == 'Electronics')"]
-    B[".NET 10 Expression Visitor"]
-    C["Normalizes Expression Tree"]
-    D["Removes Redundant Sub-expressions"]
-    E["Optimizes Constant Folding"]
-    F["EF Core Translator"]
-    G["Generated SQL: SELECT * FROM Products WHERE Price > 100 AND Category = 'Electronics'"]
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style G fill:#ccf,stroke:#333,stroke-width:2px
 ```
+
+![- **What Changes in .NET 10:** In .NET 10, `Where` clauses in EF Core are analyzed more deeply using a new expression visitor that understands database-specific function mappings. The benefit is smarter translation of complex predicates into highly optimized SQL `WHERE` clauses, especially when combined with user-defined functions or database-specific features. The in-memory `Enumerable.Where` also sees performance gains through improved iterator state management and reduced boxing of value types in closures. The internal `WhereEnumerableIterator` has been rewritten to use `ref` returns and avoid allocations per iteration. For EF Core, a new `SqlExpressionNormalizer` runs before translation to simplify and optimize the expression tree. Additionally, `Where` now works seamlessly with `IAsyncEnumerable<T>` without needing external packages .](images/diagram_01_what-changes-in-net-10-in-net-10-where-6fc2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/linq-reimagined-a-deep-dive-into-net-10s-query-evolution/diagram_01_what-changes-in-net-10-in-net-10-where-6fc2.md)
+
 
 ### `Take`
 - **Description:** Returns a specified number of contiguous elements from the start of a sequence. Essential for paging and limiting result sets.
@@ -311,28 +293,12 @@ Projection is about transformation—taking data in one form and converting it t
 - **What Changes in .NET 10:** The biggest change here is with EF Core's **"compiled models"** and **"auto-compiled queries"**. For complex projections (e.g., mapping to DTOs with nested objects), EF Core can pre-compile the expression tree transformation, drastically reducing query plan generation time on first use. The compiler now can infer anonymous type property names from the expression, reducing verbosity. .NET 10 introduces `Select` overloads that work with `Func<T, CancellationToken, Task<R>>` for async projections, allowing database calls within projections to be properly awaited without blocking .
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A["LINQ Query: context.Orders.Select(o => new OrderDto { Id = o.Id, Total = o.Items.Sum(i => i.Price) })"]
-    B[".NET 10 Compiled Query Feature"]
-    C{"First Execution?"}
-    D["Compile Expression Tree to IL"]
-    E["Cache Compiled Delegate"]
-    F["Execute Against Database"]
-    G["Return Projected Results"]
-    
-    A --> B
-    B --> C
-    C -->|Yes| D
-    D --> E
-    E --> F
-    C -->|No| F
-    F --> G
 ```
+
+![- **What Changes in .NET 10:** The biggest change here is with EF Core's **"compiled models"** and **"auto-compiled queries"**. For complex projections (e.g., mapping to DTOs with nested objects), EF Core can pre-compile the expression tree transformation, drastically reducing query plan generation time on first use. The compiler now can infer anonymous type property names from the expression, reducing verbosity. .NET 10 introduces `Select` overloads that work with `Func<T, CancellationToken, Task<R>>` for async projections, allowing database calls within projections to be properly awaited without blocking .](images/diagram_02_what-changes-in-net-10-the-biggest-change-37dc.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/linq-reimagined-a-deep-dive-into-net-10s-query-evolution/diagram_02_what-changes-in-net-10-the-biggest-change-37dc.md)
+
 
 ### `SelectMany`
 - **Description:** Projects each element of a sequence to an `IEnumerable<T>` and flattens the resulting sequences into one sequence. It's the LINQ equivalent of a `SELECT` statement that returns multiple rows per source row.
@@ -968,31 +934,12 @@ These methods are used to pluck a single, specific element from a sequence.
 - **What Changes in .NET 10:** The headline feature here is the improved translation of `GroupBy` followed by `Select`. EF Core 10 is much better at generating SQL `GROUP BY` clauses that are both correct and efficient, reducing client-side evaluation warnings and errors. New overloads support custom equality comparers that can be translated to SQL `COLLATE` clauses. The in-memory `GroupBy` implementation now uses a new hash table design with better cache locality, improving performance for large grouping operations. The `IGrouping` objects are now created lazily, reducing memory pressure when only keys are accessed.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A["LINQ Query: context.Orders.Select(o => new OrderDto { Id = o.Id, Total = o.Items.Sum(i => i.Price) })"]
-    B[".NET 10 Compiled Query Feature"]
-    C["First Execution?"]
-    D["Compile Expression Tree to IL"]
-    E["Cache Compiled Delegate"]
-    F["Execute Against Database"]
-    G["Return Projected Results"]
-    
-    A --> B
-    B --> C
-    C -->|Yes| D
-    D --> E
-    E --> F
-    C -->|No| F
-    F --> G
-    
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#ccf,stroke:#333,stroke-width:2px
 ```
+
+![- **What Changes in .NET 10:** The headline feature here is the improved translation of `GroupBy` followed by `Select`. EF Core 10 is much better at generating SQL `GROUP BY` clauses that are both correct and efficient, reducing client-side evaluation warnings and errors. New overloads support custom equality comparers that can be translated to SQL `COLLATE` clauses. The in-memory `GroupBy` implementation now uses a new hash table design with better cache locality, improving performance for large grouping operations. The `IGrouping` objects are now created lazily, reducing memory pressure when only keys are accessed.](images/diagram_03_what-changes-in-net-10-the-headline-featur-98d8.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/linq-reimagined-a-deep-dive-into-net-10s-query-evolution/diagram_03_what-changes-in-net-10-the-headline-featur-98d8.md)
+
 
 ### `ToLookup`
 - **Description:** Creates a one-to-many dictionary (a `Lookup<TKey, TElement>`) from a sequence. This is an immediate execution method.
