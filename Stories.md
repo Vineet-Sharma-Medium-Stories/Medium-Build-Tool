@@ -4,8 +4,8 @@
 
 ## Summary
 
-**Total Stories:** 70
-**📝 Draft:** 51
+**Total Stories:** 74
+**📝 Draft:** 52
 **✅ Published:** 15
 
 ---
@@ -62,6 +62,15 @@
 | [Redefining OOPs: Beyond the Car and Animal Analogy.md](Design%20Patterns/Redefining%20OOPs%3A%20Beyond%20the%20Car%20and%20Animal%20Analogy.md) | Done | ✅ 05/03/2026 | 25/03/2026 |
 | [The Architect's Journey: Mastering Object-Oriented Excellence.md](Design%20Patterns/The%20Architect's%20Journey%3A%20Mastering%20Object-Oriented%20Excellence.md) | Draft | -- | 25/03/2026 |
 
+### Dotnet Python NodeJS (4 stories, 0 published)
+
+| Story | Status | Published | Created |
+|-------|--------|-----------|---------|
+| [From REST to gRPC: A Unified Architecture Across NET 10, NodeJS, and Python.md](Dotnet%20Python%20NodeJS/From%20REST%20to%20gRPC%3A%20A%20Unified%20Architecture%20Across%20NET%2010,%20NodeJS,%20and%20Python.md) | Draft | -- | 27/03/2026 |
+| [From REST to gRPC: Architecting High-Performance APIs in .NET 10.md](Dotnet%20Python%20NodeJS/From%20REST%20to%20gRPC%3A%20Architecting%20High-Performance%20APIs%20in%20.NET%2010.md) | Draft | -- | 27/03/2026 |
+| [From REST to gRPC: Architecting High-Performance APIs in Node.md](Dotnet%20Python%20NodeJS/From%20REST%20to%20gRPC%3A%20Architecting%20High-Performance%20APIs%20in%20Node.md) | Draft | -- | 27/03/2026 |
+| [From REST to gRPC: Architecting High-Performance APIs in Python.md](Dotnet%20Python%20NodeJS/From%20REST%20to%20gRPC%3A%20Architecting%20High-Performance%20APIs%20in%20Python.md) | Draft | -- | 27/03/2026 |
+
 ### Enterprise AI Architecture: A Comprehensive Technical Blueprint - 4 Parts (5 stories, 2 published)
 
 | Story | Status | Published | Created |
@@ -76,13 +85,13 @@
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
-| [LINQ Reimagined: A Deep Dive into .NET 10's Query Evolution.md](LINQ%20Reimagined%3A%20A%20Deep%20Dive%20into%20.NET%2010's%20Query%20Evolution/LINQ%20Reimagined%3A%20A%20Deep%20Dive%20into%20.NET%2010's%20Query%20Evolution.md) | Draft | -- | 25/03/2026 |
+| [LINQ Reimagined: A Deep Dive into .NET 10's Query Evolution.md](LINQ%20Reimagined%3A%20A%20Deep%20Dive%20into%20.NET%2010's%20Query%20Evolution/LINQ%20Reimagined%3A%20A%20Deep%20Dive%20into%20.NET%2010's%20Query%20Evolution.md) | Done | -- | 25/03/2026 |
 
 ### Miscellaneous (3 stories, 2 published)
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
-| [ASP.NET Core Filters Deep Dive: Building Maintainable Web APIs with .NET 10 and Reactive Extensions.md](Miscellaneous/ASP.NET%20Core%20Filters%20Deep%20Dive%3A%20Building%20Maintainable%20Web%20APIs%20with%20.NET%2010%20and%20Reactive%20Extensions.md) | Draft | -- | 25/03/2026 |
+| [ASP.NET Core Filters Deep Dive: Building Maintainable Web APIs with .NET 10 and Reactive Extensions.md](Miscellaneous/ASP.NET%20Core%20Filters%20Deep%20Dive%3A%20Building%20Maintainable%20Web%20APIs%20with%20.NET%2010%20and%20Reactive%20Extensions.md) | Done | -- | 25/03/2026 |
 | [Re-Learning .NET in 2026: 35 Lessons on How to Master the Stack with .NET 10 and Azure.md](Miscellaneous/Re-Learning%20.NET%20in%202026%3A%2035%20Lessons%20on%20How%20to%20Master%20the%20Stack%20with%20.NET%2010%20and%20Azure.md) | Done | ✅ 25/02/2025 | 25/03/2026 |
 | [The Desktop Phoenix: An Architect's Guide to WPF in a Multi-Platform World.md](Miscellaneous/The%20Desktop%20Phoenix%3A%20An%20Architect's%20Guide%20to%20WPF%20in%20a%20Multi-Platform%20World.md) | Done | ✅ 14/03/2025 | 25/03/2026 |
 
@@ -123,7 +132,7 @@
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
 | [README.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/README.md) | Done | -- | 25/03/2026 |
-| [aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md) | Draft | -- | 25/03/2026 |
+| [aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md) | Done | -- | 25/03/2026 |
 | [diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md) | Draft | -- | 25/03/2026 |
 | [diagram_02_filter-execution-order-with-multiple-filters-6709.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_02_filter-execution-order-with-multiple-filters-6709.md) | Draft | -- | 25/03/2026 |
 | [diagram_03_authorization-flow.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_03_authorization-flow.md) | Draft | -- | 25/03/2026 |
@@ -154,4 +163,4 @@
 
 ---
 
-*Last updated: 2026-03-26 23:08:18*
+*Last updated: 2026-03-27 03:59:52*
