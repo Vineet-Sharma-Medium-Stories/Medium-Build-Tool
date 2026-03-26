@@ -5,8 +5,8 @@
 ## Summary
 
 **Total Stories:** 70
-**📝 Draft:** 54
-**✅ Published:** 13
+**📝 Draft:** 51
+**✅ Published:** 15
 
 ---
 
@@ -104,13 +104,13 @@
 | [SOLID Principles: Part 5 - Interface Segregation Principl.md](SOLID%20Principles/SOLID%20Principles%3A%20Part%205%20-%20Interface%20Segregation%20Principl.md) | Draft | -- | 25/03/2026 |
 | [SOLID Principles: Part 6 - Dependency Inversion Principle.md](SOLID%20Principles/SOLID%20Principles%3A%20Part%206%20-%20Dependency%20Inversion%20Principle.md) | Draft | -- | 25/03/2026 |
 
-### SQL Mechanic to Data Architect (3 stories, 1 published)
+### SQL Mechanic to Data Architect (3 stories, 2 published)
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
 | [SQL Mechanic to Architect: Advanced Queries, SPs & Scalable Systems - The Complete Journey.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Advanced%20Queries,%20SPs%20&%20Scalable%20Systems%20-%20The%20Complete%20Journey.md) | Done | ✅ 25/03/2026 | 25/03/2026 |
 | [SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20CTEs,%20Window%20Functions,%20Query%20Optimization,%20and%20Scalable%20Patterns-%20Part%201.md) | Done | -- | 25/03/2026 |
-| [SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Database%20UDFs,%20Stored%20Procedures,%20&%20Production-Grade%20Patterns%20—%20Part%202.md) | Done | -- | 25/03/2026 |
+| [SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Database%20UDFs,%20Stored%20Procedures,%20&%20Production-Grade%20Patterns%20—%20Part%202.md) | Done | ✅ 25/03/2026 | 25/03/2026 |
 
 ### artificial-intelligence-from-basic-concepts-to-agentic-systems-hands-on-implementation-guide (1 stories, 1 published)
 
@@ -122,7 +122,7 @@
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
-| [README.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/README.md) | Draft | -- | 25/03/2026 |
+| [README.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/README.md) | Done | -- | 25/03/2026 |
 | [aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md) | Draft | -- | 25/03/2026 |
 | [diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md) | Draft | -- | 25/03/2026 |
 | [diagram_02_filter-execution-order-with-multiple-filters-6709.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_02_filter-execution-order-with-multiple-filters-6709.md) | Draft | -- | 25/03/2026 |
@@ -137,12 +137,12 @@
 | [diagram_11_final-architecture-overview.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_11_final-architecture-overview.md) | Draft | -- | 25/03/2026 |
 | [table_01_whats-changed-from-before-net-10-b0e8.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/table_01_whats-changed-from-before-net-10-b0e8.md) | Draft | -- | 25/03/2026 |
 
-### Root Level (10 stories, 1 published)
+### Root Level (10 stories, 2 published)
 
 | Story | Status | Published | Created |
 |-------|--------|-----------|---------|
-| [ASP.NET Core Filters Deep Dive: Building Maintainable Web APIs with .NET 10 and Reactive Extensions.md](ASP.NET%20Core%20Filters%20Deep%20Dive%3A%20Building%20Maintainable%20Web%20APIs%20with%20.NET%2010%20and%20Reactive%20Extensions.md) | Draft | -- | 25/03/2026 |
-| [Artificial Intelligence: From Basic Concepts to Agentic Systems — Hands-On Implementation Guide.md](Artificial%20Intelligence%3A%20From%20Basic%20Concepts%20to%20Agentic%20Systems%20—%20Hands-On%20Implementation%20Guide.md) | Draft | -- | 25/03/2026 |
+| [ASP.NET Core Filters Deep Dive: Building Maintainable Web APIs with .NET 10 and Reactive Extensions.md](ASP.NET%20Core%20Filters%20Deep%20Dive%3A%20Building%20Maintainable%20Web%20APIs%20with%20.NET%2010%20and%20Reactive%20Extensions.md) | Done | -- | 25/03/2026 |
+| [Artificial Intelligence: From Basic Concepts to Agentic Systems — Hands-On Implementation Guide.md](Artificial%20Intelligence%3A%20From%20Basic%20Concepts%20to%20Agentic%20Systems%20—%20Hands-On%20Implementation%20Guide.md) | Done | ✅ 13/03/2026 | 25/03/2026 |
 | [README.md](README.md) | Draft | -- | 25/03/2026 |
 | [Stories.md](Stories.md) | Draft | -- | 25/03/2026 |
 | [linq-reimagined-a-deep-dive-into-net-10s-query-evolution_final.md](linq-reimagined-a-deep-dive-into-net-10s-query-evolution_final.md) | Draft | -- | 25/03/2026 |
@@ -154,4 +154,4 @@
 
 ---
 
-*Last updated: 2026-03-25 20:20:28*
+*Last updated: 2026-03-26 23:08:18*

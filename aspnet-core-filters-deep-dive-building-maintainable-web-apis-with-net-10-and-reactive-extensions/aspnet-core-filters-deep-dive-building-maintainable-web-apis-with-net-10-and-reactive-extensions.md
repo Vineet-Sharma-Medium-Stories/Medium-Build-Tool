@@ -13,18 +13,10 @@ With the release of **.NET 10**, the filter architecture has become even more po
 - ✅ **Reusable Logic across Endpoints**
 - ✅ **Consistent Logging and Error Handling**
 
-We'll also break away from traditional imperative examples and embrace **Reactive Programming** principles using `System.Reactive`, showing you how to build APIs that are not just clean, but also event-driven and resilient.
+We'll also break away from traditional imperative examples and embrace **Reactive Programming** principles using `System.Reactive`, showing you how to build APIs that are not just clean, but 
 
----
 
-## The Filter Pipeline: A Visual Overview
-
-Before diving into code, let's visualize the order in which filters execute. Think of it as a Russian doll, where each filter wraps the next.
-
-```mermaid
-```
-
-![Before diving into code, let's visualize the order in which filters execute. Think of it as a Russian doll, where each filter wraps the next.](images/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.png)
+![Before diving into code, let's visualize the order in which filters execute. Think of it as a Russian doll, where each filter wraps the next.](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md)
 
@@ -36,7 +28,7 @@ This structured pipeline is your toolkit for building maintainable APIs.
 ```mermaid
 ```
 
-![### Filter Execution Order with Multiple Filters](images/diagram_02_filter-execution-order-with-multiple-filters-6709.png)
+![### Filter Execution Order with Multiple Filters](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_02_filter-execution-order-with-multiple-filters-6709.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_02_filter-execution-order-with-multiple-filters-6709.md)
 
@@ -53,7 +45,7 @@ Authorization Filters run first in the pipeline. Their sole purpose is to determ
 ```mermaid
 ```
 
-![### Authorization Flow](images/diagram_03_authorization-flow.png)
+![### Authorization Flow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_03_authorization-flow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_03_authorization-flow.md)
 
@@ -230,7 +222,7 @@ Resource Filters execute *before* and *after* model binding. This is the perfect
 ```mermaid
 ```
 
-![### Resource Filter Pipeline Position](images/diagram_04_resource-filter-pipeline-position-69f7.png)
+![### Resource Filter Pipeline Position](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_04_resource-filter-pipeline-position-69f7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_04_resource-filter-pipeline-position-69f7.md)
 
@@ -455,7 +447,7 @@ Action Filters wrap the execution of your controller action. You can modify the 
 ```mermaid
 ```
 
-![### Action Filter Flow with Validation](images/diagram_05_action-filter-flow-with-validation-2b07.png)
+![### Action Filter Flow with Validation](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_05_action-filter-flow-with-validation-2b07.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_05_action-filter-flow-with-validation-2b07.md)
 
@@ -770,7 +762,7 @@ Exception Filters handle unhandled exceptions that occur during action execution
 ```mermaid
 ```
 
-![### Exception Handling Flow](images/diagram_06_exception-handling-flow.png)
+![### Exception Handling Flow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_06_exception-handling-flow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_06_exception-handling-flow.md)
 
@@ -1135,7 +1127,7 @@ Result Filters execute *before* and *after* the action result is processed. This
 ```mermaid
 ```
 
-![### Response Transformation Flow](images/diagram_07_response-transformation-flow.png)
+![### Response Transformation Flow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_07_response-transformation-flow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_07_response-transformation-flow.md)
 
@@ -1501,7 +1493,7 @@ Now let's see how all these filters work together in a complete application:
 ```mermaid
 ```
 
-![### Complete Filter Pipeline Architecture](images/diagram_08_complete-filter-pipeline-architecture-2441.png)
+![### Complete Filter Pipeline Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_08_complete-filter-pipeline-architecture-2441.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_08_complete-filter-pipeline-architecture-2441.md)
 
@@ -1621,14 +1613,14 @@ app.Run();
 ```mermaid
 ```
 
-![## Filter Registration Comparison: .NET 10 vs Previous Versions](images/diagram_09_filter-registration-comparison-net-10-vs-prev-d333.png)
+![## Filter Registration Comparison: .NET 10 vs Previous Versions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_09_filter-registration-comparison-net-10-vs-prev-d333.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_09_filter-registration-comparison-net-10-vs-prev-d333.md)
 
 
 ### What's Changed from Before .NET 10:
 
-![### What's Changed from Before .NET 10:](images/table_01_whats-changed-from-before-net-10-b0e8.png)
+![### What's Changed from Before .NET 10:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/table_01_whats-changed-from-before-net-10-b0e8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/table_01_whats-changed-from-before-net-10-b0e8.md)
 
@@ -1640,7 +1632,7 @@ app.Run();
 ```mermaid
 ```
 
-![## Reactive Streams Architecture](images/diagram_10_reactive-streams-architecture.png)
+![## Reactive Streams Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_10_reactive-streams-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_10_reactive-streams-architecture.md)
 
@@ -1678,7 +1670,7 @@ And by integrating **Reactive Programming** principles, you transform these inte
 ```mermaid
 ```
 
-![### Final Architecture Overview](images/diagram_11_final-architecture-overview.png)
+![### Final Architecture Overview](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/images/diagram_11_final-architecture-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_11_final-architecture-overview.md)
 
