@@ -4,8 +4,8 @@
 
 ## Summary
 
-**Total Stories:** 74
-**📝 Draft:** 52
+**Total Stories:** 60
+**📝 Draft:** 40
 **✅ Published:** 15
 
 ---
@@ -127,25 +127,6 @@
 |-------|--------|-----------|---------|
 | [artificial-intelligence-from-basic-concepts-to-agentic-systems-hands-on-implementation-guide.md](artificial-intelligence-from-basic-concepts-to-agentic-systems-hands-on-implementation-guide/artificial-intelligence-from-basic-concepts-to-agentic-systems-hands-on-implementation-guide.md) | Done | ✅ 13/03/2026 | 25/03/2026 |
 
-### aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions (14 stories, 0 published)
-
-| Story | Status | Published | Created |
-|-------|--------|-----------|---------|
-| [README.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/README.md) | Done | -- | 25/03/2026 |
-| [aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions.md) | Done | -- | 25/03/2026 |
-| [diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_01_before-diving-into-code-lets-visualize-the-order-63b7.md) | Draft | -- | 25/03/2026 |
-| [diagram_02_filter-execution-order-with-multiple-filters-6709.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_02_filter-execution-order-with-multiple-filters-6709.md) | Draft | -- | 25/03/2026 |
-| [diagram_03_authorization-flow.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_03_authorization-flow.md) | Draft | -- | 25/03/2026 |
-| [diagram_04_resource-filter-pipeline-position-69f7.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_04_resource-filter-pipeline-position-69f7.md) | Draft | -- | 25/03/2026 |
-| [diagram_05_action-filter-flow-with-validation-2b07.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_05_action-filter-flow-with-validation-2b07.md) | Draft | -- | 25/03/2026 |
-| [diagram_06_exception-handling-flow.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_06_exception-handling-flow.md) | Draft | -- | 25/03/2026 |
-| [diagram_07_response-transformation-flow.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_07_response-transformation-flow.md) | Draft | -- | 25/03/2026 |
-| [diagram_08_complete-filter-pipeline-architecture-2441.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_08_complete-filter-pipeline-architecture-2441.md) | Draft | -- | 25/03/2026 |
-| [diagram_09_filter-registration-comparison-net-10-vs-prev-d333.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_09_filter-registration-comparison-net-10-vs-prev-d333.md) | Draft | -- | 25/03/2026 |
-| [diagram_10_reactive-streams-architecture.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_10_reactive-streams-architecture.md) | Draft | -- | 25/03/2026 |
-| [diagram_11_final-architecture-overview.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/diagram_11_final-architecture-overview.md) | Draft | -- | 25/03/2026 |
-| [table_01_whats-changed-from-before-net-10-b0e8.md](aspnet-core-filters-deep-dive-building-maintainable-web-apis-with-net-10-and-reactive-extensions/table_01_whats-changed-from-before-net-10-b0e8.md) | Draft | -- | 25/03/2026 |
-
 ### Root Level (10 stories, 2 published)
 
 | Story | Status | Published | Created |
@@ -163,4 +144,4 @@
 
 ---
 
-*Last updated: 2026-03-27 03:59:52*
+*Last updated: 2026-03-27 04:02:52*
