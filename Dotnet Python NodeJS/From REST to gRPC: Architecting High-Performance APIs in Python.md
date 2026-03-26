@@ -1,4 +1,5 @@
 # From REST to gRPC: Architecting High-Performance APIs in Python
+## Python gRPC: FastAPI, Pydantic v2, SQLAlchemy 2.0, and Async Streaming
 
 ![**A 20-Minute Architectural Deep Dive**](<images/From REST to gRPC: Architecting High-Performance APIs in Python.png>)
 
@@ -1873,55 +1874,48 @@ Both implementations—Python and .NET 10—achieve the same architectural goals
 ### Final Architecture Overview Diagram
 
 ```mermaid
-graph TB
-    subgraph "Clients"
-        Mobile[React Native Mobile App<br/>gRPC Client]
-        Web[React Web Dashboard<br/>gRPC-Web Client]
-    end
-    
-    subgraph "Edge & Load Balancing"
-        LB[gRPC Load Balancer<br/>Envoy / NGINX]
-        GW[gRPC Gateway<br/>REST-to-gRPC Proxy]
-    end
-    
-    subgraph "Core Services"
-        direction TB
-        GRPC[Python gRPC Service<br/>Telemetry & Dispatch]
-        State[VehicleStateManager<br/>Async In-Memory Store]
-        Cache[Redis Streams & Cache<br/>Real-time Pub/Sub]
-    end
-    
-    subgraph "Data Layer"
-        DB[(PostgreSQL<br/>Asyncpg)]
-        Queue[Message Queue<br/>Command Persistence]
-    end
-    
-    subgraph "Observability"
-        OTEL[OpenTelemetry<br/>Traces & Metrics]
-        LOG[Structured Logging<br/>structlog]
-    end
-    
-    Mobile -->|Persistent gRPC Stream| LB
-    Web -->|gRPC-Web Stream| LB
+---
+config:
+  theme: default
+  layout: elk
+---
+flowchart LR
+ subgraph Clients["Clients"]
+        Mobile["React Native Mobile App<br>gRPC Client"]
+        Web["React Web Dashboard<br>gRPC-Web Client"]
+  end
+ subgraph EdgeLB["Edge & Load Balancing"]
+        LB["gRPC Load Balancer<br>Envoy / NGINX"]
+        GW["gRPC Gateway<br>REST-to-gRPC Proxy"]
+  end
+ subgraph CoreServices["Core Services"]
+    direction TB
+        GRPC["Python gRPC Service<br>Telemetry &amp; Dispatch"]
+        State["VehicleStateManager<br>Async In-Memory Store"]
+        Cache["Redis Streams &amp; Cache<br>Real-time Pub/Sub"]
+  end
+ subgraph DataLayer["Data Layer"]
+        DB[("PostgreSQL<br>Asyncpg")]
+        Queue["Message Queue<br>Command Persistence"]
+  end
+ subgraph Observability["Observability"]
+        OTEL["OpenTelemetry<br>Traces &amp; Metrics"]
+        LOG["Structured Logging<br>structlog"]
+  end
+    Mobile -- Persistent gRPC Stream --> LB
+    Web -- "gRPC-Web Stream" --> LB
     LB --> GRPC
-    GW -->|REST Fallback| GRPC
-    
-    GRPC --> State
-    GRPC --> Cache
-    GRPC --> DB
-    GRPC --> Queue
-    
-    GRPC -.-> OTEL
-    GRPC -.-> LOG
-    
+    GW -- REST Fallback --> GRPC
+    GRPC --> State & Cache & DB & Queue
+    GRPC -.-> OTEL & LOG
+
     style Clients fill:#e3f2fd
-    style Edge & Load Balancing fill:#fff3e0
-    style Core Services fill:#e8f5e9
-    style Data Layer fill:#fce4ec
+    style EdgeLB fill:#fff3e0
+    style CoreServices fill:#e8f5e9
+    style DataLayer fill:#fce4ec
     style Observability fill:#f3e5f5
 ```
 
 ---
 
-**Vineet Sharma**  
-*Architect, Fleet Management Systems*
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*

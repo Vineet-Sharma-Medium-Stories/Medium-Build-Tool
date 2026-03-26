@@ -1,5 +1,5 @@
 # From REST to gRPC: Architecting High-Performance APIs in Node.js
-
+## Node.js gRPC: Fastify, TypeScript, Prisma, BullMQ, and Event-Driven Streaming
 ![**A 20-Minute Architectural Deep Dive**](<images/From REST to gRPC: Architecting High-Performance APIs in NodeJS.png>)
 
 The architectural decision between REST and gRPC is rarely just about data formats. It is a fundamental choice that dictates the entire lifecycle of an API—from contract definition and client generation to performance characteristics, streaming capabilities, deployment strategies, and operational observability. This decision ripples through every layer of the application stack, influencing how teams collaborate, how systems scale, and how efficiently resources are utilized in production environments.
@@ -2178,55 +2178,47 @@ All three implementations—Node.js, Python, and .NET 10—achieve the same arch
 ### Final Architecture Overview Diagram
 
 ```mermaid
-graph TB
-    subgraph "Clients"
-        Mobile[React Native Mobile App<br/>gRPC Client]
-        Web[React Web Dashboard<br/>gRPC-Web Client]
-    end
-    
-    subgraph "Edge & Load Balancing"
-        LB[gRPC Load Balancer<br/>Envoy / NGINX]
-        GW[gRPC Gateway<br/>REST-to-gRPC Proxy]
-    end
-    
-    subgraph "Core Services"
-        direction TB
-        GRPC[Node.js gRPC Service<br/>@grpc/grpc-js]
-        State[VehicleStateManager<br/>In-Memory Map + EventEmitter]
-        Cache[Redis Streams & Cache<br/>Real-time Pub/Sub]
-    end
-    
-    subgraph "Data Layer"
-        DB[(PostgreSQL<br/>Prisma ORM)]
-        Queue[BullMQ Job Queue<br/>Background Processing]
-    end
-    
-    subgraph "Observability"
-        OTEL[OpenTelemetry<br/>Traces & Metrics]
-        LOG[Structured Logging<br/>Pino]
-    end
-    
-    Mobile -->|Persistent gRPC Stream| LB
-    Web -->|gRPC-Web Stream| LB
+---
+config:
+  theme: default
+  layout: elk
+---
+flowchart LR
+ subgraph Clients["Clients"]
+        Mobile["React Native Mobile App<br>gRPC Client"]
+        Web["React Web Dashboard<br>gRPC-Web Client"]
+  end
+ subgraph EdgeLB["Edge & Load Balancing"]
+        LB["gRPC Load Balancer<br>Envoy / NGINX"]
+        GW["gRPC Gateway<br>REST-to-gRPC Proxy"]
+  end
+ subgraph CoreServices["Core Services"]
+    direction TB
+        GRPC["Node.js gRPC Service<br>@grpc/grpc-js"]
+        State["VehicleStateManager<br>In-Memory Map + EventEmitter"]
+        Cache["Redis Streams &amp; Cache<br>Real-time Pub/Sub"]
+  end
+ subgraph DataLayer["Data Layer"]
+        DB[("PostgreSQL<br>Prisma ORM")]
+        Queue["BullMQ Job Queue<br>Background Processing"]
+  end
+ subgraph Observability["Observability"]
+        OTEL["OpenTelemetry<br>Traces &amp; Metrics"]
+        LOG["Structured Logging<br>Pino"]
+  end
+    Mobile -- Persistent gRPC Stream --> LB
+    Web -- "gRPC-Web Stream" --> LB
     LB --> GRPC
-    GW -->|REST Fallback| GRPC
-    
-    GRPC --> State
-    GRPC --> Cache
-    GRPC --> DB
-    GRPC --> Queue
-    
-    GRPC -.-> OTEL
-    GRPC -.-> LOG
-    
+    GW -- REST Fallback --> GRPC
+    GRPC --> State & Cache & DB & Queue
+    GRPC -.-> OTEL & LOG
+
     style Clients fill:#e3f2fd
-    style Edge & Load Balancing fill:#fff3e0
-    style Core Services fill:#e8f5e9
-    style Data Layer fill:#fce4ec
+    style EdgeLB fill:#fff3e0
+    style CoreServices fill:#e8f5e9
+    style DataLayer fill:#fce4ec
     style Observability fill:#f3e5f5
 ```
 
----
 
-**Vineet Sharma**  
-*Architect, Fleet Management Systems*
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*
