@@ -210,16 +210,16 @@ function validateEmail(email) {
 ```mermaid
 flowchart LR
     subgraph Shortcuts["Key Shortcuts"]
-        Tab[Tab: Accept]
-        AltRight[Alt + ]: Next]
-        AltLeft[Alt + [: Previous]
-        CmdEnter[Ctrl/Cmd + Enter: More]
+        Tab["Tab: Accept"]
+        AltRight["Alt + ]: Next"]
+        AltLeft["Alt + [: Previous"]
+        CmdEnter["Ctrl/Cmd + Enter: More"]
     end
     
     subgraph Experience["User Experience"]
-        Flow[Stay in flow]
-        Fast[Fast acceptance]
-        Explore[Explore alternatives]
+        Flow["Stay in flow"]
+        Fast["Fast acceptance"]
+        Explore["Explore alternatives"]
     end
     
     Shortcuts --> Experience
@@ -236,16 +236,16 @@ Copilot Chat is the most powerful AI assistant ever integrated into VS Code, ava
 ```mermaid
 graph TD
     subgraph ChatInterface["Copilot Chat Interface"]
-        Sidebar[Chat Sidebar<br/>Persistent conversations]
-        Inline[Inline Chat<br/>Ctrl/Cmd + I]
-        Quick[Quick Chat<br/>Ctrl/Cmd + Shift + I]
+        Sidebar["Chat Sidebar<br/>Persistent conversations"]
+        Inline["Inline Chat<br/>Ctrl/Cmd + I"]
+        Quick["Quick Chat<br/>Ctrl/Cmd + Shift + I"]
     end
     
     subgraph Features["Key Features"]
-        Context[Context-aware<br/>Understands open files]
-        Thread[Threaded conversations<br/>Follow-up questions]
-        Code[Code insertion<br/>One-click apply]
-        Slash[/slash commands<br/>/explain, /fix, /tests]
+        Context["Context-aware<br/>Understands open files"]
+        Thread["Threaded conversations<br/>Follow-up questions"]
+        Code["Code insertion<br/>One-click apply"]
+        Slash["/slash commands<br/>/explain, /fix, /tests"]
     end
     
     ChatInterface --> Features
@@ -294,20 +294,20 @@ Copilot: The error occurs because data might be undefined. Add a conditional che
 ```mermaid
 flowchart LR
     subgraph SlashCommands["Slash Commands"]
-        Expl[/explain - Understand code/]
-        Fix[/fix - Debug issues/]
-        Test[/tests - Generate tests/]
-        Docs[/docs - Add documentation/]
-        Opt[/optimize - Improve performance/]
-        Gen[/generate - Create new code/]
-        Review[/review - Code review/]
+        Expl["/explain - Understand code"]
+        Fix["/fix - Debug issues"]
+        Test["/tests - Generate tests"]
+        Docs["/docs - Add documentation"]
+        Opt["/optimize - Improve performance"]
+        Gen["/generate - Create new code"]
+        Review["/review - Code review"]
     end
     
     subgraph Usage["How to Use"]
-        Type[/ in chat]
-        Select[Choose command]
-        Describe[Add description]
-        Execute[Get result]
+        Type["Type / in chat"]
+        Select["Choose command"]
+        Describe["Add description"]
+        Execute["Get result"]
     end
     
     SlashCommands --> Usage
@@ -425,24 +425,24 @@ mindmap
 ```mermaid
 flowchart TD
     subgraph Before["Before"]
-        File1[auth.controller.js: import UserService]
-        File2[user.repository.js: extends UserService]
-        File3[user.routes.js: new UserService()]
-        File4[user.service.js: class UserService]
+        File1["auth.controller.js: import UserService"]
+        File2["user.repository.js: extends UserService"]
+        File3["user.routes.js: new UserService()"]
+        File4["user.service.js: class UserService"]
     end
     
     subgraph AI["Copilot AI"]
-        Analysis[Analyzes all files]
-        Updates[Updates imports]
-        Renames[Renames class]
-        Validates[Validates references]
+        Analysis["Analyzes all files"]
+        Updates["Updates imports"]
+        Renames["Renames class"]
+        Validates["Validates references"]
     end
     
     subgraph After["After"]
-        File1A[auth.controller.js: import AccountService]
-        File2A[user.repository.js: extends AccountService]
-        File3A[user.routes.js: new AccountService()]
-        File4A[account.service.js: class AccountService]
+        File1A["auth.controller.js: import AccountService"]
+        File2A["user.repository.js: extends AccountService"]
+        File3A["user.routes.js: new AccountService()"]
+        File4A["account.service.js: class AccountService"]
     end
     
     Before --> AI --> After
@@ -811,24 +811,24 @@ Let's walk through building a complete feature using all of Copilot's VS Code ca
 ```mermaid
 flowchart TD
     subgraph Phase1["Phase 1: Planning"]
-        P1[Use /plan to break down tasks]
-        P2[Create implementation roadmap]
+        P1["Use /plan to break down tasks"]
+        P2["Create implementation roadmap"]
     end
     
     subgraph Phase2["Phase 2: Generation"]
-        G1[/generate: Create dashboard component]
-        G2[/generate: Add analytics charts]
-        G3[/generate: Create API endpoints]
+        G1["/generate: Create dashboard component"]
+        G2["/generate: Add analytics charts"]
+        G3["/generate: Create API endpoints"]
     end
     
     subgraph Phase3["Phase 3: Testing"]
-        T1[/tests: Generate unit tests]
-        T2[/tests: Generate integration tests]
+        T1["/tests: Generate unit tests"]
+        T2["/tests: Generate integration tests"]
     end
     
     subgraph Phase4["Phase 4: Documentation"]
-        D1[/docs: Document the API]
-        D2[/docs: Add JSDoc comments]
+        D1["/docs: Document the API"]
+        D2["/docs: Add JSDoc comments"]
     end
     
     Phase1 --> Phase2 --> Phase3 --> Phase4

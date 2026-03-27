@@ -344,13 +344,11 @@ Copilot can automatically:
 
 ```mermaid
 flowchart LR
-    NewIssue[New Issue:<br/>"Login page crashes after password reset"]
+    NewIssue["New Issue:<br/>Login page crashes after password reset"]
     
-    Copilot[AI Analysis]
+    Copilot["AI Analysis"]
     
-    Results[Auto-label: bug, authentication<br/>
-    Related: #342 - Reset token issues<br/>
-    Duplicate of: #378 - Login crash on reset]
+    Results["Auto-label: bug, authentication<br/>Related: #342 - Reset token issues<br/>Duplicate of: #378 - Login crash on reset"]
     
     NewIssue --> Copilot --> Results
 ```
@@ -487,11 +485,11 @@ When a workflow fails, Copilot can analyze the error and suggest fixes:
 
 ```mermaid
 flowchart TD
-    Failure[Workflow Failure:<br/>"Cannot find module 'express'"]
+    Failure["Workflow Failure:<br/>Cannot find module 'express'"]
     
-    Analysis[AI Analysis:<br/>- Missing dependency installation<br/>- Check if npm ci runs before build]
+    Analysis["AI Analysis:<br/>- Missing dependency installation<br/>- Check if npm ci runs before build"]
     
-    Suggestion[Suggested Fix:<br/>Add 'run: npm ci' before the build step]
+    Suggestion["Suggested Fix:<br/>Add 'run: npm ci' before the build step"]
     
     Failure --> Analysis --> Suggestion
 ```
@@ -617,11 +615,11 @@ GitHub's code search is now powered by Copilot, allowing natural language querie
 
 ```mermaid
 flowchart LR
-    Query[Natural Language Query:<br/>"Find all functions that validate email addresses"]
+    Query["Natural Language Query:<br/>Find all functions that validate email addresses"]
     
-    Search[AI-Powered Search]
+    Search["AI-Powered Search"]
     
-    Results[Results:<br/>1. auth/validators.js - validateEmail()<br/>2. user/signup.js - isValidEmail()<br/>3. shared/utils.js - checkEmailFormat()]
+    Results["Results:<br/>1. auth/validators.js - validateEmail()<br/>2. user/signup.js - isValidEmail()<br/>3. shared/utils.js - checkEmailFormat()"]
     
     Query --> Search --> Results
 ```

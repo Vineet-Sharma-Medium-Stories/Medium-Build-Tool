@@ -325,7 +325,7 @@ Add an npm install step before the build script:
 **Alternative:** If you're using a custom Docker image, ensure express is installed in the image.
 
 **Related:** This error occurred in 3 previous runs. Consider adding dependency caching to speed up subsequent runs.
-```
+
 
 ### Automated Fix Suggestions
 
@@ -418,7 +418,7 @@ on:
 
 Apply all optimizations to reduce runtime by 65%?
 [Apply All] [Apply Selected] [Dismiss]
-```
+
 
 ### Caching Recommendations
 
@@ -521,19 +521,24 @@ MEDIUM ISSUES:
 ```
 
 Overall Security Score: 72/100 → After fixes: 95/100
-```
 
 ### Secrets Detection
 
 Copilot automatically detects patterns that look like secrets:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 flowchart LR
     Pattern[Secret Pattern Detected]
     Types[Types:<br/>- AWS Keys<br/>- API Tokens<br/>- Database Passwords<br/>- SSH Keys<br/>- JWT Secrets]
     Action[Action Required:<br/>1. Revoke exposed secret<br/>2. Add to GitHub Secrets<br/>3. Update workflow]
     
-    Pattern --> Types --> Action
+    Pattern --> Types
+    Types --> Action
 ```
 
 ---
@@ -1317,4 +1322,4 @@ Start your AI-powered CI/CD journey at [github.com/features/copilot](https://git
 
 *This story is part of the GitHub Copilot Ecosystem Series. Last updated March 2026.*
 
-_Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges._
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*

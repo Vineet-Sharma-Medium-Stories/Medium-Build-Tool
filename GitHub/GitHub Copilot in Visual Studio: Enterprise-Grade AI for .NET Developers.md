@@ -264,16 +264,16 @@ public class UserService
 ```mermaid
 flowchart LR
     subgraph Shortcuts["Key Shortcuts"]
-        Tab[Tab: Accept]
-        AltRight[Alt + ]: Next]
-        AltLeft[Alt + [: Previous]
-        CtrlEnter[Ctrl + Enter: More]
+        Tab["Tab: Accept"]
+        AltRight["Alt + ]: Next"]
+        AltLeft["Alt + [: Previous"]
+        CtrlEnter["Ctrl + Enter: More"]
     end
     
     subgraph Experience["Developer Experience"]
-        Flow[Stay in flow]
-        Fast[Fast acceptance]
-        Explore[Explore alternatives]
+        Flow["Stay in flow"]
+        Fast["Fast acceptance"]
+        Explore["Explore alternatives"]
     end
     
     Shortcuts --> Experience
