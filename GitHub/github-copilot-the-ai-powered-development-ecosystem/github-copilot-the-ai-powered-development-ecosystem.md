@@ -1,7 +1,7 @@
 # GitHub Copilot: The AI-Powered Development Ecosystem
 ### AI Pair Programming, Copilot Workspace Commands, GitHub Copilot Chat, Code Generation, Developer Productivity Tools, AI-Assisted Development
 
-![alt text](<images/GitHub Copilot: The AI-Powered Development Ecosystem.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-the-ai-powered-development-ecosystem/images/GitHub Copilot: The AI-Powered Development Ecosystem.png>)
 ## From Autocomplete to AI Engineering Partner – Across Every Surface Where You Build Software
 
 GitHub Copilot has evolved far beyond its origins as a clever autocomplete tool. Today, it represents a comprehensive **AI-powered development ecosystem** that spans every surface where developers create software—from your IDE to GitHub.com, from the terminal to your CI/CD pipelines.
@@ -53,7 +53,7 @@ With these commands, you can:
 
 ## Command Reference Overview
 
-![## Command Reference Overview](images/table_01_command-reference-overview.png)
+![## Command Reference Overview](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-the-ai-powered-development-ecosystem/images/table_01_command-reference-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-the-ai-powered-development-ecosystem/table_01_command-reference-overview.md)
 
@@ -310,7 +310,7 @@ In the IDE—whether you're using VS Code, JetBrains IDEs, Neovim, or Visual Stu
 
 ### IDE-Specific Features
 
-![### IDE-Specific Features](images/table_02_ide-specific-features.png)
+![### IDE-Specific Features](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-the-ai-powered-development-ecosystem/images/table_02_ide-specific-features.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-the-ai-powered-development-ecosystem/table_02_ide-specific-features.md)
 
@@ -370,36 +370,36 @@ For organizations using **GitHub Copilot Enterprise**, additional capabilities i
 The terminal is where developers live, and GitHub Copilot CLI brings AI assistance to your shell. Whether you're using bash, zsh, PowerShell, or Windows Terminal, Copilot CLI understands your intent and helps you execute commands.
 
 - **Natural language to shell commands** – Describe what you want to do in plain English, and Copilot CLI generates the appropriate command:
-  ```
+```
   $ gh copilot suggest "find all large files over 100MB in the current directory"
   > find . -type f -size +100M
-  ```
+```
 
 - **Command explanation** – Not sure what a command does? Ask Copilot to explain:
-  ```
+```
   $ gh copilot explain "git rebase -i HEAD~5"
-  ```
+```
 
 - **Alias generation** – Create custom aliases for frequently used command sequences:
-  ```
+```
   $ gh copilot alias "deploy-prod" "npm run build && aws s3 sync ./build s3://my-bucket"
-  ```
+```
 
 - **Script generation** – Generate bash, PowerShell, or Python scripts for complex automation tasks:
-  ```
+```
   $ gh copilot script "backup all databases and upload to S3 with timestamp"
-  ```
+```
 
 - **Error diagnosis** – When a command fails, pipe the error to Copilot CLI:
-  ```
+```
   $ npm run deploy 2>&1 | gh copilot diagnose
-  ```
+```
 
 - **Git assistance** – Help with complex Git operations:
-  ```
-  $ gh copilot suggest "undo the last commit but keep the changes"
-  > git reset --soft HEAD~1
-  ```
+```
+$ gh copilot suggest "undo the last commit but keep the changes"
+> git reset --soft HEAD~1
+```
 
 ### Supported Shells and Environments
 
@@ -423,40 +423,40 @@ Copilot isn't just for interactive development—it integrates directly into you
   - Missing test coverage
 
 - **Test generation** – Automatically generate missing tests in CI:
-  ```yaml
+```yaml
   - name: Generate missing tests
     run: gh copilot tests --generate --coverage-threshold 80
-  ```
+```
 
 - **Documentation updates** – Keep documentation in sync with code changes:
-  ```yaml
+```yaml
   - name: Update API docs
     run: gh copilot docs --generate --push
-  ```
+```
 
 - **Security scanning** – Identify vulnerabilities before deployment:
-  ```yaml
+```yaml
   - name: Security audit
     run: gh copilot security --scan --fail-on-high
-  ```
+```
 
 - **Performance regression detection** – Analyze changes for performance impacts:
-  ```yaml
+```yaml
   - name: Performance analysis
     run: gh copilot optimize --check-regression
-  ```
+```
 
 - **Dependency management** – Get AI-assisted dependency updates:
-  ```yaml
+```yaml
   - name: Update dependencies
     run: gh copilot deps --update --safe
-  ```
+```
 
 - **Release notes generation** – Automatically generate human-readable release notes from commits and PRs:
-  ```yaml
+```yaml
   - name: Generate release notes
     run: gh copilot release-notes --from v1.2.3 --to v1.3.0
-  ```
+```
 
 ### GitHub Actions Integration
 
@@ -592,7 +592,7 @@ Use `/explain` to document undocumented legacy code, `/optimize` to improve perf
 
 ## GitHub Copilot vs. Other AI Coding Tools
 
-![## GitHub Copilot vs. Other AI Coding Tools](images/table_03_github-copilot-vs-other-ai-coding-tools-4077.png)
+![## GitHub Copilot vs. Other AI Coding Tools](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-the-ai-powered-development-ecosystem/images/table_03_github-copilot-vs-other-ai-coding-tools-4077.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-the-ai-powered-development-ecosystem/table_03_github-copilot-vs-other-ai-coding-tools-4077.md)
 
