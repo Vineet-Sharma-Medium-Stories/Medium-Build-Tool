@@ -2,7 +2,7 @@
 
 ## The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker
 
-![alt text](<images/Part 1: The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Part 1: The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker.png>)
 
 *This is Part 1 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
@@ -47,7 +47,7 @@ Building such a sophisticated platform requires mastering distributed systems fu
 ---
 
 ## Concept 1: Load Balancing — Distributing Incoming Traffic Across Multiple Servers
-![alt text](<images/Load Balancing.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Load Balancing.png>)
 Load balancing serves as the first line of defense against traffic spikes and single-point failures. In distributed systems, it ensures that no single server bears the brunt of incoming requests, providing both horizontal scalability and high availability.
 
 ### Deep Dive into Load Balancing
@@ -76,7 +76,7 @@ Modern load balancers operate at multiple layers:
 
 **Load Balancing Algorithms:**
 
-![**Load Balancing Algorithms:**](images/table_01_load-balancing-algorithms.png)
+![**Load Balancing Algorithms:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_01_load-balancing-algorithms.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_01_load-balancing-algorithms.md)
 
@@ -422,7 +422,7 @@ public class LoadBalancerMetricsMiddleware
 ```mermaid
 ```
 
-![### Load Balancing Architecture Diagram](images/diagram_01_load-balancing-architecture-diagram-b406.png)
+![### Load Balancing Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_01_load-balancing-architecture-diagram-b406.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/diagram_01_load-balancing-architecture-diagram-b406.md)
 
@@ -430,7 +430,7 @@ public class LoadBalancerMetricsMiddleware
 ---
 
 ## Concept 2: Caching — Storing Frequently Accessed Data to Reduce Latency
-![alt text](images/Caching.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Caching.png)
 
 Caching represents one of the most effective performance optimization techniques. By storing frequently accessed data in fast storage layers, systems can dramatically reduce database load and improve response times by orders of magnitude.
 
@@ -438,7 +438,7 @@ Caching represents one of the most effective performance optimization techniques
 
 **Cache Types:**
 
-![**Cache Types:**](images/table_02_cache-types.png)
+![**Cache Types:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_02_cache-types.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_02_cache-types.md)
 
@@ -870,7 +870,7 @@ public record CacheStatistics
 ```mermaid
 ```
 
-![### Multi-Tier Caching Architecture](images/diagram_02_multi-tier-caching-architecture-cc33.png)
+![### Multi-Tier Caching Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_02_multi-tier-caching-architecture-cc33.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/diagram_02_multi-tier-caching-architecture-cc33.md)
 
@@ -879,7 +879,7 @@ public record CacheStatistics
 
 ## Concept 3: Database Sharding — Splitting Large Databases into Manageable Pieces
 
-![alt text](<images/Database Sharding.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Database Sharding.png>)
 
 Sharding distributes data across multiple database instances, enabling horizontal scaling beyond the limitations of a single server. Vehixcare implements a hybrid sharding strategy with MongoDB for telemetry data and SQL Server for transactional data.
 
@@ -887,7 +887,7 @@ Sharding distributes data across multiple database instances, enabling horizonta
 
 **Sharding Approaches:**
 
-![**Sharding Approaches:**](images/table_03_sharding-approaches.png)
+![**Sharding Approaches:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_03_sharding-approaches.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_03_sharding-approaches.md)
 
@@ -1265,7 +1265,7 @@ public class ShardedVehicleTelemetryRepository : IVehicleTelemetryRepository
 ```mermaid
 ```
 
-![### Sharding Architecture Diagram](images/diagram_03_sharding-architecture-diagram.png)
+![### Sharding Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_03_sharding-architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/diagram_03_sharding-architecture-diagram.md)
 
@@ -1274,7 +1274,7 @@ public class ShardedVehicleTelemetryRepository : IVehicleTelemetryRepository
 
 ## Concept 4: Replication — Copying Data Across Systems for Availability
 
-![alt text](images/Replication.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Replication.png)
 
 Database replication ensures high availability and read scalability by maintaining copies of data across multiple servers. Vehixcare implements sophisticated replication strategies for MongoDB with automatic failover and read preference management.
 
@@ -1282,7 +1282,7 @@ Database replication ensures high availability and read scalability by maintaini
 
 **Replication Topologies:**
 
-![**Replication Topologies:**](images/table_04_replication-topologies.png)
+![**Replication Topologies:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_04_replication-topologies.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_04_replication-topologies.md)
 
@@ -1621,7 +1621,7 @@ public class ReadPreferenceStrategy
 ```mermaid
 ```
 
-![### Replication Architecture Diagram](images/diagram_04_replication-architecture-diagram-404c.png)
+![### Replication Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_04_replication-architecture-diagram-404c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/diagram_04_replication-architecture-diagram-404c.md)
 
@@ -1630,7 +1630,7 @@ public class ReadPreferenceStrategy
 
 ## Concept 5: Circuit Breaker — Preventing System Failure by Stopping Failed Requests
 
-![alt text](<images/Circuit Breaker.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/Circuit Breaker.png>)
 
 The circuit breaker pattern prevents cascading failures in distributed systems by detecting failures and preventing requests to unhealthy services. Vehixcare implements this pattern extensively for MongoDB operations and external service calls.
 
@@ -1638,7 +1638,7 @@ The circuit breaker pattern prevents cascading failures in distributed systems b
 
 **Circuit Breaker States:**
 
-![**Circuit Breaker States:**](images/table_05_circuit-breaker-states.png)
+![**Circuit Breaker States:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_05_circuit-breaker-states.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_05_circuit-breaker-states.md)
 
@@ -2161,7 +2161,7 @@ public enum CircuitBreakerState
 ```mermaid
 ```
 
-![### Circuit Breaker State Machine Diagram](images/diagram_05_circuit-breaker-state-machine-diagram-b538.png)
+![### Circuit Breaker State Machine Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_05_circuit-breaker-state-machine-diagram-b538.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/diagram_05_circuit-breaker-state-machine-diagram-b538.md)
 
@@ -2345,14 +2345,14 @@ public static class MongoDbServiceExtensions
 
 Throughout the codebase, SOLID principles are consistently applied to ensure maintainability and extensibility:
 
-![Throughout the codebase, SOLID principles are consistently applied to ensure maintainability and extensibility:](images/table_06_throughout-the-codebase-solid-principles-are-cons-cd8a.png)
+![Throughout the codebase, SOLID principles are consistently applied to ensure maintainability and extensibility:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_06_throughout-the-codebase-solid-principles-are-cons-cd8a.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_06_throughout-the-codebase-solid-principles-are-cons-cd8a.md)
 
 
 ### Design Patterns in Vehixcare-API
 
-![### Design Patterns in Vehixcare-API](images/table_07_design-patterns-in-vehixcare-api-61eb.png)
+![### Design Patterns in Vehixcare-API](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_07_design-patterns-in-vehixcare-api-61eb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_07_design-patterns-in-vehixcare-api-61eb.md)
 
@@ -2363,7 +2363,7 @@ Throughout the codebase, SOLID principles are consistently applied to ensure mai
 
 In this first part of our series, we've explored the foundational concepts that form the backbone of any distributed system:
 
-![In this first part of our series, we've explored the foundational concepts that form the backbone of any distributed system:](images/table_08_in-this-first-part-of-our-series-weve-explored-t-c87f.png)
+![In this first part of our series, we've explored the foundational concepts that form the backbone of any distributed system:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/table_08_in-this-first-part-of-our-series-weve-explored-t-c87f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/table_08_in-this-first-part-of-our-series-weve-explored-t-c87f.md)
 

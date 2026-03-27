@@ -1,8 +1,8 @@
 # Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 4
 
-## Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability
+### Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability
 
-![alt text](<images/Part 4: Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Part 4: Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service.png>)
 
 *This is Part 4 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
@@ -35,7 +35,7 @@ This final part covers:
 
 ## Concept 16: Vertical Scaling — Increasing Resources of a Single Machine for Better Performance
 
-![alt text](<images/Vertical Scaling.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Vertical Scaling.png>)
 
 While horizontal scaling adds more machines, vertical scaling optimizes individual machines to handle more load. Vehixcare implements vertical scaling techniques to maximize performance for compute-intensive workloads.
 
@@ -43,7 +43,7 @@ While horizontal scaling adds more machines, vertical scaling optimizes individu
 
 **Vertical Scaling Techniques:**
 
-![**Vertical Scaling Techniques:**](images/table_01_vertical-scaling-techniques.png)
+![**Vertical Scaling Techniques:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_01_vertical-scaling-techniques.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_01_vertical-scaling-techniques.md)
 
@@ -515,7 +515,7 @@ public class CpuAffinityManager
 ```mermaid
 ```
 
-![### Vertical Scaling Architecture Diagram](images/diagram_01_vertical-scaling-architecture-diagram-ffee.png)
+![### Vertical Scaling Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_01_vertical-scaling-architecture-diagram-ffee.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_01_vertical-scaling-architecture-diagram-ffee.md)
 
@@ -524,7 +524,7 @@ public class CpuAffinityManager
 
 ## Concept 17: Data Partitioning — Dividing Data into Segments to Improve Performance and Scalability
 
-![alt text](<images/Data Partitioning.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Data Partitioning.png>)
 
 Data partitioning divides large datasets into smaller, manageable segments to improve query performance and enable parallel processing. Vehixcare implements multiple partitioning strategies for different data types.
 
@@ -532,7 +532,7 @@ Data partitioning divides large datasets into smaller, manageable segments to im
 
 **Partitioning Strategies:**
 
-![**Partitioning Strategies:**](images/table_02_partitioning-strategies.png)
+![**Partitioning Strategies:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_02_partitioning-strategies.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_02_partitioning-strategies.md)
 
@@ -951,7 +951,7 @@ public class PartitionRebalancer
 ```mermaid
 ```
 
-![### Data Partitioning Architecture Diagram](images/diagram_02_data-partitioning-architecture-diagram-d708.png)
+![### Data Partitioning Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_02_data-partitioning-architecture-diagram-d708.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_02_data-partitioning-architecture-diagram-d708.md)
 
@@ -960,7 +960,7 @@ public class PartitionRebalancer
 
 ## Concept 18: Idempotency — Ensuring Repeated Requests Produce Same Result Without Side Effects
 
-![alt text](images/Idempotency.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Idempotency.png)
 
 Idempotency guarantees that performing the same operation multiple times has the same effect as performing it once. This is crucial for distributed systems where network failures may cause duplicate requests.
 
@@ -968,14 +968,14 @@ Idempotency guarantees that performing the same operation multiple times has the
 
 **Idempotent vs. Non-Idempotent Operations:**
 
-![**Idempotent vs. Non-Idempotent Operations:**](images/table_03_idempotent-vs-non-idempotent-operations-b620.png)
+![**Idempotent vs. Non-Idempotent Operations:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_03_idempotent-vs-non-idempotent-operations-b620.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_03_idempotent-vs-non-idempotent-operations-b620.md)
 
 
 **Idempotency Implementation Approaches:**
 
-![**Idempotency Implementation Approaches:**](images/table_04_idempotency-implementation-approaches-fca8.png)
+![**Idempotency Implementation Approaches:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_04_idempotency-implementation-approaches-fca8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_04_idempotency-implementation-approaches-fca8.md)
 
@@ -1380,7 +1380,7 @@ public class IdempotentPaymentProcessor
 ```mermaid
 ```
 
-![### Idempotency Architecture Diagram](images/diagram_03_idempotency-architecture-diagram-4a5e.png)
+![### Idempotency Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_03_idempotency-architecture-diagram-4a5e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_03_idempotency-architecture-diagram-4a5e.md)
 
@@ -1389,7 +1389,7 @@ public class IdempotentPaymentProcessor
 
 ## Concept 19: Service Discovery — Automatically Detecting Services in Dynamic Distributed Environments
 
-![alt text](<images/Service Discovery.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Service Discovery.png>)
 
 Service discovery enables services to find each other dynamically without hardcoded addresses. Vehixcare implements service discovery with Consul and Kubernetes DNS.
 
@@ -1397,7 +1397,7 @@ Service discovery enables services to find each other dynamically without hardco
 
 **Service Discovery Patterns:**
 
-![**Service Discovery Patterns:**](images/table_05_service-discovery-patterns.png)
+![**Service Discovery Patterns:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_05_service-discovery-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_05_service-discovery-patterns.md)
 
@@ -1863,7 +1863,7 @@ public class ServiceDiscoveryHttpClient
 ```mermaid
 ```
 
-![### Service Discovery Architecture Diagram](images/diagram_04_service-discovery-architecture-diagram-d7c7.png)
+![### Service Discovery Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_04_service-discovery-architecture-diagram-d7c7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_04_service-discovery-architecture-diagram-d7c7.md)
 
@@ -1872,7 +1872,7 @@ public class ServiceDiscoveryHttpClient
 
 ## Concept 20: Observability — Monitoring Logs, Metrics, and Traces to Understand System Behavior
 
-![alt text](images/Observability.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/Observability.png)
 
 Observability provides deep insights into system behavior through logs, metrics, and traces. Vehixcare implements comprehensive observability with OpenTelemetry, Serilog, and Prometheus.
 
@@ -1880,7 +1880,7 @@ Observability provides deep insights into system behavior through logs, metrics,
 
 **The Three Pillars of Observability:**
 
-![**The Three Pillars of Observability:**](images/table_06_the-three-pillars-of-observability-f4a9.png)
+![**The Three Pillars of Observability:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_06_the-three-pillars-of-observability-f4a9.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_06_the-three-pillars-of-observability-f4a9.md)
 
@@ -2384,7 +2384,7 @@ public class MetricsController : ControllerBase
 ```mermaid
 ```
 
-![### Observability Architecture Diagram](images/diagram_05_observability-architecture-diagram-0b82.png)
+![### Observability Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_05_observability-architecture-diagram-0b82.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_05_observability-architecture-diagram-0b82.md)
 
@@ -2395,7 +2395,7 @@ public class MetricsController : ControllerBase
 
 In this final part of our series, we've explored the optimization and operational patterns that ensure systems run efficiently and can be understood in production:
 
-![In this final part of our series, we've explored the optimization and operational patterns that ensure systems run efficiently and can be understood in production:](images/table_07_in-this-final-part-of-our-series-weve-explored-t-d0c1.png)
+![In this final part of our series, we've explored the optimization and operational patterns that ensure systems run efficiently and can be understood in production:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_07_in-this-final-part-of-our-series-weve-explored-t-d0c1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_07_in-this-final-part-of-our-series-weve-explored-t-d0c1.md)
 
@@ -2419,14 +2419,14 @@ Throughout this 4-part series, we've explored 20 essential system design concept
 ```mermaid
 ```
 
-![### The Complete Picture](images/diagram_06_the-complete-picture.png)
+![### The Complete Picture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/diagram_06_the-complete-picture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/diagram_06_the-complete-picture.md)
 
 
 ### The Vehixcare Journey
 
-![### The Vehixcare Journey](images/table_08_the-vehixcare-journey.png)
+![### The Vehixcare Journey](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/images/table_08_the-vehixcare-journey.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-4/table_08_the-vehixcare-journey.md)
 

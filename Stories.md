@@ -4,8 +4,8 @@
 
 ## Summary
 
-**Total Stories:** 67
-**📝 Draft:** 47
+**Total Stories:** 71
+**📝 Draft:** 51
 **✅ Published:** 15
 
 ---
@@ -133,6 +133,15 @@
 | [SQL Mechanic to Architect: CTEs, Window Functions, Query Optimization, and Scalable Patterns- Part 1.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20CTEs,%20Window%20Functions,%20Query%20Optimization,%20and%20Scalable%20Patterns-%20Part%201.md) | Done | -- | 25/03/2026 |
 | [SQL Mechanic to Architect: Database UDFs, Stored Procedures, & Production-Grade Patterns — Part 2.md](SQL%20Mechanic%20to%20Data%20Architect/SQL%20Mechanic%20to%20Architect%3A%20Database%20UDFs,%20Stored%20Procedures,%20&%20Production-Grade%20Patterns%20—%20Part%202.md) | Done | ✅ 25/03/2026 | 25/03/2026 |
 
+### Vehixcare (4 stories, 0 published)
+
+| Story | Status | Published | Created |
+|-------|--------|-----------|---------|
+| [Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 1.md](Vehixcare/Architecting%20Resilient%20Systems%3A%2020%20Essential%20Concepts%20Through%20a%20.NET%20Lens%20-%20Part%201.md) | Draft | -- | 27/03/2026 |
+| [Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 2.md](Vehixcare/Architecting%20Resilient%20Systems%3A%2020%20Essential%20Concepts%20Through%20a%20.NET%20Lens%20-%20Part%202.md) | Draft | -- | 27/03/2026 |
+| [Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 3.md](Vehixcare/Architecting%20Resilient%20Systems%3A%2020%20Essential%20Concepts%20Through%20a%20.NET%20Lens%20-%20Part%203.md) | Draft | -- | 27/03/2026 |
+| [Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 4.md](Vehixcare/Architecting%20Resilient%20Systems%3A%2020%20Essential%20Concepts%20Through%20a%20.NET%20Lens%20-%20Part%204.md) | Draft | -- | 27/03/2026 |
+
 ### artificial-intelligence-from-basic-concepts-to-agentic-systems-hands-on-implementation-guide (1 stories, 1 published)
 
 | Story | Status | Published | Created |
@@ -156,4 +165,4 @@
 
 ---
 
-*Last updated: 2026-03-27 15:00:21*
+*Last updated: 2026-03-27 23:16:22*

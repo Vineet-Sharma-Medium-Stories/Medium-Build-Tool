@@ -2,7 +2,7 @@
 
 ## Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling
 
-![alt text](<images/Part 3: Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/Part 3: Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem.png>)
 
 *This is Part 3 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
@@ -35,7 +35,7 @@ We'll also dive into:
 
 ## Concept 11: Monolithic Architecture — Single Unified Codebase Handling All Functionalities Together
 
-![alt text](<images/Monolithic Architecture.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/Monolithic Architecture.png>)
 
 A monolithic architecture packages all application components into a single deployable unit. While often considered "legacy," a well-designed modular monolith can be the right choice for many applications, offering simplicity, performance, and easier development workflows.
 
@@ -43,7 +43,7 @@ A monolithic architecture packages all application components into a single depl
 
 **Types of Monoliths:**
 
-![**Types of Monoliths:**](images/table_01_types-of-monoliths.png)
+![**Types of Monoliths:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_01_types-of-monoliths.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_01_types-of-monoliths.md)
 
@@ -697,7 +697,7 @@ await app.RunAsync();
 ```mermaid
 ```
 
-![### Modular Monolith Architecture Diagram](images/diagram_01_modular-monolith-architecture-diagram-cc73.png)
+![### Modular Monolith Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_01_modular-monolith-architecture-diagram-cc73.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/diagram_01_modular-monolith-architecture-diagram-cc73.md)
 
@@ -706,7 +706,7 @@ await app.RunAsync();
 
 ## Concept 12: Event-Driven Architecture — Triggers Actions Based on Events for Decoupled System Communication
 
-![alt text](<images/Event-Driven Architecture.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/Event-Driven Architecture.png>)
 
 
 Event-driven architecture enables reactive systems where components communicate through events rather than direct calls. This creates loose coupling, better scalability, and natural alignment with domain-driven design.
@@ -715,14 +715,14 @@ Event-driven architecture enables reactive systems where components communicate 
 
 **Event Types:**
 
-![**Event Types:**](images/table_02_event-types.png)
+![**Event Types:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_02_event-types.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_02_event-types.md)
 
 
 **Event Processing Patterns:**
 
-![**Event Processing Patterns:**](images/table_03_event-processing-patterns.png)
+![**Event Processing Patterns:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_03_event-processing-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_03_event-processing-patterns.md)
 
@@ -1338,7 +1338,7 @@ public class VehicleServiceHistoryProjection
 ```mermaid
 ```
 
-![### Event-Driven Architecture Diagram](images/diagram_02_event-driven-architecture-diagram-e9e5.png)
+![### Event-Driven Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_02_event-driven-architecture-diagram-e9e5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/diagram_02_event-driven-architecture-diagram-e9e5.md)
 
@@ -1347,7 +1347,7 @@ public class VehicleServiceHistoryProjection
 
 ## Concept 13: CAP Theorem — Tradeoff Between Consistency, Availability, and Partition Tolerance
 
-![alt text](<images/CAP Theorem.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/CAP Theorem.png>)
 
 The CAP theorem states that in a distributed system, you can only guarantee two of three properties: Consistency, Availability, and Partition Tolerance. Understanding these tradeoffs is crucial for designing resilient systems.
 
@@ -1355,7 +1355,7 @@ The CAP theorem states that in a distributed system, you can only guarantee two 
 
 **The Three Properties:**
 
-![**The Three Properties:**](images/table_04_the-three-properties.png)
+![**The Three Properties:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_04_the-three-properties.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_04_the-three-properties.md)
 
@@ -1363,7 +1363,7 @@ The CAP theorem states that in a distributed system, you can only guarantee two 
 
 **System Classifications:**
 
-![**System Classifications:**](images/table_05_system-classifications.png)
+![**System Classifications:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_05_system-classifications.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_05_system-classifications.md)
 
@@ -1746,7 +1746,7 @@ public class CapAwareQueryExecutor
 ```mermaid
 ```
 
-![### CAP Theorem Architecture Diagram](images/diagram_03_cap-theorem-architecture-diagram-eed9.png)
+![### CAP Theorem Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_03_cap-theorem-architecture-diagram-eed9.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/diagram_03_cap-theorem-architecture-diagram-eed9.md)
 
@@ -1755,7 +1755,7 @@ public class CapAwareQueryExecutor
 
 ## Concept 14: Distributed Systems — Multiple Nodes Working Together as a Single System
 
-![alt text](<images/Distributed Systems.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/Distributed Systems.png>)
 
 Distributed systems coordinate multiple independent nodes to present a unified system. Vehixcare implements distributed coordination patterns including leader election, distributed locks, and consensus algorithms.
 
@@ -1770,7 +1770,7 @@ Distributed systems coordinate multiple independent nodes to present a unified s
 
 **Distributed System Patterns:**
 
-![**Distributed System Patterns:**](images/table_06_distributed-system-patterns.png)
+![**Distributed System Patterns:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_06_distributed-system-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_06_distributed-system-patterns.md)
 
@@ -2286,7 +2286,7 @@ public class ServiceMeshProxy
 ```mermaid
 ```
 
-![### Distributed Systems Architecture Diagram](images/diagram_04_distributed-systems-architecture-diagram-1fdf.png)
+![### Distributed Systems Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_04_distributed-systems-architecture-diagram-1fdf.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/diagram_04_distributed-systems-architecture-diagram-1fdf.md)
 
@@ -2295,7 +2295,7 @@ public class ServiceMeshProxy
 
 ## Concept 15: Horizontal Scaling — Adding More Machines to Handle Increasing Application Load
 
-![alt text](<images/Horizontal Scaling.png>)
+![alt text](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/Horizontal Scaling.png>)
 
 Horizontal scaling distributes load across multiple machines, enabling systems to handle increased traffic by adding more instances. Vehixcare implements stateless services and auto-scaling to handle variable loads.
 
@@ -2303,7 +2303,7 @@ Horizontal scaling distributes load across multiple machines, enabling systems t
 
 **Scaling Strategies:**
 
-![**Scaling Strategies:**](images/table_07_scaling-strategies.png)
+![**Scaling Strategies:**](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_07_scaling-strategies.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_07_scaling-strategies.md)
 
@@ -2662,7 +2662,7 @@ public class GracefulShutdownHandler : IHostedService
 ```mermaid
 ```
 
-![### Horizontal Scaling Architecture Diagram](images/diagram_05_horizontal-scaling-architecture-diagram-9a53.png)
+![### Horizontal Scaling Architecture Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_05_horizontal-scaling-architecture-diagram-9a53.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/diagram_05_horizontal-scaling-architecture-diagram-9a53.md)
 
@@ -2673,7 +2673,7 @@ public class GracefulShutdownHandler : IHostedService
 
 In this third part of our series, we've explored the architectural patterns that determine how systems are structured and scaled:
 
-![In this third part of our series, we've explored the architectural patterns that determine how systems are structured and scaled:](images/table_08_in-this-third-part-of-our-series-weve-explored-t-ab85.png)
+![In this third part of our series, we've explored the architectural patterns that determine how systems are structured and scaled:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/table_08_in-this-third-part-of-our-series-weve-explored-t-ab85.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/table_08_in-this-third-part-of-our-series-weve-explored-t-ab85.md)
 
