@@ -4,8 +4,8 @@
 
 ## Summary
 
-**Total Stories:** 60
-**📝 Draft:** 40
+**Total Stories:** 67
+**📝 Draft:** 47
 **✅ Published:** 15
 
 ---
@@ -81,6 +81,18 @@
 | [Enterprise AI Architecture Part 4: The Control Room - Observability, Governance & Security.md](Enterprise%20AI%20Architecture%3A%20A%20Comprehensive%20Technical%20Blueprint%20-%204%20Parts/Enterprise%20AI%20Architecture%20Part%204%3A%20The%20Control%20Room%20-%20Observability,%20Governance%20&%20Security.md) | Draft | -- | 25/03/2026 |
 | [Enterprise AI Architecture: A Comprehensive Technical Blueprint - 4 Parts.md](Enterprise%20AI%20Architecture%3A%20A%20Comprehensive%20Technical%20Blueprint%20-%204%20Parts/Enterprise%20AI%20Architecture%3A%20A%20Comprehensive%20Technical%20Blueprint%20-%204%20Parts.md) | Done | ✅ 15/03/2026 | 25/03/2026 |
 
+### GitHub (7 stories, 0 published)
+
+| Story | Status | Published | Created |
+|-------|--------|-----------|---------|
+| [GitHub Copilot in CI CD: AI-Powered Automation at Scale.md](GitHub/GitHub%20Copilot%20in%20CI%20CD%3A%20AI-Powered%20Automation%20at%20Scale.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot in VS Code: The Ultimate AI-Powered Development Experience.md](GitHub/GitHub%20Copilot%20in%20VS%20Code%3A%20The%20Ultimate%20AI-Powered%20Development%20Experience.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot in Visual Studio: Enterprise-Grade AI for .NET Developers.md](GitHub/GitHub%20Copilot%20in%20Visual%20Studio%3A%20Enterprise-Grade%20AI%20for%20.NET%20Developers.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot in the IDE: Your AI Pair Programmer, Always by Your Side.md](GitHub/GitHub%20Copilot%20in%20the%20IDE%3A%20Your%20AI%20Pair%20Programmer,%20Always%20by%20Your%20Side.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot in the Terminal: Your Command Line AI Assistant.md](GitHub/GitHub%20Copilot%20in%20the%20Terminal%3A%20Your%20Command%20Line%20AI%20Assistant.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot on GitHub.com: AI-Powered Collaboration at Scale.md](GitHub/GitHub%20Copilot%20on%20GitHub.com%3A%20AI-Powered%20Collaboration%20at%20Scale.md) | Draft | -- | 27/03/2026 |
+| [GitHub Copilot: The AI-Powered Development Ecosystem.md](GitHub/GitHub%20Copilot%3A%20The%20AI-Powered%20Development%20Ecosystem.md) | Draft | -- | 27/03/2026 |
+
 ### LINQ Reimagined: A Deep Dive into .NET 10's Query Evolution (1 stories, 0 published)
 
 | Story | Status | Published | Created |
@@ -144,4 +156,4 @@
 
 ---
 
-*Last updated: 2026-03-27 04:02:52*
+*Last updated: 2026-03-27 15:00:21*
