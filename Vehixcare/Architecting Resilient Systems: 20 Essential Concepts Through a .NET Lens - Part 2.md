@@ -1,19 +1,22 @@
 # Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 2
 
-## Part 2: Distribution & Communication — Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices Architecture
+## Distribution & Communication — Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices Architecture
+
+
+![alt text](<images/Part 2: Distribution & Communication — Consistent Hashing, Message Queues, Rate Limiting, API.png>)
 
 *This is Part 2 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
----
 
-### Series Navigation
+**Companion stories in this series: Explore the complete architecture journey**
 
-| Part | Topics | Focus Area |
-|------|--------|------------|
-| **Part 1** | Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker | Foundation & Resilience |
-| **Part 2** (Current) | Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices | Distribution & Communication |
-| **Part 3** | Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling | Architecture & Scale |
-| **Part 4** | Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability | Optimization & Operations |
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
+
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 
 ---
 
@@ -31,6 +34,8 @@ In this part, we'll explore how Vehixcare manages:
 ---
 
 ## Concept 6: Consistent Hashing — Distributing Data Evenly Across Nodes
+
+![alt text](<images/Consistent Hashing.png>)
 
 Consistent hashing minimizes rebalancing when nodes are added or removed from a distributed system. This makes it ideal for cache distribution, database sharding, and load balancing where node membership changes dynamically.
 
@@ -226,7 +231,9 @@ public class ConsistentHashRing<TNode> where TNode : class
         }
     }
 }
-
+```
+**MurmurHash3 implementation for high-performance hashing**
+```csharp
 // 2. MurmurHash3 implementation for high-performance hashing
 public interface IHashAlgorithm
 {
@@ -315,6 +322,9 @@ public class MurmurHash3 : IHashAlgorithm
     }
 }
 
+```
+**Jump Consistent Hash implementation for even better distribution**
+```csharp
 // 3. Jump Consistent Hash implementation for even better distribution
 public class JumpConsistentHash : IHashAlgorithm
 {
@@ -350,6 +360,9 @@ public class JumpConsistentHash : IHashAlgorithm
     }
 }
 
+```
+**Consistent hash cache sharding for Redis cluster**
+```csharp
 // 4. Consistent hash cache sharding for Redis cluster
 public class ConsistentHashCacheShard : ICacheShard
 {
@@ -433,6 +446,9 @@ public class ConsistentHashCacheShard : ICacheShard
     }
 }
 
+```
+**Consistent hash load balancer for service instances**
+```csharp
 // 5. Consistent hash load balancer for service instances
 public class ConsistentHashLoadBalancer : ILoadBalancer
 {
@@ -494,6 +510,11 @@ public record ServiceInstance
 ### Consistent Hashing Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Hash Ring (2^64 space)"
         direction LR
@@ -537,6 +558,8 @@ graph TB
 ---
 
 ## Concept 7: Message Queues — Enabling Asynchronous Communication Between Distributed Components
+
+![alt text](<images/Message Queues.png>)
 
 Message queues decouple system components, enabling reliable asynchronous communication and buffering during traffic spikes. Vehixcare uses Azure Service Bus and RabbitMQ for different workload types.
 
@@ -630,6 +653,9 @@ public enum NotificationType
     Webhook
 }
 
+```
+**Message queue abstraction**
+```csharp
 // 2. Message queue abstraction
 public interface IMessageQueue
 {
@@ -758,6 +784,10 @@ public class AzureServiceBusQueue : IMessageQueue
     }
 }
 
+
+```
+**RabbitMQ implementation for high-throughput scenarios**
+```csharp
 // 4. RabbitMQ implementation for high-throughput scenarios
 public class RabbitMqQueue : IMessageQueue
 {
@@ -893,6 +923,10 @@ public class RabbitMqQueue : IMessageQueue
         _connection?.Close();
     }
 }
+
+```
+**Message processor background service**
+```csharp
 
 // 5. Message processor background service
 public class VehicleServiceMessageProcessor : BackgroundService
@@ -1069,6 +1103,11 @@ public class VehicleServiceMessageProcessor : BackgroundService
 ### Message Queue Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Producers"
         A1[Vehicle API]
@@ -1129,6 +1168,8 @@ graph TB
 ---
 
 ## Concept 8: Rate Limiting — Controlling Request Rate to Prevent Abuse and Overload
+
+![alt text](<images/Rate Limiting.png>)
 
 Rate limiting protects system resources from excessive usage while ensuring fair access for all clients. Vehixcare implements multi-dimensional rate limiting with ASP.NET Core's built-in rate limiter and Redis-based distributed rate limiting.
 
@@ -1634,65 +1675,58 @@ public record RateLimitStats
 ### Rate Limiting Architecture Diagram
 
 ```mermaid
-graph TB
-    subgraph "Client Layer"
-        A1[Mobile Apps]
-        A2[Web Apps]
-        A3[Third-party APIs]
-        A4[Internal Services]
-    end
-    
-    subgraph "Rate Limiting Middleware"
-        B1[Key Extractor]
-        B2[Algorithm Selector]
-        B3[Limit Checker]
-        B4[Header Injector]
-    end
-    
-    subgraph "Rate Limiting Algorithms"
-        C1[Token Bucket<br/>Burst Handling]
-        C2[Sliding Window<br/>Accurate Limits]
-        C3[Fixed Window<br/>Simple Limits]
-        C4[Concurrency<br/>Resource Protection]
-    end
-    
-    subgraph "Storage Layer"
-        D1[(Redis Cluster<br/>Distributed State)]
-        D2[(Local Memory Cache<br/>Fallback)]
-    end
-    
-    subgraph "Monitoring"
-        E1[Rate Limit Dashboard]
-        E2[Violator Tracking]
-        E3[Alert System]
-    end
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph subGraph0["Client Layer"]
+        A1["Mobile Apps"]
+        A2["Web Apps"]
+        A3["Third-party APIs"]
+        A4["Internal Services"]
+  end
+ subgraph subGraph1["Rate Limiting Middleware"]
+        B1["Key Extractor"]
+        B2["Algorithm Selector"]
+        B3["Limit Checker"]
+        B4["Header Injector"]
+  end
+ subgraph subGraph2["Rate Limiting Algorithms"]
+        C1["Token Bucket<br>Burst Handling"]
+        C2["Sliding Window<br>Accurate Limits"]
+        C3["Fixed Window<br>Simple Limits"]
+        C4["Concurrency<br>Resource Protection"]
+  end
+ subgraph subGraph3["Storage Layer"]
+        D1[("Redis Cluster<br>Distributed State")]
+        D2[("Local Memory Cache<br>Fallback")]
+  end
+ subgraph Monitoring["Monitoring"]
+        E1["Rate Limit Dashboard"]
+        E2["Violator Tracking"]
+        E3["Alert System"]
+  end
     A1 --> B1
     A2 --> B1
     A3 --> B1
     A4 --> B1
-    
     B1 --> B2
-    B2 --> C1
-    B2 --> C2
-    B2 --> C3
-    B2 --> C4
-    
+    B2 --> C1 & C2 & C3 & C4
     C1 --> D1
     C2 --> D1
     C3 --> D1
     C4 --> D1
-    
-    D1 --> D2
-    
-    D1 --> E1
-    D1 --> E2
+    D1 --> D2 & E1 & E2
     E2 --> E3
 ```
 
 ---
 
 ## Concept 9: API Gateway — Central Entry Point Managing Requests, Authentication, and Routing
+
+![alt text](<images/API Gateway.png>)
 
 The API Gateway serves as the single entry point for all clients, handling cross-cutting concerns like authentication, routing, aggregation, and rate limiting. Vehixcare implements this using YARP (Yet Another Reverse Proxy) with custom middleware.
 
@@ -1718,7 +1752,7 @@ The API Gateway serves as the single entry point for all clients, handling cross
 | **API Composition** | Aggregate multiple services | Complex UI pages |
 
 ### Vehixcare API Gateway Implementation
-
+**API Gateway configuration with YARP**
 ```csharp
 // 1. API Gateway configuration with YARP
 public class ApiGatewayConfiguration
@@ -2186,68 +2220,60 @@ public record FullVehicleDetails
 ### API Gateway Architecture Diagram
 
 ```mermaid
-graph TB
-    subgraph "Client Applications"
-        A1[Mobile App<br/>iOS/Android]
-        A2[Web App<br/>React/Vue]
-        A3[Third-party APIs<br/>Partners]
-        A4[Internal Services<br/>CI/CD, Admin]
-    end
-    
-    subgraph "API Gateway Layer"
-        B1[Request Router<br/>YARP]
-        B2[Authentication<br/>JWT + API Key]
-        B3[Rate Limiter<br/>Multi-dimensional]
-        B4[Response Cache<br/>5 min TTL]
-        B5[API Aggregator<br/>Composite Responses]
-        B6[Circuit Breaker<br/>Polly]
-        B7[Request/Response<br/>Transforms]
-        B8[Logging &<br/>Monitoring]
-    end
-    
-    subgraph "Backend Services"
-        C1[Vehicle Service]
-        C2[Scheduler Service]
-        C3[Notification Service]
-        C4[Telemetry Service]
-        C5[Parts Service]
-        C6[Warranty Service]
-    end
-    
-    subgraph "Cross-Cutting Concerns"
-        D1[Redis Cache]
-        D2[Seq/OpenTelemetry]
-        D3[Consul Service Discovery]
-    end
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph subGraph0["Client Applications"]
+        A1["Mobile App<br>iOS/Android"]
+        A2["Web App<br>React/Vue"]
+        A3["Third-party APIs<br>Partners"]
+        A4["Internal Services<br>CI/CD, Admin"]
+  end
+ subgraph subGraph1["API Gateway Layer"]
+        B1["Request Router<br>YARP"]
+        B2["Authentication<br>JWT + API Key"]
+        B3["Rate Limiter<br>Multi-dimensional"]
+        B4["Response Cache<br>5 min TTL"]
+        B5["API Aggregator<br>Composite Responses"]
+        B6["Circuit Breaker<br>Polly"]
+        B7["Request/Response<br>Transforms"]
+        B8["Logging &amp;<br>Monitoring"]
+  end
+ subgraph subGraph2["Backend Services"]
+        C1["Vehicle Service"]
+        C2["Scheduler Service"]
+        C3["Notification Service"]
+        C4["Telemetry Service"]
+        C5["Parts Service"]
+        C6["Warranty Service"]
+  end
+ subgraph subGraph3["Cross-Cutting Concerns"]
+        D1["Redis Cache"]
+        D2["Seq/OpenTelemetry"]
+        D3["Consul Service Discovery"]
+  end
     A1 --> B1
     A2 --> B1
     A3 --> B1
     A4 --> B1
-    
-    B1 --> B2
+    B1 --> B2 & C1 & C2 & C3 & C4 & C5 & C6 & D3
     B2 --> B3
     B3 --> B4
-    B4 --> B5
+    B4 --> B5 & D1
     B5 --> B6
     B6 --> B7
     B7 --> B8
-    
-    B1 --> C1
-    B1 --> C2
-    B1 --> C3
-    B1 --> C4
-    B1 --> C5
-    B1 --> C6
-    
-    B4 --> D1
     B8 --> D2
-    B1 --> D3
 ```
 
 ---
 
 ## Concept 10: Microservices Architecture — Independent, Deployable, Loosely Coupled Services
+
+![alt text](<images/Microservices Architecture.png>)
 
 Microservices architecture enables independent development, deployment, and scaling of system components. Vehixcare's microservices are organized around business capabilities with clear bounded contexts.
 
@@ -2680,6 +2706,11 @@ public class VehiclesController : ControllerBase
 ### Microservices Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Client Layer"
         A[Mobile Apps]
@@ -2807,10 +2838,29 @@ In Part 3, we'll explore architecture patterns and system design tradeoffs:
 - **Distributed Systems**: Managing complexity across multiple nodes
 - **Horizontal Scaling**: Adding more machines to handle increasing load
 
+In Part 4, we'll explore optimization and operational patterns:
+
+- **Vertical Scaling**: Increasing resources of a single machine
+- **Data Partitioning**: Dividing data for performance and scalability
+- **Idempotency**: Ensuring repeated requests produce same result
+- **Service Discovery**: Automatically detecting services
+- **Observability**: Monitoring logs, metrics, and traces
+
 These concepts will help you make informed architectural decisions based on your specific requirements.
 
+## Complete Series Recap
+
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
+
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 ---
 
 *Continue to [Part 3: Architecture & Scale →](#)*
 
 **Explore the Complete Implementation:** For the full source code, deployment configurations, and comprehensive documentation, visit the **Vehixcare-API repository**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
+
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*

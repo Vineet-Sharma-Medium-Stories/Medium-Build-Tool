@@ -1,19 +1,20 @@
 # Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 1
 
-## Part 1: The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker
+## The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker
+
+![alt text](<images/Part 1: The Foundation — Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker.png>)
 
 *This is Part 1 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
----
+**Companion stories in this series: Explore the complete architecture journey**
 
-### Series Navigation
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** *(Current)*
 
-| Part | Topics | Focus Area |
-|------|--------|------------|
-| **Part 1** (Current) | Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker | Foundation & Resilience |
-| **Part 2** | Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices | Distribution & Communication |
-| **Part 3** | Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling | Architecture & Scale |
-| **Part 4** | Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability | Optimization & Operations |
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices*
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 
 ---
 
@@ -46,7 +47,7 @@ Building such a sophisticated platform requires mastering distributed systems fu
 ---
 
 ## Concept 1: Load Balancing — Distributing Incoming Traffic Across Multiple Servers
-
+![alt text](<images/Load Balancing.png>)
 Load balancing serves as the first line of defense against traffic spikes and single-point failures. In distributed systems, it ensures that no single server bears the brunt of incoming requests, providing both horizontal scalability and high availability.
 
 ### Deep Dive into Load Balancing
@@ -143,6 +144,11 @@ builder.Services.AddHealthChecks()
     .AddUrlGroup(new Uri("http://notification-service:8082/health"), "notification-service",
         timeout: TimeSpan.FromSeconds(3));
 
+```
+**Custom load balancing policy**
+```csharp
+
+
 // 3. Custom load balancing policy
 public class CustomLoadBalancingPolicy : ILoadBalancingPolicy
 {
@@ -189,6 +195,10 @@ public class CustomLoadBalancingPolicy : ILoadBalancingPolicy
         return availableDestinations.First();
     }
 }
+
+```
+**YARP Configuration (appsettings.json)**
+```
 
 // 4. YARP Configuration (appsettings.json)
 /*
@@ -296,6 +306,10 @@ public class CustomLoadBalancingPolicy : ILoadBalancingPolicy
 }
 */
 
+```
+**Advanced health monitoring with custom checks**
+```
+
 // 5. Advanced health monitoring with custom checks
 public class CustomHealthCheck : IHealthCheck
 {
@@ -351,6 +365,9 @@ public class CustomHealthCheck : IHealthCheck
     }
 }
 
+```
+**Load balancer metrics and monitoring**
+```csharp
 // 6. Load balancer metrics and monitoring
 public class LoadBalancerMetricsMiddleware
 {
@@ -407,6 +424,11 @@ public class LoadBalancerMetricsMiddleware
 ### Load Balancing Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Client Layer"
         A[Mobile Apps]
@@ -482,6 +504,7 @@ graph TB
 ---
 
 ## Concept 2: Caching — Storing Frequently Accessed Data to Reduce Latency
+![alt text](images/Caching.png)
 
 Caching represents one of the most effective performance optimization techniques. By storing frequently accessed data in fast storage layers, systems can dramatically reduce database load and improve response times by orders of magnitude.
 
@@ -673,7 +696,9 @@ public class MultiTierCacheService : ICacheService
         _logger.LogDebug("Removed cache entry for key: {Key}", key);
     }
 }
-
+```
+**Redis distributed lock implementation**
+```csharp
 // 3. Redis distributed lock implementation
 public class RedisDistributedLock : IDistributedLock
 {
@@ -730,7 +755,9 @@ public class RedisDistributedLock : IDistributedLock
         }
     }
 }
-
+```
+**Cache warming service for predictable workloads**
+```csharp
 // 4. Cache warming service for predictable workloads
 public class CacheWarmingService : BackgroundService
 {
@@ -840,7 +867,9 @@ public class CacheWarmingService : BackgroundService
         // This would typically use Redis keyspace notifications or a separate tracking mechanism
     }
 }
-
+```
+**Cache configuration and options**
+```csharp
 // 5. Cache configuration and options
 public class CacheOptions
 {
@@ -914,6 +943,11 @@ public record CacheStatistics
 ### Multi-Tier Caching Architecture
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Application Instance 1"
         A1[L1 Memory Cache<br/>IMemoryCache<br/>5 min TTL<br/>Microsecond Latency]
@@ -968,6 +1002,8 @@ graph TB
 ---
 
 ## Concept 3: Database Sharding — Splitting Large Databases into Manageable Pieces
+
+![alt text](<images/Database Sharding.png>)
 
 Sharding distributes data across multiple database instances, enabling horizontal scaling beyond the limitations of a single server. Vehixcare implements a hybrid sharding strategy with MongoDB for telemetry data and SQL Server for transactional data.
 
@@ -1353,6 +1389,11 @@ public class ShardedVehicleTelemetryRepository : IVehicleTelemetryRepository
 ### Sharding Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Application Layer"
         A[Shard Router<br/>Dynamic Shard Resolver]
@@ -1407,6 +1448,8 @@ graph TB
 ---
 
 ## Concept 4: Replication — Copying Data Across Systems for Availability
+
+![alt text](images/Replication.png)
 
 Database replication ensures high availability and read scalability by maintaining copies of data across multiple servers. Vehixcare implements sophisticated replication strategies for MongoDB with automatic failover and read preference management.
 
@@ -1753,6 +1796,11 @@ public class ReadPreferenceStrategy
 ### Replication Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Primary Region - East US"
         A[(Primary Node<br/>All Writes<br/>Read Preference: Primary)]
@@ -1803,6 +1851,8 @@ graph TB
 ---
 
 ## Concept 5: Circuit Breaker — Preventing System Failure by Stopping Failed Requests
+
+![alt text](<images/Circuit Breaker.png>)
 
 The circuit breaker pattern prevents cascading failures in distributed systems by detecting failures and preventing requests to unhealthy services. Vehixcare implements this pattern extensively for MongoDB operations and external service calls.
 
@@ -2332,55 +2382,64 @@ public enum CircuitBreakerState
 ### Circuit Breaker State Machine Diagram
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Closed: Initial State
-    
-    state Closed {
-        [*] --> Normal: Healthy
-        Normal --> FailureThreshold: Failure Count = N
-        FailureThreshold --> [*]: Circuit Opens
-        note right of Normal
-            All requests pass through
+---
+config:
+  theme: base
+---
+stateDiagram
+  direction TB
+  state Closed {
+    direction TB
+    [*] --> Normal:Healthy
+    Normal --> FailureThreshold:Failure Count = N
+    FailureThreshold --> [*]:Circuit Opens
+[*]    Normal
+    FailureThreshold
+[*]  }
+  state Metrics {
+    direction TB
+    [*] --> TrackSuccess
+    [*] --> TrackFailure
+    TrackSuccess --> UpdateRate
+    TrackFailure --> UpdateRate
+    UpdateRate --> CheckThreshold
+    CheckThreshold --> OpenCircuit:Above Threshold
+[*]    TrackSuccess
+    TrackFailure
+    UpdateRate
+    CheckThreshold
+    OpenCircuit
+  }
+  [*] --> Closed:Initial State
+  Closed --> Open:Failure threshold exceeded
+  Open --> HalfOpen:After break duration
+  HalfOpen --> Closed:Test call succeeds
+  HalfOpen --> Open:Test call fails
+  Metrics:Circuit Metrics
+  note right of Normal 
+  All requests pass through
             Failures counted
             Success resets counter
-        end note
-    }
-    
-    Closed --> Open: Failure threshold exceeded
-    note right of Open
-        All requests fail fast
+  end note
+  note right of Open 
+  All requests fail fast
         No calls to service
         Duration = Break Time
         Timer starts
-    end note
-    
-    Open --> HalfOpen: After break duration
-    note right of HalfOpen
-        Allow limited test calls
+  end note
+  note right of Open 
+  Reset break timer
+        Continue failing fast
+  end note
+  note right of HalfOpen 
+  Allow limited test calls
         Monitor for success
         Single request allowed
-    end note
-    
-    HalfOpen --> Closed: Test call succeeds
-    note right of Closed
-        Reset failure counter
+  end note
+  note right of Closed 
+  Reset failure counter
         Resume normal operation
-    end note
-    
-    HalfOpen --> Open: Test call fails
-    note right of Open
-        Reset break timer
-        Continue failing fast
-    end note
-    
-    state "Circuit Metrics" as Metrics {
-        [*] --> TrackSuccess
-        [*] --> TrackFailure
-        TrackSuccess --> UpdateRate
-        TrackFailure --> UpdateRate
-        UpdateRate --> CheckThreshold
-        CheckThreshold --> OpenCircuit: Above Threshold
-    }
+  end note
 ```
 
 ---
@@ -2622,10 +2681,38 @@ In Part 2, we'll explore the next five concepts that build upon this foundation:
 - **API Gateway**: Centralized entry point for all clients
 - **Microservices Architecture**: Independent, deployable services
 
+In Part 3, we'll explore architecture patterns and system design tradeoffs:
+
+- **Monolithic Architecture**: When to start with a monolith and how to evolve
+- **Event-Driven Architecture**: Building reactive, loosely coupled systems
+- **CAP Theorem**: Understanding consistency, availability, and partition tolerance tradeoffs
+- **Distributed Systems**: Managing complexity across multiple nodes
+- **Horizontal Scaling**: Adding more machines to handle increasing load
+
+In Part 4, we'll explore optimization and operational patterns:
+
+- **Vertical Scaling**: Increasing resources of a single machine
+- **Data Partitioning**: Dividing data for performance and scalability
+- **Idempotency**: Ensuring repeated requests produce same result
+- **Service Discovery**: Automatically detecting services
+- **Observability**: Monitoring logs, metrics, and traces
+
 These concepts will help you design systems that can scale horizontally while maintaining loose coupling between components.
+
+## Complete Series Recap
+
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
+
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 
 ---
 
 *Continue to [Part 2: Distribution & Communication →](#)*
 
 **Explore the Complete Implementation:** For the full source code, deployment configurations, and comprehensive documentation, visit the **Vehixcare-API repository**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
+
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*

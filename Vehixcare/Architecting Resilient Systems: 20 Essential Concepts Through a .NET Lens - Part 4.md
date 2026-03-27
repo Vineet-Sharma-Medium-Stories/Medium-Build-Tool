@@ -1,19 +1,22 @@
 # Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 4
 
-## Part 4: Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability
+## Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability
+
+![alt text](<images/Part 4: Optimization & Operations — Vertical Scaling, Data Partitioning, Idempotency, Service.png>)
 
 *This is Part 4 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
 ---
 
-### Series Navigation
+**Companion stories in this series: Explore the complete architecture journey**
 
-| Part | Topics | Focus Area |
-|------|--------|------------|
-| **Part 1** | Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker | Foundation & Resilience |
-| **Part 2** | Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices | Distribution & Communication |
-| **Part 3** | Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling | Architecture & Scale |
-| **Part 4** (Current) | Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability | Optimization & Operations |
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
+
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 
 ---
 
@@ -31,6 +34,8 @@ This final part covers:
 ---
 
 ## Concept 16: Vertical Scaling — Increasing Resources of a Single Machine for Better Performance
+
+![alt text](<images/Vertical Scaling.png>)
 
 While horizontal scaling adds more machines, vertical scaling optimizes individual machines to handle more load. Vehixcare implements vertical scaling techniques to maximize performance for compute-intensive workloads.
 
@@ -130,6 +135,9 @@ public class MemoryOptimizedTelemetryProcessor
     }
 }
 
+```
+**SIMD optimization for vectorized processing**
+```csharp
 // 2. SIMD optimization for vectorized processing
 public class VectorizedVehicleAnalyzer
 {
@@ -188,6 +196,9 @@ public class VectorizedVehicleAnalyzer
     }
 }
 
+```
+**I/O optimization with pipelines**
+```csharp
 // 3. I/O optimization with pipelines
 public class PipelineTelemetryProcessor
 {
@@ -286,6 +297,9 @@ public class PipelineTelemetryProcessor
     }
 }
 
+```
+**Large Object Heap optimization**
+```csharp
 // 4. Large Object Heap optimization
 [MemoryDiagnoser]
 public class TelemetryMemoryBenchmark
@@ -328,6 +342,10 @@ public class TelemetryMemoryBenchmark
     private void ProcessArray(byte[] array) { /* Processing logic */ }
     private void ProcessMemory(Memory<byte> memory) { /* Processing logic */ }
 }
+
+```
+**Thread pool optimization for CPU-intensive work**
+```csharp
 
 // 5. Thread pool optimization for CPU-intensive work
 public class OptimizedVehicleAnalyzer
@@ -383,6 +401,10 @@ public class OptimizedVehicleAnalyzer
         return result;
     }
 }
+
+```
+**Memory-mapped files for large dataset processing**
+```csharp
 
 // 6. Memory-mapped files for large dataset processing
 public class MemoryMappedFileProcessor : IDisposable
@@ -445,6 +467,10 @@ public class MemoryMappedFileProcessor : IDisposable
     }
 }
 
+```
+**CPU affinity for critical workloads**
+```csharp
+
 // 7. CPU affinity for critical workloads
 public class CpuAffinityManager
 {
@@ -490,6 +516,11 @@ public class CpuAffinityManager
 ### Vertical Scaling Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Single Machine Optimizations"
         A[Application Process]
@@ -543,6 +574,8 @@ graph TB
 ---
 
 ## Concept 17: Data Partitioning — Dividing Data into Segments to Improve Performance and Scalability
+
+![alt text](<images/Data Partitioning.png>)
 
 Data partitioning divides large datasets into smaller, manageable segments to improve query performance and enable parallel processing. Vehixcare implements multiple partitioning strategies for different data types.
 
@@ -660,6 +693,10 @@ public class TimePartitionedTelemetryRepository
     }
 }
 
+```
+**Hash partitioning for vehicle sessions**
+```csharp
+
 // 2. Hash partitioning for vehicle sessions
 public class HashPartitionedSessionStore
 {
@@ -728,6 +765,10 @@ public class HashPartitionedSessionStore
         _logger.LogDebug("Removed session for {VehicleId}", vehicleId);
     }
 }
+
+```
+**Composite partitioning (Range + Hash) for service history**
+```csharp
 
 // 3. Composite partitioning (Range + Hash) for service history
 public class CompositePartitionedServiceHistory
@@ -834,6 +875,9 @@ public class CompositePartitionedServiceHistory
     }
 }
 
+```
+**Dynamic partition rebalancing**
+```csharp
 // 4. Dynamic partition rebalancing
 public class PartitionRebalancer
 {
@@ -959,6 +1003,11 @@ public class PartitionRebalancer
 ### Data Partitioning Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Data Partitioning Strategies"
         A[Application Layer]
@@ -1011,6 +1060,8 @@ graph TB
 ---
 
 ## Concept 18: Idempotency — Ensuring Repeated Requests Produce Same Result Without Side Effects
+
+![alt text](images/Idempotency.png)
 
 Idempotency guarantees that performing the same operation multiple times has the same effect as performing it once. This is crucial for distributed systems where network failures may cause duplicate requests.
 
@@ -1433,6 +1484,11 @@ public class IdempotentPaymentProcessor
 ### Idempotency Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 stateDiagram-v2
     [*] --> CheckIdempotency
     
@@ -1486,6 +1542,8 @@ stateDiagram-v2
 ---
 
 ## Concept 19: Service Discovery — Automatically Detecting Services in Dynamic Distributed Environments
+
+![alt text](<images/Service Discovery.png>)
 
 Service discovery enables services to find each other dynamically without hardcoded addresses. Vehixcare implements service discovery with Consul and Kubernetes DNS.
 
@@ -1589,6 +1647,9 @@ public class ConsulServiceRegistration : IHostedService
     }
 }
 
+```
+**Service discovery client with caching**
+```csharp
 // 2. Service discovery client with caching
 public class ConsulServiceDiscovery : IServiceDiscovery
 {
@@ -1780,6 +1841,9 @@ public class ConsulServiceDiscovery : IServiceDiscovery
     }
 }
 
+```
+**Kubernetes service discovery**
+```csharp
 // 3. Kubernetes service discovery
 public class KubernetesServiceDiscovery : IServiceDiscovery
 {
@@ -1874,6 +1938,10 @@ public class KubernetesServiceDiscovery : IServiceDiscovery
     }
 }
 
+```
+**HTTP client with service discovery**
+```csharp
+
 // 4. HTTP client with service discovery
 public class ServiceDiscoveryHttpClient
 {
@@ -1949,6 +2017,11 @@ public class ServiceDiscoveryHttpClient
 ### Service Discovery Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Service Registry"
         A[Consul Cluster]
@@ -1998,6 +2071,8 @@ graph TB
 ---
 
 ## Concept 20: Observability — Monitoring Logs, Metrics, and Traces to Understand System Behavior
+
+![alt text](images/Observability.png)
 
 Observability provides deep insights into system behavior through logs, metrics, and traces. Vehixcare implements comprehensive observability with OpenTelemetry, Serilog, and Prometheus.
 
@@ -2100,6 +2175,9 @@ public static class OpenTelemetryConfiguration
     }
 }
 
+```
+**Structured logging with Serilog**
+```csharp
 // 2. Structured logging with Serilog
 public static class LoggingConfiguration
 {
@@ -2129,6 +2207,9 @@ public static class LoggingConfiguration
     }
 }
 
+```
+**Custom metrics collector**
+```csharp
 // 3. Custom metrics collector
 public class VehicleMetricsCollector
 {
@@ -2201,6 +2282,10 @@ public class VehicleMetricsCollector
             new KeyValuePair<string, object?>("vehicle.id", vehicleId));
     }
 }
+
+```
+**Distributed tracing with custom activities**
+```csharp
 
 // 4. Distributed tracing with custom activities
 public class VehicleTracingHandler
@@ -2298,6 +2383,9 @@ public class VehicleTracingHandler
     }
 }
 
+```
+**Health checks with detailed status**
+```csharp
 // 5. Health checks with detailed status
 public class ComprehensiveHealthCheck : IHealthCheck
 {
@@ -2408,6 +2496,9 @@ public class ComprehensiveHealthCheck : IHealthCheck
     }
 }
 
+```
+**Dashboard metrics endpoint**
+```csharp
 // 6. Dashboard metrics endpoint
 [ApiController]
 [Route("api/metrics")]
@@ -2492,6 +2583,11 @@ public class MetricsController : ControllerBase
 ### Observability Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Application Instrumentation"
         A1[Vehicle Service]
@@ -2582,6 +2678,11 @@ Throughout this 4-part series, we've explored 20 essential system design concept
 ### The Complete Picture
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TB
     subgraph "Client Layer"
         CL[Web/Mobile Apps]
@@ -2667,13 +2768,13 @@ The 20 concepts we've explored aren't just theory—they're battle-tested patter
 
 ## Complete Series Recap
 
-| Part | Concepts | Focus |
-|------|----------|-------|
-| **Part 1** | Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker | Foundation & Resilience |
-| **Part 2** | Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices | Distribution & Communication |
-| **Part 3** | Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling | Architecture & Scale |
-| **Part 4** | Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability | Optimization & Operations |
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
 
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 ---
 
 **Explore the Complete Implementation:** For the full source code, deployment configurations, and comprehensive documentation, visit the **Vehixcare-API repository**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
@@ -2689,3 +2790,5 @@ The repository includes:
 ---
 
 *Thank you for reading this 4-part series on system design concepts through the lens of Vehixcare-API. May your systems be resilient, scalable, and observable!*
+
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*

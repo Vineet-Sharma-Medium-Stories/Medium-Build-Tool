@@ -1,20 +1,22 @@
 # Architecting Resilient Systems: 20 Essential Concepts Through a .NET Lens - Part 3
 
-## Part 3: Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling
+## Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling
+
+![alt text](<images/Part 3: Architecture & Scale — Monolithic Architecture, Event-Driven Architecture, CAP Theorem.png>)
 
 *This is Part 3 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
 ---
 
-### Series Navigation
+**Companion stories in this series: Explore the complete architecture journey**
 
-| Part | Topics | Focus Area |
-|------|--------|------------|
-| **Part 1** | Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker | Foundation & Resilience |
-| **Part 2** | Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices | Distribution & Communication |
-| **Part 3** (Current) | Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling | Architecture & Scale |
-| **Part 4** | Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability | Optimization & Operations |
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
 
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling* 
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 ---
 
 ## Introduction: From Microservices Back to Monoliths — Finding the Right Architecture
@@ -32,6 +34,8 @@ We'll also dive into:
 ---
 
 ## Concept 11: Monolithic Architecture — Single Unified Codebase Handling All Functionalities Together
+
+![alt text](<images/Monolithic Architecture.png>)
 
 A monolithic architecture packages all application components into a single deployable unit. While often considered "legacy," a well-designed modular monolith can be the right choice for many applications, offering simplicity, performance, and easier development workflows.
 
@@ -126,6 +130,10 @@ Vehixcare.sln
 │           └── ModuleExtensions.cs
 */
 
+```
+**Module interface for clean boundaries**
+```csharp
+
 // 2. Module interface for clean boundaries
 public interface IModule
 {
@@ -136,6 +144,9 @@ public interface IModule
     Task InitializeAsync(IServiceProvider serviceProvider, CancellationToken ct = default);
 }
 
+```
+**Module base class with common functionality**
+```csharp
 // 3. Module base class with common functionality
 public abstract class ModuleBase : IModule
 {
@@ -162,6 +173,10 @@ public abstract class ModuleBase : IModule
         return Task.CompletedTask;
     }
 }
+
+```
+**Vehicle Management Module Implementation**
+```csharp
 
 // 4. Vehicle Management Module Implementation
 public class VehicleManagementModule : ModuleBase
@@ -447,6 +462,9 @@ public class VehicleManagementModule : ModuleBase
     }
 }
 
+```
+**In-memory event bus for module communication (loose coupling)**
+```csharp
 // 5. In-memory event bus for module communication (loose coupling)
 public interface IEventBus
 {
@@ -518,6 +536,9 @@ public class InMemoryEventBus : IEventBus
     }
 }
 
+```
+**Shared domain events**
+```csharp
 // 6. Shared domain events
 public interface IEvent
 {
@@ -572,6 +593,11 @@ public record VehicleServicedEvent : DomainEvent
     public int Odometer { get; init; }
     public string TechnicianId { get; init; }
 }
+
+
+```
+**Module registration in Program.cs**
+```csharp
 
 // 7. Module registration in Program.cs
 var builder = WebApplication.CreateBuilder(args);
@@ -670,6 +696,12 @@ await app.RunAsync();
 ### Modular Monolith Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TB
     subgraph "Vehixcare Modular Monolith"
         A[API Gateway Layer]
@@ -730,6 +762,9 @@ graph TB
 ---
 
 ## Concept 12: Event-Driven Architecture — Triggers Actions Based on Events for Decoupled System Communication
+
+![alt text](<images/Event-Driven Architecture.png>)
+
 
 Event-driven architecture enables reactive systems where components communicate through events rather than direct calls. This creates loose coupling, better scalability, and natural alignment with domain-driven design.
 
@@ -947,6 +982,9 @@ public class VehicleAggregate : AggregateRoot
     }
 }
 
+```
+**Event store for persistence**
+```csharp
 // 3. Event store for persistence
 public interface IEventStore
 {
@@ -1034,6 +1072,10 @@ public class MongoEventStore : IEventStore
     }
 }
 
+```
+**Repository using event sourcing**
+```csharp
+
 // 4. Repository using event sourcing
 public class VehicleEventSourcedRepository : IVehicleRepository
 {
@@ -1111,6 +1153,10 @@ public class VehicleEventSourcedRepository : IVehicleRepository
         }
     }
 }
+
+```
+**Event handlers for cross-module communication**
+```csharp
 
 // 5. Event handlers for cross-module communication
 public class VehicleServicedHandler : INotificationHandler<VehicleServicedEvent>
@@ -1311,6 +1357,10 @@ public class VehicleServicedHandler : INotificationHandler<VehicleServicedEvent>
     private async Task<int> GetDaysSinceLastServiceAsync(string vehicleId, CancellationToken ct) => 30;
 }
 
+
+```
+**Projection for read models (CQRS)**
+```csharp
 // 6. Projection for read models (CQRS)
 public class VehicleServiceHistoryProjection
 {
@@ -1347,6 +1397,12 @@ public class VehicleServiceHistoryProjection
 ### Event-Driven Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TB
     subgraph "Event Sources"
         A1[Vehicle Service<br/>Domain Events]
@@ -1408,6 +1464,8 @@ graph TB
 
 ## Concept 13: CAP Theorem — Tradeoff Between Consistency, Availability, and Partition Tolerance
 
+![alt text](<images/CAP Theorem.png>)
+
 The CAP theorem states that in a distributed system, you can only guarantee two of three properties: Consistency, Availability, and Partition Tolerance. Understanding these tradeoffs is crucial for designing resilient systems.
 
 ### Deep Dive into CAP Theorem
@@ -1420,37 +1478,6 @@ The CAP theorem states that in a distributed system, you can only guarantee two 
 | **Availability** | Every request receives a response | Uptime percentage, request success rate |
 | **Partition Tolerance** | System continues to operate despite network failures | Network failure recovery time |
 
-**The Tradeoff:**
-```
-CAP Theorem: Choose Two
-
-                    Consistency
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  /          \
-                 /            \
-                /              \
-               /                \
-              /                  \
-             /                    \
-            /                      \
-           /                        \
-          /                          \
-         /                            \
-        /                              \
-       /                                \
-      /                                  \
-     /                                    \
-    /                                      \
-   /                                        \
-  /                                          \
- /                                            \
-/                                              \
-Availability                                 Partition Tolerance
-```
 
 **System Classifications:**
 
@@ -1577,6 +1604,9 @@ public class PaymentProcessingSystem
     }
 }
 
+```
+**AP System (Availability + Partition Tolerance) - Vehicle Location Tracking**
+```csharp
 // 2. AP System (Availability + Partition Tolerance) - Vehicle Location Tracking
 public class VehicleLocationSystem
 {
@@ -1701,6 +1731,9 @@ public class VehicleLocationSystem
     }
 }
 
+```
+**Configurable Consistency - Choose at runtime**
+```csharp
 // 3. Configurable Consistency - Choose at runtime
 public class ConfigurableConsistencyService
 {
@@ -1772,6 +1805,9 @@ public enum ConsistencyRequirement
     Session     // Client-centric consistency
 }
 
+```
+**CAP-aware query execution**
+```csharp
 // 4. CAP-aware query execution
 public class CapAwareQueryExecutor
 {
@@ -1828,6 +1864,12 @@ public class CapAwareQueryExecutor
 ### CAP Theorem Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TB
     subgraph "CAP Theorem Decision Matrix"
         A[System Requirements]
@@ -1870,6 +1912,8 @@ graph TB
 ---
 
 ## Concept 14: Distributed Systems — Multiple Nodes Working Together as a Single System
+
+![alt text](<images/Distributed Systems.png>)
 
 Distributed systems coordinate multiple independent nodes to present a unified system. Vehixcare implements distributed coordination patterns including leader election, distributed locks, and consensus algorithms.
 
@@ -1983,7 +2027,9 @@ public class DistributedLock : IDistributedLock
         }
     }
 }
-
+```
+**Leader election using Redis**
+```csharp
 // 2. Leader election using Redis
 public class LeaderElectionService : BackgroundService
 {
@@ -2142,6 +2188,9 @@ public class LeaderElectionService : BackgroundService
     }
 }
 
+```
+**Distributed transaction coordinator (Saga orchestrator)**
+```csharp
 // 3. Distributed transaction coordinator (Saga orchestrator)
 public class DistributedTransactionCoordinator
 {
@@ -2279,6 +2328,9 @@ public class DistributedTransactionCoordinator
     }
 }
 
+```
+**Service mesh with sidecar pattern**
+```csharp
 // 4. Service mesh with sidecar pattern
 public class ServiceMeshProxy
 {
@@ -2393,6 +2445,12 @@ public class ServiceMeshProxy
 ### Distributed Systems Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TB
     subgraph "Service Mesh"
         A[API Gateway]
@@ -2455,6 +2513,8 @@ graph TB
 ---
 
 ## Concept 15: Horizontal Scaling — Adding More Machines to Handle Increasing Application Load
+
+![alt text](<images/Horizontal Scaling.png>)
 
 Horizontal scaling distributes load across multiple machines, enabling systems to handle increased traffic by adding more instances. Vehixcare implements stateless services and auto-scaling to handle variable loads.
 
@@ -2535,6 +2595,9 @@ public class StatelessVehicleService
     }
 }
 
+```
+**Kubernetes deployment with auto-scaling**
+```chsarp
 // 2. Kubernetes deployment with auto-scaling
 public class KubernetesDeploymentConfig
 {
@@ -2664,6 +2727,9 @@ spec:
 */
 }
 
+```
+**Auto-scaling based on custom metrics**
+```chsarp
 // 3. Auto-scaling based on custom metrics
 public class CustomMetricsScaling
 {
@@ -2725,6 +2791,9 @@ public class CustomMetricsScaling
     }
 }
 
+```
+**Session externalization for stateless services**
+```chsarp
 // 4. Session externalization for stateless services
 public class SessionExternalization
 {
@@ -2751,6 +2820,10 @@ public class SessionExternalization
         return cached != null ? JsonSerializer.Deserialize<SessionData>(cached) : null;
     }
 }
+
+```
+**Graceful shutdown for horizontal scaling**
+```chsarp
 
 // 5. Graceful shutdown for horizontal scaling
 public class GracefulShutdownHandler : IHostedService
@@ -2809,6 +2882,12 @@ public class GracefulShutdownHandler : IHostedService
 ### Horizontal Scaling Architecture Diagram
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TB
     subgraph "Load Balancer"
         A[YARP Gateway<br/>Layer 7 Load Balancer]
@@ -2907,8 +2986,19 @@ In Part 4, we'll explore optimization and operational patterns:
 
 These concepts will help you build systems that are not only scalable but also maintainable and observable in production.
 
+## Complete Series Recap
+
+- **[🏗️ Part 1:** *Foundation & Resilience – Load Balancing, Caching, Database Sharding, Replication, Circuit Breaker* ](#)** 
+
+- **📡 Part 2:** *Distribution & Communication – Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices* *(Current)* 
+
+- **🏛️ Part 3:** *Architecture & Scale – Monolithic Architecture, Event-Driven Architecture, CAP Theorem, Distributed Systems, Horizontal Scaling*
+
+- **⚙️ Part 4:** *Optimization & Operations – Vertical Scaling, Data Partitioning, Idempotency, Service Discovery, Observability *
 ---
 
 *Continue to [Part 4: Optimization & Operations →](#)*
 
 **Explore the Complete Implementation:** For the full source code, deployment configurations, and comprehensive documentation, visit the **Vehixcare-API repository**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
+
+*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*
