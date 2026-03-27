@@ -8,7 +8,7 @@
 
 This story is part of our comprehensive exploration of **GitHub Copilot: The AI-Powered Development Ecosystem**. While the parent story introduced the full ecosystem across all development surfaces, and the **"In the IDE"** story covered the general IDE experience, this deep dive focuses specifically on **VS Code**—the world's most popular code editor—and how GitHub Copilot delivers its most powerful, deeply integrated experience on this platform.
 
-**Companion stories in this series:**
+**Companion stories in this series:** *[Links Below]*
 - **📝 In the IDE** – Your AI pair programmer, always by your side
 - **🌐 GitHub.com** – AI-powered collaboration at scale
 - **💻 In the Terminal** – Your command line AI assistant

@@ -7,7 +7,7 @@
 
 This story is part of our comprehensive exploration of **GitHub Copilot: The AI-Powered Development Ecosystem**. While the parent story introduced the full ecosystem across all development surfaces, this deep dive focuses on how GitHub Copilot transforms the world's largest software development platform—GitHub.com itself.
 
-**Companion stories in this series:**
+**Companion stories in this series:** *[Links Below]*
 - **📝 In the IDE** – Your AI pair programmer, always by your side
 - **🌐 GitHub.com** – AI-powered collaboration at scale
 - **💻 In the Terminal** – Your command line AI assistant

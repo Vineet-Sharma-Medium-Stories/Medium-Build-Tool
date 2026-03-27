@@ -10,7 +10,7 @@ Since its groundbreaking launch in 2021 as the world's first AI pair programmer,
 
 With the introduction of **Copilot Workspace Commands**, developers now have a true AI team member embedded directly in their workflows. But Workspace Commands are just one part of a larger story—Copilot now meets you wherever you work:
 
-**Companion stories in this series:**
+**Companion stories in this series:** *[Links Below]*
 - **📝 In the IDE** – Your AI pair programmer, always by your side
 - **🌐 GitHub.com** – AI-powered collaboration at scale
 - **💻 In the Terminal** – Your command line AI assistant
