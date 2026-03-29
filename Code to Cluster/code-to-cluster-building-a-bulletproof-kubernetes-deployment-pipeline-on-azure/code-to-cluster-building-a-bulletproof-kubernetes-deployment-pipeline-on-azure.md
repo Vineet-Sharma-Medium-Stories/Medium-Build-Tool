@@ -1,6 +1,6 @@
 # Code to Cluster: Building a Bulletproof Kubernetes Deployment Pipeline on Azure
 
-![alt text](images/Code-to-Cluster-Building-a-Bulletproof-Kubernetes-Deployment-Pipeline-on-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/Code-to-Cluster-Building-a-Bulletproof-Kubernetes-Deployment-Pipeline-on-Azure.png)
 
 In my previous story, we built a comprehensive Kubernetes deployment pipeline on AWS—exploring ECR, EKS, CodeBuild, GitHub Actions, AWS Secrets Manager, and the entire ecosystem of tools that make cloud-native development possible on Amazon's platform. We walked through every stage: from `git push` to build, security scanning, secret management, deployment, and monitoring.
 
@@ -17,7 +17,7 @@ Before we dive into the weeds of YAML files and `kubectl` commands, let's look a
 ```mermaid
 ```
 
-![Microsoft Azure](images/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.png)
+![Microsoft Azure](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.md)
 
@@ -60,7 +60,7 @@ This is where code transforms into an artifact. In the Kubernetes world, the art
 
 On Azure, you have multiple choices:
 
-![Docker Image](images/table_01_on-azure-you-have-multiple-choices-1f85.png)
+![Docker Image](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_01_on-azure-you-have-multiple-choices-1f85.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_01_on-azure-you-have-multiple-choices-1f85.md)
 
@@ -74,17 +74,14 @@ trigger:
   branches:
     include:
     - main
-
 pool:
   vmImage: 'ubuntu-latest'
-
 variables:
   azureSubscription: 'my-azure-service-connection'
   containerRegistry: 'myacr.azurecr.io'
   imageRepository: 'my-app'
   tag: '$(Build.BuildId)'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-
 stages:
 - stage: Build
   displayName: Build and push stage
@@ -111,8 +108,7 @@ stages:
         script: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
             aquasec/trivy image --severity HIGH,CRITICAL \
-            $(containerRegistry)/$(imageRepository):$(tag) || true
-    
+            $(containerRegistry)/$(imageRepository):$(tag) || true    
     - task: Docker@2
       displayName: Build and Push
       inputs:
@@ -128,20 +124,16 @@ stages:
 **Example 2: GitHub Actions (`.github/workflows/ci-azure.yml`)**
 ```yaml
 name: CI Pipeline to Azure ACR
-
 on:
   push:
     branches: [ main ]
-
 env:
   AZURE_CONTAINER_REGISTRY: myacr.azurecr.io
   AZURE_RESOURCE_GROUP: my-rg
   CONTAINER_NAME: my-app
-
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -149,19 +141,16 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
+          creds: ${{ secrets.AZURE_CREDENTIALS }}      
       - name: Run Tests
-        run: npm ci && npm test
-      
+        run: npm ci && npm test      
       - name: Security Scan
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           scan-ref: '.'
           severity: 'HIGH,CRITICAL'
-          exit-code: '1'
-      
+          exit-code: '1'      
       - name: Build and push Docker image to ACR
         run: |
           az acr build --registry myacr \
@@ -224,7 +213,7 @@ pipeline {
 
 After building the image, we need a place to store it securely:
 
-![Table](images/table_02_after-building-the-image-we-need-a-place-to-store-2636.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_02_after-building-the-image-we-need-a-place-to-store-2636.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_02_after-building-the-image-we-need-a-place-to-store-2636.md)
 
@@ -256,7 +245,7 @@ docker push harbor.yourcompany.com/library/my-app:latest
 
 Security isn't optional—it's baked into every stage:
 
-![Harbor (self-hosted)](images/table_03_security-isnt-optionalits-baked-into-every-stag-4304.png)
+![Harbor (self-hosted)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_03_security-isnt-optionalits-baked-into-every-stag-4304.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_03_security-isnt-optionalits-baked-into-every-stag-4304.md)
 
@@ -278,7 +267,7 @@ In our pipeline, we have several secrets to protect:
 
 ### Secret Management Options on Azure
 
-![Database credentials](images/table_04_secret-management-options-on-azure-1685.png)
+![Database credentials](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_04_secret-management-options-on-azure-1685.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_04_secret-management-options-on-azure-1685.md)
 
@@ -725,7 +714,7 @@ The image is now safely stored in ACR, and secrets are securely managed in Azure
 
 ### Kubernetes Platform Options
 
-![Azure Kubernetes Service (AKS)](images/table_05_kubernetes-platform-options.png)
+![Azure Kubernetes Service (AKS)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_05_kubernetes-platform-options.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_05_kubernetes-platform-options.md)
 
@@ -734,7 +723,7 @@ The image is now safely stored in ACR, and secrets are securely managed in Azure
 
 Just like on AWS, modern teams use:
 
-![Azure Kubernetes Service (AKS)](images/table_06_just-like-on-aws-modern-teams-use-3afc.png)
+![Azure Kubernetes Service (AKS)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_06_just-like-on-aws-modern-teams-use-3afc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_06_just-like-on-aws-modern-teams-use-3afc.md)
 
@@ -977,7 +966,7 @@ Once deployed, we need to ensure the application stays healthy.
 
 ### Monitoring Stack Options
 
-![Phase 6: Monitoring & Rollback (The Safety Net)](images/table_07_monitoring-stack-options.png)
+![Phase 6: Monitoring & Rollback (The Safety Net)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_07_monitoring-stack-options.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_07_monitoring-stack-options.md)
 
@@ -1500,7 +1489,7 @@ az role assignment create \
 
 ### Secret Management Comparison Table (Azure Focus)
 
-![Use Azure RBAC for Key Vault (preview)](images/table_08_secret-management-comparison-table-azure-focu-d8fe.png)
+![Use Azure RBAC for Key Vault (preview)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_08_secret-management-comparison-table-azure-focu-d8fe.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_08_secret-management-comparison-table-azure-focu-d8fe.md)
 
@@ -1513,7 +1502,7 @@ We have successfully mapped the abstract "Kubernetes Deployment Pipeline" diagra
 
 **Remember the AWS version?** We explored ECR, EKS, CodeBuild, GitHub Actions, and AWS Secrets Manager. Today, we swapped every building block:
 
-![Complexity](images/table_09_remember-the-aws-version-we-explored-ecr-eks-2361.png)
+![Complexity](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/table_09_remember-the-aws-version-we-explored-ecr-eks-2361.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/table_09_remember-the-aws-version-we-explored-ecr-eks-2361.md)
 

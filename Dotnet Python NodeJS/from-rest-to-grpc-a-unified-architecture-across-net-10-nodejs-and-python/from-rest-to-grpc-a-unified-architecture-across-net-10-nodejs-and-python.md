@@ -1,7 +1,7 @@
 # From REST to gRPC: A Unified Architecture Across .NET 10, Node.js, and Python
 ## A Comprehensive Guide to Polyglot gRPC Implementation | Fleet Management System Use Case
 
-![alt text](<images/From REST to gRPC: A Unified Architecture Across NET 10, NodeJS, and Python.png>)
+![alt text](images/From-REST-to-gRPC-A-Unified-Architecture-Across-NET-10,-NodeJS,-and-Python.png)
 
 ## Introduction: The Three Pillars of Modern API Architecture
 
@@ -280,85 +280,37 @@ The .NET 10 implementation represents the pinnacle of enterprise-grade gRPC arch
 
 ### Key .NET 10 Features
 
-| Feature | Description | Impact |
-|---------|-------------|--------|
-| **Native AOT** | Ahead-of-time compilation to native code | 20-50ms startup, 30-50MB container images |
-| **Hybrid Cache** | Combined memory and distributed caching | 90% cache hit rate, stale-while-revalidate |
-| **AI Minimal APIs** | Natural language service descriptions | Self-documenting APIs, intelligent client generation |
-| **Source Generators** | Compile-time protobuf code generation | Zero reflection, trim-safe deployments |
-| **OpenTelemetry** | Built-in distributed tracing | Comprehensive observability out of the box |
+![Story 1: From REST to gRPC in .NET 10](images/table_01_key-net-10-features.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_01_key-net-10-features.md)
+
 
 ### Architecture Overview
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph ".NET 10 gRPC Architecture"
-        Client[gRPC Clients] --> Kestrel[Kestrel HTTP/2 Server]
-        Kestrel --> GrpcPipeline[gRPC Middleware Pipeline]
-        GrpcPipeline --> Interceptors[Interceptors: Logging, Auth, RateLimit]
-        Interceptors --> Service[TelemetryService Implementation]
-        
-        Service --> HybridCache[Hybrid Cache]
-        Service --> EF[Entity Framework Core]
-        Service --> Redis[Redis Distributed Cache]
-        
-        HybridCache --> MemoryCache[IMemoryCache]
-        HybridCache --> RedisCache[IDistributedCache]
-        
-        EF --> PostgreSQL[(PostgreSQL)]
-        
-        Service --> AI[AI Minimal API<br/>Contract Description]
-    end
-    
-    style .NET 10 gRPC Architecture fill:#f3e5f5
 ```
+
+![Native AOT](images/diagram_01_architecture-overview.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_01_architecture-overview.md)
+
 
 ### Performance Characteristics
 
-| Metric | REST (ASP.NET Core) | gRPC (.NET 10) | Improvement |
-|--------|---------------------|----------------|-------------|
-| **Throughput** | 20,000 req/sec | 50,000 req/sec | 2.5x |
-| **Latency (P99)** | 15 ms | 5 ms | 3x |
-| **Memory Footprint** | 150 MB | 50 MB (AOT) | 3x |
-| **Cold Start** | 200 ms | 25 ms | 8x |
-| **Data Transfer** | 500 bytes/msg | 50 bytes/msg | 10x |
+![Table](images/table_02_performance-characteristics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_02_performance-characteristics.md)
+
 
 ### Mermaid Sequence: Telemetry Stream in .NET 10
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Vehicle as Vehicle Client
-    participant Kestrel as Kestrel Server
-    participant Middleware as gRPC Middleware
-    participant Service as TelemetryService
-    participant Cache as Hybrid Cache
-    participant DB as PostgreSQL
-
-    Vehicle->>Kestrel: SendTelemetryStream (Open)
-    Kestrel->>Middleware: HTTP/2 Connection
-    Middleware->>Service: Stream Established
-    
-    loop Every 2 seconds
-        Vehicle-->>Service: TelemetryUpdate (Protobuf)
-        Service->>Service: Validate with Source Generators
-        Service->>Cache: Update vehicle state
-        Cache->>Cache: Memory Cache (2s)
-        Cache->>DB: Background write
-        Service-->>Vehicle: TelemetryAck
-    end
-    
-    Note over Service: Native AOT ensures sub-50ms cold start
 ```
+
+![Throughput](images/diagram_02_mermaid-sequence-telemetry-stream-in-net-10-8edd.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_02_mermaid-sequence-telemetry-stream-in-net-10-8edd.md)
+
 
 ### Deployment: .NET 10 with Native AOT
 
@@ -416,92 +368,37 @@ The Node.js implementation showcases the power of event-driven architecture for 
 
 ### Key Node.js Features
 
-| Feature | Description | Impact |
-|---------|-------------|--------|
-| **Event-Driven I/O** | Non-blocking event loop architecture | 10,000+ concurrent connections with minimal resources |
-| **TypeScript** | Static typing with full IDE support | Compile-time type safety, better developer experience |
-| **Fastify** | High-performance HTTP framework | 2x faster than Express, built-in schema validation |
-| **Prisma ORM** | Type-safe database access | Auto-completion, type inference, migration tools |
-| **BullMQ** | Redis-based job queue | Reliable background processing with retries |
-| **Pino** | Ultra-fast structured logging | 5x faster than alternatives, JSON output |
+![Story 2: From REST to gRPC in Node.js](images/table_03_key-nodejs-features.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_03_key-nodejs-features.md)
+
 
 ### Architecture Overview
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-
-graph TB
-    subgraph NodejsArch["Node.js gRPC Architecture"]
-        Client["gRPC Clients"] --> GrpcServer["@grpc/grpc-js Server"]
-        GrpcServer --> Interceptors["Interceptors: Logging, Auth, RateLimit"]
-        Interceptors --> Service["TelemetryService Implementation"]
-        
-        Service --> EventLoop["Event-Driven Architecture"]
-        Service --> StateManager["VehicleStateManager<br/>Map + EventEmitter"]
-        Service --> BullMQ["BullMQ Queue"]
-        Service --> Redis["Redis Pub/Sub"]
-        
-        StateManager --> Memory["In-Memory State"]
-        BullMQ --> Redis
-        Redis --> Python["Python ML Processor"]
-        
-        Service --> Prisma["Prisma ORM"]
-        Prisma --> PostgreSQL[("PostgreSQL")]
-    end
-    
 ```
+
+![Event-Driven I/O](images/diagram_03_architecture-overview.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_03_architecture-overview.md)
+
 
 ### Performance Characteristics
 
-| Metric | REST (Fastify) | gRPC (Node.js) | Improvement |
-|--------|----------------|----------------|-------------|
-| **Throughput** | 15,000 req/sec | 35,000 req/sec | 2.3x |
-| **Latency (P99)** | 12 ms | 8 ms | 1.5x |
-| **Memory Footprint** | 80 MB | 50 MB | 1.6x |
-| **Concurrent Streams** | 500 | 5,000+ | 10x |
-| **Data Transfer** | 500 bytes/msg | 50 bytes/msg | 10x |
+![Table](images/table_04_performance-characteristics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_04_performance-characteristics.md)
+
 
 ### Mermaid Sequence: Bidirectional Streaming in Node.js
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Vehicle as Vehicle Client
-    participant Grpc as @grpc/grpc-js Server
-    participant State as EventEmitter State
-    participant Queue as BullMQ Queue
-    participant Redis as Redis
-
-    Vehicle->>Grpc: BidirectionalCommandChannel (Open)
-    Grpc->>State: Register vehicle stream
-    
-    par Incoming Stream
-        loop Every 2 seconds
-            Vehicle-->>Grpc: TelemetryUpdate
-            Grpc->>State: Emit 'update' event
-            State->>Redis: Publish telemetry
-        end
-    and Outgoing Stream
-        loop Continuous
-            Grpc->>Queue: Check pending commands
-            alt Command Available
-                Queue-->>Grpc: Return command
-                Grpc-->>Vehicle: CommandEnvelope
-            end
-            Grpc-->>Vehicle: ServerKeepAlive
-        end
-    end
-    
-    Note over Grpc: Event loop handles 5,000+ concurrent streams
 ```
+
+![Throughput](images/diagram_04_mermaid-sequence-bidirectional-streaming-in-n-56f2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_04_mermaid-sequence-bidirectional-streaming-in-n-56f2.md)
+
 
 ### Deployment: Node.js with Kubernetes
 
@@ -617,83 +514,37 @@ The Python implementation demonstrates how modern Python with async/await can de
 
 ### Key Python Features
 
-| Feature | Description | Impact |
-|---------|-------------|--------|
-| **FastAPI** | Modern async web framework | Automatic OpenAPI docs, 2x faster than Flask |
-| **Pydantic v2** | Runtime data validation with type hints | 50% faster than v1, strict validation |
-| **SQLAlchemy 2.0** | Async ORM with type mapping | Full async support, improved typing |
-| **grpcio** | Official gRPC library with asyncio | Native async streaming support |
-| **TensorFlow** | Machine learning framework | Predictive maintenance, anomaly detection |
-| **structlog** | Structured logging | JSON logs, contextual information |
+![Story 3: From REST to gRPC in Python](images/table_05_key-python-features.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_05_key-python-features.md)
+
 
 ### Architecture Overview
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Python gRPC Architecture"
-        Client[gRPC Clients] --> GrpcServer[grpcio AsyncIO Server]
-        GrpcServer --> Service[TelemetryService Implementation]
-        
-        Service --> StateManager[VehicleStateManager<br/>Dict + asyncio.Lock]
-        Service --> MLProcessor[TensorFlow ML Processor]
-        Service --> Redis[Redis Pub/Sub]
-        Service --> SQLAlchemy[SQLAlchemy 2.0 Async]
-        
-        StateManager --> Memory[In-Memory State]
-        MLProcessor --> TensorFlow[TensorFlow Models]
-        Redis --> NodeJS[Node.js Ingestor]
-        
-        SQLAlchemy --> PostgreSQL[(PostgreSQL)]
-    end
-    
-    style Python gRPC Architecture fill:#e3f2fd
 ```
+
+![FastAPI](images/diagram_05_architecture-overview.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_05_architecture-overview.md)
+
 
 ### Performance Characteristics
 
-| Metric | REST (FastAPI) | gRPC (Python) | Improvement |
-|--------|----------------|---------------|-------------|
-| **Throughput** | 8,000 req/sec | 18,000 req/sec | 2.25x |
-| **Latency (P99)** | 25 ms | 15 ms | 1.67x |
-| **Memory Footprint** | 150 MB | 100 MB | 1.5x |
-| **ML Inference** | N/A | 5-10 ms | Real-time |
-| **Data Transfer** | 500 bytes/msg | 50 bytes/msg | 10x |
+![Table](images/table_06_performance-characteristics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_06_performance-characteristics.md)
+
 
 ### Mermaid Sequence: ML-Powered Command Dispatch
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Vehicle as Vehicle
-    participant Node as Node.js Ingestor
-    participant Redis as Redis
-    participant Python as Python ML Processor
-    participant Model as TensorFlow Model
-
-    Vehicle->>Node: TelemetryStream
-    Node->>Redis: Publish telemetry
-    
-    Redis->>Python: Async telemetry stream
-    Python->>Model: Run inference
-    Model-->>Python: Maintenance probability: 0.85
-    
-    alt High Risk Detected
-        Python->>Redis: Publish maintenance alert
-        Redis->>Node: Command to deliver
-        Node-->>Vehicle: TelemetryAck with command
-    end
-    
-    Note over Python: ML inference completes in 5-10ms
 ```
+
+![Throughput](images/diagram_06_mermaid-sequence-ml-powered-command-dispatch-b674.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_06_mermaid-sequence-ml-powered-command-dispatch-b674.md)
+
 
 ### Deployment: Python with Kubernetes
 
@@ -809,116 +660,36 @@ All three implementations use OpenTelemetry with consistent patterns, enabling c
 ### OpenTelemetry Architecture Diagram
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Applications"
-        DotNet[.NET 10 gRPC Service]
-        Node[Node.js gRPC Service]
-        Python[Python gRPC Service]
-    end
-    
-    subgraph "OpenTelemetry SDK"
-        DotNetSDK[OTel .NET SDK]
-        NodeSDK[OTel Node.js SDK]
-        PythonSDK[OTel Python SDK]
-    end
-    
-    subgraph "OpenTelemetry Collector"
-        OTLPReceiver[OTLP Receiver]
-        BatchProcessor[Batch Processor]
-        Exporters[Exporters]
-    end
-    
-    subgraph "Backend"
-        Jaeger[Jaeger - Tracing]
-        Prometheus[Prometheus - Metrics]
-        Grafana[Grafana - Visualization]
-        Loki[Loki - Logs]
-    end
-    
-    DotNet --> DotNetSDK
-    Node --> NodeSDK
-    Python --> PythonSDK
-    
-    DotNetSDK -->|OTLP/gRPC| OTLPReceiver
-    NodeSDK -->|OTLP/gRPC| OTLPReceiver
-    PythonSDK -->|OTLP/gRPC| OTLPReceiver
-    
-    OTLPReceiver --> BatchProcessor
-    BatchProcessor --> Exporters
-    
-    Exporters --> Jaeger
-    Exporters --> Prometheus
-    Exporters --> Loki
-    
-    Jaeger --> Grafana
-    Prometheus --> Grafana
-    Loki --> Grafana
 ```
+
+![Common Observability: Unified OpenTelemetry Across All Platforms](images/diagram_07_opentelemetry-architecture-diagram-f2e0.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_07_opentelemetry-architecture-diagram-f2e0.md)
+
 
 ### Key Metrics Tracked Across Platforms
 
-| Metric | .NET 10 | Node.js | Python | Description |
-|--------|---------|---------|--------|-------------|
-| `grpc.server.duration` | ✅ | ✅ | ✅ | Request latency histogram |
-| `grpc.server.requests` | ✅ | ✅ | ✅ | Total request counter |
-| `grpc.server.streams` | ✅ | ✅ | ✅ | Active streams gauge |
-| `grpc.server.sent_bytes` | ✅ | ✅ | ✅ | Response size histogram |
-| `custom.telemetry.rate` | ✅ | ✅ | ✅ | Telemetry updates per second |
-| `custom.command.latency` | ✅ | ✅ | ✅ | Command delivery latency |
-| `custom.active_vehicles` | ✅ | ✅ | ✅ | Active vehicles gauge |
-| `custom.ml.inference_time` | ❌ | ❌ | ✅ | ML inference duration |
+![Table](images/table_07_key-metrics-tracked-across-platforms-c20f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_07_key-metrics-tracked-across-platforms-c20f.md)
+
 
 ### Distributed Tracing Example
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Client as Vehicle Client
-    participant Node as Node.js (Trace: abc123)
-    participant Redis as Redis (Trace: abc123)
-    participant Python as Python ML (Trace: abc123)
-    participant DotNet as .NET Dashboard (Trace: abc123)
-
-    Note over Client,DotNet: Single Trace ID "abc123" spans all platforms
-
-    Client->>Node: SendTelemetryStream
-    activate Node
-    Node->>Node: Span: "SendTelemetryStream"
-    Node->>Redis: Publish telemetry
-    Redis-->>Node: Acknowledged
-    Node-->>Client: TelemetryAck
-    deactivate Node
-
-    Redis->>Python: Deliver telemetry
-    activate Python
-    Python->>Python: Span: "process_telemetry"
-    Python->>Python: ML Inference (5ms)
-    Python->>Redis: Publish alert (if anomaly)
-    deactivate Python
-
-    Redis->>DotNet: Command notification
-    activate DotNet
-    DotNet->>DotNet: Span: "DispatchCommand"
-    DotNet-->>Client: Push command via gRPC
-    deactivate DotNet
 ```
+
+![Diagram](images/diagram_08_distributed-tracing-example.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_08_distributed-tracing-example.md)
+
 
 ### Common OpenTelemetry Configuration Patterns
 
-| Platform | Trace Exporter | Metrics Exporter | Log Integration |
-|----------|----------------|------------------|-----------------|
-| **.NET 10** | OTLP/gRPC via `AddOtlpExporter()` | Prometheus via `AddPrometheusExporter()` | `ILogger` with OpenTelemetry |
-| **Node.js** | OTLP/gRPC via `OTLPTraceExporter` | Prometheus via `@opentelemetry/exporter-prometheus` | `pino` with OpenTelemetry |
-| **Python** | OTLP/gRPC via `OTLPSpanExporter` | Prometheus via `PrometheusMetricReader` | `structlog` with OpenTelemetry |
+![Table](images/table_08_common-opentelemetry-configuration-patterns-56d5.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_08_common-opentelemetry-configuration-patterns-56d5.md)
+
 
 ---
 
@@ -931,91 +702,12 @@ All three implementations deploy to Kubernetes with a consistent service mesh pa
 ### Complete Deployment Architecture Diagram
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TB
-    subgraph "Internet"
-        Client[External gRPC Clients]
-        LB[Cloud Load Balancer]
-    end
-    
-    subgraph "Kubernetes Cluster"
-        subgraph "Ingress Layer"
-            Envoy[Envoy gRPC Proxy<br/>HTTP/2 Load Balancer]
-        end
-        
-        subgraph "Service Mesh (Istio/Linkerd)"
-            MeshControl[Service Mesh Control Plane]
-        end
-        
-        subgraph "Node.js Pool - Telemetry Ingestion"
-            Node1[Node.js Pod 1<br/>@grpc/grpc-js]
-            Node2[Node.js Pod 2<br/>@grpc/grpc-js]
-            Node3[Node.js Pod 3<br/>@grpc/grpc-js]
-        end
-        
-        subgraph "Python Pool - ML Processing"
-            Python1[Python Pod 1<br/>grpcio + TensorFlow]
-            Python2[Python Pod 2<br/>grpcio + TensorFlow]
-        end
-        
-        subgraph ".NET Pool - Dashboard & Commands"
-            DotNet1[.NET 10 Pod 1<br/>Native AOT]
-            DotNet2[.NET 10 Pod 2<br/>Native AOT]
-        end
-        
-        subgraph "Data Layer"
-            Redis[(Redis Cluster<br/>State + Pub/Sub)]
-            PG[(PostgreSQL Cluster<br/>Prisma/EF/SQLAlchemy)]
-            Kafka[(Kafka Streams<br/>Event Sourcing)]
-        end
-        
-        subgraph "Observability"
-            OTEL[OpenTelemetry Collector]
-            Jaeger[Jaeger]
-            Prometheus[Prometheus]
-            Grafana[Grafana]
-        end
-    end
-    
-    Client --> LB
-    LB --> Envoy
-    
-    Envoy --> Node1
-    Envoy --> Node2
-    Envoy --> Node3
-    
-    Node1 --> Redis
-    Node2 --> Redis
-    Node3 --> Redis
-    
-    Redis --> Python1
-    Redis --> Python2
-    
-    Python1 --> Kafka
-    Python2 --> Kafka
-    
-    DotNet1 --> PG
-    DotNet2 --> PG
-    DotNet1 --> Redis
-    DotNet2 --> Redis
-    
-    Node1 -.-> OTEL
-    Node2 -.-> OTEL
-    Node3 -.-> OTEL
-    Python1 -.-> OTEL
-    Python2 -.-> OTEL
-    DotNet1 -.-> OTEL
-    DotNet2 -.-> OTEL
-    
-    OTEL --> Jaeger
-    OTEL --> Prometheus
-    Prometheus --> Grafana
-    Jaeger --> Grafana
 ```
+
+![Common Deployment: Kubernetes Service Mesh](images/diagram_09_complete-deployment-architecture-diagram-52ba.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_09_complete-deployment-architecture-diagram-52ba.md)
+
 
 ### Common Kubernetes Resources
 
@@ -1174,43 +866,38 @@ spec:
 
 ### Throughput Comparison (Requests/Second)
 
-| Platform | REST | gRPC | Improvement |
-|----------|------|------|-------------|
-| **.NET 10** | 20,000 | 50,000 | 2.5x |
-| **Node.js** | 15,000 | 35,000 | 2.3x |
-| **Python** | 8,000 | 18,000 | 2.25x |
+![Comparative Performance Analysis](images/table_09_throughput-comparison-requestssecond-3dfb.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_09_throughput-comparison-requestssecond-3dfb.md)
+
 
 ### Latency Comparison (P99 Milliseconds)
 
-| Platform | REST | gRPC | Improvement |
-|----------|------|------|-------------|
-| **.NET 10** | 15 ms | 5 ms | 3x |
-| **Node.js** | 12 ms | 8 ms | 1.5x |
-| **Python** | 25 ms | 15 ms | 1.67x |
+![.NET 10](images/table_10_latency-comparison-p99-milliseconds-abd5.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_10_latency-comparison-p99-milliseconds-abd5.md)
+
 
 ### Memory Footprint Comparison
 
-| Platform | REST | gRPC | gRPC (AOT) |
-|----------|------|------|------------|
-| **.NET 10** | 150 MB | 100 MB | 50 MB |
-| **Node.js** | 80 MB | 50 MB | N/A |
-| **Python** | 150 MB | 100 MB | N/A |
+![.NET 10](images/table_11_memory-footprint-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_11_memory-footprint-comparison.md)
+
 
 ### Cold Start Comparison
 
-| Platform | REST | gRPC | gRPC (AOT) |
-|----------|------|------|------------|
-| **.NET 10** | 200 ms | 150 ms | 25 ms |
-| **Node.js** | 80 ms | 50 ms | N/A |
-| **Python** | 350 ms | 250 ms | N/A |
+![.NET 10](images/table_12_cold-start-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_12_cold-start-comparison.md)
+
 
 ### Resource Utilization per 1,000 Requests
 
-| Platform | CPU (ms) | Memory (MB) | Network (KB) |
-|----------|----------|-------------|--------------|
-| **.NET 10** | 20 | 2.5 | 50 |
-| **Node.js** | 35 | 5.0 | 50 |
-| **Python** | 60 | 8.0 | 50 |
+![.NET 10](images/table_13_resource-utilization-per-1000-requests-176b.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_13_resource-utilization-per-1000-requests-176b.md)
+
 
 ---
 
@@ -1218,38 +905,28 @@ spec:
 
 ### Choose .NET 10 When:
 
-| Criterion | Why .NET 10 Excels |
-|-----------|-------------------|
-| **Maximum Performance** | 50,000 req/sec, 5ms latency P99 |
-| **Low Memory Footprint** | 30-50MB with Native AOT |
-| **Fast Cold Start** | 20-50ms cold start with AOT |
-| **Windows Integration** | Native Windows support, WPF, WinForms |
-| **Enterprise Support** | Microsoft official support, long-term support |
-| **Type Safety** | Compile-time generics, LINQ, pattern matching |
+![.NET 10](images/table_14_choose-net-10-when.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_14_choose-net-10-when.md)
+
 
 **Best For:** Enterprise microservices, financial trading platforms, IoT gateways, Windows desktop integration, mission-critical systems
 
 ### Choose Node.js When:
 
-| Criterion | Why Node.js Excels |
-|-----------|-------------------|
-| **Real-Time I/O** | 5,000+ concurrent streams, event-driven |
-| **Full-Stack JS** | Shared TypeScript types across frontend/backend |
-| **npm Ecosystem** | Largest package registry, rapid innovation |
-| **Fast Development** | Hot reload, TypeScript, rich tooling |
-| **API Gateway** | Lightweight proxies, middleware chains |
+![Low Memory Footprint](images/table_15_choose-nodejs-when.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_15_choose-nodejs-when.md)
+
 
 **Best For:** API gateways, real-time dashboards, chat applications, streaming services, BFF (Backend for Frontend)
 
 ### Choose Python When:
 
-| Criterion | Why Python Excels |
-|-----------|------------------|
-| **ML/AI Integration** | TensorFlow, PyTorch, scikit-learn |
-| **Data Processing** | Pandas, NumPy, data pipelines |
-| **Rapid Prototyping** | Developer velocity, interactive development |
-| **Scientific Computing** | Extensive scientific libraries |
-| **Async Workflows** | Native asyncio for concurrent processing |
+![Real-Time I/O](images/table_16_choose-python-when.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_16_choose-python-when.md)
+
 
 **Best For:** ML inference services, data pipelines, research platforms, educational tools, analytics backends
 
@@ -1260,41 +937,12 @@ spec:
 ### Cross-Platform Communication Flow
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Vehicle as Vehicle (gRPC Client)
-    participant Envoy as Envoy Gateway
-    participant Node as Node.js (Telemetry)
-    participant Redis as Redis Cluster
-    participant Python as Python (ML)
-    participant DotNet as .NET 10 (Dashboard)
-
-    Note over Vehicle,DotNet: Polyglot gRPC - Each Platform Optimized for Its Role
-
-    Vehicle->>Envoy: SendTelemetryStream
-    Envoy->>Node: Route to Node.js (70% weight)
-    
-    Node->>Redis: Publish telemetry (Protobuf)
-    Node-->>Vehicle: TelemetryAck
-    
-    Redis->>Python: Async telemetry stream
-    Python->>Python: ML Inference (5-10ms)
-    
-    alt Anomaly Detected
-        Python->>Redis: Publish command alert
-        Redis->>DotNet: Command notification
-        DotNet->>Vehicle: Push command via stream
-    end
-    
-    Dashboard->>Envoy: SubscribeToVehicleUpdates
-    Envoy->>DotNet: Route to .NET (preferred)
-    DotNet->>Redis: Get vehicle states
-    DotNet-->>Dashboard: Real-time updates (gRPC stream)
 ```
+
+![Async Workflows](images/diagram_10_cross-platform-communication-flow-942e.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_10_cross-platform-communication-flow-942e.md)
+
 
 ---
 
@@ -1312,16 +960,10 @@ What remains constant across all three implementations is the architectural shif
 
 ### Unified Architecture Takeaways
 
-| Aspect | Implementation |
-|--------|----------------|
-| **Contract** | Protocol Buffers - Single source of truth across all platforms |
-| **Transport** | HTTP/2 with multiplexing and header compression |
-| **Streaming** | Native support for client, server, and bidirectional |
-| **Observability** | OpenTelemetry with Jaeger, Prometheus, Grafana |
-| **Deployment** | Kubernetes with Envoy service mesh, HPA auto-scaling |
-| **Performance** | 2-3x throughput improvement over REST across all platforms |
-| **Efficiency** | 80% reduction in data transfer (50 bytes vs 500 bytes) |
-| **Latency** | 50-80% reduction in P99 latency |
+![.NET 10](images/table_17_unified-architecture-takeaways.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_17_unified-architecture-takeaways.md)
+
 
 ---
 
