@@ -14,6 +14,8 @@ Let's build the same bulletproof pipeline, now on Azure.
 
 Before we dive into the weeds of YAML files and `kubectl` commands, let's look at the high-level flow on Azure. Notice how the structure mirrors our AWS diagram perfectly.
 
+```mermaid
+```
 
 ![Microsoft Azure](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Code%20to%20Cluster/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure/images/diagram_01_before-we-dive-into-the-weeds-of-yaml-files-and-k-4080.png)
 

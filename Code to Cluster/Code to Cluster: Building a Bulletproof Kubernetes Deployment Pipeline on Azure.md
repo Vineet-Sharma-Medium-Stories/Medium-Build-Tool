@@ -15,43 +15,53 @@ Let's build the same bulletproof pipeline, now on Azure.
 Before we dive into the weeds of YAML files and `kubectl` commands, let's look at the high-level flow on Azure. Notice how the structure mirrors our AWS diagram perfectly.
 
 ```mermaid
-graph TD
-    A[Developer: git commit] --> B{Code Repository<br/>GitHub / Azure Repos / GitLab};
-    B --> C[CI/CD Trigger<br/>Jenkins / GitHub Actions / Azure Pipelines];
-
-    subgraph CI Pipeline [Continuous Integration - Azure Build]
-        direction LR
-        C --> D[Build & Test];
-        D --> E[Security Scan<br/>Trivy / Snyk / SonarQube];
-        E --> F[Build Docker Image];
-        F --> G[Push to Registry];
-    end
-
-    G --> H[(Container Registry<br/>ACR / Docker Hub / Harbor)];
-
-    subgraph Secret Management [Secret Management Layer]
-        I[(Secrets Manager<br/>Azure Key Vault / HashiCorp Vault)]
-        J[(Service Identity<br/>Azure AD Pod Identity / Workload Identity)]
-        I --> J
-    end
-
-    subgraph CD Pipeline [Continuous Deployment - AKS]
-        H --> K[Update Deployment Manifest];
-        J --> L[Inject Secrets at Runtime];
-        K --> L;
-        L --> M{Deploy to Cluster};
-    end
-
-    M --> N[STAGING Environment];
-    M --> O[PRODUCTION Environment];
-
-    subgraph Observability [Monitoring & Observability]
-        N --> P[Prometheus / Grafana<br/>Azure Monitor / Datadog];
-        O --> P;
-        P --> Q[Alerting / Rollback];
-    end
-
-    Q -- "Rollback Trigger" --> K;
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph s1["Continuous Integration - Azure Build"]
+    direction LR
+        D["Build & Test"]
+        C["CI/CD Trigger<br>Jenkins / GitHub Actions / Azure Pipelines"]
+        E["Security Scan<br>Trivy / Snyk / SonarQube"]
+        F["Build Docker Image"]
+        G["Push to Registry"]
+  end
+ subgraph s2["Secret Management Layer"]
+        I[("Secrets Manager<br>Azure Key Vault / HashiCorp Vault")]
+        J[("Service Identity<br>Azure AD Pod Identity / Workload Identity")]
+  end
+ subgraph s3["Continuous Deployment - AKS"]
+        K["Update Deployment Manifest"]
+        H[("Container Registry<br>ACR / Docker Hub / Harbor")]
+        L["Inject Secrets at Runtime"]
+        M{"Deploy to Cluster"}
+  end
+ subgraph Observability["Monitoring & Observability"]
+        P["Prometheus / Grafana<br>Azure Monitor / Datadog"]
+        N["STAGING Environment"]
+        O["PRODUCTION Environment"]
+        Q["Alerting / Rollback"]
+  end
+    A["Developer: git commit"] --> B{"Code Repository<br>GitHub / Azure Repos / GitLab"}
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    I --> J
+    H --> K
+    J --> L
+    K --> L
+    L --> M
+    M --> N & O
+    N --> P
+    O --> P
+    P --> Q
+    Q -- Rollback Trigger --> K
 ```
 
 ---
