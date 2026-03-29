@@ -1,6 +1,6 @@
 # Code To Cluster Building A Bulletproof Kubernetes Deployment Pipeline On Azure
 
-Generated: 2026-03-29 12:01:45
+Generated: 2026-03-29 12:19:13
 
 ## Summary
 - Tables: 9 (9 successful)
@@ -17,3 +17,4 @@ Generated: 2026-03-29 12:01:45
 - Mermaid diagrams rendered with mermaid.js (full height support for tall diagrams)
 - Titles extracted from bold text (preferred) or headings
 - All content rendered with Playwright (headless Chromium) for high quality
+- Minimal padding (5px) around images

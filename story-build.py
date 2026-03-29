@@ -271,7 +271,7 @@ def format_markdown_cell(cell):
     return cell
 
 def create_github_style_html(table_data, title=""):
-    """Create HTML with GitHub-style table formatting"""
+    """Create HTML with GitHub-style table formatting (minimal padding)"""
     formatted_headers = [format_markdown_cell(h) for h in table_data['headers']]
     formatted_rows = [[format_markdown_cell(cell) for cell in row] for row in table_data['rows']]
     
@@ -280,20 +280,20 @@ def create_github_style_html(table_data, title=""):
 <head>
     <meta charset="UTF-8">
     <style>
-        body {{ background: white; padding: 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2328; }}
-        .markdown-body {{ max-width: 100%; margin: 0 auto; }}
-        .markdown-body table {{ border-spacing: 0; border-collapse: collapse; display: block; width: max-content; max-width: 100%; overflow: auto; margin: 20px 0; }}
+        body {{ background: white; padding: 5px; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2328; }}
+        .markdown-body {{ max-width: 100%; margin: 0; }}
+        .markdown-body table {{ border-spacing: 0; border-collapse: collapse; display: block; width: max-content; max-width: 100%; overflow: auto; margin: 0; }}
         .markdown-body table th, .markdown-body table td {{ padding: 6px 13px; border: 1px solid #d0d7de; }}
         .markdown-body table th {{ font-weight: 600; background-color: #f6f8fa; }}
         .markdown-body table tr:nth-child(2n) {{ background-color: #f6f8fa; }}
         .markdown-body table th.text-center, .markdown-body table td.text-center {{ text-align: center; }}
         .markdown-body table th.text-right, .markdown-body table td.text-right {{ text-align: right; }}
         .markdown-body table th.text-left, .markdown-body table td.text-left {{ text-align: left; }}
-        h2 {{ font-size: 1.5em; font-weight: 600; margin-top: 24px; margin-bottom: 16px; padding-bottom: 0.3em; border-bottom: 1px solid #d0d7de; }}
+        h2 {{ font-size: 1.5em; font-weight: 600; margin-top: 0; margin-bottom: 8px; padding-bottom: 0.3em; border-bottom: 1px solid #d0d7de; }}
         code {{ padding: 0.2em 0.4em; font-size: 85%; background-color: rgba(175, 184, 193, 0.2); border-radius: 6px; font-family: monospace; }}
         strong {{ font-weight: 600; }}
         em {{ font-style: italic; }}
-        .table-container {{ overflow-x: auto; margin: 20px 0; }}
+        .table-container {{ overflow-x: auto; margin: 0; }}
         .emoji {{ font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }}
     </style>
 </head>
@@ -304,7 +304,7 @@ def create_github_style_html(table_data, title=""):
         html += f'        <h2>{format_markdown_cell(title)}</h2>\n'
     
     html += '        <div class="table-container">\n'
-    html += '          <table>\n'
+    html += '           <table>\n'
     html += '            <thead>\n'
     html += '              <tr>\n'
     for i, header in enumerate(formatted_headers):
@@ -320,7 +320,7 @@ def create_github_style_html(table_data, title=""):
             html += f'                <td class="text-{align}">{cell}</td>\n'
         html += '              </tr>\n'
     html += '            </tbody>\n'
-    html += '          </table>\n'
+    html += '           </table>\n'
     html += '        </div>\n'
     html += '    </div>\n'
     html += '</body>\n'
@@ -329,7 +329,7 @@ def create_github_style_html(table_data, title=""):
     return html
 
 def create_mermaid_html(mermaid_code):
-    """Create HTML with mermaid diagram that auto-adjusts height"""
+    """Create HTML with mermaid diagram that auto-adjusts height (minimal padding)"""
     html = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -339,7 +339,8 @@ def create_mermaid_html(mermaid_code):
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{ 
             background: white; 
-            padding: 20px; 
+            padding: 5px; 
+            margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; 
             min-height: 100vh;
         }}
@@ -429,7 +430,7 @@ def create_mermaid_html(mermaid_code):
     return html
 
 def render_with_playwright(html_content, output_png, width=1400, is_mermaid=False):
-    """Render HTML content using Playwright and save as PNG"""
+    """Render HTML content using Playwright and save as PNG (minimal padding)"""
     try:
         from playwright.sync_api import sync_playwright
         
@@ -472,7 +473,7 @@ def render_with_playwright(html_content, output_png, width=1400, is_mermaid=Fals
                 
                 # Resize viewport to fit content exactly
                 if content_height and content_height > 0:
-                    new_height = int(content_height + 80)  # Add padding
+                    new_height = int(content_height + 10)  # Add minimal padding
                     page.set_viewport_size({'width': width, 'height': new_height})
                     # Wait for resize to take effect
                     time.sleep(0.5)
@@ -491,8 +492,8 @@ def render_with_playwright(html_content, output_png, width=1400, is_mermaid=Fals
                 # Get element bounding box
                 box = element.bounding_box()
                 if box:
-                    # Add padding around the element
-                    padding = 30
+                    # Add minimal padding around the element (5px)
+                    padding = 5
                     
                     # Calculate clip area
                     clip_x = max(0, box['x'] - padding)
@@ -877,6 +878,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 - Mermaid diagrams rendered with mermaid.js (full height support for tall diagrams)
 - Titles extracted from bold text (preferred) or headings
 - All content rendered with Playwright (headless Chromium) for high quality
+- Minimal padding (5px) around images
 """
     
     with open(out / 'README.md', 'w', encoding='utf-8') as f:
