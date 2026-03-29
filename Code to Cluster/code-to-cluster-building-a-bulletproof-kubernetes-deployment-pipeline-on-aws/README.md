@@ -1,6 +1,6 @@
-# Code To Cluster Building A Bulletproof Kubernetes Deployment Pipeline On Azure
+# Code To Cluster Building A Bulletproof Kubernetes Deployment Pipeline On Aws
 
-Generated: 2026-03-29 12:01:45
+Generated: 2026-03-29 12:00:27
 
 ## Summary
 - Tables: 9 (9 successful)
@@ -9,7 +9,7 @@ Generated: 2026-03-29 12:01:45
 - Copied Images: 1
 
 ## Combined Document
-- [code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure.md](code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-azure.md) - Single file with all images
+- [code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws.md](code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws.md) - Single file with all images
 
 ---
 ### Rendering Method
