@@ -271,7 +271,7 @@ def format_markdown_cell(cell):
     return cell
 
 def create_github_style_html(table_data, title=""):
-    """Create HTML with GitHub-style table formatting (minimal padding)"""
+    """Create HTML with GitHub-style table formatting"""
     formatted_headers = [format_markdown_cell(h) for h in table_data['headers']]
     formatted_rows = [[format_markdown_cell(cell) for cell in row] for row in table_data['rows']]
     
@@ -280,21 +280,76 @@ def create_github_style_html(table_data, title=""):
 <head>
     <meta charset="UTF-8">
     <style>
-        body {{ background: white; padding: 5px; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2328; }}
-        .markdown-body {{ max-width: 100%; margin: 0; }}
-        .markdown-body table {{ border-spacing: 0; border-collapse: collapse; display: block; width: max-content; max-width: 100%; overflow: auto; margin: 0; }}
-        .markdown-body table th, .markdown-body table td {{ padding: 6px 13px; border: 1px solid #d0d7de; }}
-        .markdown-body table th {{ font-weight: 600; background-color: #f6f8fa; }}
-        .markdown-body table tr:nth-child(2n) {{ background-color: #f6f8fa; }}
-        .markdown-body table th.text-center, .markdown-body table td.text-center {{ text-align: center; }}
-        .markdown-body table th.text-right, .markdown-body table td.text-right {{ text-align: right; }}
-        .markdown-body table th.text-left, .markdown-body table td.text-left {{ text-align: left; }}
-        h2 {{ font-size: 1.5em; font-weight: 600; margin-top: 0; margin-bottom: 8px; padding-bottom: 0.3em; border-bottom: 1px solid #d0d7de; }}
-        code {{ padding: 0.2em 0.4em; font-size: 85%; background-color: rgba(175, 184, 193, 0.2); border-radius: 6px; font-family: monospace; }}
+        body {{ 
+            background: white; 
+            padding: 20px; 
+            margin: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; 
+            font-size: 14px; 
+            line-height: 1.5; 
+            color: #1f2328;
+        }}
+        .markdown-body {{ 
+            max-width: 100%; 
+            margin: 0 auto;
+        }}
+        .markdown-body table {{ 
+            border-spacing: 0; 
+            border-collapse: collapse; 
+            display: block; 
+            width: max-content;
+            max-width: 100%; 
+            overflow: auto; 
+            margin: 20px 0;
+        }}
+        .markdown-body table th, 
+        .markdown-body table td {{ 
+            padding: 6px 13px; 
+            border: 1px solid #d0d7de;
+        }}
+        .markdown-body table th {{ 
+            font-weight: 600; 
+            background-color: #f6f8fa;
+        }}
+        .markdown-body table tr:nth-child(2n) {{ 
+            background-color: #f6f8fa;
+        }}
+        .markdown-body table th.text-center, 
+        .markdown-body table td.text-center {{ 
+            text-align: center; 
+        }}
+        .markdown-body table th.text-right, 
+        .markdown-body table td.text-right {{ 
+            text-align: right; 
+        }}
+        .markdown-body table th.text-left, 
+        .markdown-body table td.text-left {{ 
+            text-align: left; 
+        }}
+        h2 {{ 
+            font-size: 1.5em; 
+            font-weight: 600; 
+            margin-top: 24px; 
+            margin-bottom: 16px; 
+            padding-bottom: 0.3em; 
+            border-bottom: 1px solid #d0d7de;
+        }}
+        code {{ 
+            padding: 0.2em 0.4em; 
+            font-size: 85%; 
+            background-color: rgba(175, 184, 193, 0.2); 
+            border-radius: 6px; 
+            font-family: monospace;
+        }}
         strong {{ font-weight: 600; }}
         em {{ font-style: italic; }}
-        .table-container {{ overflow-x: auto; margin: 0; }}
-        .emoji {{ font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }}
+        .table-container {{ 
+            overflow-x: auto; 
+            margin: 20px 0;
+        }}
+        .emoji {{ 
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+        }}
     </style>
 </head>
 <body>
@@ -304,23 +359,23 @@ def create_github_style_html(table_data, title=""):
         html += f'        <h2>{format_markdown_cell(title)}</h2>\n'
     
     html += '        <div class="table-container">\n'
-    html += '           <table>\n'
-    html += '            <thead>\n'
-    html += '              <tr>\n'
+    html += '            <table>\n'
+    html += '                <thead>\n'
+    html += '                    <tr>\n'
     for i, header in enumerate(formatted_headers):
         align = table_data['alignments'][i] if i < len(table_data['alignments']) else 'left'
-        html += f'                <th class="text-{align}">{header}</th>\n'
-    html += '              </tr>\n'
-    html += '            </thead>\n'
-    html += '            <tbody>\n'
+        html += f'                        <th class="text-{align}">{header}</th>\n'
+    html += '                    </tr>\n'
+    html += '                </thead>\n'
+    html += '                <tbody>\n'
     for row in formatted_rows:
-        html += '              <tr>\n'
+        html += '                    <tr>\n'
         for i, cell in enumerate(row):
             align = table_data['alignments'][i] if i < len(table_data['alignments']) else 'left'
-            html += f'                <td class="text-{align}">{cell}</td>\n'
-        html += '              </tr>\n'
-    html += '            </tbody>\n'
-    html += '           </table>\n'
+            html += f'                        <td class="text-{align}">{cell}</td>\n'
+        html += '                    </tr>\n'
+    html += '                </tbody>\n'
+    html += '            </table>\n'
     html += '        </div>\n'
     html += '    </div>\n'
     html += '</body>\n'
@@ -329,7 +384,7 @@ def create_github_style_html(table_data, title=""):
     return html
 
 def create_mermaid_html(mermaid_code):
-    """Create HTML with mermaid diagram that auto-adjusts height (minimal padding)"""
+    """Create HTML with mermaid diagram with proper styling"""
     html = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -339,98 +394,49 @@ def create_mermaid_html(mermaid_code):
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{ 
             background: white; 
-            padding: 5px; 
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; 
-            min-height: 100vh;
-        }}
-        .mermaid-container {{ 
-            display: inline-block; 
-            width: 100%; 
-            min-height: 100%;
+            padding: 20px; 
+            margin: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
         }}
         .mermaid {{ 
             text-align: center; 
-            background: white; 
-            width: 100%; 
-            height: auto;
-            display: block;
-        }}
-        .mermaid svg {{ 
-            max-width: 100%; 
-            height: auto;
-            display: block;
-            margin: 0 auto;
+            background: white;
         }}
     </style>
 </head>
 <body>
-    <div class="mermaid-container">
-        <pre class="mermaid" style="height: auto; min-height: 200px; white-space: pre-wrap;">
+    <pre class="mermaid">
 {mermaid_code}
-        </pre>
-    </div>
+    </pre>
     <script>
-        window.onload = () => {{
-            mermaid.initialize({{
-                startOnLoad: true,
-                theme: 'base',
-                themeVariables: {{
-                    background: '#ffffff', 
-                    primaryColor: '#ffffff', 
-                    primaryBorderColor: '#333333',
-                    primaryTextColor: '#333333', 
-                    lineColor: '#666666', 
-                    secondaryColor: '#f6f8fa',
-                    tertiaryColor: '#ffffff', 
-                    fontSize: '14px',
-                    fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif'
-                }},
-                flowchart: {{ 
-                    useMaxWidth: true, 
-                    htmlLabels: true, 
-                    curve: 'basis', 
-                    padding: 15 
-                }},
-                sequence: {{ 
-                    diagramMarginX: 50, 
-                    diagramMarginY: 10, 
-                    actorMargin: 50, 
-                    width: 150, 
-                    height: 65, 
-                    useMaxWidth: true 
-                }},
-                er: {{ useMaxWidth: true }},
-                gitGraph: {{ useMaxWidth: true }}
-            }});
-            
-            // Render and signal when complete
-            mermaid.contentLoaded();
-            
-            // Wait for SVG to be fully rendered
-            setTimeout(() => {{
-                const mermaidElements = document.querySelectorAll('.mermaid');
-                mermaidElements.forEach(el => {{
-                    const svg = el.querySelector('svg');
-                    if (svg) {{
-                        const height = svg.getBoundingClientRect().height;
-                        const width = svg.getBoundingClientRect().width;
-                        if (height > 0) {{
-                            el.style.height = height + 'px';
-                            el.style.width = width + 'px';
-                        }}
-                    }}
-                }});
-                window.mermaidRendered = true;
-            }}, 1500);
-        }};
+        mermaid.initialize({{
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {{
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }},
+            sequence: {{
+                useMaxWidth: true,
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
+                width: 150,
+                height: 65
+            }}
+        }});
+        
+        setTimeout(() => {{
+            window.mermaidRendered = true;
+        }}, 1500);
     </script>
 </body>
 </html>"""
     return html
 
-def render_with_playwright(html_content, output_png, width=1400, is_mermaid=False):
-    """Render HTML content using Playwright and save as PNG (minimal padding)"""
+def render_with_playwright(html_content, output_png, width=1400, is_mermaid=False, scale=2):
+    """Render HTML content using Playwright and save as PNG"""
     try:
         from playwright.sync_api import sync_playwright
         
@@ -441,89 +447,80 @@ def render_with_playwright(html_content, output_png, width=1400, is_mermaid=Fals
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             
-            # Create page with appropriate initial size
             if is_mermaid:
-                # Start with a large viewport to accommodate tall diagrams
-                page = browser.new_page(viewport={'width': width, 'height': 4000})
+                page = browser.new_page(viewport={'width': 1200, 'height': 800})
             else:
-                page = browser.new_page(viewport={'width': width, 'height': 800})
+                actual_width = int(width * scale)
+                page = browser.new_page(viewport={'width': actual_width, 'height': 800})
             
             page.goto(f'file://{html_file}')
             
             if is_mermaid:
                 try:
-                    # Wait for mermaid to render
                     page.wait_for_function('window.mermaidRendered === true', timeout=15000)
                 except:
-                    print(f"      Timeout waiting for mermaid, waiting 3 seconds...")
-                    time.sleep(3)
-                
-                # Wait a bit more for any animations
+                    time.sleep(2)
                 time.sleep(1)
                 
-                # Get the actual content height
-                content_height = page.evaluate('''() => {
-                    const element = document.querySelector('.mermaid');
-                    if (element) {
-                        const rect = element.getBoundingClientRect();
-                        return rect.height;
-                    }
-                    return document.body.scrollHeight;
-                }''')
-                
-                # Resize viewport to fit content exactly
-                if content_height and content_height > 0:
-                    new_height = int(content_height + 10)  # Add minimal padding
-                    page.set_viewport_size({'width': width, 'height': new_height})
-                    # Wait for resize to take effect
-                    time.sleep(0.5)
-            else:
-                time.sleep(1)
-            
-            # Get the element to screenshot
-            if is_mermaid:
                 element = page.query_selector('.mermaid')
-                if not element:
-                    element = page.query_selector('body')
-            else:
-                element = page.query_selector('.markdown-body')
-            
-            if element:
-                # Get element bounding box
-                box = element.bounding_box()
-                if box:
-                    # Add minimal padding around the element (5px)
-                    padding = 5
-                    
-                    # Calculate clip area
-                    clip_x = max(0, box['x'] - padding)
-                    clip_y = max(0, box['y'] - padding)
-                    clip_width = box['width'] + (padding * 2)
-                    clip_height = box['height'] + (padding * 2)
-                    
-                    # Take screenshot
-                    page.screenshot(
-                        path=str(output_png),
-                        clip={
-                            'x': clip_x,
-                            'y': clip_y,
-                            'width': clip_width,
-                            'height': clip_height
-                        }
-                    )
+                if element:
+                    box = element.bounding_box()
+                    if box and box['width'] > 10 and box['height'] > 10:
+                        padding = 15
+                        page.screenshot(
+                            path=str(output_png),
+                            clip={
+                                'x': max(0, box['x'] - padding),
+                                'y': max(0, box['y'] - padding),
+                                'width': box['width'] + (padding * 2),
+                                'height': box['height'] + (padding * 2)
+                            }
+                        )
+                    else:
+                        page.screenshot(path=str(output_png), full_page=True)
                 else:
-                    # Fallback to full page
                     page.screenshot(path=str(output_png), full_page=True)
             else:
-                # Fallback to full page
-                page.screenshot(path=str(output_png), full_page=True)
+                time.sleep(1)
+                dimensions = page.evaluate('''() => {
+                    const table = document.querySelector('.markdown-body table');
+                    if (table) {
+                        const rect = table.getBoundingClientRect();
+                        return { width: rect.width, height: rect.height, x: rect.x, y: rect.y };
+                    }
+                    return null;
+                }''')
+                
+                if dimensions and dimensions['width'] > 0:
+                    final_width = int(dimensions['width'] + 20)
+                    page.set_viewport_size({'width': final_width, 'height': page.viewport_size['height']})
+                    time.sleep(0.3)
+                    
+                    element = page.query_selector('.markdown-body')
+                    if element:
+                        box = element.bounding_box()
+                        if box:
+                            padding = 10
+                            page.screenshot(
+                                path=str(output_png),
+                                clip={
+                                    'x': max(0, box['x'] - padding),
+                                    'y': max(0, box['y'] - padding),
+                                    'width': dimensions['width'] + (padding * 2),
+                                    'height': box['height'] + (padding * 2)
+                                }
+                            )
+                        else:
+                            page.screenshot(path=str(output_png), full_page=True)
+                    else:
+                        page.screenshot(path=str(output_png), full_page=True)
+                else:
+                    page.screenshot(path=str(output_png), full_page=True)
             
             browser.close()
         
-        # Cleanup
         os.unlink(html_file)
         
-        # Verify the PNG was created
         if output_png.exists() and output_png.stat().st_size > 5000:
             return True
         else:
@@ -535,7 +532,7 @@ def render_with_playwright(html_content, output_png, width=1400, is_mermaid=Fals
         print(f"      Playwright error: {e}")
         return False
 
-def generate_png_for_diagram(md_file, include_title_in_image=True):
+def generate_png_for_diagram(md_file, include_title_in_image=True, scale=2):
     """Generate PNG for mermaid diagram"""
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -548,9 +545,9 @@ def generate_png_for_diagram(md_file, include_title_in_image=True):
     output_png = Path(md_file).with_suffix('.png')
     
     html_content = create_mermaid_html(mermaid_code)
-    return render_with_playwright(html_content, output_png, width=1400, is_mermaid=True)
+    return render_with_playwright(html_content, output_png, width=1400, is_mermaid=True, scale=scale)
 
-def generate_png_for_table(md_file, include_title_in_image=True):
+def generate_png_for_table(md_file, include_title_in_image=True, scale=2):
     """Generate PNG for table"""
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -570,7 +567,7 @@ def generate_png_for_table(md_file, include_title_in_image=True):
     
     html_content = create_github_style_html(table_data, title if include_title_in_image else "")
     output_png = Path(md_file).with_suffix('.png')
-    return render_with_playwright(html_content, output_png, width=1400, is_mermaid=False)
+    return render_with_playwright(html_content, output_png, width=1400, is_mermaid=False, scale=scale)
 
 def check_playwright():
     """Check if Playwright is installed and working"""
@@ -753,6 +750,8 @@ def main():
                        help='Include titles above images in the combined markdown file')
     parser.add_argument('--install-playwright', action='store_true',
                        help='Install Playwright for rendering')
+    parser.add_argument('--scale', type=float, default=2.0,
+                       help='Resolution scale factor for tables (default: 2.0)')
     
     args = parser.parse_args()
     
@@ -777,6 +776,7 @@ def main():
     
     print(f"Output folder: {out}/")
     print(f"Include image titles: {args.with_image_title}")
+    print(f"Resolution scale: {args.scale}x")
     print()
     
     print("Checking for missing images from parent folder...")
@@ -826,7 +826,7 @@ def main():
     successful_tables = 0
     for i, (title, path, line, has_icons, base_name) in enumerate(table_info, 1):
         print(f"  Table {i}: {base_name}.png")
-        if generate_png_for_table(path, include_title_in_image=args.with_image_title):
+        if generate_png_for_table(path, include_title_in_image=args.with_image_title, scale=args.scale):
             successful_tables += 1
             print(f"    ✓ Success")
         else:
@@ -836,7 +836,7 @@ def main():
     successful_diagrams = 0
     for i, (title, path, line, base_name) in enumerate(diagram_info, 1):
         print(f"  Diagram {i}: {base_name}.png")
-        if generate_png_for_diagram(path, include_title_in_image=args.with_image_title):
+        if generate_png_for_diagram(path, include_title_in_image=args.with_image_title, scale=args.scale):
             successful_diagrams += 1
             print(f"    ✓ Success")
         else:
@@ -854,7 +854,7 @@ def main():
     
     png_count = len(list(images_dir.glob("*.png")))
     
-    print("\nCreating combined markdown file with enhanced titles...")
+    print("\nCreating combined markdown file...")
     combined = create_combined_file(input_file, out, folder, table_info, diagram_info, args.with_image_title)
     print(f"  OK Created: {combined.name}")
     
@@ -875,10 +875,9 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 ---
 ### Rendering Method
 - GitHub-style markdown tables with proper formatting (bold, italic, code, emojis)
-- Mermaid diagrams rendered with mermaid.js (full height support for tall diagrams)
+- Mermaid diagrams rendered with mermaid.js
 - Titles extracted from bold text (preferred) or headings
 - All content rendered with Playwright (headless Chromium) for high quality
-- Minimal padding (5px) around images
 """
     
     with open(out / 'README.md', 'w', encoding='utf-8') as f:
