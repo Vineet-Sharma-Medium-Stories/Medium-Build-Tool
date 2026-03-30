@@ -1,7 +1,7 @@
 # From REST to gRPC: A Unified Architecture Across .NET 10, Node.js, and Python
 ## A Comprehensive Guide to Polyglot gRPC Implementation | Fleet Management System Use Case
 
-![alt text](images/From-REST-to-gRPC-A-Unified-Architecture-Across-NET-10,-NodeJS,-and-Python.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/From-REST-to-gRPC-A-Unified-Architecture-Across-NET-10,-NodeJS,-and-Python.png)
 
 ## Introduction: The Three Pillars of Modern API Architecture
 
@@ -280,7 +280,7 @@ The .NET 10 implementation represents the pinnacle of enterprise-grade gRPC arch
 
 ### Key .NET 10 Features
 
-![Story 1: From REST to gRPC in .NET 10](images/table_01_key-net-10-features.png)
+![Story 1: From REST to gRPC in .NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_01_key-net-10-features.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_01_key-net-10-features.md)
 
@@ -290,14 +290,14 @@ The .NET 10 implementation represents the pinnacle of enterprise-grade gRPC arch
 ```mermaid
 ```
 
-![Native AOT](images/diagram_01_architecture-overview.png)
+![Native AOT](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_01_architecture-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_01_architecture-overview.md)
 
 
 ### Performance Characteristics
 
-![Table](images/table_02_performance-characteristics.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_02_performance-characteristics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_02_performance-characteristics.md)
 
@@ -307,7 +307,7 @@ The .NET 10 implementation represents the pinnacle of enterprise-grade gRPC arch
 ```mermaid
 ```
 
-![Throughput](images/diagram_02_mermaid-sequence-telemetry-stream-in-net-10-8edd.png)
+![Throughput](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_02_mermaid-sequence-telemetry-stream-in-net-10-8edd.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_02_mermaid-sequence-telemetry-stream-in-net-10-8edd.md)
 
@@ -368,7 +368,7 @@ The Node.js implementation showcases the power of event-driven architecture for 
 
 ### Key Node.js Features
 
-![Story 2: From REST to gRPC in Node.js](images/table_03_key-nodejs-features.png)
+![Story 2: From REST to gRPC in Node.js](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_03_key-nodejs-features.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_03_key-nodejs-features.md)
 
@@ -378,14 +378,14 @@ The Node.js implementation showcases the power of event-driven architecture for 
 ```mermaid
 ```
 
-![Event-Driven I/O](images/diagram_03_architecture-overview.png)
+![Event-Driven I/O](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_03_architecture-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_03_architecture-overview.md)
 
 
 ### Performance Characteristics
 
-![Table](images/table_04_performance-characteristics.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_04_performance-characteristics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_04_performance-characteristics.md)
 
@@ -395,7 +395,7 @@ The Node.js implementation showcases the power of event-driven architecture for 
 ```mermaid
 ```
 
-![Throughput](images/diagram_04_mermaid-sequence-bidirectional-streaming-in-n-56f2.png)
+![Throughput](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_04_mermaid-sequence-bidirectional-streaming-in-n-56f2.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_04_mermaid-sequence-bidirectional-streaming-in-n-56f2.md)
 
@@ -514,7 +514,7 @@ The Python implementation demonstrates how modern Python with async/await can de
 
 ### Key Python Features
 
-![Story 3: From REST to gRPC in Python](images/table_05_key-python-features.png)
+![Story 3: From REST to gRPC in Python](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_05_key-python-features.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_05_key-python-features.md)
 
@@ -524,14 +524,14 @@ The Python implementation demonstrates how modern Python with async/await can de
 ```mermaid
 ```
 
-![FastAPI](images/diagram_05_architecture-overview.png)
+![FastAPI](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_05_architecture-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_05_architecture-overview.md)
 
 
 ### Performance Characteristics
 
-![Table](images/table_06_performance-characteristics.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_06_performance-characteristics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_06_performance-characteristics.md)
 
@@ -541,7 +541,7 @@ The Python implementation demonstrates how modern Python with async/await can de
 ```mermaid
 ```
 
-![Throughput](images/diagram_06_mermaid-sequence-ml-powered-command-dispatch-b674.png)
+![Throughput](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_06_mermaid-sequence-ml-powered-command-dispatch-b674.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_06_mermaid-sequence-ml-powered-command-dispatch-b674.md)
 
@@ -662,14 +662,14 @@ All three implementations use OpenTelemetry with consistent patterns, enabling c
 ```mermaid
 ```
 
-![Common Observability: Unified OpenTelemetry Across All Platforms](images/diagram_07_opentelemetry-architecture-diagram-f2e0.png)
+![Common Observability: Unified OpenTelemetry Across All Platforms](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_07_opentelemetry-architecture-diagram-f2e0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_07_opentelemetry-architecture-diagram-f2e0.md)
 
 
 ### Key Metrics Tracked Across Platforms
 
-![Table](images/table_07_key-metrics-tracked-across-platforms-c20f.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_07_key-metrics-tracked-across-platforms-c20f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_07_key-metrics-tracked-across-platforms-c20f.md)
 
@@ -679,14 +679,14 @@ All three implementations use OpenTelemetry with consistent patterns, enabling c
 ```mermaid
 ```
 
-![Diagram](images/diagram_08_distributed-tracing-example.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_08_distributed-tracing-example.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_08_distributed-tracing-example.md)
 
 
 ### Common OpenTelemetry Configuration Patterns
 
-![Table](images/table_08_common-opentelemetry-configuration-patterns-56d5.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_08_common-opentelemetry-configuration-patterns-56d5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_08_common-opentelemetry-configuration-patterns-56d5.md)
 
@@ -704,7 +704,7 @@ All three implementations deploy to Kubernetes with a consistent service mesh pa
 ```mermaid
 ```
 
-![Common Deployment: Kubernetes Service Mesh](images/diagram_09_complete-deployment-architecture-diagram-52ba.png)
+![Common Deployment: Kubernetes Service Mesh](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_09_complete-deployment-architecture-diagram-52ba.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_09_complete-deployment-architecture-diagram-52ba.md)
 
@@ -866,35 +866,35 @@ spec:
 
 ### Throughput Comparison (Requests/Second)
 
-![Comparative Performance Analysis](images/table_09_throughput-comparison-requestssecond-3dfb.png)
+![Comparative Performance Analysis](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_09_throughput-comparison-requestssecond-3dfb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_09_throughput-comparison-requestssecond-3dfb.md)
 
 
 ### Latency Comparison (P99 Milliseconds)
 
-![.NET 10](images/table_10_latency-comparison-p99-milliseconds-abd5.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_10_latency-comparison-p99-milliseconds-abd5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_10_latency-comparison-p99-milliseconds-abd5.md)
 
 
 ### Memory Footprint Comparison
 
-![.NET 10](images/table_11_memory-footprint-comparison.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_11_memory-footprint-comparison.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_11_memory-footprint-comparison.md)
 
 
 ### Cold Start Comparison
 
-![.NET 10](images/table_12_cold-start-comparison.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_12_cold-start-comparison.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_12_cold-start-comparison.md)
 
 
 ### Resource Utilization per 1,000 Requests
 
-![.NET 10](images/table_13_resource-utilization-per-1000-requests-176b.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_13_resource-utilization-per-1000-requests-176b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_13_resource-utilization-per-1000-requests-176b.md)
 
@@ -905,7 +905,7 @@ spec:
 
 ### Choose .NET 10 When:
 
-![.NET 10](images/table_14_choose-net-10-when.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_14_choose-net-10-when.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_14_choose-net-10-when.md)
 
@@ -914,7 +914,7 @@ spec:
 
 ### Choose Node.js When:
 
-![Low Memory Footprint](images/table_15_choose-nodejs-when.png)
+![Low Memory Footprint](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_15_choose-nodejs-when.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_15_choose-nodejs-when.md)
 
@@ -923,7 +923,7 @@ spec:
 
 ### Choose Python When:
 
-![Real-Time I/O](images/table_16_choose-python-when.png)
+![Real-Time I/O](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_16_choose-python-when.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_16_choose-python-when.md)
 
@@ -939,7 +939,7 @@ spec:
 ```mermaid
 ```
 
-![Async Workflows](images/diagram_10_cross-platform-communication-flow-942e.png)
+![Async Workflows](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/diagram_10_cross-platform-communication-flow-942e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/diagram_10_cross-platform-communication-flow-942e.md)
 
@@ -960,7 +960,7 @@ What remains constant across all three implementations is the architectural shif
 
 ### Unified Architecture Takeaways
 
-![.NET 10](images/table_17_unified-architecture-takeaways.png)
+![.NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/images/table_17_unified-architecture-takeaways.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-a-unified-architecture-across-net-10-nodejs-and-python/table_17_unified-architecture-takeaways.md)
 

@@ -1,7 +1,7 @@
 # From REST to gRPC: Architecting High-Performance APIs in .NET 10
 ## Decision Framework: REST for Public APIs, gRPC for Internal High-Performance Microservices
 
-![alt text](<images/From REST to gRPC: Architecting High-Performance APIs in NET 10.png>)
+![alt text](images/From-REST-to-gRPC-Architecting-High-Performance-APIs-in-NET-10.png)
 
 The architectural decision between REST and gRPC is rarely just about data formats. It is a fundamental choice that dictates the entire lifecycle of an API—from contract definition and client generation to performance characteristics, streaming capabilities, deployment strategies, and operational observability. This decision ripples through every layer of the application stack, influencing how teams collaborate, how systems scale, and how efficiently resources are utilized in production environments.
 
@@ -333,57 +333,12 @@ While this REST API implementation is functional and follows industry best pract
 6.  **Inconsistent Error Handling and Retry Logic:** REST APIs typically return HTTP status codes to indicate success or failure. However, implementing robust retry logic with exponential backoff, handling transient failures, and managing partial failures across distributed components becomes complex and is often implemented inconsistently across different clients.
 
 ```mermaid
-sequenceDiagram
-    participant DriverApp as Mobile App (REST Client)
-    participant API as REST API (Load Balancer)
-    participant Cache as Redis Cache
-    participant DB as PostgreSQL
-    participant Dashboard as Web Dashboard
-    participant Queue as Message Queue
-
-    Note over DriverApp,API: High Overhead per Request
-    
-    loop Every 2 seconds
-        DriverApp->>API: POST /vehicles/123/telemetry (JSON)
-        Note right of API: 500-700 bytes overhead per request
-        API->>API: Validate Request (CPU)
-        API->>Cache: Check vehicle exists
-        API->>DB: Write telemetry (async)
-        API->>API: Update cache state
-        API-->>DriverApp: 202 Accepted (with tracking)
-        Note left of DriverApp: ACK received, next request in 2s
-    end
-
-    Note over Dashboard,API: Inefficient Polling Pattern
-    
-    loop Every 3 seconds
-        Dashboard->>API: GET /vehicles (JSON, conditional)
-        API->>Cache: Get all vehicle states
-        API->>DB: Check for recent changes
-        API-->>Dashboard: 200 OK (or 304)
-        Dashboard->>Dashboard: Re-render map (CPU/GPU)
-        Note over Dashboard: 99% of responses are unchanged
-    end
-
-    Note over Dashboard,DriverApp: Latent Command Delivery
-    
-    Dashboard->>API: POST /vehicles/123/commands (JSON)
-    API->>Queue: Store command
-    API-->>Dashboard: 201 Created
-    
-    loop Every 10 seconds
-        DriverApp->>API: GET /vehicles/123/commands/pending
-        API->>Queue: Check pending commands
-        alt Command exists
-            API-->>DriverApp: 200 OK (Command data)
-            DriverApp->>DriverApp: Execute command
-        else No commands
-            API-->>DriverApp: 200 OK (Empty array)
-        end
-    end
-    
-    Note over DriverApp,API: Command delivery latency: 0-10 seconds
 ```
+
+![Polling Inefficiency and Latency:](images/diagram_01_6--inconsistent-error-handling-and-retry-logic-eeb6.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-architecting-high-performance-apis-in-net-10/diagram_01_6--inconsistent-error-handling-and-retry-logic-eeb6.md)
+
 
 ---
 
@@ -2008,36 +1963,12 @@ With the complete gRPC implementation in place, the communication model for the 
 **After (gRPC):** 500 vehicles × 1 persistent stream = 500 connections total. Each connection remains open and transmits binary-encoded Protobuf messages with minimal overhead.
 
 ```mermaid
-sequenceDiagram
-    participant Vehicle as Vehicle Telemetry (gRPC Client)
-    participant gRPC as gRPC Server
-    participant State as State Manager
-    participant Command as Command Processor
-    participant Stream as Stream Manager
-
-    Note over Vehicle,gRPC: Single Persistent Connection - 24/7 Operation
-    
-    Vehicle->>gRPC: SendTelemetryStream (Open Stream)
-    activate gRPC
-    gRPC->>Stream: Register stream (Vehicle ID)
-    Stream-->>gRPC: Stream Registered
-    
-    loop Every 2 seconds (Continuous)
-        Vehicle-->>gRPC: TelemetryUpdate (Protobuf, ~50 bytes)
-        Note over gRPC: Binary serialization<br/>No HTTP overhead<br/>No connection setup
-        gRPC->>State: Update vehicle state (in-memory)
-        gRPC->>Command: Check for pending commands
-        alt Commands Pending
-            Command-->>gRPC: Return pending commands
-            gRPC-->>Vehicle: TelemetryAck (includes commands)
-            Vehicle->>Vehicle: Execute commands
-        else No Commands
-            gRPC-->>Vehicle: TelemetryAck (acknowledgment only)
-        end
-    end
-    
-    Note over Vehicle,gRPC: Stream remains open<br/>Zero connection overhead per update
 ```
+
+![Before (REST):](images/diagram_02_after-grpc-500-vehicles--1-persistent-stre-5a76.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-architecting-high-performance-apis-in-net-10/diagram_02_after-grpc-500-vehicles--1-persistent-stre-5a76.md)
+
 
 ### Dashboard Visualization: From Polling to Push-Based Real-Time
 
@@ -2046,30 +1977,12 @@ sequenceDiagram
 **After (gRPC):** Dashboard subscribes once and receives incremental updates only when vehicle state changes. Server maintains connection and pushes updates as they occur.
 
 ```mermaid
-sequenceDiagram
-    participant Dashboard as Web Dashboard (gRPC-Web)
-    participant gRPC as gRPC Server
-    participant State as State Manager
-    participant Cache as Redis Cache
-
-    Dashboard->>gRPC: SubscribeToVehicleUpdates (fleet_id="east_region")
-    activate gRPC
-    gRPC->>State: Register subscription
-    State-->>gRPC: Subscription confirmed
-    gRPC-->>Dashboard: VehicleStatusUpdate (initial snapshot)
-    
-    Note over Dashboard,gRPC: Connection remains open for real-time updates
-    
-    loop Every 100ms or on change
-        State->>State: Detect vehicle position changes
-        State-->>gRPC: Vehicle moved (delta)
-        gRPC->>Cache: Get cached vehicle data
-        gRPC-->>Dashboard: VehicleStatusUpdate (only changed vehicles)
-        Dashboard->>Dashboard: Update map (incremental render)
-    end
-    
-    Note over Dashboard,gRPC: Push-based updates<br/>Zero polling overhead<br/>Sub-second latency
 ```
+
+![Before (REST):](images/diagram_03_after-grpc-dashboard-subscribes-once-and-re-0f18.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-architecting-high-performance-apis-in-net-10/diagram_03_after-grpc-dashboard-subscribes-once-and-re-0f18.md)
+
 
 ### Command Dispatch: From Latent Polling to Instant Delivery
 
@@ -2078,33 +1991,12 @@ sequenceDiagram
 **After (gRPC):** Commands delivered instantly through the active bidirectional stream or server-streaming channel.
 
 ```mermaid
-sequenceDiagram
-    participant Dashboard as Web Dashboard
-    participant gRPC as gRPC Server
-    participant Vehicle as Vehicle (Active Stream)
-    participant Database as Command Database
-
-    Dashboard->>gRPC: DispatchCommand (Unary)
-    activate gRPC
-    gRPC->>Database: Store command (persistence)
-    Database-->>gRPC: Command stored
-    gRPC->>Vehicle: Check for active stream
-    
-    alt Vehicle Has Active Stream
-        Note over gRPC,Vehicle: Immediate delivery via existing stream
-        gRPC-->>Vehicle: TelemetryAck (includes command)
-        Vehicle->>Vehicle: Process command instantly
-        Vehicle-->>gRPC: CommandAck (via stream)
-        gRPC-->>Dashboard: CommandResponse (delivered)
-    else No Active Stream
-        gRPC-->>Dashboard: CommandResponse (queued)
-        Note over Vehicle: Vehicle will receive on next connection
-    end
-    
-    deactivate gRPC
-    
-    Note over Dashboard,Vehicle: Delivery latency: <100ms with active stream<br/>0-2 seconds without stream
 ```
+
+![Before (REST):](images/diagram_04_after-grpc-commands-delivered-instantly-thr-f910.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-architecting-high-performance-apis-in-net-10/diagram_04_after-grpc-commands-delivered-instantly-thr-f910.md)
+
 
 ---
 
@@ -2303,22 +2195,10 @@ public class TelemetryService : TelemetryServiceBase
 
 ## Comparative Analysis: REST vs. gRPC in .NET 10
 
-| Aspect | REST (JSON/HTTP) | gRPC (Protobuf/HTTP/2) with .NET 10 |
-|--------|------------------|-------------------------------------|
-| **Data Format** | JSON (text, human-readable) ~200-500 bytes per message | Protobuf (binary) ~30-100 bytes per message |
-| **Serialization** | System.Text.Json (reflection-based) | Protobuf source generators (compile-time) |
-| **Transport** | HTTP/1.1 (separate connections) or HTTP/2 | HTTP/2 multiplexed streams |
-| **Performance** | 1,000-5,000 requests/sec per core | 20,000-50,000 requests/sec per core |
-| **Streaming** | No native streaming (WebSockets required) | Full support: unary, server, client, bidirectional |
-| **Contract** | OpenAPI/Swagger (separate document) | Protobuf (single source of truth) |
-| **Code Generation** | Manual DTOs or external tooling | Built-in source generators in .NET SDK |
-| **Browser Support** | Native | gRPC-Web via .NET 10 Envoy integration |
-| **Caching** | HTTP caching (ETag, Cache-Control) | Not natively supported; handled at application layer |
-| **Load Balancing** | Layer 7 (HTTP) with standard algorithms | Layer 5 with client-side load balancing (gRPC LB) |
-| **Observability** | ASP.NET Core middleware + OpenTelemetry | Enhanced OpenTelemetry integration with gRPC-specific metrics |
-| **Native AOT** | Supported with limitations | Enhanced AOT support with source generators |
-| **AI Integration** | Basic (OpenAPI descriptions) | Native AI Minimal APIs for service discovery |
-| **Memory Footprint** | Moderate (text parsing) | Low (binary, pooled buffers) |
+![Comparative Analysis: REST vs. gRPC in .NET 10](images/table_01_comparative-analysis-rest-vs-grpc-in-net-10-76c6.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/from-rest-to-grpc-architecting-high-performance-apis-in-net-10/table_01_comparative-analysis-rest-vs-grpc-in-net-10-76c6.md)
+
 
 ---
 
