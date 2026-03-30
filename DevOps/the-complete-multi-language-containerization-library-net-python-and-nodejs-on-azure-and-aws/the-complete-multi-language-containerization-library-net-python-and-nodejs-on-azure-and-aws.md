@@ -1,7 +1,7 @@
 # The Complete Multi-Language Containerization Library: .NET, Python, and Node.js on Azure and AWS
 
 ## A Comprehensive Digest of 6 Top-Level Series and 60 Deployment Stories
-![alt text](<images/Complete Multi-Language Containerization Library.png>)
+![alt text](images/Complete-Multi-Language-Containerization-Library.png)
 ### Introduction: The Journey Across Languages and Clouds
 
 Over the past several months, we've embarked on an ambitious journey to document the complete landscape of containerizing modern applications across three of the world's most popular programming languages—**.NET, Python, and Node.js**—on the two leading cloud platforms—**Azure and AWS**. This comprehensive library represents hundreds of hours of research, hands-on experimentation, and battle-tested patterns that have been refined across real-world production deployments.
@@ -11,62 +11,12 @@ What began as a single series on .NET 10 containerization evolved into a multi-l
 This digest serves as your roadmap to this extensive library, providing a bird's-eye view of all six series and the 10 stories within each. Whether you're a .NET developer deploying to Azure, a Python engineer optimizing for AWS Graviton, or a Node.js architect building microservices at scale, you'll find a curated path through the content that speaks directly to your needs.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Languages"
-        A[.NET 10]
-        B[Python FastAPI]
-        C[Node.js Express]
-    end
-    
-    subgraph "Cloud Platforms"
-        D[Azure]
-        E[AWS]
-    end
-    
-    subgraph "Deployment Approaches"
-        F[SDK Native / Poetry / npm]
-        G[Dockerfile + Docker]
-        H[Dockerfile + Podman]
-        I[Cloud CLI & Copilot]
-        J[IDE Integration]
-        K[Tarball Export]
-        L[Hybrid Workflows]
-        M[Modern Tools]
-        N[Kubernetes]
-    end
-    
-    A --> D
-    A --> E
-    B --> D
-    B --> E
-    C --> D
-    C --> E
-    
-    D --> F
-    D --> G
-    D --> H
-    D --> I
-    D --> J
-    D --> K
-    D --> L
-    D --> M
-    D --> N
-    
-    E --> F
-    E --> G
-    E --> H
-    E --> I
-    E --> J
-    E --> K
-    E --> L
-    E --> M
-    E --> N
 ```
+
+![.NET, Python, and Node.js](images/diagram_01_this-digest-serves-as-your-roadmap-to-this-extensi-ec98.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/diagram_01_this-digest-serves-as-your-roadmap-to-this-extensi-ec98.md)
+
 
 ---
 
@@ -77,7 +27,7 @@ graph TD
 The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration, across both Azure and AWS.
 
 ## Azure Edition (10 Stories)
-![alt text](<images/Publishing .NET 10 Apps as Container Images - A Complete Guide to 9 Deployment Approaches.png>)
+![alt text](images/Publishing-.NET-10-Apps-as-Container-Images---A-Complete-Guide-to-9-Deployment-Approaches.png)
 
 **Complete .NET Azure series (10 stories):**
 
@@ -102,7 +52,7 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 ☸️ **10. Kubernetes Native Deployments: Orchestrating .NET 10 Containers on Azure Kubernetes Service (AKS)** – Deploying to Azure Kubernetes Service, Helm charts, GitOps with Flux, and production-grade operations
 
 ## AWS Edition (10 Stories)
-![alt text](<images/Publishing NET 10 Apps as Container Images: A Complete Guide to 10 Deployment Approaches - AWS.png>)
+![alt text](images/Publishing-NET-10-Apps-as-Container-Images-A-Complete-Guide-to-10-Deployment-Approaches---AWS.png)
 
 **Complete .NET AWS series (10 stories):**
 
@@ -135,7 +85,7 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic.
 
 ## Azure Edition (10 Stories)
-![alt text](<images/Python FastAPI Containerization Guide - Azure edition.png>)
+![alt text](images/Python-FastAPI-Containerization-Guide---Azure-edition.png)
 
 **Complete Python Azure series (10 stories):**
 
@@ -160,7 +110,7 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Python Container Deployments** – Deploying Python FastAPI applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
 ## AWS Edition (10 Stories)
-![alt text](<images/Python FastAPI Containerization Guide - AWS Edition.png>)
+![alt text](images/Python-FastAPI-Containerization-Guide---AWS-Edition.png)
 
 **Complete Python AWS series (10 stories):**
 
@@ -193,7 +143,7 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Express.js applications with dependencies like Express, Mongoose, and Winston.
 
 ## Azure Edition (10 Stories)
-![alt text](<images/Publishing Node.js Express Containerization Guide - Azure Edition.png>)
+![alt text](images/Publishing-Node.js-Express-Containerization-Guide---Azure-Edition.png)
 **Complete Node.js Azure series (10 stories):**
 
 📦 **1. NPM + Docker Multi-Stage: The Classic Node.js Approach - Azure** – Leveraging npm with optimized multi-stage Docker builds for Express.js applications on Azure Container Registry
@@ -217,7 +167,7 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Node.js Container Deployments** – Deploying Node.js Express applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
 ## AWS Edition (10 Stories)
-![alt text](<images/Publishing Node.js Express Containerization Guide - AWS Edition.png>)
+![alt text](images/Publishing-Node.js-Express-Containerization-Guide---AWS-Edition.png)
 
 **Complete AWS Node.js series (10 stories):**
 
@@ -247,82 +197,52 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 ### Deployment Approaches by Language and Cloud
 
-| Approach | .NET Azure | .NET AWS | Python Azure | Python AWS | Node.js Azure | Node.js AWS |
-|----------|------------|----------|--------------|------------|---------------|-------------|
-| **SDK/Build Tool Native** | ✅ SDK Native | ✅ SDK Native | ✅ Poetry/UV | ✅ Poetry/UV | ✅ NPM/Yarn/pnpm | ✅ NPM/Yarn/pnpm |
-| **Classic Dockerfile** | ✅ Docker | ✅ Docker | ✅ Pip | ✅ Pip | ✅ NPM | ✅ NPM |
-| **Rootless Alternative** | ✅ Podman | ✅ Podman | ✅ Podman | ✅ Podman | ✅ Podman | ✅ Podman |
-| **Serverless Container** | ✅ ACA | ❌ | ✅ ACA | ❌ | ✅ ACA | ❌ |
-| **Turnkey Cloud CLI** | ✅ azd | ❌ | ✅ azd | ✅ Copilot | ✅ azd | ✅ Copilot |
-| **IDE Integration** | ✅ VS | ✅ VS | ✅ VS Code | ✅ VS Code | ✅ VS Code | ✅ VS Code |
-| **Security-First** | ✅ Tarball | ✅ Tarball | ✅ Tarball | ✅ Tarball | ✅ Tarball | ✅ Tarball |
-| **Hybrid Workflows** | ✅ SDK+Podman | ✅ SDK+Podman | ✅ SDK+Podman | ✅ SDK+Podman | ✅ SDK+Podman | ✅ SDK+Podman |
-| **Modern Tooling** | ✅ konet | ✅ konet | ✅ UV | ✅ UV | ✅ pnpm | ✅ pnpm |
-| **Kubernetes** | ✅ AKS | ✅ EKS | ✅ AKS | ✅ EKS | ✅ AKS | ✅ EKS |
-| **Fully Managed** | ❌ | ❌ | ❌ | ✅ App Runner | ❌ | ✅ App Runner |
+![9. GitHub Actions + Amazon ECR: CI/CD for Node.js - AWS](images/table_01_deployment-approaches-by-language-and-cloud-4bc1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_01_deployment-approaches-by-language-and-cloud-4bc1.md)
+
 
 ### Technology Stack by Language
 
-| Category | .NET | Python | Node.js |
-|----------|------|--------|---------|
-| **Package Manager** | NuGet | Poetry / UV / Pip | npm / Yarn / pnpm |
-| **Build Tool** | MSBuild / dotnet | Poetry / UV | npm / Yarn / pnpm |
-| **SDK Native** | ✅ .NET SDK | ❌ | ❌ |
-| **Modern Optimizer** | konet | UV | pnpm |
-| **Base Image** | mcr.microsoft.com/dotnet | python:3.11-slim | node:20-alpine |
-| **AOT Support** | Native AOT | N/A | N/A |
-| **Graviton Support** | ✅ | ✅ | ✅ |
+![Turnkey Cloud CLI](images/table_02_technology-stack-by-language.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_02_technology-stack-by-language.md)
+
 
 ### Cloud Service Comparison
 
-| Service | Azure | AWS |
-|---------|-------|-----|
-| **Container Registry** | Azure Container Registry (ACR) | Amazon Elastic Container Registry (ECR) |
-| **Serverless Container** | Azure Container Apps (ACA) | AWS App Runner |
-| **Container Orchestration** | Azure Kubernetes Service (AKS) | Amazon Elastic Kubernetes Service (EKS) |
-| **Container Compute** | Azure Container Instances (ACI) | Amazon ECS with Fargate |
-| **Infrastructure as Code** | Bicep / ARM | AWS CDK / CloudFormation |
-| **Developer CLI** | Azure Developer CLI (azd) | AWS Copilot |
-| **Secret Management** | Azure Key Vault | AWS Secrets Manager |
-| **Monitoring** | Application Insights | AWS X-Ray / CloudWatch |
+![Package Manager](images/table_03_cloud-service-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_03_cloud-service-comparison.md)
+
 
 ### Security Scanning Tools by Platform
 
-| Tool | Azure | AWS | Purpose |
-|------|-------|-----|---------|
-| **Vulnerability Scanning** | Microsoft Defender for Cloud | Amazon Inspector | CVE detection |
-| **Open Source Scanner** | Trivy | Trivy | Cross-platform scanning |
-| **License Compliance** | Grype | Grype | License detection |
-| **SBOM Generation** | Syft | Syft | Software Bill of Materials |
-| **Image Signing** | Azure Key Vault + Cosign | AWS Signer | Supply chain integrity |
+![Serverless Container](images/table_04_security-scanning-tools-by-platform-aa2b.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_04_security-scanning-tools-by-platform-aa2b.md)
+
 
 ### CI/CD Integration
 
-| CI/CD Platform | Azure Support | AWS Support |
-|----------------|---------------|-------------|
-| **GitHub Actions** | ✅ Native | ✅ Native (OIDC) |
-| **Azure DevOps** | ✅ Native | ✅ via Service Connection |
-| **AWS CodeBuild** | ❌ | ✅ Native |
-| **GitLab CI** | ✅ via az CLI | ✅ via aws CLI |
+![Vulnerability Scanning](images/table_05_cicd-integration.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_05_cicd-integration.md)
+
 
 ### Performance Characteristics
 
-| Metric | .NET SDK Native | .NET Docker | Poetry | UV | npm | pnpm |
-|--------|-----------------|-------------|--------|-----|-----|------|
-| **Build Time** | 45s | 85s | 60s | 15s | 60s | 45s |
-| **Image Size** | 78 MB | 198 MB | 350 MB | 350 MB | 300 MB | 200 MB |
-| **Startup Time** | 95ms | 185ms | 2-3s | 2-3s | 1-2s | 1-2s |
-| **Dependency Resolution** | Built-in | N/A | Deterministic | Deterministic | Non-deterministic | Deterministic |
+![GitHub Actions](images/table_06_performance-characteristics.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_06_performance-characteristics.md)
+
 
 ### Cost Optimization by Language
 
-| Strategy | .NET | Python | Node.js |
-|----------|------|--------|---------|
-| **Graviton Instances** | ✅ 40% savings | ✅ 40% savings | ✅ 40% savings |
-| **Alpine Base Image** | ✅ 60% smaller | ✅ 30% smaller | ✅ 50% smaller |
-| **Native AOT** | ✅ 90% smaller | ❌ | ❌ |
-| **Zero-Install** | ❌ | ❌ | ✅ (Yarn Berry) |
-| **Content-Addressable** | ❌ | ❌ | ✅ (pnpm) |
+![Build Time](images/table_07_cost-optimization-by-language.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_07_cost-optimization-by-language.md)
+
 
 ---
 
@@ -330,39 +250,31 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 ### By Deployment Complexity
 
-| Complexity | .NET | Python | Node.js |
-|------------|------|--------|---------|
-| **Minimal** | SDK Native | Poetry/UV + Docker | NPM/Yarn + Docker |
-| **Low** | Dockerfile + Docker | Pip + Docker | NPM + Docker |
-| **Medium** | azd / Copilot | azd / Copilot | azd / Copilot |
-| **High** | AKS / EKS | AKS / EKS | AKS / EKS |
+![Native AOT](images/table_08_by-deployment-complexity.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_08_by-deployment-complexity.md)
+
 
 ### By Security Requirements
 
-| Security Level | .NET | Python | Node.js |
-|----------------|------|--------|---------|
-| **Standard** | SDK Native | Poetry | NPM |
-| **Enhanced** | Dockerfile + Podman | Tarball Export | Tarball Export |
-| **Compliance** | Tarball + Defender | Tarball + Inspector | Tarball + Inspector |
-| **Air-Gapped** | Tarball Export | Tarball Export | Tarball Export |
+![Minimal](images/table_09_by-security-requirements.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_09_by-security-requirements.md)
+
 
 ### By Developer Experience
 
-| Experience | .NET | Python | Node.js |
-|------------|------|--------|---------|
-| **CLI-First** | dotnet publish | poetry/pip | npm/pnpm |
-| **IDE-First** | Visual Studio | VS Code | VS Code |
-| **Cloud CLI** | azd | azd / Copilot | azd / Copilot |
-| **Infrastructure Code** | Bicep / CDK | CDK / Bicep | CDK / Bicep |
+![Standard](images/table_10_by-developer-experience.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_10_by-developer-experience.md)
+
 
 ### By Deployment Target
 
-| Target | .NET | Python | Node.js |
-|--------|------|--------|---------|
-| **Serverless Container** | Azure Container Apps | Azure Container Apps | Azure Container Apps |
-| **Fully Managed** | ❌ | AWS App Runner | AWS App Runner |
-| **Orchestrated** | AKS / EKS | AKS / EKS | AKS / EKS |
-| **Direct EC2/VM** | Docker + Podman | Docker + Podman | Docker + Podman |
+![CLI-First](images/table_11_by-deployment-target.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_11_by-deployment-target.md)
+
 
 ---
 
@@ -370,18 +282,10 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 Across all languages and clouds, the same 10 deployment approaches recur, adapted to each ecosystem:
 
-| # | Approach | .NET | Python | Node.js |
-|---|----------|------|--------|---------|
-| 1 | **SDK/Build Tool Native** | SDK Native | Poetry/UV | NPM/Yarn/pnpm |
-| 2 | **Classic Dockerfile** | Docker + Docker | Pip + Docker | NPM + Docker |
-| 3 | **Rootless Alternative** | Docker + Podman | Docker + Podman | Docker + Podman |
-| 4 | **Serverless Container** | Azure Container Apps | Azure Container Apps | Azure Container Apps |
-| 5 | **IDE Integration** | Visual Studio | VS Code | VS Code |
-| 6 | **Turnkey Cloud CLI** | azd | azd / Copilot | azd / Copilot |
-| 7 | **Security-First** | Tarball Export | Tarball Export | Tarball Export |
-| 8 | **Hybrid Workflows** | SDK + Podman | SDK + Podman | SDK + Podman |
-| 9 | **Modern Tooling** | konet | UV | pnpm |
-| 10 | **Kubernetes** | AKS / EKS | AKS / EKS | AKS / EKS |
+![Fully Managed](images/table_12_across-all-languages-and-clouds-the-same-10-deplo-07ea.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_12_across-all-languages-and-clouds-the-same-10-deplo-07ea.md)
+
 
 ---
 
@@ -426,17 +330,10 @@ You'll find battle-tested patterns, production-ready configurations, and practic
 
 ### Quick Navigation
 
-| If You Want... | Start Here |
-|----------------|------------|
-| **Master .NET containerization on Azure** | .NET Azure Series, Story 1 |
-| **Master .NET containerization on AWS** | .NET AWS Series, Story 1 |
-| **Build Python FastAPI containers for Azure** | Python Azure Series, Story 1 |
-| **Build Python FastAPI containers for AWS** | Python AWS Series, Story 1 |
-| **Build Node.js Express containers for Azure** | Node.js Azure Series, Story 1 |
-| **Build Node.js Express containers for AWS** | Node.js AWS Series, Story 1 |
-| **Understand Kubernetes orchestration** | Any Series, Story 10 |
-| **Implement security-first workflows** | Any Series, Story 7 |
-| **Try modern tooling (konet, UV, pnpm)** | Any Series, Story 9 |
+![A .NET developer](images/table_13_quick-navigation.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_13_quick-navigation.md)
+
 
 **Thank you for reading this comprehensive series!** We've explored every major approach to building, testing, and deploying container images across three languages and two clouds. You're now equipped to choose the right tool for every scenario—from rapid prototyping to mission-critical production deployments at enterprise scale. Happy containerizing! 🚀
 

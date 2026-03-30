@@ -1,7 +1,7 @@
 # Publishing .NET 10 Apps as Container Images: A Complete Guide to 9 Deployment Approaches
 ## The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration with Azure
 
-![alt text](images/Publishing-.NET-10-Apps-as-Container-Images---A-Complete-Guide-to-9-Deployment-Approaches.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/Publishing-.NET-10-Apps-as-Container-Images---A-Complete-Guide-to-9-Deployment-Approaches.png)
 
 ## Introduction: The Evolution of .NET Container Publishing
 
@@ -14,7 +14,7 @@ This shift reflects a broader industry trend: the decoupling of container image 
 ```mermaid
 ```
 
-![Introduction: The Evolution of .NET Container Publishing](images/diagram_01_this-shift-reflects-a-broader-industry-trend-the-97a0.png)
+![Introduction: The Evolution of .NET Container Publishing](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/diagram_01_this-shift-reflects-a-broader-industry-trend-the-97a0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/diagram_01_this-shift-reflects-a-broader-industry-trend-the-97a0.md)
 
@@ -51,7 +51,7 @@ This comprehensive reference covers the SDK-native approach with exhaustive deta
 
 ### MSBuild Properties Deep Dive
 
-![9. konet: Multi-Platform Container Builds Without Docker](images/table_01_msbuild-properties-deep-dive.png)
+![9. konet: Multi-Platform Container Builds Without Docker](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/table_01_msbuild-properties-deep-dive.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/table_01_msbuild-properties-deep-dive.md)
 
@@ -198,7 +198,7 @@ az ad app federated-credential create \
 
 ### Performance Benchmarking
 
-![Table](images/table_02_performance-benchmarking.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/table_02_performance-benchmarking.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/table_02_performance-benchmarking.md)
 
@@ -208,7 +208,7 @@ az ad app federated-credential create \
 ```mermaid
 ```
 
-![Diagram](images/diagram_02_layer-structure-analysis.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/diagram_02_layer-structure-analysis.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/diagram_02_layer-structure-analysis.md)
 
@@ -250,7 +250,7 @@ podman inspect mcr.microsoft.com/dotnet/aspnet:10.0 | grep Architecture
 
 **Common Errors and Solutions**:
 
-![Common Errors and Solutions](images/table_03_common-errors-and-solutions.png)
+![Common Errors and Solutions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/table_03_common-errors-and-solutions.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/table_03_common-errors-and-solutions.md)
 
@@ -611,7 +611,7 @@ In regulated industries and security-conscious organizations, deploying containe
 ```mermaid
 ```
 
-![7. 🔒 Tarball Export + Runtime Load: Security-First CI/CD Workflows](images/diagram_03_in-regulated-industries-and-security-conscious-org-8794.png)
+![7. 🔒 Tarball Export + Runtime Load: Security-First CI/CD Workflows](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/diagram_03_in-regulated-industries-and-security-conscious-org-8794.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/diagram_03_in-regulated-industries-and-security-conscious-org-8794.md)
 
@@ -703,7 +703,7 @@ The combination of .NET SDK-native container publishing with Podman represents a
 ```mermaid
 ```
 
-![8. 🔄 Podman with .NET SDK Native Publishing: Hybrid Workflows](images/diagram_04_the-combination-of-net-sdk-native-container-publi-ceb8.png)
+![8. 🔄 Podman with .NET SDK Native Publishing: Hybrid Workflows](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/diagram_04_the-combination-of-net-sdk-native-container-publi-ceb8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/diagram_04_the-combination-of-net-sdk-native-container-publi-ceb8.md)
 
@@ -826,7 +826,7 @@ This command builds both AMD64 and ARM64 images, creates a multi-architecture ma
 ```mermaid
 ```
 
-![Diagram](images/diagram_05_this-command-builds-both-amd64-and-arm64-images-c-d857.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Publishing%20.NET%2010%20Apps%20as%20Container%20Images/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/images/diagram_05_this-command-builds-both-amd64-and-arm64-images-c-d857.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-net-10-apps-as-container-images-a-complete-guide-to-9-deployment-approaches/diagram_05_this-command-builds-both-amd64-and-arm64-images-c-d857.md)
 

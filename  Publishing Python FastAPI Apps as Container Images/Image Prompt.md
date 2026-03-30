@@ -20,58 +20,54 @@ Great Now create the the gemini image generation prompt for:
 #### Prompt 1: Main Series Banner - Python FastAPI Containerization Guide
 
 ```markdown
-Create a wide horizontal banner image (16:9 aspect ratio) for "Publishing Python FastAPI Apps as Container Images: A Complete Guide to 10 Deployment Approaches" with a light, open-source style background. The design should feature:
+Create a wide horizontal banner image (16:9 aspect ratio) for "Publishing Python FastAPI Apps as Container Images: A Complete Guide to 10 Deployment Approaches - Azure Edition" with a light, open-source style background. The design should feature:
 
 **Background:**
-- Light gradient from off-white (#f8f9fa) to light blue (#e3f2fd)
-- Subtle Python logo pattern in the background (snake silhouette, very light)
+- Light gradient from off-white (#f8f9fa) to light blue (#e7f1ff)
+- Subtle Python logo pattern in the background
+- Subtle Azure logo pattern overlay (very light, almost transparent)
 
 **Central Elements:**
-- Prominent Python logo (blue/yellow) with "FastAPI" badge at the center
-- Ten radial connectors emanating from the Python logo, each leading to an icon representing one of the 10 deployment approaches
-- The connectors should form a circular or semi-circular pattern around the logo
+- Prominent Python logo (blue/yellow) with "FastAPI" badge on left side
+- Azure logo (blue) prominently displayed on right side
+- Ten radial connectors emanating from the Python logo, each leading to an icon representing one of the 10 Azure deployment approaches
+- The connectors should form a circular or semi-circular pattern around the Python logo
 
 **10 Deployment Approach Icons:**
 1. **Poetry + Docker Multi-Stage** - Quill icon with container
 2. **UV + Docker** - Lightning bolt icon with container
 3. **Pip + Docker** - Package icon with container
 4. **Azure Container Apps** - Azure container icon
-5. **VS Code Dev Containers** - VS Code icon with container
+5. **VS Code Dev Containers** - VS Code icon with Azure extension
 6. **Azure Developer CLI (azd)** - Terminal with Azure logo
 7. **Tarball Export** - Archive/package icon with shield
 8. **Azure Kubernetes Service (AKS)** - AKS logo
-9. **GitHub Actions** - GitHub logo
-10. **AWS CDK & Copilot** - AWS CDK and Copilot icons
+9. **GitHub Actions + ACR** - GitHub logo with ACR icon
+10. **AWS CDK & Copilot (Multi-Cloud)** - AWS CDK and Copilot icons with Azure integration
 
-**Technology Stack Row (bottom):**
-- FastAPI (lightning bolt with API text)
-- Pydantic (data validation icon)
-- Motor/MongoDB (database icon)
-- Uvicorn (server icon)
-- Poetry (quill icon)
-- UV (fast icon)
-- Docker (whale icon)
-- Kubernetes (helm icon)
-
-**Cloud Platform Icons:**
-- Azure logo (blue) on left side
-- AWS logo (orange) on right side
-- Curved connector lines flowing from both cloud logos to the central Python logo
+**Azure Technology Stack Row (bottom):**
+- Azure Container Registry (ACR icon)
+- Azure Container Apps (ACA icon)
+- Azure Kubernetes Service (AKS icon)
+- Azure Developer CLI (azd logo)
+- Bicep (infrastructure code icon)
+- Azure Monitor (monitoring icon)
+- Application Insights (chart icon)
+- Microsoft Defender for Cloud (shield icon)
 
 **Text Elements:**
 - Main title: "Publishing Python FastAPI Apps as Container Images" in bold sans-serif font
-- Subtitle: "A Complete Guide to 10 Deployment Approaches" below main title
-- "Azure" and "AWS" labels near respective cloud logos
-- "20 Stories" badge (10 Azure + 10 AWS) in the corner
+- Subtitle: "A Complete Guide to 10 Deployment Approaches - Azure Edition" below main title
+- "Azure Cloud" label near Azure logo
+- "Scale to Zero" badge near the ACA icon
 
 **Attribution:**
 - **"Vineet Sharma" in bold font at the bottom right corner**, placed in a clean area not overlapping with any icons, text, or logos.
 
 **Style:**
 - Clean, modern open-source aesthetic
-- Light background with subtle gradients
+- Light background with subtle Azure blue accents
 - 3D elements with soft shadows
-- Flat design with slight depth
 - High resolution (1920x1080 or larger)
 ```
 
