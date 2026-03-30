@@ -1,4 +1,5 @@
 # Publishing .NET 10 Apps as Container Images: A Complete Guide to 9 Deployment Approaches
+## The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration with Azure
 
 ## Introduction: The Evolution of .NET Container Publishing
 
@@ -9,6 +10,11 @@ What makes .NET 10 particularly special is the native container support baked di
 This shift reflects a broader industry trend: the decoupling of container image creation from container runtimes. As organizations embrace Podman's daemonless architecture for enhanced security, and as air-gapped environments demand greater control over the supply chain, the .NET SDK's container tooling provides the flexibility to adapt to any infrastructure requirement.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[.NET 10 Application] --> B{Container Build Method}
     
@@ -245,6 +251,11 @@ az ad app federated-credential create \
 ### Layer Structure Analysis
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Container Image Layers] --> B[Layer 1: Base OS]
     A --> C[Layer 2: .NET Runtime]
@@ -657,6 +668,11 @@ Visual Studio GUI publishing excels in:
 In regulated industries and security-conscious organizations, deploying container images directly to registries is often prohibited. Instead, images must pass through security gates—vulnerability scanning, license compliance checks, and approval workflows—before they can be pushed to production registries. The tarball export capability in .NET SDK's native container publishing addresses this requirement perfectly.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[dotnet publish] --> B[Container Tarball]
     B --> C[Vulnerability Scan<br/>Trivy/Grype]
@@ -763,6 +779,11 @@ Tarball export is essential for:
 The combination of .NET SDK-native container publishing with Podman represents a hybrid approach that offers the best of both worlds: the simplicity of SDK-native builds with the flexibility of Podman's local development and testing capabilities.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[.NET Source Code] --> B[dotnet publish<br/>/t:PublishContainer]
     B --> C[SDK-Generated<br/>Container Image]
@@ -898,6 +919,11 @@ konet build \
 This command builds both AMD64 and ARM64 images, creates a multi-architecture manifest, and pushes everything to Azure Container Registry in one operation—all without requiring either architecture's native build environment.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Published<br/>.NET Binaries] --> B[konet]
     

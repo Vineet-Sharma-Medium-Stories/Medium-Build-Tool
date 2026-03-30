@@ -1,7 +1,7 @@
 # The Complete Multi-Language Containerization Library: .NET, Python, and Node.js on Azure and AWS
 
 ## A Comprehensive Digest of 6 Top-Level Series and 60 Deployment Stories
-
+![alt text](<images/Complete Multi-Language Containerization Library.png>)
 ### Introduction: The Journey Across Languages and Clouds
 
 Over the past several months, we've embarked on an ambitious journey to document the complete landscape of containerizing modern applications across three of the world's most popular programming languages—**.NET, Python, and Node.js**—on the two leading cloud platforms—**Azure and AWS**. This comprehensive library represents hundreds of hours of research, hands-on experimentation, and battle-tested patterns that have been refined across real-world production deployments.
@@ -11,6 +11,11 @@ What began as a single series on .NET 10 containerization evolved into a multi-l
 This digest serves as your roadmap to this extensive library, providing a bird's-eye view of all six series and the 10 stories within each. Whether you're a .NET developer deploying to Azure, a Python engineer optimizing for AWS Graviton, or a Node.js architect building microservices at scale, you'll find a curated path through the content that speaks directly to your needs.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Languages"
         A[.NET 10]
@@ -65,13 +70,14 @@ graph TD
 
 ---
 
-## Part 1: .NET 10 Containerization Series
+# Part 1: .NET 10 Containerization Series
 
 ### Series Overview: Publishing .NET 10 Apps as Container Images
 
 The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration, across both Azure and AWS.
 
-#### Azure Edition (10 Stories)
+## Azure Edition (10 Stories)
+![alt text](<images/Publishing .NET 10 Apps as Container Images - A Complete Guide to 9 Deployment Approaches.png>)
 
 **Complete .NET Azure series (10 stories):**
 
@@ -95,7 +101,8 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 
 ☸️ **10. Kubernetes Native Deployments: Orchestrating .NET 10 Containers on Azure Kubernetes Service (AKS)** – Deploying to Azure Kubernetes Service, Helm charts, GitOps with Flux, and production-grade operations
 
-#### AWS Edition (10 Stories)
+## AWS Edition (10 Stories)
+![alt text](<images/Publishing NET 10 Apps as Container Images: A Complete Guide to 10 Deployment Approaches - AWS.png>)
 
 **Complete .NET AWS series (10 stories):**
 
@@ -121,13 +128,14 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 
 ---
 
-## Part 2: Python FastAPI Containerization Series
+# Part 2: Python FastAPI Containerization Series
 
 ### Series Overview: Publishing Python FastAPI Apps as Container Images
 
 The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic.
 
-#### Azure Edition (10 Stories)
+## Azure Edition (10 Stories)
+![alt text](<images/Python FastAPI Containerization Guide - Azure.png>)
 
 **Complete Python Azure series (10 stories):**
 
@@ -151,7 +159,8 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Python Container Deployments** – Deploying Python FastAPI applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
-#### AWS Edition (10 Stories)
+## AWS Edition (10 Stories)
+![alt text](<images/Python FastAPI Containerization Guide - AWS Edition.png>)
 
 **Complete Python AWS series (10 stories):**
 
@@ -177,13 +186,14 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 
 ---
 
-## Part 3: Node.js Express Containerization Series
+# Part 3: Node.js Express Containerization Series
 
 ### Series Overview: Publishing Node.js Express Apps as Container Images
 
 The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Express.js applications with dependencies like Express, Mongoose, and Winston.
 
-#### Azure Edition (10 Stories)
+## Azure Edition (10 Stories)
+![alt text](<images/Publishing Node.js Express Containerization Guide - Azure.png>)
 
 **Complete Node.js Azure series (10 stories):**
 
@@ -207,7 +217,8 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Node.js Container Deployments** – Deploying Node.js Express applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
-#### AWS Edition (10 Stories)
+## AWS Edition (10 Stories)
+![alt text](<images/Publishing Node.js Express Containerization Guide - AWS Edition.png>)
 
 **Complete AWS Node.js series (10 stories):**
 

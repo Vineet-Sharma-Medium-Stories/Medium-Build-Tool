@@ -1,6 +1,9 @@
 # Publishing .NET 10 Apps as Container Images: A Complete Guide to 10 Deployment Approaches
+## The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration with AWS
 
 ## AWS Edition: From Development to Production on Amazon Web Services
+
+![alt text](<images/Publishing .NET 10 Apps as Container Images - A Complete Guide to 9 Deployment Approaches.png>)
 
 ### Introduction: The Evolution of .NET Container Publishing on AWS
 
@@ -13,6 +16,11 @@ What makes .NET 10 particularly special is the native container support baked di
 This shift reflects a broader industry trend: the decoupling of container image creation from container runtimes. As organizations embrace Podman's daemonless architecture for enhanced security, and as air-gapped environments demand greater control over the supply chain, the .NET SDK's container tooling provides the flexibility to adapt to any infrastructure requirement—including the diverse ecosystem of AWS.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[.NET 10 Application] --> B{Container Build Method}
     
@@ -53,7 +61,7 @@ graph TD
 
 **Companion stories in this AWS series:**
 
-- 📚 **1. .NET SDK Native Container Publishing Deep Dive: The Complete Reference - AWS** – Comprehensive coverage of MSBuild properties, Native AOT optimization, CI/CD pipeline patterns, performance benchmarks, and troubleshooting guides for Amazon ECR
+- 📚 [**1. .NET SDK Native Container Publishing Deep Dive: The Complete Reference - AWS**](#) – Comprehensive coverage of MSBuild properties, Native AOT optimization, CI/CD pipeline patterns, performance benchmarks, and troubleshooting guides for Amazon ECR
 
 - 🚀 **2. .NET SDK Native Container Publishing: Building OCI Images Without Docker - AWS** – A deep dive into MSBuild configuration, multi-architecture builds (Graviton ARM64), and direct Amazon ECR integration with IAM roles
 
@@ -511,7 +519,7 @@ spec:
 
 **Complete AWS series (10 stories):**
 
-- 📚 **1. .NET SDK Native Container Publishing Deep Dive: The Complete Reference - AWS** – Comprehensive coverage of MSBuild properties, Native AOT optimization, CI/CD pipeline patterns, and Amazon ECR integration
+- 📚 [**1. .NET SDK Native Container Publishing Deep Dive: The Complete Reference - AWS**](#) – Comprehensive coverage of MSBuild properties, Native AOT optimization, CI/CD pipeline patterns, and Amazon ECR integration
 
 - 🚀 **2. .NET SDK Native Container Publishing: Building OCI Images Without Docker - AWS** – MSBuild configuration, multi-architecture builds (x64 + Graviton), and direct Amazon ECR integration with IAM roles
 
