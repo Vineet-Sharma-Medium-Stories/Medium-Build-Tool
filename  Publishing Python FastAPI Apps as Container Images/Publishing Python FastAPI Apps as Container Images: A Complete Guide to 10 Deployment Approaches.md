@@ -1,4 +1,5 @@
 # Publishing Python FastAPI Apps as Container Images: A Complete Guide to 10 Deployment Approaches
+## The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic with Azure
 
 ## Python Edition: From Development to Production on Azure
 
@@ -11,6 +12,11 @@ Now, we turn our attention to the Python ecosystem. Python powers some of the mo
 This new series adapts the proven patterns from our .NET containerization guide to the Python ecosystem, focusing on Azure deployment and Visual Studio Code as the primary development environment. Whether you're deploying a FastAPI backend, a machine learning service, or a data processing pipeline, you'll find battle-tested patterns for containerizing Python applications at scale.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Python FastAPI App] --> B{Container Build Method}
     

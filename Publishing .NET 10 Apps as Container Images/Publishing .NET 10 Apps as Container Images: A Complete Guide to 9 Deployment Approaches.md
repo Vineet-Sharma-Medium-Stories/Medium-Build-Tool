@@ -1,6 +1,8 @@
 # Publishing .NET 10 Apps as Container Images: A Complete Guide to 9 Deployment Approaches
 ## The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration with Azure
 
+![alt text](<images/Publishing .NET 10 Apps as Container Images - A Complete Guide to 9 Deployment Approaches.png>)
+
 ## Introduction: The Evolution of .NET Container Publishing
 
 The containerization landscape for .NET applications has undergone a remarkable transformation. When Docker first emerged in 2013, .NET developers were confined to Windows containers, a niche approach that felt like an afterthought. Fast forward to 2026, and .NET 10 represents the culmination of a decade-long journey toward seamless containerization, offering developers an unprecedented array of deployment options that rival—and in some ways surpass—the ecosystem maturity of languages like Go and Rust.

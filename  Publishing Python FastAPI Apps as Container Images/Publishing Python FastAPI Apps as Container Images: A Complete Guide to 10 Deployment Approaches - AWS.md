@@ -1,4 +1,5 @@
 # Publishing Python FastAPI Apps as Container Images: A Complete Guide to 10 Deployment Approaches - AWS
+## The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic with AWS
 
 ## AWS Edition: From Development to Production on Amazon Web Services
 
@@ -11,6 +12,11 @@ Python powers some of the most innovative applications today, particularly in th
 This series adapts the proven patterns from our .NET containerization guide to the Python ecosystem, focusing on AWS deployment with Visual Studio Code as the primary development environment. Whether you're deploying a FastAPI backend, a machine learning service, or a data processing pipeline to AWS, you'll find battle-tested patterns for containerizing Python applications at scale—from Graviton-optimized builds to ECS Fargate and EKS orchestration.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Python FastAPI App] --> B{Container Build Method}
     

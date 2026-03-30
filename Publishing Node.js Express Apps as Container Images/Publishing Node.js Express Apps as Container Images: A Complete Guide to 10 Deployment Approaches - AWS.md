@@ -1,6 +1,8 @@
 # Publishing Node.js Express Apps as Container Images: A Complete Guide to 10 Deployment Approaches -  AWS
+## The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Express.js applications with dependencies like Express, Mongoose, and Winston with AWS
 
 ## AWS Edition: From Development to Production on Amazon Web Services
+![alt text](<images/Publishing Node.js Express Containerization Guide - AWS Edition.png>)
 
 ### Introduction: The Node.js Containerization Journey on AWS
 
@@ -11,6 +13,11 @@ Node.js powers millions of APIs and web applications worldwide, and the **AI Pow
 This series adapts the proven patterns from our .NET, Python, and Azure Node.js containerization guides to the AWS ecosystem, focusing on AWS deployment with Visual Studio Code as the primary development environment. Whether you're deploying an Express.js backend, a NestJS application, or a microservices architecture, you'll find battle-tested patterns for containerizing Node.js applications at scale on AWS—from Graviton-optimized builds to ECS Fargate and EKS orchestration.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Node.js Express App] --> B{Container Build Method}
     

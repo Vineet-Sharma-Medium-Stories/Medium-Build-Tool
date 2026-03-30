@@ -1,6 +1,9 @@
 # Publishing Node.js Express Apps as Container Images: A Complete Guide to 10 Deployment Approaches
+## The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Express.js applications with dependencies like Express, Mongoose, and Winston with Aure
 
 ## Node.js Edition: From Development to Production on Azure
+![alt text](<images/Publishing Node.js Express Containerization Guide - Azure.png>)
+
 
 ### Introduction: The Node.js Containerization Journey on Azure
 
@@ -11,6 +14,11 @@ The **AI Powered Video Tutorial Portal**—an Express.js-based REST API for mana
 This series adapts the proven patterns from our .NET and Python containerization guides to the Node.js ecosystem, focusing on Azure deployment with Visual Studio Code as the primary development environment. Whether you're deploying an Express.js backend, a NestJS application, or a microservices architecture, you'll find battle-tested patterns for containerizing Node.js applications at scale on Azure.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Node.js Express App] --> B{Container Build Method}
     
