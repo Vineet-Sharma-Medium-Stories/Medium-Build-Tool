@@ -1,8 +1,9 @@
 # The Complete Multi-Language Containerization Library: .NET, Python, and Node.js on Azure and AWS
 
 ## A Comprehensive Digest of 6 Top-Level Series and 60 Deployment Stories
-![alt text](images/Complete-Multi-Language-Containerization-Library.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Complete-Multi-Language-Containerization-Library.png)
 ### Introduction: The Journey Across Languages and Clouds
+
 
 Over the past several months, we've embarked on an ambitious journey to document the complete landscape of containerizing modern applications across three of the world's most popular programming languages—**.NET, Python, and Node.js**—on the two leading cloud platforms—**Azure and AWS**. This comprehensive library represents hundreds of hours of research, hands-on experimentation, and battle-tested patterns that have been refined across real-world production deployments.
 
@@ -13,7 +14,7 @@ This digest serves as your roadmap to this extensive library, providing a bird's
 ```mermaid
 ```
 
-![.NET, Python, and Node.js](images/diagram_01_this-digest-serves-as-your-roadmap-to-this-extensi-ec98.png)
+![.NET, Python, and Node.js](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/diagram_01_this-digest-serves-as-your-roadmap-to-this-extensi-ec98.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/diagram_01_this-digest-serves-as-your-roadmap-to-this-extensi-ec98.md)
 
@@ -27,7 +28,7 @@ This digest serves as your roadmap to this extensive library, providing a bird's
 The .NET 10 series explores the full spectrum of container deployment options for modern .NET applications, from SDK-native simplicity to Kubernetes orchestration, across both Azure and AWS.
 
 ## Azure Edition (10 Stories)
-![alt text](images/Publishing-.NET-10-Apps-as-Container-Images---A-Complete-Guide-to-9-Deployment-Approaches.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Publishing-.NET-10-Apps-as-Container-Images---A-Complete-Guide-to-9-Deployment-Approaches.png)
 
 **Complete .NET Azure series (10 stories):**
 
@@ -52,7 +53,7 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 ☸️ **10. Kubernetes Native Deployments: Orchestrating .NET 10 Containers on Azure Kubernetes Service (AKS)** – Deploying to Azure Kubernetes Service, Helm charts, GitOps with Flux, and production-grade operations
 
 ## AWS Edition (10 Stories)
-![alt text](images/Publishing-NET-10-Apps-as-Container-Images-A-Complete-Guide-to-10-Deployment-Approaches---AWS.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Publishing-NET-10-Apps-as-Container-Images-A-Complete-Guide-to-10-Deployment-Approaches---AWS.png)
 
 **Complete .NET AWS series (10 stories):**
 
@@ -85,7 +86,7 @@ The .NET 10 series explores the full spectrum of container deployment options fo
 The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic.
 
 ## Azure Edition (10 Stories)
-![alt text](images/Python-FastAPI-Containerization-Guide---Azure-edition.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Python-FastAPI-Containerization-Guide---Azure-edition.png)
 
 **Complete Python Azure series (10 stories):**
 
@@ -110,7 +111,7 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Python Container Deployments** – Deploying Python FastAPI applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
 ## AWS Edition (10 Stories)
-![alt text](images/Python-FastAPI-Containerization-Guide---AWS-Edition.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Python-FastAPI-Containerization-Guide---AWS-Edition.png)
 
 **Complete Python AWS series (10 stories):**
 
@@ -143,7 +144,7 @@ The Python series adapts the proven patterns from .NET to the Python ecosystem, 
 The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Express.js applications with dependencies like Express, Mongoose, and Winston.
 
 ## Azure Edition (10 Stories)
-![alt text](images/Publishing-Node.js-Express-Containerization-Guide---Azure-Edition.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Publishing-Node.js-Express-Containerization-Guide---Azure-Edition.png)
 **Complete Node.js Azure series (10 stories):**
 
 📦 **1. NPM + Docker Multi-Stage: The Classic Node.js Approach - Azure** – Leveraging npm with optimized multi-stage Docker builds for Express.js applications on Azure Container Registry
@@ -167,7 +168,7 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 🏗️ **10. AWS CDK & Copilot: Multi-Cloud Node.js Container Deployments** – Deploying Node.js Express applications to AWS ECS with AWS Copilot, infrastructure-as-code with CDK, and Fargate serverless orchestration
 
 ## AWS Edition (10 Stories)
-![alt text](images/Publishing-Node.js-Express-Containerization-Guide---AWS-Edition.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/Publishing-Node.js-Express-Containerization-Guide---AWS-Edition.png)
 
 **Complete AWS Node.js series (10 stories):**
 
@@ -197,49 +198,49 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 ### Deployment Approaches by Language and Cloud
 
-![9. GitHub Actions + Amazon ECR: CI/CD for Node.js - AWS](images/table_01_deployment-approaches-by-language-and-cloud-4bc1.png)
+![9. GitHub Actions + Amazon ECR: CI/CD for Node.js - AWS](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_01_deployment-approaches-by-language-and-cloud-4bc1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_01_deployment-approaches-by-language-and-cloud-4bc1.md)
 
 
 ### Technology Stack by Language
 
-![Turnkey Cloud CLI](images/table_02_technology-stack-by-language.png)
+![Turnkey Cloud CLI](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_02_technology-stack-by-language.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_02_technology-stack-by-language.md)
 
 
 ### Cloud Service Comparison
 
-![Package Manager](images/table_03_cloud-service-comparison.png)
+![Package Manager](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_03_cloud-service-comparison.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_03_cloud-service-comparison.md)
 
 
 ### Security Scanning Tools by Platform
 
-![Serverless Container](images/table_04_security-scanning-tools-by-platform-aa2b.png)
+![Serverless Container](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_04_security-scanning-tools-by-platform-aa2b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_04_security-scanning-tools-by-platform-aa2b.md)
 
 
 ### CI/CD Integration
 
-![Vulnerability Scanning](images/table_05_cicd-integration.png)
+![Vulnerability Scanning](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_05_cicd-integration.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_05_cicd-integration.md)
 
 
 ### Performance Characteristics
 
-![GitHub Actions](images/table_06_performance-characteristics.png)
+![GitHub Actions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_06_performance-characteristics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_06_performance-characteristics.md)
 
 
 ### Cost Optimization by Language
 
-![Build Time](images/table_07_cost-optimization-by-language.png)
+![Build Time](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_07_cost-optimization-by-language.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_07_cost-optimization-by-language.md)
 
@@ -250,28 +251,28 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 ### By Deployment Complexity
 
-![Native AOT](images/table_08_by-deployment-complexity.png)
+![Native AOT](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_08_by-deployment-complexity.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_08_by-deployment-complexity.md)
 
 
 ### By Security Requirements
 
-![Minimal](images/table_09_by-security-requirements.png)
+![Minimal](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_09_by-security-requirements.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_09_by-security-requirements.md)
 
 
 ### By Developer Experience
 
-![Standard](images/table_10_by-developer-experience.png)
+![Standard](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_10_by-developer-experience.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_10_by-developer-experience.md)
 
 
 ### By Deployment Target
 
-![CLI-First](images/table_11_by-deployment-target.png)
+![CLI-First](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_11_by-deployment-target.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_11_by-deployment-target.md)
 
@@ -282,7 +283,7 @@ The Node.js series adapts the patterns to the Node.js ecosystem, focusing on Exp
 
 Across all languages and clouds, the same 10 deployment approaches recur, adapted to each ecosystem:
 
-![Fully Managed](images/table_12_across-all-languages-and-clouds-the-same-10-deplo-07ea.png)
+![Fully Managed](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_12_across-all-languages-and-clouds-the-same-10-deplo-07ea.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_12_across-all-languages-and-clouds-the-same-10-deplo-07ea.md)
 
@@ -330,7 +331,7 @@ You'll find battle-tested patterns, production-ready configurations, and practic
 
 ### Quick Navigation
 
-![A .NET developer](images/table_13_quick-navigation.png)
+![A .NET developer](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/DevOps/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/images/table_13_quick-navigation.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/the-complete-multi-language-containerization-library-net-python-and-nodejs-on-azure-and-aws/table_13_quick-navigation.md)
 
