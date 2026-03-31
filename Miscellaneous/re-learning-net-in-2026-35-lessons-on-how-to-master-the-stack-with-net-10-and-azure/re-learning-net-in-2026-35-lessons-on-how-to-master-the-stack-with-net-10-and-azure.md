@@ -2,7 +2,7 @@
 
 *If I had to start my .NET journey over today, I wouldn't follow the same path. The ecosystem has evolved, and so has the way we should learn it. This isn't about what I* would *do—it's about* **how** *to approach each concept with fresh eyes, comparing the legacy ways with the new .NET 10 capabilities, and understanding the* why *behind every choice.*
 
-![alt text](<images/Re-Learning .NET in 2026: 35 Lessons on How to Master the Stack with .NET 10 and Azure.png>)
+![alt text](images/Re-Learning-.NET-in-2026-35-Lessons-on-How-to-Master-the-Stack-with-.NET-10-and-Azure.png)
 
 **A Note on Using AI for Learning:** Throughout this guide, I'll show you how to use **ChatGPT (free)** as a learning companion. Unlike GitHub Copilot, which integrates directly into your editor and could potentially send code snippets to Microsoft's servers, using ChatGPT in your browser for learning is safer for understanding concepts. **Never paste proprietary code into any AI tool**—treat it like a tutor, not a pair programmer for commercial work. Use it to explain concepts, generate practice examples, and help you understand error messages. The prompts I provide are designed for learning, not for generating production code.
 
@@ -145,25 +145,12 @@ public async Task<User> GetUserAsync(int id)
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant Client
-    participant DNS
-    participant Server
-    
-    Client->>DNS: 1. Resolve api.example.com
-    DNS-->>Client: 2. IP Address 192.168.1.100
-    Client->>Server: 3. TCP Handshake (SYN, SYN-ACK, ACK)
-    Client->>Server: 4. TLS Negotiation (if HTTPS)
-    Client->>Server: 5. HTTP Request (Headers + Body)
-    Server->>Server: 6. Process Request
-    Server-->>Client: 7. HTTP Response (Status + Headers + Body)
-    Client->>Server: 8. TCP Connection Close/Future Requests
 ```
+
+![Diagram](images/diagram_01_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_01_untitled.md)
+
 
 **How to Use ChatGPT for HTTP:**
 
@@ -230,34 +217,19 @@ public async ValueTask<string> GetCachedDataAsync(string key)
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A[Call Method] --> B{Await Task?}
-    B -- Yes --> C[Task Incomplete?]
-    C -- Yes --> D[Return to Caller<br/>Thread Released]
-    C -- No --> E[Continue Synchronously]
-    D --> F[Task Completes]
-    F --> G[Continuation Scheduled]
-    G --> H[Method Resumes]
-    E --> H
-    B -- No --> I[Execute Synchronously]
-    
-    style D fill:#ff9900,color:white
-    style F fill:#ff9900,color:white
-    style G fill:#ff9900,color:white
 ```
+
+![Diagram](images/diagram_02_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_02_untitled.md)
+
 
 **Benchmark: Async vs Sync Under Load**
 
-| Scenario | Threads Used | Requests/sec | Memory/Request |
-|----------|--------------|--------------|----------------|
-| Synchronous API | 100 blocked threads | 500 | 2.1 MB |
-| Async API (legacy) | 10 threads | 4,500 | 1.8 MB |
-| Async API (.NET 10) | 8 threads | 5,200 | 1.2 MB |
+![Benchmark: Async vs Sync Under Load](images/table_01_benchmark-async-vs-sync-under-load-7245.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_01_benchmark-async-vs-sync-under-load-7245.md)
+
 
 *Source: Internal benchmarks with Kestrel, 1000 concurrent requests*
 
@@ -337,34 +309,20 @@ public static void PrintGCStats()
 
 **Benchmark: Allocation Patterns**
 
-| Pattern | Operations/sec | Allocated | GC Collections |
-|---------|---------------|-----------|----------------|
-| List without capacity | 1,200,000 | 2.4 MB | Gen0: 15, Gen1: 5 |
-| List with capacity | 2,100,000 | 1.2 MB | Gen0: 5, Gen1: 1 |
-| Array pooling | 3,500,000 | 0.1 MB | Gen0: 0, Gen1: 0 |
+![Benchmark: Allocation Patterns](images/table_02_benchmark-allocation-patterns.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_02_benchmark-allocation-patterns.md)
+
 
 *Testing with 10,000 iterations of adding 1,000 integers*
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Managed Heap"
-        Gen0["Generation 0<br/>Young Objects<br/>Fast to collect"]
-        Gen1["Generation 1<br/>Buffer Zone<br/>Survived 1 GC"]
-        Gen2["Generation 2<br/>Old Objects<br/>Long-lived"]
-        LOH["Large Object Heap<br/>>85KB objects<br/>Gen 2 collection"]
-        
-        New["New Allocation"] --> Gen0
-        Gen0 -- "Survives GC" --> Gen1
-        Gen1 -- "Survives GC" --> Gen2
-        Gen2 -- "No References" --> Collected
-        LOH -- "No References" --> Collected
-    end
 ```
+
+![Benchmark: Allocation Patterns](images/diagram_03_testing-with-10000-iterations-of-adding-1000-in-ddcc.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_03_testing-with-10000-iterations-of-adding-1000-in-ddcc.md)
+
 
 **How to Use ChatGPT for Memory:**
 
@@ -717,44 +675,12 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Azure Deployment Options"
-        A[Your .NET 10 App] --> B{How to deploy?}
-        
-        B --> C[Azure App Service]
-        B --> D[Azure Container Apps]
-        B --> E[Azure Functions]
-        B --> F[AKS]
-        
-        C --> C1[PaaS - Easy, managed]
-        C --> C2[Docker container support]
-        C --> C3[Auto-scaling built-in]
-        
-        D --> D1[Kubernetes without complexity]
-        D --> D2[Serverless containers]
-        D --> D3[Event-driven scaling]
-        
-        E --> E1[Serverless functions]
-        E --> E2[Pay per execution]
-        E --> E3[Great for background jobs]
-        
-        F --> F1[Full Kubernetes control]
-        F --> F2[Complex, for experts]
-        F --> F3[Multi-container orchestration]
-    end
-    
-    subgraph "CI/CD Pipeline"
-        G[GitHub Push] --> H[Build Container]
-        H --> I[Push to ACR]
-        I --> J[Deploy to Azure]
-        J --> K[Health Check]
-    end
 ```
+
+![Diagram](images/diagram_04_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_04_untitled.md)
+
 
 **How to Use ChatGPT for Azure Deployment:**
 
@@ -835,29 +761,12 @@ git push origin v1.0.0
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-gitGraph
-   commit id: "Initial commit"
-   branch feature/auth
-   checkout feature/auth
-   commit id: "WIP: Add login form"
-   commit id: "WIP: Add JWT service"
-   commit id: "Fix token validation"
-   commit id: "Add tests"
-   checkout main
-   merge feature/auth id: "feat(auth): Add complete auth system" tag: "v1.0.0"
-   
-   branch hotfix/security
-   checkout hotfix/security
-   commit id: "Fix security vulnerability"
-   checkout main
-   cherry-pick id: "Fix security vulnerability"
-   tag: "v1.0.1"
 ```
+
+![Diagram](images/diagram_05_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_05_untitled.md)
+
 
 **How to Use ChatGPT for Git:**
 
@@ -1130,14 +1039,10 @@ public class AzureServiceHealthCheck : IHealthCheck
 
 **Application Insights Features in Azure:**
 
-| Feature | What It Tells You | Kusto Query Example |
-|---------|-------------------|---------------------|
-| Requests | HTTP traffic, response times | `requests \| where success == false` |
-| Dependencies | Calls to databases, APIs | `dependencies \| where target contains "sql"` |
-| Exceptions | Thrown exceptions with stack traces | `exceptions \| where problemId contains "NullReference"` |
-| Traces | Log messages | `traces \| where message contains "payment"` |
-| Metrics | Custom performance metrics | `customMetrics \| where name == "PaymentProcessingTime"` |
-| Availability | Uptime monitoring | `availabilityResults \| where success == false` |
+![Application Insights Features in Azure:](images/table_03_application-insights-features-in-azure-a063.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_03_application-insights-features-in-azure-a063.md)
+
 
 **Kusto Queries for Production Insight:**
 ```kusto
@@ -1175,43 +1080,12 @@ exceptions
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Application Insights Architecture"
-        App[.NET 10 App] --> SDK[Application Insights SDK]
-        
-        subgraph "Telemetry Types"
-            SDK --> R[Requests]
-            SDK --> D[Dependencies]
-            SDK --> E[Exceptions]
-            SDK --> T[Traces]
-            SDK --> M[Metrics]
-        end
-        
-        R --> Collector[Azure Collector]
-        D --> Collector
-        E --> Collector
-        T --> Collector
-        M --> Collector
-        
-        Collector --> LA[Log Analytics Workspace]
-        
-        subgraph "Azure Portal"
-            LA --> Dashboards[Dashboards]
-            LA --> Alerts[Alerts]
-            LA --> Analytics[Kusto Queries]
-            LA --> Maps[Application Map]
-        end
-        
-        Alerts --> Email[Email/SMS]
-        Alerts --> PagerDuty[PagerDuty]
-        Alerts --> Teams[Teams Channel]
-    end
 ```
+
+![Diagram](images/diagram_06_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_06_untitled.md)
+
 
 **How to Use ChatGPT for Observability:**
 
@@ -1428,31 +1302,12 @@ INCLUDE (Total, CreatedAt);
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Query Execution"
-        A[SQL Query] --> B[Parser]
-        B --> C[Algebrizer]
-        C --> D[Optimizer]
-        D --> E{Plan Selection}
-        E -->|Index Seek| F[Efficient Path]
-        E -->|Table Scan| G[Expensive Path]
-        F --> H[Execution]
-        G --> H
-        H --> I[Results]
-    end
-    
-    subgraph "Index Types"
-        J[Clustered] --> K[Data at leaf]
-        L[Non-Clustered] --> M[Pointer to data]
-        N[Covering] --> O[All needed columns]
-        P[Columnstore] --> Q[Compressed batches]
-    end
 ```
+
+![Diagram](images/diagram_07_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_07_untitled.md)
+
 
 **How to Use ChatGPT for SQL:**
 
@@ -1525,12 +1380,10 @@ public async Task PlaceOrder(Order order)
 
 **Isolation Levels Explained:**
 
-| Level | Dirty Read | Non-Repeatable Read | Phantom Read | Concurrency |
-|-------|------------|---------------------|--------------|-------------|
-| Read Uncommitted | ✅ | ✅ | ✅ | Highest |
-| Read Committed | ❌ | ✅ | ✅ | High |
-| Repeatable Read | ❌ | ❌ | ✅ | Medium |
-| Serializable | ❌ | ❌ | ❌ | Lowest |
+![Isolation Levels Explained:](images/table_04_isolation-levels-explained.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_04_isolation-levels-explained.md)
+
 
 ```csharp
 // Transaction scopes for distributed transactions
@@ -1563,31 +1416,12 @@ public async Task TransferMoney(int fromAccount, int toAccount, decimal amount)
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant App
-    participant DB1 as Database 1
-    participant DB2 as Database 2
-    participant TM as Transaction Manager
-    
-    App->>DB1: Begin Transaction
-    App->>DB2: Begin Transaction
-    App->>DB1: Update Account A
-    App->>DB2: Update Account B
-    App->>TM: Prepare Commit
-    TM->>DB1: Prepare (Phase 1)
-    DB1-->>TM: Prepared
-    TM->>DB2: Prepare (Phase 1)
-    DB2-->>TM: Prepared
-    TM->>DB1: Commit (Phase 2)
-    TM->>DB2: Commit (Phase 2)
-    DB1-->>TM: Committed
-    DB2-->>TM: Committed
 ```
+
+![Diagram](images/diagram_08_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_08_untitled.md)
+
 
 **How to Use ChatGPT for Transactions:**
 
@@ -1768,13 +1602,10 @@ Unhandled exception: System.NullReferenceException: Object reference not set to 
 
 **How to Read It:**
 
-| Line | What It Tells You |
-|------|-------------------|
-| Exception type | `NullReferenceException` - something was null |
-| First line (top) | Exactly where it happened - `OrderService.cs:line 42` |
-| Second line | Who called it - `OrderController.PlaceOrder` |
-| Bottom lines | Framework code - ignore unless relevant |
-| Middle lines | Middleware pipeline - shows request flow |
+![How to Read It:](images/table_05_how-to-read-it.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_05_how-to-read-it.md)
+
 
 **Common Patterns:**
 
@@ -1937,39 +1768,12 @@ az containerapp create \
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Local Development"
-        A[Code] --> B[Docker Build]
-        B --> C[Test Locally]
-        C --> D{CI/CD}
-    end
-    
-    subgraph "Azure Container Registry"
-        D --> E[Push Image]
-        E --> F[ACR - myregistry.azurecr.io]
-    end
-    
-    subgraph "Azure Deployment Options"
-        F --> G[Azure Container Apps]
-        F --> H[Azure App Service]
-        F --> I[AKS]
-        
-        G --> J[Serverless Containers]
-        H --> K[PaaS with Containers]
-        I --> L[Full Kubernetes]
-    end
-    
-    subgraph "Monitoring"
-        J --> M[Application Insights]
-        K --> M
-        L --> M
-    end
 ```
+
+![Diagram](images/diagram_09_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_09_untitled.md)
+
 
 **Essential Docker Commands:**
 ```bash
@@ -2089,11 +1893,10 @@ public class ServiceProviderEngine
 
 **Lifetime Comparison:**
 
-| Lifetime | Instance Per | Created When | Use Case |
-|----------|--------------|--------------|----------|
-| Transient | Every request | Every time | Stateless services |
-| Scoped | Request/Scope | Once per scope | Database contexts |
-| Singleton | Application | First request | Caches, configuration |
+![Lifetime Comparison:](images/table_06_lifetime-comparison.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_06_lifetime-comparison.md)
+
 
 ```csharp
 // Validate scopes in development
@@ -2200,17 +2003,10 @@ static void Main() => BenchmarkRunner.Run<StringConcatenationBenchmarks>();
 
 **Example Results:**
 ```
-| Method        | Count | Mean        | Allocated | Gen0   | Rank |
-|--------------|------|------------|----------|--------|------|
-| PlusOperator | 10   |   1,234 ns |   1.2 KB | 0.1000 | 4    |
-| StringBuilder| 10   |     856 ns |   0.9 KB | 0.0500 | 3    |
-| StringConcat | 10   |     423 ns |   0.5 KB | 0.0100 | 1    |
-| StringJoin   | 10   |     512 ns |   0.6 KB | 0.0100 | 2    |
-|--------------|------|------------|----------|--------|------|
-| PlusOperator | 100  | 125,432 ns | 125.4 KB | 10.000 | 4    |
-| StringBuilder| 100  |   3,456 ns |   3.8 KB | 0.2000 | 3    |
-| StringConcat | 100  |   1,234 ns |   1.2 KB | 0.1000 | 1    |
-| StringJoin   | 100  |   1,567 ns |   1.5 KB | 0.1000 | 2    |
+![Example Results:](images/table_07_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_07_untitled.md)
+
 ```
 
 **Profiling Tools:**
@@ -2227,35 +2023,12 @@ dotnet-dump analyze dumpfile.dmp
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    subgraph "Performance Investigation"
-        A[Identify Problem] --> B[Choose Tool]
-        
-        B --> C{What's the issue?}
-        C -->|CPU| D[dotnet-trace]
-        C -->|Memory| E[dotnet-dump]
-        C -->|Metrics| F[dotnet-counters]
-        C -->|Compare| G[BenchmarkDotNet]
-        
-        D --> H[Analyze Trace]
-        E --> I[Heap Analysis]
-        F --> J[Real-time Metrics]
-        G --> K[Benchmark Results]
-        
-        H --> L[Find Bottleneck]
-        I --> L
-        J --> L
-        K --> L
-        
-        L --> M[Apply Fix]
-        M --> N[Measure Again]
-    end
 ```
+
+![dotnet-trace - Performance tracing](images/diagram_10_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_10_untitled.md)
+
 
 **How to Use ChatGPT for Performance:**
 
@@ -2318,29 +2091,12 @@ app.MapOrdersEndpoints()
 
 **When to Consider Splitting:**
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A[Start Monolith] --> B{Need to split?}
-    
-    B -->|Team Size| C[Multiple teams<br/>deploying independently]
-    B -->|Scale| D[Different scaling needs<br/>e.g., orders vs reporting]
-    B -->|Tech| E[Different tech stacks<br/>for different features]
-    B -->|Risk| F[Isolate critical<br/>payment/auth features]
-    
-    C --> G[Consider Microservices]
-    D --> G
-    E --> G
-    F --> G
-    
-    G --> H[Start with Bounded Contexts]
-    H --> I[Identify Service Boundaries]
-    I --> J[Start with ONE service]
-    J --> K[Measure, Learn, Iterate]
 ```
+
+![When to Consider Splitting:](images/diagram_11_when-to-consider-splitting.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_11_when-to-consider-splitting.md)
+
 
 **.NET Aspire for When You're Ready:**
 ```csharp
@@ -2620,41 +2376,12 @@ public class OrdersController : ControllerBase
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-sequenceDiagram
-    participant User
-    participant Browser
-    participant API as .NET API
-    participant AzureAD as Azure AD (Entra ID)
-    participant Graph as Microsoft Graph
-    
-    User->>Browser: Navigate to App
-    Browser->>API: GET /protected-resource
-    API-->>Browser: 401 Unauthorized
-    
-    Browser->>AzureAD: Redirect to Login
-    AzureAD->>User: Sign In (MFA if needed)
-    User->>AzureAD: Credentials
-    
-    AzureAD-->>Browser: Authorization Code
-    Browser->>API: POST /token (with code)
-    API->>AzureAD: Validate Code
-    AzureAD-->>API: Access + ID Tokens
-    
-    API->>Graph: Get User Profile (on-behalf-of)
-    Graph-->>API: User Data
-    
-    API-->>Browser: JWT Token
-    Browser->>API: GET /protected-resource (with Bearer token)
-    API->>API: Validate Token
-    API-->>Browser: 200 OK + Data
-    
-    Note over Browser,API: Subsequent requests include token
 ```
+
+![Diagram](images/diagram_12_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_12_untitled.md)
+
 
 **How to Use ChatGPT for Auth:**
 
@@ -2900,53 +2627,12 @@ performanceCounters
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Azure Monitoring Stack"
-        App[.NET 10 App] --> SDK[Application Insights SDK]
-        
-        subgraph "Telemetry"
-            SDK --> Requests[Requests]
-            SDK --> Dependencies[Dependencies]
-            SDK --> Exceptions[Exceptions]
-            SDK --> Traces[Traces]
-            SDK --> Metrics[Metrics]
-        end
-        
-        Requests --> AI[Application Insights]
-        Dependencies --> AI
-        Exceptions --> AI
-        Traces --> AI
-        Metrics --> AI
-        
-        AI --> LA[Log Analytics Workspace]
-        
-        subgraph "Alerting"
-            LA --> Alerts[Alert Rules]
-            Alerts --> ActionGroups[Action Groups]
-            ActionGroups --> Email[Email]
-            ActionGroups --> SMS[SMS]
-            ActionGroups --> Webhook[Webhook]
-            ActionGroups --> Runbook[Automation Runbook]
-        end
-        
-        subgraph "Dashboards"
-            LA --> Workbooks[Azure Workbooks]
-            LA --> Dashboards[Shared Dashboards]
-            LA --> PowerBI[Power BI]
-        end
-        
-        subgraph "Auto-Remediation"
-            Runbook --> Restart[Restart Service]
-            Runbook --> Scale[Scale Out]
-            Runbook --> Failover[Failover to DR]
-        end
-    end
 ```
+
+![Diagram](images/diagram_13_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_13_untitled.md)
+
 
 **Why:** Production crashes are inevitable. The difference between a 5-minute outage and a 5-hour outage is preparation. With Azure Monitor and Application Insights, you get comprehensive observability that helps you detect, diagnose, and even automatically remediate issues before users notice.
 
@@ -3153,22 +2839,12 @@ Closes #123
 
 **PR Size Guidelines:**
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A[PR Size] --> B{< 200 lines?}
-    B -->|Yes| C[Good to review]
-    B -->|No| D{200-500 lines}
-    D -->|Yes| E[Consider splitting]
-    D -->|No| F{> 500 lines}
-    F -->|Yes| G[Must split!]
-    
-    C --> H[Faster review<br/>Better feedback]
-    G --> I[Slow review<br/>Missed issues]
 ```
+
+![PR Size Guidelines:](images/diagram_14_pr-size-guidelines.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_14_pr-size-guidelines.md)
+
 
 **Why:** Small PRs get reviewed thoroughly. Large PRs get approved blindly (or sit forever). Small changes are easier to revert if something breaks. Your future self (and your team) will thank you.
 
@@ -3283,29 +2959,12 @@ public interface IOrderRepository
 
 **Architecture Decision Framework:**
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A[Architecture Decision] --> B{What problem?}
-    
-    B -->|Testing| C[Need interfaces/mocks]
-    B -->|Maintenance| D[Need separation of concerns]
-    B -->|Performance| E[Need optimization]
-    B -->|Scale| F[Need distribution]
-    
-    C --> G[Add DI + Interfaces]
-    D --> H[Add layers/modules]
-    E --> I[Add caching/CDN]
-    F --> J[Consider microservices]
-    
-    G --> K[Evolve architecture]
-    H --> K
-    I --> K
-    J --> K
 ```
+
+![Architecture Decision Framework:](images/diagram_15_architecture-decision-framework-741d.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_15_architecture-decision-framework-741d.md)
+
 
 **Why:** YouTube architectures are demos, not production systems. They show perfect scenarios without real-world constraints. Your app has unique needs—copying someone else's architecture is like wearing someone else's glasses.
 
@@ -3408,36 +3067,18 @@ public class DeadlockDemo
 
 **Thread Safety Guidelines:**
 
-| Scenario | Safe Approach | Why |
-|----------|--------------|-----|
-| Read-only data | No synchronization | Immutable is thread-safe |
-| One writer, many readers | ReaderWriterLockSlim | Concurrent reads allowed |
-| Few writers | lock statement | Simple, reliable |
-| Many atomic operations | Interlocked class | Fastest for simple ops |
-| Complex state | Concurrent collections | Built for threading |
+![Thread Safety Guidelines:](images/table_08_thread-safety-guidelines.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_08_thread-safety-guidelines.md)
+
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Thread States"
-        A[Created] -->|Start| B[Runnable]
-        B -->|Scheduled| C[Running]
-        C -->|Wait/Sleep| D[Blocked]
-        D -->|Wake| B
-        C -->|Complete| E[Terminated]
-    end
-    
-    subgraph "Synchronization"
-        F[Multiple Threads] --> G[Lock/Monitor]
-        F --> H[Mutex]
-        F --> I[Semaphore]
-        F --> J[Concurrent Collections]
-    end
 ```
+
+![Thread Safety Guidelines:](images/diagram_16_complex-state--concurrent-collections--built-f-1f99.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_16_complex-state--concurrent-collections--built-f-1f99.md)
+
 
 **How to Use ChatGPT for Threading:**
 
@@ -3482,15 +3123,10 @@ list.Sort(index, count, comparer); // Sort a range
 
 **Documentation Sections to Master:**
 
-| Section | What It Tells You |
-|---------|-------------------|
-| Overloads | Different ways to use the API |
-| Parameters | What each input means |
-| Returns | What you get back |
-| Exceptions | What can go wrong |
-| Remarks | Important notes, performance |
-| Examples | Real usage scenarios |
-| Applies to | .NET versions supported |
+![Documentation Sections to Master:](images/table_09_documentation-sections-to-master-8f25.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_09_documentation-sections-to-master-8f25.md)
+
 
 **How to Use ChatGPT for Documentation:**
 
@@ -3778,44 +3414,12 @@ stages:
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph LR
-    subgraph "Azure DevOps Pipeline"
-        A[Code Commit] --> B[Build]
-        B --> C[Unit Tests]
-        C --> D[Integration Tests]
-        D --> E[Publish Artifact]
-        
-        E --> F[Deploy to Dev]
-        F --> G[Smoke Tests]
-        
-        G --> H{Approval Gate}
-        H -->|Approved| I[Deploy to Staging]
-        H -->|Rejected| J[Notify Team]
-        
-        I --> K[Integration Tests]
-        K --> L{Health Check}
-        L -->|Pass| M[Deploy to Prod - Canary]
-        L -->|Fail| N[Auto-Rollback]
-        
-        M --> O[10% Traffic]
-        O --> P[50% Traffic]
-        P --> Q[100% Traffic]
-        Q --> R[Swap Slots]
-    end
-    
-    subgraph "Azure Monitoring"
-        G --> AI[Application Insights]
-        K --> AI
-        O --> AI
-        AI --> Alerts[Alert Rules]
-        Alerts --> N
-    end
 ```
+
+![Diagram](images/diagram_17_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_17_untitled.md)
+
 
 **How to Use ChatGPT for CI/CD:**
 
@@ -3980,55 +3584,18 @@ public class ResilientDbContext : DbContext
 
 **Azure Resilience Patterns:**
 
-| Pattern | Azure Service | Use Case |
-|---------|--------------|----------|
-| Retry | Polly + Azure SDKs | Transient failures |
-| Circuit Breaker | Polly | Preventing cascading failures |
-| Queue-based load leveling | Service Bus | Smooth out traffic spikes |
-| Competing Consumers | Service Bus | Scale out processing |
-| Saga Pattern | Durable Functions | Distributed transactions |
-| Health Endpoint | App Service | Load balancer checks |
-| Throttling | API Management | Rate limiting |
-| Fallback | Redis Cache | Return cached data |
+![Azure Resilience Patterns:](images/table_10_azure-resilience-patterns.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_10_azure-resilience-patterns.md)
+
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Azure Resilience"
-        Client[Client] --> APIM[API Management]
-        APIM --> App[App Service]
-        
-        subgraph "Resilience Patterns"
-            App --> Retry[Retry Policy]
-            Retry --> CB[Circuit Breaker]
-            CB --> SB[Service Bus]
-            SB --> Worker[Worker Process]
-            
-            Worker --> DB[(SQL DB with Retry)]
-            Worker --> Cache[(Redis Cache)]
-            
-            DB -.-> Fallback[Fallback to Cache]
-        end
-        
-        subgraph "Failure Scenarios"
-            F1[Network Blip] --> Retry
-            F2[Service Down] --> CB
-            F3[Traffic Spike] --> SB
-            F4[DB Timeout] --> Fallback
-        end
-    end
-    
-    subgraph "Monitoring"
-        App --> AI[Application Insights]
-        SB --> AI
-        Worker --> AI
-        AI --> Alerts[Azure Monitor Alerts]
-    end
 ```
+
+![Diagram](images/diagram_18_fallback--redis-cache--return-cached-data-d869.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_18_fallback--redis-cache--return-cached-data-d869.md)
+
 
 **Why:** Failure is inevitable in cloud applications. Azure services are designed to handle failure, but you need to use them correctly. Retry policies, circuit breakers, and async messaging patterns keep your API standing when everything around it is falling. In .NET 10, these patterns are easier than ever with integrated resilience libraries.
 
@@ -4166,34 +3733,12 @@ public class FeatureFlags
 ```
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    subgraph "Azure Security Layers"
-        A[Application Code] --> B[Managed Identity]
-        B --> C[Key Vault]
-        B --> D[Storage Account]
-        B --> E[SQL Database]
-        
-        F[Azure AD] --> G[Authentication]
-        G --> H[Authorization]
-        
-        I[Defender for Cloud] --> J[Threat Detection]
-        I --> K[Vulnerability Assessment]
-        I --> L[Security Alerts]
-        
-        M[Network Security] --> N[NSGs]
-        M --> O[Firewall]
-        M --> P[Private Endpoints]
-        
-        Q[Compliance] --> R[Azure Policy]
-        Q --> S[RBAC]
-        Q --> T[Blueprints]
-    end
 ```
+
+![Diagram](images/diagram_19_untitled.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_19_untitled.md)
+
 
 **How to Use ChatGPT for Security:**
 
@@ -4261,12 +3806,10 @@ Closes #123"
 
 **Feedback Questions to Ask:**
 
-| Stage | Questions |
-|-------|-----------|
-| Design | What am I missing? Any better approaches? Known pitfalls? |
-| Implementation | Is this maintainable? Any performance issues? Security concerns? |
-| Testing | What edge cases aren't covered? Any integration scenarios? |
-| Deployment | Any operational concerns? Monitoring considerations? Rollback plan? |
+![Feedback Questions to Ask:](images/table_11_feedback-questions-to-ask.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_11_feedback-questions-to-ask.md)
+
 
 **Why:** Feedback is a cheat code for experience. A senior developer can spot in 5 minutes what would take you 5 days to learn. Put your code out there. Ask for reviews. Be grateful for criticism.
 
@@ -4323,13 +3866,10 @@ var customerSpending = highValueVipOrders
 
 **The Cost of Cleverness:**
 
-| Metric | Clever Code | Clear Code |
-|--------|------------|------------|
-| Time to write | 5 minutes | 8 minutes |
-| Time to understand (original author) | 2 minutes | 30 seconds |
-| Time to understand (team member) | 15 minutes | 1 minute |
-| Bug introduction rate | High | Low |
-| Refactoring difficulty | High | Low |
+![Clarity Checklist:](images/table_12_the-cost-of-cleverness.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_12_the-cost-of-cleverness.md)
+
 
 **Why:** The clever code impresses in code reviews. The clear code saves the team when debugging at 2 AM. Write for the tired developer—because someday, that developer will be you.
 
