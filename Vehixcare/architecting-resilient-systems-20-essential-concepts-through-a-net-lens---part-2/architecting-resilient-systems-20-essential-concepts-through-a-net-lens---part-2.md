@@ -3,7 +3,7 @@
 ## Distribution & Communication — Consistent Hashing, Message Queues, Rate Limiting, API Gateway, Microservices Architecture
 
 
-![alt text](images/Part-2-Distribution-&-Communication-—-Consistent-Hashing,-Message-Queues,-Rate-Limiting,-API.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/Part-2-Distribution-&-Communication-—-Consistent-Hashing,-Message-Queues,-Rate-Limiting,-API.png)
 
 *This is Part 2 of a 4-part series exploring system design concepts through the Vehixcare-API implementation. In this series, we'll cover 20 essential distributed system patterns with practical .NET code examples, MongoDB integration, and SOLID principles.*
 
@@ -35,7 +35,7 @@ In this part, we'll explore how Vehixcare manages:
 
 ## Concept 6: Consistent Hashing — Distributing Data Evenly Across Nodes
 
-![alt text](images/Consistent-Hashing.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/Consistent-Hashing.png)
 
 Consistent hashing minimizes rebalancing when nodes are added or removed from a distributed system. This makes it ideal for cache distribution, database sharding, and load balancing where node membership changes dynamically.
 
@@ -512,7 +512,7 @@ public record ServiceInstance
 ```mermaid
 ```
 
-![Diagram](images/diagram_01_consistent-hashing-architecture-diagram-3eff.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_01_consistent-hashing-architecture-diagram-3eff.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/diagram_01_consistent-hashing-architecture-diagram-3eff.md)
 
@@ -521,7 +521,7 @@ public record ServiceInstance
 
 ## Concept 7: Message Queues — Enabling Asynchronous Communication Between Distributed Components
 
-![alt text](images/Message-Queues.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/Message-Queues.png)
 
 Message queues decouple system components, enabling reliable asynchronous communication and buffering during traffic spikes. Vehixcare uses Azure Service Bus and RabbitMQ for different workload types.
 
@@ -536,7 +536,7 @@ Message queues decouple system components, enabling reliable asynchronous commun
 
 **Message Queue Patterns:**
 
-![Benefits of Message Queues:](images/table_01_message-queue-patterns.png)
+![Benefits of Message Queues:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_01_message-queue-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_01_message-queue-patterns.md)
 
@@ -1064,7 +1064,7 @@ public class VehicleServiceMessageProcessor : BackgroundService
 ```mermaid
 ```
 
-![Diagram](images/diagram_02_message-queue-architecture-diagram-7443.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_02_message-queue-architecture-diagram-7443.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/diagram_02_message-queue-architecture-diagram-7443.md)
 
@@ -1073,7 +1073,7 @@ public class VehicleServiceMessageProcessor : BackgroundService
 
 ## Concept 8: Rate Limiting — Controlling Request Rate to Prevent Abuse and Overload
 
-![alt text](images/Rate-Limiting.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/Rate-Limiting.png)
 
 Rate limiting protects system resources from excessive usage while ensuring fair access for all clients. Vehixcare implements multi-dimensional rate limiting with ASP.NET Core's built-in rate limiter and Redis-based distributed rate limiting.
 
@@ -1081,7 +1081,7 @@ Rate limiting protects system resources from excessive usage while ensuring fair
 
 **Rate Limiting Algorithms:**
 
-![Rate Limiting Algorithms:](images/table_02_rate-limiting-algorithms.png)
+![Rate Limiting Algorithms:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_02_rate-limiting-algorithms.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_02_rate-limiting-algorithms.md)
 
@@ -1578,7 +1578,7 @@ public record RateLimitStats
 ```mermaid
 ```
 
-![Diagram](images/diagram_03_rate-limiting-architecture-diagram-a88c.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_03_rate-limiting-architecture-diagram-a88c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/diagram_03_rate-limiting-architecture-diagram-a88c.md)
 
@@ -1587,7 +1587,7 @@ public record RateLimitStats
 
 ## Concept 9: API Gateway — Central Entry Point Managing Requests, Authentication, and Routing
 
-![alt text](images/API-Gateway.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/API-Gateway.png)
 
 The API Gateway serves as the single entry point for all clients, handling cross-cutting concerns like authentication, routing, aggregation, and rate limiting. Vehixcare implements this using YARP (Yet Another Reverse Proxy) with custom middleware.
 
@@ -1605,7 +1605,7 @@ The API Gateway serves as the single entry point for all clients, handling cross
 
 **Gateway Patterns:**
 
-![Authentication/Authorization](images/table_03_gateway-patterns.png)
+![Authentication/Authorization](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_03_gateway-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_03_gateway-patterns.md)
 
@@ -2081,7 +2081,7 @@ public record FullVehicleDetails
 ```mermaid
 ```
 
-![Diagram](images/diagram_04_api-gateway-architecture-diagram-1751.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_04_api-gateway-architecture-diagram-1751.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/diagram_04_api-gateway-architecture-diagram-1751.md)
 
@@ -2090,7 +2090,7 @@ public record FullVehicleDetails
 
 ## Concept 10: Microservices Architecture — Independent, Deployable, Loosely Coupled Services
 
-![alt text](images/Microservices-Architecture.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/Microservices-Architecture.png)
 
 Microservices architecture enables independent development, deployment, and scaling of system components. Vehixcare's microservices are organized around business capabilities with clear bounded contexts.
 
@@ -2106,7 +2106,7 @@ Microservices architecture enables independent development, deployment, and scal
 
 **Microservices vs. Monolith:**
 
-![Microservices Characteristics:](images/table_04_microservices-vs-monolith.png)
+![Microservices Characteristics:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_04_microservices-vs-monolith.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_04_microservices-vs-monolith.md)
 
@@ -2521,21 +2521,21 @@ public class VehiclesController : ControllerBase
 ```mermaid
 ```
 
-![Diagram](images/diagram_05_microservices-architecture-diagram-1f2e.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_05_microservices-architecture-diagram-1f2e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/diagram_05_microservices-architecture-diagram-1f2e.md)
 
 
 ### SOLID Principles in Microservices
 
-![Table](images/table_05_solid-principles-in-microservices-ea4e.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_05_solid-principles-in-microservices-ea4e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_05_solid-principles-in-microservices-ea4e.md)
 
 
 ### Design Patterns in Microservices
 
-![Single Responsibility](images/table_06_design-patterns-in-microservices-ec44.png)
+![Single Responsibility](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_06_design-patterns-in-microservices-ec44.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_06_design-patterns-in-microservices-ec44.md)
 
@@ -2546,7 +2546,7 @@ public class VehiclesController : ControllerBase
 
 In this second part of our series, we've explored the critical communication and distribution patterns that enable services to work together effectively:
 
-![CQRS](images/table_07_in-this-second-part-of-our-series-weve-explored-fcc0.png)
+![CQRS](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/table_07_in-this-second-part-of-our-series-weve-explored-fcc0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/table_07_in-this-second-part-of-our-series-weve-explored-fcc0.md)
 
