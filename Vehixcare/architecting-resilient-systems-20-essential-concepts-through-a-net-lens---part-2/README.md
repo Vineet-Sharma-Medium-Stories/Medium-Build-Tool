@@ -1,11 +1,11 @@
 # Architecting Resilient Systems 20 Essential Concepts Through A Net Lens   Part 2
 
-Generated: 2026-03-31 09:16:39
+Generated: 2026-03-31 09:22:49
 
 ## Summary
 - Tables: 7 (7 successful)
 - Diagrams: 5 (5 successful)
-- PNG Images: 42
+- PNG Images: 18
 - Copied Images: 6
 
 ## Combined Document
