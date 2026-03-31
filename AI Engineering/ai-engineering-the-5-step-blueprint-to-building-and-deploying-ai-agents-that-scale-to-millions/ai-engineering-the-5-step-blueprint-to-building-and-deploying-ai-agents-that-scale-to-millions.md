@@ -3,12 +3,12 @@
 
 ## From Concept to Production — A Complete Journey Through the AI Agent Stack
 
-![alt text](images/The-5-Step-Blueprint-to-Building-and-Deploying-AI-Agents-That-Scale-to-Millions.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/The-5-Step-Blueprint-to-Building-and-Deploying-AI-Agents-That-Scale-to-Millions.png)
 
 ## 🌟 Introduction: The Great Shift in AI Development
 
 
-![AI Engineering: The 5-Step Blueprint to Building and Deploying AI Agents That Scale to Millions](images/diagram_01_introduction-the-great-shift-in-ai-developme-1b54.png)
+![AI Engineering: The 5-Step Blueprint to Building and Deploying AI Agents That Scale to Millions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_01_introduction-the-great-shift-in-ai-developme-1b54.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_01_introduction-the-great-shift-in-ai-developme-1b54.md)
 
@@ -26,14 +26,14 @@ This five-part series was created to bridge that gap. What you'll find in the fo
 ## 🎯 The Problem: Why Most AI Agents Fail in Production
 
 
-![But here's the challenge:](images/diagram_02_the-problem-why-most-ai-agents-fail-in-produ-bfe7.png)
+![But here's the challenge:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_02_the-problem-why-most-ai-agents-fail-in-produ-bfe7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_02_the-problem-why-most-ai-agents-fail-in-produ-bfe7.md)
 
 
 Before we dive into the solution, let's be honest about why most AI agent projects fail to reach production — or fail once they get there:
 
-![Table](images/table_01_before-we-dive-into-the-solution-lets-be-honest-f2ec.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/table_01_before-we-dive-into-the-solution-lets-be-honest-f2ec.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/table_01_before-we-dive-into-the-solution-lets-be-honest-f2ec.md)
 
@@ -45,7 +45,7 @@ Before we dive into the solution, let's be honest about why most AI agent projec
 ## 🔧 The Solution: A 5-Step Blueprint
 
 
-![No security](images/diagram_03_the-solution-a-5-step-blueprint-a429.png)
+![No security](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_03_the-solution-a-5-step-blueprint-a429.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_03_the-solution-a-5-step-blueprint-a429.md)
 
@@ -60,48 +60,48 @@ Over the course of five comprehensive parts, you'll build an AI agent system tha
 
 **1. 🏗️ AI Engineering: Foundation & LLM Fundamentals - Part 1** – Python mastery for agents (asyncio, FastAPI, Pydantic), LLM internals (transformers, tokens, context windows), prompting strategies (zero-shot, few-shot, chain-of-thought, ReAct), major LLM APIs (OpenAI, Anthropic, Gemini), development tools (OpenAI Playground, LangSmith, Guardrails AI), and your first working agent.
 
-**✨ Outcome:** By the end of Part 1, you'll have built an agent that can detect user intent (greeting, weather, booking), extract entities like locations and dates, track token usage and estimate costs, maintain basic conversation context, and respond intelligently with fallback mechanisms.
+**✨ What you learn:** By the end of Part 1, you'll have built an agent that can detect user intent (greeting, weather, booking), extract entities like locations and dates, track token usage and estimate costs, maintain basic conversation context, and respond intelligently with fallback mechanisms.
 
-📎 **Read the full story:** [AI Agent Engineering 1 - Foundation & LLM Fundamentals](./AI%20Agent%20Engineering%201%20-%20Foundation%20&%20LLM%20Fundamentals.md)
+📎 **Read the full story:** AI Agent Engineering 1 - Foundation & LLM Fundamentals - ***Coming soon***
 
 ---
 
 **2. 🤖 AI Engineering: Building Your First Real Agent — Architecture, Tools, and Memory - Part 2** – The think-act-observe autonomous loop that makes agents autonomous, tool design with JSON schemas, tool registry and orchestration, error handling with retries and circuit breakers, short-term memory (conversation buffer), long-term memory (Redis persistence), semantic memory with embeddings, working memory for task state, and a complete WhatsApp travel agent that can search flights, find hotels, and remember user preferences.
 
-**✨ Outcome:** By the end of Part 2, you'll have built an agent that can remember user preferences (window seats, vegetarian meals), search for flights and hotels in real time, execute multi-step booking flows across multiple conversations, handle API failures gracefully, and maintain context across days of conversation.
+**✨ What you learn:** By the end of Part 2, you'll have built an agent that can remember user preferences (window seats, vegetarian meals), search for flights and hotels in real time, execute multi-step booking flows across multiple conversations, handle API failures gracefully, and maintain context across days of conversation.
 
-📎 **Read the full story:** [AI Agent Engineering 2 - Building Your First Agent — Architecture, Tools, and Memory](./AI%20Agent%20Engineering%202%20-%20%20Building%20Your%20First%20Agent%20—%20Architecture,%20Tools,%20and%20Memory.md)
+📎 **Read the full story:** AI Agent Engineering 2 - Building Your First Agent — Architecture, Tools, and Memory- ***Coming soon***
 
 ---
 
 **3. 👥 AI Engineering: Going Pro — RAG Systems and Multi-Agent Collaboration - Part 3** – RAG fundamentals and document chunking strategies (fixed, semantic, recursive, structure-based), vector databases (Pinecone, Weaviate, Milvus, Chroma, Qdrant), RAG frameworks (LlamaIndex, LangChain Retrieval, Haystack), multi-agent patterns (planner-executor, supervisor, debate, swarm), and multi-agent frameworks (AutoGen, CrewAI, LangGraph, Semantic Kernel).
 
-**✨ Outcome:** By the end of Part 3, you'll have built a system that can answer questions from a 500-page policy manual with citations, decompose complex tasks into subtasks for specialized agents, coordinate multiple agents working in parallel, resolve conflicting information through agent debate, and scale intelligence horizontally by adding more specialized agents.
+**✨ What you learn:** By the end of Part 3, you'll have built a system that can answer questions from a 500-page policy manual with citations, decompose complex tasks into subtasks for specialized agents, coordinate multiple agents working in parallel, resolve conflicting information through agent debate, and scale intelligence horizontally by adding more specialized agents.
 
-📎 **Read the full story:** [AI Agent Engineering 3 - Going Pro — RAG Systems and Multi-Agent Collaboration](./AI%20Agent%20Engineering%203%20-%20Going%20Pro%20—%20RAG%20Systems%20and%20Multi-Agent%20Collaboration.md)
+📎 **Read the full story:** AI Agent Engineering 3 - Going Pro — RAG Systems and Multi-Agent Collaboration- ***Coming soon***
 
 ---
 
 **4. 🛡️ AI Engineering: Keeping Agents Safe — Evaluation, Guardrails, and Observability - Part 4** – Hallucination detection (claim extraction, similarity-based, LLM-based detection, guard implementation), red teaming (attack test suites, prompt injection, jailbreak attempts, vulnerability assessment), output validation (business rules enforcement, PII redaction, length checks, automatic fixing), bias mitigation (detection across demographics, fairness testing, response neutralization), evaluation tools (LangSmith, TruLens, DeepEval, Guardrails AI), and observability (token tracking, latency monitoring, cost per request, drift detection, Prometheus, Grafana).
 
-**✨ Outcome:** By the end of Part 4, you'll have built an agent that can detect and block hallucinations before they reach users, survive red team attacks that would break most agents, enforce business rules and compliance requirements, treat all users fairly across demographics, and show you exactly what it costs, how long it takes, and when it's drifting.
+**✨ What you learn:** By the end of Part 4, you'll have built an agent that can detect and block hallucinations before they reach users, survive red team attacks that would break most agents, enforce business rules and compliance requirements, treat all users fairly across demographics, and show you exactly what it costs, how long it takes, and when it's drifting.
 
-📎 **Read the full story:** [AI Agent Engineering 4 - Keeping Agents Safe — Evaluation, Guardrails, and Observability](./AI%20Agent%20Engineering%204%20-%20Keeping%20Agents%20Safe%20—%20Evaluation,%20Guardrails,%20and%20Observability%20.md)
+📎 **Read the full story:** AI Agent Engineering 4 - Keeping Agents Safe — Evaluation, Guardrails, and Observability- ***Coming soon***
 
 ---
 
 **5. 🚀 AI Engineering: Taking Agents to Production — Deployment, Scaling, and Security - Part 5** – Production concepts (async worker pools for concurrency, stateless vs stateful architecture, queues for traffic spikes, tiered caching strategies), infrastructure tools (Docker containers, docker-compose, Kubernetes orchestration with HPA), serverless options (AWS Lambda with Mangum, Azure Functions, cold start optimization), AI gateway and security (rate limiting with fixed window, sliding window, and token bucket algorithms, prompt filtering, output filtering), and enterprise security (AWS Bedrock Guardrails, Azure Content Safety, Kong AI Gateway).
 
-**✨ Outcome:** By the end of Part 5, you'll have built an agent system that can handle 10,000+ concurrent users with async workers, survive viral traffic spikes with priority queues, serve cached responses in milliseconds saving 40%+ on API costs, deploy with zero-downtime using Kubernetes rolling updates, scale automatically based on queue size and CPU usage, block prompt injection attacks and filter harmful outputs, and integrate with enterprise security standards.
+**✨ What you learn:** By the end of Part 5, you'll have built an agent system that can handle 10,000+ concurrent users with async workers, survive viral traffic spikes with priority queues, serve cached responses in milliseconds saving 40%+ on API costs, deploy with zero-downtime using Kubernetes rolling updates, scale automatically based on queue size and CPU usage, block prompt injection attacks and filter harmful outputs, and integrate with enterprise security standards.
 
-📎 **Read the full story:** [AI Agent Engineering 5 - Taking Agents to Production — Deployment, Scaling, and Security](./AI%20Agent%20Engineering%205%20-%20Taking%20Agents%20to%20Production%20—%20Deployment,%20Scaling,%20and%20Security.md)
+📎 **Read the full story:** AI Agent Engineering 5 - Taking Agents to Production — Deployment, Scaling, and Security- ***Coming soon***
 
 ---
 
 ## 🎯 The Complete Picture: What You'll Be Able to Build
 
 
-![5. 🚀 AI Engineering: Taking Agents to Production — Deployment, Scaling, and Security - Part 5](images/diagram_04_the-complete-picture-what-youll-be-able-to-7adf.png)
+![5. 🚀 AI Engineering: Taking Agents to Production — Deployment, Scaling, and Security - Part 5](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_04_the-complete-picture-what-youll-be-able-to-7adf.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_04_the-complete-picture-what-youll-be-able-to-7adf.md)
 
@@ -111,14 +111,14 @@ Over the course of five comprehensive parts, you'll build an AI agent system tha
 ## 🏗️ Real-World Use Cases You'll Be Able to Build
 
 
-![🏗️ Real-World Use Cases You'll Be Able to Build](images/diagram_05_real-world-use-cases-youll-be-able-to-build-b08f.png)
+![🏗️ Real-World Use Cases You'll Be Able to Build](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_05_real-world-use-cases-youll-be-able-to-build-b08f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_05_real-world-use-cases-youll-be-able-to-build-b08f.md)
 
 
 The patterns you'll learn in this series apply to virtually any industry:
 
-![Table](images/table_02_the-patterns-youll-learn-in-this-series-apply-to-5718.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/table_02_the-patterns-youll-learn-in-this-series-apply-to-5718.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/table_02_the-patterns-youll-learn-in-this-series-apply-to-5718.md)
 
@@ -128,14 +128,14 @@ The patterns you'll learn in this series apply to virtually any industry:
 ## 📚 Series Structure & Learning Path
 
 
-![Customer Support](images/diagram_06_series-structure--learning-path-0ef4.png)
+![Customer Support](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_06_series-structure--learning-path-0ef4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_06_series-structure--learning-path-0ef4.md)
 
 
 Each part is designed to be self-contained but builds on previous concepts:
 
-![Table](images/table_03_each-part-is-designed-to-be-self-contained-but-bui-38b5.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/table_03_each-part-is-designed-to-be-self-contained-but-bui-38b5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/table_03_each-part-is-designed-to-be-self-contained-but-bui-38b5.md)
 
@@ -145,7 +145,7 @@ Each part is designed to be self-contained but builds on previous concepts:
 ## 🎓 What Makes This Series Different
 
 
-![1](images/diagram_07_what-makes-this-series-different-73ae.png)
+![1](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_07_what-makes-this-series-different-73ae.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_07_what-makes-this-series-different-73ae.md)
 
@@ -161,7 +161,7 @@ Each part is designed to be self-contained but builds on previous concepts:
 ## 🚀 Your Journey Starts Now
 
 
-![💻 Code-First, Not Theory-First](images/diagram_08_your-journey-starts-now.png)
+![💻 Code-First, Not Theory-First](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_08_your-journey-starts-now.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_08_your-journey-starts-now.md)
 
@@ -185,7 +185,8 @@ The field of AI agents is moving faster than any technology I've seen. But the f
 ## 🌟 Conclusion: The Future Is Built by Engineers Like You
 
 
-![What you'll have by the end:](images/diagram_09_conclusion-the-future-is-built-by-engineers-40b8.png)
+![What you'll have by the end:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/AI%20Engineering/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/images/diagram_09_conclusion-the-future-is-built-by-engineers-40b8.png)
+
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions/diagram_09_conclusion-the-future-is-built-by-engineers-40b8.md)
 

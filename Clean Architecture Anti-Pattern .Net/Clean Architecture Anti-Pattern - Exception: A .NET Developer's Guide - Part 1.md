@@ -1,5 +1,8 @@
 # Clean Architecture Anti-Pattern - Exception: A .NET Developer's Guide - Part 1
-## Foundational principles, architectural violation, domain-infrastructure distinction, Result pattern, and decision framework.
+### Foundational principles, architectural violation, domain-infrastructure distinction, Result pattern, and decision framework.
+
+![alt text](<images/Exception: A .NET Developer's Guide - Part 1.png>)
+
 ## Introduction: The Exception Anti-Pattern in Context
 
 This series explores how the improper use of exceptions undermines architectural boundaries, creates hidden coupling between layers, and leads to systems that are difficult to test, debug, and maintain. This master story introduces the fundamental concepts, decision frameworks, and implementation patterns that are detailed throughout the series.

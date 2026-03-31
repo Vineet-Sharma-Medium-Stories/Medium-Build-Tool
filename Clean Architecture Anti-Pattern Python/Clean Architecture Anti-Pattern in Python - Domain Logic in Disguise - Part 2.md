@@ -1,6 +1,7 @@
 # Clean Architecture Anti-Pattern in Python - Domain Logic in Disguise - Part 2
 ## Performance implications of exception-based domain logic. Stack trace overhead, memory profiling, GC pressure analysis, and why expected outcomes should never raise exceptions.
 
+![alt text](<images/Domain Logic in Disguise - Part 2.png>)
 ## Introduction: The Hidden Cost of Exception-Based Domain Logic
 
 In **Part 1** of this series, we established the fundamental architectural violation that occurs when domain outcomes are expressed through exceptions in Python. The presentation layer becomes coupled to domain exception types, dependency direction inverts, and Clean Architecture layering collapses.

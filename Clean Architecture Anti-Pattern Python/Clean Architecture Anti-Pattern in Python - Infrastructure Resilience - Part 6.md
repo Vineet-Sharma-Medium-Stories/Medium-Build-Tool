@@ -1,5 +1,7 @@
 # Clean Architecture Anti-Pattern in Python - Infrastructure Resilience - Part 6
+## Global exception handling middleware, tenacity retry policies, circuit breakers, and health check integration.
 
+![alt text](<images/Infrastructure Resilience - Part 6.png>)
 
 ## Introduction: The Infrastructure Boundary
 

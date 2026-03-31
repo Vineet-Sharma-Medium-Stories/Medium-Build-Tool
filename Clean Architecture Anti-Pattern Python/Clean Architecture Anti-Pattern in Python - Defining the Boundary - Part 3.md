@@ -1,14 +1,9 @@
 # Clean Architecture Anti-Pattern in Python - Defining the Boundary - Part 3
+## Comprehensive taxonomy distinguishing infrastructure exceptions from domain outcomes. Decision matrices and classification patterns across all infrastructure layers.
 
-**Series:** Clean Architecture Anti-Pattern in Python  
-**Previous:** [2. 🎭 Clean Architecture Anti-Pattern in Python - Domain Logic in Disguise - Part 2](#)  
-**Read Time:** 24 Min  
-**Level:** Advanced  
-**Target:** Python 3.12+ | Clean Architecture | Domain-Driven Design
+![alt text](<images/Defining the Boundary - Part 3.png>)
 
----
-
-## Introduction: The Boundary That Defines Architecture
+# Introduction: The Boundary That Defines Architecture
 
 In **Part 1** of this series, we established the architectural violation that occurs when domain outcomes are expressed through exceptions in Python. In **Part 2**, we quantified the performance cost—23x slower execution and 12x more memory allocation for expected business failures.
 

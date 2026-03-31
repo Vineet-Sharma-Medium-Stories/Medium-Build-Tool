@@ -1,12 +1,8 @@
 # Clean Architecture Anti-Pattern in Python - Testing & Observability - Part 7
 
-**Series:** Clean Architecture Anti-Pattern in Python  
-**Previous:** [6. 🛡️ Clean Architecture Anti-Pattern in Python - Infrastructure Resilience - Part 6](#)  
-**Read Time:** 28 Min  
-**Level:** Advanced  
-**Target:** Python 3.12+ | Clean Architecture | Testing | Observability
+## Unit testing domain logic without exceptions (pytest), integration testing infrastructure failures, structured logging with structlog, and metrics with Prometheus.
 
----
+![alt text](<images/Testing & Observability - Part 7.png>)
 
 ## Introduction: Trust Through Verification
 

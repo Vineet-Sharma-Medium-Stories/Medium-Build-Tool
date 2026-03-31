@@ -1,12 +1,8 @@
 # Clean Architecture Anti-Pattern in Python - Across Real-World Domains - Part 5
 
-**Series:** Clean Architecture Anti-Pattern in Python  
-**Previous:** [4. ⚙️ Clean Architecture Anti-Pattern in Python - Building the Result Pattern - Part 4](#)  
-**Read Time:** 28 Min  
-**Level:** Advanced  
-**Target:** Python 3.12+ | Clean Architecture | Domain-Driven Design
+## Four complete case studies: Payment Processing, Inventory Management, Healthcare Scheduling, and Logistics Tracking.
 
----
+![alt text](<images/Across Real-World Domains - Part 5.png>)
 
 ## Introduction: Theory Meets Practice
 

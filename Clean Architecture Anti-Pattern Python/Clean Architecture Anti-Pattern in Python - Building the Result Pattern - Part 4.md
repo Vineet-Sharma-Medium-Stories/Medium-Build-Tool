@@ -1,4 +1,7 @@
 # Clean Architecture Anti-Pattern in Python - Building the Result Pattern - Part 4
+## Complete implementation of Result<T> and DomainError with functional extensions. Python 3.12+ features, match statements, and async patterns.
+
+![alt text](<images/Building the Result Pattern - Part 4.png>)
 
 
 ## Introduction: The Foundation of Architectural Resilience

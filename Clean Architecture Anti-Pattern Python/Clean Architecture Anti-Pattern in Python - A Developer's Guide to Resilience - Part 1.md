@@ -1,6 +1,8 @@
 # Clean Architecture Anti-Pattern in Python - A Developer's Guide to Resilience - Part 1
 ## Foundational principles, architectural violation, domain-infrastructure distinction, Result pattern, and decision framework for Python. Establishes the foundational principles for the entire series with Python-specific implementations.
 
+![alt text](<images/A Developer's Guide to Resilience - Part 1.png>)
+
 ## Introduction: The Exception Anti-Pattern in Python
 
 In Python development, the "EAFP" (Easier to Ask for Forgiveness than Permission) philosophy has long encouraged developers to "just try" operations and catch exceptions when they fail. While this pattern works well for handling missing dictionary keys, file access issues, or network timeouts, applying it to domain logic creates the same architectural violations we've explored throughout this series.
