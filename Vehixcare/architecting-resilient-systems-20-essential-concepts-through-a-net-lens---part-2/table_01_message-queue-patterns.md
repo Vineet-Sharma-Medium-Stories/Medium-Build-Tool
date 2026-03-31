@@ -1,5 +1,4 @@
-# table_01_message-queue-patterns
-
+# **Message Queue Patterns:**
 
 | Pattern | Description | Use Case |
 |---------|-------------|----------|

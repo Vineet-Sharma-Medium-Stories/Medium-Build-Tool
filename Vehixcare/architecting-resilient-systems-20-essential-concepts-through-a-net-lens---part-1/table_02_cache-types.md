@@ -1,5 +1,4 @@
-# table_02_cache-types
-
+# **Cache Types:**
 
 | Cache Type | Storage | Latency | Use Case |
 |------------|---------|---------|----------|

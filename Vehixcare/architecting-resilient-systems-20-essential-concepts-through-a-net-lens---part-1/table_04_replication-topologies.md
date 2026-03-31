@@ -1,5 +1,4 @@
-# table_04_replication-topologies
-
+# **Replication Topologies:**
 
 | Topology | Description | Use Case |
 |----------|-------------|----------|

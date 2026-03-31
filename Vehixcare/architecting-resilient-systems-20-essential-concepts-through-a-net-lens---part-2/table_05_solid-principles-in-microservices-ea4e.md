@@ -1,5 +1,4 @@
-# table_05_solid-principles-in-microservices-ea4e
-
+# ### SOLID Principles in Microservices
 
 | Principle | Implementation |
 |-----------|----------------|

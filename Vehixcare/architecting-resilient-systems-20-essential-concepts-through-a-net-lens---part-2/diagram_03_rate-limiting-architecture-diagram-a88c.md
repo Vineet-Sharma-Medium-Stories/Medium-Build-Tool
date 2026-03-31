@@ -1,5 +1,4 @@
-# diagram_03_rate-limiting-architecture-diagram-a88c
-
+# ### Rate Limiting Architecture Diagram
 
 ```mermaid
 ---

@@ -1,5 +1,4 @@
-# table_03_gateway-patterns
-
+# **Gateway Patterns:**
 
 | Pattern | Description | Use Case |
 |---------|-------------|----------|

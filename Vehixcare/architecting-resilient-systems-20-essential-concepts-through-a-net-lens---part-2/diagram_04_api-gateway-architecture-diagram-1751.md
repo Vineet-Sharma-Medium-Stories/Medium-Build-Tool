@@ -1,5 +1,4 @@
-# diagram_04_api-gateway-architecture-diagram-1751
-
+# ### API Gateway Architecture Diagram
 
 ```mermaid
 ---

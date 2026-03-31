@@ -1,5 +1,4 @@
-# table_07_in-this-second-part-of-our-series-weve-explored-fcc0
-
+# In this second part of our series, we've explored 
 
 | Concept | Key Implementation | Business Value |
 |---------|-------------------|----------------|

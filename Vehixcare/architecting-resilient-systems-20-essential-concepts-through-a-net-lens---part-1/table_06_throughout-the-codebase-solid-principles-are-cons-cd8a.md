@@ -1,5 +1,4 @@
-# table_06_throughout-the-codebase-solid-principles-are-cons-cd8a
-
+# Throughout the codebase, SOLID principles are cons
 
 | Principle | Implementation | Example |
 |-----------|---------------|---------|

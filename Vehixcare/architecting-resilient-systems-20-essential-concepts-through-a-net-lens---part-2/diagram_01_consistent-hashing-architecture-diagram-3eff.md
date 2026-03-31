@@ -1,5 +1,4 @@
-# diagram_01_consistent-hashing-architecture-diagram-3eff
-
+# ### Consistent Hashing Architecture Diagram
 
 ```mermaid
 ---

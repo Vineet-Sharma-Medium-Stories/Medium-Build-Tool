@@ -1,5 +1,4 @@
-# table_07_design-patterns-in-vehixcare-api-61eb
-
+# ### Design Patterns in Vehixcare-API
 
 | Pattern | Implementation | Location | Benefit |
 |---------|---------------|----------|---------|

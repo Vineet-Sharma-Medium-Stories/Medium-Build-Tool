@@ -1,5 +1,4 @@
-# diagram_05_microservices-architecture-diagram-1f2e
-
+# ### Microservices Architecture Diagram
 
 ```mermaid
 ---

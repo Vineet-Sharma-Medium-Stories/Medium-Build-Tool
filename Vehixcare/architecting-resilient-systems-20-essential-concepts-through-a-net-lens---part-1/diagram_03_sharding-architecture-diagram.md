@@ -1,5 +1,4 @@
-# diagram_03_sharding-architecture-diagram
-
+# ### Sharding Architecture Diagram
 
 ```mermaid
 ---

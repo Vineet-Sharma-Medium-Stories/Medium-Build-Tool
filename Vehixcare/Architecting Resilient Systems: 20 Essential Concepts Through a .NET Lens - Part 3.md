@@ -3001,4 +3001,11 @@ These concepts will help you build systems that are not only scalable but also m
 
 **Explore the Complete Implementation:** For the full source code, deployment configurations, and comprehensive documentation, visit the **Vehixcare-API repository**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
 
-*Questions? Feedback? Comment? leave a response below. If you're implementing something similar and want to discuss architectural tradeoffs, I'm always happy to connect with fellow engineers tackling these challenges.*
+---
+*� Questions? Drop a response - I read and reply to every comment.*
+*📌 Save this story to your reading list - it helps other engineers discover it.*
+**🔗 Follow me →**
+- [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
+- [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

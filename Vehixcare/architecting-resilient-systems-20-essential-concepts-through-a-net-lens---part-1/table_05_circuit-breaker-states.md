@@ -1,5 +1,4 @@
-# table_05_circuit-breaker-states
-
+# **Circuit Breaker States:**
 
 | State | Description | Behavior |
 |-------|-------------|----------|

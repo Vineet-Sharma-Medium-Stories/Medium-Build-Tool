@@ -1,5 +1,4 @@
-# diagram_02_message-queue-architecture-diagram-7443
-
+# ### Message Queue Architecture Diagram
 
 ```mermaid
 ---

@@ -1,5 +1,4 @@
-# table_04_microservices-vs-monolith
-
+# **Microservices vs. Monolith:**
 
 | Aspect | Monolith | Microservices |
 |--------|----------|---------------|

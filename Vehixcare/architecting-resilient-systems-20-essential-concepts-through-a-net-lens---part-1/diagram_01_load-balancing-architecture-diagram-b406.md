@@ -1,5 +1,4 @@
-# diagram_01_load-balancing-architecture-diagram-b406
-
+# ### Load Balancing Architecture Diagram
 
 ```mermaid
 ---

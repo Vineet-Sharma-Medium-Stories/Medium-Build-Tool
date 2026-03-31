@@ -1,5 +1,4 @@
-# table_08_in-this-first-part-of-our-series-weve-explored-t-c87f
-
+# In this first part of our series, we've explored t
 
 | Concept | Key Implementation | Business Value |
 |---------|-------------------|----------------|

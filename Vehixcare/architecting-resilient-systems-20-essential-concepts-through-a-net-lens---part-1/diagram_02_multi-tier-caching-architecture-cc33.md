@@ -1,5 +1,4 @@
-# diagram_02_multi-tier-caching-architecture-cc33
-
+# ### Multi-Tier Caching Architecture
 
 ```mermaid
 ---

@@ -1,5 +1,4 @@
-# table_03_sharding-approaches
-
+# **Sharding Approaches:**
 
 | Approach | Description | Pros | Cons |
 |----------|-------------|------|------|

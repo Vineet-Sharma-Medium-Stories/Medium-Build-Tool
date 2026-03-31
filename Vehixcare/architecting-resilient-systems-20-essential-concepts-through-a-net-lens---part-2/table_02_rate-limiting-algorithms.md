@@ -1,5 +1,4 @@
-# table_02_rate-limiting-algorithms
-
+# **Rate Limiting Algorithms:**
 
 | Algorithm | Description | Pros | Cons |
 |-----------|-------------|------|------|

@@ -1,5 +1,4 @@
-# table_01_load-balancing-algorithms
-
+# **Load Balancing Algorithms:**
 
 | Algorithm | Description | Use Case |
 |-----------|-------------|----------|

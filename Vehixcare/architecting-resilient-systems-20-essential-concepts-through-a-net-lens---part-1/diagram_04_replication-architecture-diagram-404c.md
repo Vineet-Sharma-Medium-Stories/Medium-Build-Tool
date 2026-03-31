@@ -1,5 +1,4 @@
-# diagram_04_replication-architecture-diagram-404c
-
+# ### Replication Architecture Diagram
 
 ```mermaid
 ---

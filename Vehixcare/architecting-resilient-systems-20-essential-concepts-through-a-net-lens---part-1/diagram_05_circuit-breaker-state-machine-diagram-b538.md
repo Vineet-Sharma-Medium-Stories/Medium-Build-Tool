@@ -1,5 +1,4 @@
-# diagram_05_circuit-breaker-state-machine-diagram-b538
-
+# ### Circuit Breaker State Machine Diagram
 
 ```mermaid
 ---
