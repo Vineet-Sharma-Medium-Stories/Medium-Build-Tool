@@ -509,8 +509,6 @@ public record ServiceInstance
 
 ### Consistent Hashing Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_01_consistent-hashing-architecture-diagram-3eff.png)
 
@@ -1061,8 +1059,6 @@ public class VehicleServiceMessageProcessor : BackgroundService
 
 ### Message Queue Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_02_message-queue-architecture-diagram-7443.png)
 
@@ -1575,8 +1571,6 @@ public record RateLimitStats
 
 ### Rate Limiting Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_03_rate-limiting-architecture-diagram-a88c.png)
 
@@ -2078,8 +2072,6 @@ public record FullVehicleDetails
 
 ### API Gateway Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_04_api-gateway-architecture-diagram-1751.png)
 
@@ -2518,8 +2510,6 @@ public class VehiclesController : ControllerBase
 
 ### Microservices Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-2/images/diagram_05_microservices-architecture-diagram-1f2e.png)
 

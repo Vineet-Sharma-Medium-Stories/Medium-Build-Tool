@@ -694,8 +694,6 @@ await app.RunAsync();
 
 ### Modular Monolith Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_01_modular-monolith-architecture-diagram-cc73.png)
 
@@ -1335,8 +1333,6 @@ public class VehicleServiceHistoryProjection
 
 ### Event-Driven Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_02_event-driven-architecture-diagram-e9e5.png)
 
@@ -1743,8 +1739,6 @@ public class CapAwareQueryExecutor
 
 ### CAP Theorem Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_03_cap-theorem-architecture-diagram-eed9.png)
 
@@ -2283,8 +2277,6 @@ public class ServiceMeshProxy
 
 ### Distributed Systems Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_04_distributed-systems-architecture-diagram-1fdf.png)
 
@@ -2659,8 +2651,6 @@ public class GracefulShutdownHandler : IHostedService
 
 ### Horizontal Scaling Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-3/images/diagram_05_horizontal-scaling-architecture-diagram-9a53.png)
 

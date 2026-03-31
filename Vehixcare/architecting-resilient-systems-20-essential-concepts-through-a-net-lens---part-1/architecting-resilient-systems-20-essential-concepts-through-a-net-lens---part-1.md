@@ -419,8 +419,6 @@ public class LoadBalancerMetricsMiddleware
 
 ### Load Balancing Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_01_load-balancing-architecture-diagram-b406.png)
 
@@ -867,8 +865,6 @@ public record CacheStatistics
 
 ### Multi-Tier Caching Architecture
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_02_multi-tier-caching-architecture-cc33.png)
 
@@ -1262,8 +1258,6 @@ public class ShardedVehicleTelemetryRepository : IVehicleTelemetryRepository
 
 ### Sharding Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_03_sharding-architecture-diagram.png)
 
@@ -1618,8 +1612,6 @@ public class ReadPreferenceStrategy
 
 ### Replication Architecture Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_04_replication-architecture-diagram-404c.png)
 
@@ -2158,8 +2150,6 @@ public enum CircuitBreakerState
 
 ### Circuit Breaker State Machine Diagram
 
-```mermaid
-```
 
 ![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/architecting-resilient-systems-20-essential-concepts-through-a-net-lens---part-1/images/diagram_05_circuit-breaker-state-machine-diagram-b538.png)
 
