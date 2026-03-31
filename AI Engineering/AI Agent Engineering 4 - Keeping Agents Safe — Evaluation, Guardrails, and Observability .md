@@ -1,4 +1,4 @@
-# 📖 STORY 4: Keeping Agents Safe — Evaluation, Guardrails, and Observability
+# AI Agent Engineering 4 - Keeping Agents Safe — Evaluation, Guardrails, and Observability 
 
 ## Building Trust in Your AI Systems
 
@@ -2822,5 +2822,10 @@ In our final story, we'll take everything we've built and deploy it to productio
 **[Click here for Story 5 →]** (Link to be added)
 
 ---
+*� Questions? Drop a response - I read and reply to every comment.*
+*📌 Save this story to your reading list - it helps other engineers discover it.*
+**🔗 Follow me →**
+- [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
+- [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
 
-*Found this valuable? Share it with someone else building safe AI agents!*
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

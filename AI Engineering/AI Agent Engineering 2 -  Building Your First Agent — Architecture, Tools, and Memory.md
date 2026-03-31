@@ -1,4 +1,5 @@
-# 📖 STORY 2: Building Your First Real Agent — Architecture, Tools, and Memory
+# AI Agent Engineering 2 -  Building Your First Agent — Architecture, Tools, and Memory
+
 
 ## From Simple Chatbot to Autonomous Assistant
 
@@ -2499,5 +2500,10 @@ In the next story, we'll take your agent to the next level with advanced capabil
 **[Click here for Story 3 →]** (Link to be added)
 
 ---
+*� Questions? Drop a response - I read and reply to every comment.*
+*📌 Save this story to your reading list - it helps other engineers discover it.*
+**🔗 Follow me →**
+- [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
+- [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
 
-*Found this valuable? Share it with someone else building AI agents!*
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

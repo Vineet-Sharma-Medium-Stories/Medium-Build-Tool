@@ -1,4 +1,3 @@
-
 # 10 Essential Microservices Architecture Patterns: A Professional Reference Architecture with .NET 10 and AWS - Part 1
 
 ## Enterprise-Grade Implementation Guide for Cloud-Native Systems

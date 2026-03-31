@@ -2,7 +2,8 @@
 
 *If I had to start my .NET journey over today, I wouldn't follow the same path. The ecosystem has evolved, and so has the way we should learn it. This isn't about what I* would *do—it's about* **how** *to approach each concept with fresh eyes, comparing the legacy ways with the new .NET 10 capabilities, and understanding the* why *behind every choice.*
 
-![alt text](images/Re-Learning-.NET-in-2026-35-Lessons-on-How-to-Master-the-Stack-with-.NET-10-and-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/Re-Learning-.NET-in-2026-35-Lessons-on-How-to-Master-the-Stack-with-.NET-10-and-Azure.png)
+
 
 **A Note on Using AI for Learning:** Throughout this guide, I'll show you how to use **ChatGPT (free)** as a learning companion. Unlike GitHub Copilot, which integrates directly into your editor and could potentially send code snippets to Microsoft's servers, using ChatGPT in your browser for learning is safer for understanding concepts. **Never paste proprietary code into any AI tool**—treat it like a tutor, not a pair programmer for commercial work. Use it to explain concepts, generate practice examples, and help you understand error messages. The prompts I provide are designed for learning, not for generating production code.
 
@@ -147,7 +148,7 @@ public async Task<User> GetUserAsync(int id)
 ```mermaid
 ```
 
-![Diagram](images/diagram_01_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_01_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_01_untitled.md)
 
@@ -219,14 +220,14 @@ public async ValueTask<string> GetCachedDataAsync(string key)
 ```mermaid
 ```
 
-![Diagram](images/diagram_02_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_02_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_02_untitled.md)
 
 
 **Benchmark: Async vs Sync Under Load**
 
-![Benchmark: Async vs Sync Under Load](images/table_01_benchmark-async-vs-sync-under-load-7245.png)
+![Benchmark: Async vs Sync Under Load](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_01_benchmark-async-vs-sync-under-load-7245.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_01_benchmark-async-vs-sync-under-load-7245.md)
 
@@ -309,7 +310,7 @@ public static void PrintGCStats()
 
 **Benchmark: Allocation Patterns**
 
-![Benchmark: Allocation Patterns](images/table_02_benchmark-allocation-patterns.png)
+![Benchmark: Allocation Patterns](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_02_benchmark-allocation-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_02_benchmark-allocation-patterns.md)
 
@@ -319,7 +320,7 @@ public static void PrintGCStats()
 ```mermaid
 ```
 
-![Benchmark: Allocation Patterns](images/diagram_03_testing-with-10000-iterations-of-adding-1000-in-ddcc.png)
+![Benchmark: Allocation Patterns](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_03_testing-with-10000-iterations-of-adding-1000-in-ddcc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_03_testing-with-10000-iterations-of-adding-1000-in-ddcc.md)
 
@@ -677,7 +678,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
 ```mermaid
 ```
 
-![Diagram](images/diagram_04_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_04_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_04_untitled.md)
 
@@ -763,7 +764,7 @@ git push origin v1.0.0
 ```mermaid
 ```
 
-![Diagram](images/diagram_05_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_05_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_05_untitled.md)
 
@@ -1039,7 +1040,7 @@ public class AzureServiceHealthCheck : IHealthCheck
 
 **Application Insights Features in Azure:**
 
-![Application Insights Features in Azure:](images/table_03_application-insights-features-in-azure-a063.png)
+![Application Insights Features in Azure:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_03_application-insights-features-in-azure-a063.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_03_application-insights-features-in-azure-a063.md)
 
@@ -1082,7 +1083,7 @@ exceptions
 ```mermaid
 ```
 
-![Diagram](images/diagram_06_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_06_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_06_untitled.md)
 
@@ -1304,7 +1305,7 @@ INCLUDE (Total, CreatedAt);
 ```mermaid
 ```
 
-![Diagram](images/diagram_07_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_07_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_07_untitled.md)
 
@@ -1380,7 +1381,7 @@ public async Task PlaceOrder(Order order)
 
 **Isolation Levels Explained:**
 
-![Isolation Levels Explained:](images/table_04_isolation-levels-explained.png)
+![Isolation Levels Explained:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_04_isolation-levels-explained.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_04_isolation-levels-explained.md)
 
@@ -1418,7 +1419,7 @@ public async Task TransferMoney(int fromAccount, int toAccount, decimal amount)
 ```mermaid
 ```
 
-![Diagram](images/diagram_08_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_08_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_08_untitled.md)
 
@@ -1602,7 +1603,7 @@ Unhandled exception: System.NullReferenceException: Object reference not set to 
 
 **How to Read It:**
 
-![How to Read It:](images/table_05_how-to-read-it.png)
+![How to Read It:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_05_how-to-read-it.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_05_how-to-read-it.md)
 
@@ -1770,7 +1771,7 @@ az containerapp create \
 ```mermaid
 ```
 
-![Diagram](images/diagram_09_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_09_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_09_untitled.md)
 
@@ -1893,7 +1894,7 @@ public class ServiceProviderEngine
 
 **Lifetime Comparison:**
 
-![Lifetime Comparison:](images/table_06_lifetime-comparison.png)
+![Lifetime Comparison:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_06_lifetime-comparison.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_06_lifetime-comparison.md)
 
@@ -2003,7 +2004,7 @@ static void Main() => BenchmarkRunner.Run<StringConcatenationBenchmarks>();
 
 **Example Results:**
 ```
-![Example Results:](images/table_07_untitled.png)
+![Example Results:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_07_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_07_untitled.md)
 
@@ -2025,7 +2026,7 @@ dotnet-dump analyze dumpfile.dmp
 ```mermaid
 ```
 
-![dotnet-trace - Performance tracing](images/diagram_10_untitled.png)
+![dotnet-trace - Performance tracing](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_10_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_10_untitled.md)
 
@@ -2093,7 +2094,7 @@ app.MapOrdersEndpoints()
 ```mermaid
 ```
 
-![When to Consider Splitting:](images/diagram_11_when-to-consider-splitting.png)
+![When to Consider Splitting:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_11_when-to-consider-splitting.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_11_when-to-consider-splitting.md)
 
@@ -2378,7 +2379,7 @@ public class OrdersController : ControllerBase
 ```mermaid
 ```
 
-![Diagram](images/diagram_12_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_12_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_12_untitled.md)
 
@@ -2629,7 +2630,7 @@ performanceCounters
 ```mermaid
 ```
 
-![Diagram](images/diagram_13_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_13_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_13_untitled.md)
 
@@ -2841,7 +2842,7 @@ Closes #123
 ```mermaid
 ```
 
-![PR Size Guidelines:](images/diagram_14_pr-size-guidelines.png)
+![PR Size Guidelines:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_14_pr-size-guidelines.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_14_pr-size-guidelines.md)
 
@@ -2961,7 +2962,7 @@ public interface IOrderRepository
 ```mermaid
 ```
 
-![Architecture Decision Framework:](images/diagram_15_architecture-decision-framework-741d.png)
+![Architecture Decision Framework:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_15_architecture-decision-framework-741d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_15_architecture-decision-framework-741d.md)
 
@@ -3067,7 +3068,7 @@ public class DeadlockDemo
 
 **Thread Safety Guidelines:**
 
-![Thread Safety Guidelines:](images/table_08_thread-safety-guidelines.png)
+![Thread Safety Guidelines:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_08_thread-safety-guidelines.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_08_thread-safety-guidelines.md)
 
@@ -3075,7 +3076,7 @@ public class DeadlockDemo
 ```mermaid
 ```
 
-![Thread Safety Guidelines:](images/diagram_16_complex-state--concurrent-collections--built-f-1f99.png)
+![Thread Safety Guidelines:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_16_complex-state--concurrent-collections--built-f-1f99.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_16_complex-state--concurrent-collections--built-f-1f99.md)
 
@@ -3123,7 +3124,7 @@ list.Sort(index, count, comparer); // Sort a range
 
 **Documentation Sections to Master:**
 
-![Documentation Sections to Master:](images/table_09_documentation-sections-to-master-8f25.png)
+![Documentation Sections to Master:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_09_documentation-sections-to-master-8f25.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_09_documentation-sections-to-master-8f25.md)
 
@@ -3416,7 +3417,7 @@ stages:
 ```mermaid
 ```
 
-![Diagram](images/diagram_17_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_17_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_17_untitled.md)
 
@@ -3584,7 +3585,7 @@ public class ResilientDbContext : DbContext
 
 **Azure Resilience Patterns:**
 
-![Azure Resilience Patterns:](images/table_10_azure-resilience-patterns.png)
+![Azure Resilience Patterns:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_10_azure-resilience-patterns.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_10_azure-resilience-patterns.md)
 
@@ -3592,7 +3593,7 @@ public class ResilientDbContext : DbContext
 ```mermaid
 ```
 
-![Diagram](images/diagram_18_fallback--redis-cache--return-cached-data-d869.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_18_fallback--redis-cache--return-cached-data-d869.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_18_fallback--redis-cache--return-cached-data-d869.md)
 
@@ -3735,7 +3736,7 @@ public class FeatureFlags
 ```mermaid
 ```
 
-![Diagram](images/diagram_19_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/diagram_19_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/diagram_19_untitled.md)
 
@@ -3806,7 +3807,7 @@ Closes #123"
 
 **Feedback Questions to Ask:**
 
-![Feedback Questions to Ask:](images/table_11_feedback-questions-to-ask.png)
+![Feedback Questions to Ask:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_11_feedback-questions-to-ask.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_11_feedback-questions-to-ask.md)
 
@@ -3866,7 +3867,7 @@ var customerSpending = highValueVipOrders
 
 **The Cost of Cleverness:**
 
-![Clarity Checklist:](images/table_12_the-cost-of-cleverness.png)
+![Clarity Checklist:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Miscellaneous/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/images/table_12_the-cost-of-cleverness.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/re-learning-net-in-2026-35-lessons-on-how-to-master-the-stack-with-net-10-and-azure/table_12_the-cost-of-cleverness.md)
 
@@ -3895,6 +3896,14 @@ The developer who understands these 35 lessons won't just write code that works.
 
 Now go build something. Make it ugly. Deploy it to Azure. Then make it better. That's the path.
 
----
 
 *What lessons would you add to this list? Let me know in the responses, or share how you're using Azure to accelerate your .NET learning journey.*
+
+---
+*� Questions? Drop a response - I read and reply to every comment.*
+*📌 Save this story to your reading list - it helps other engineers discover it.*
+**🔗 Follow me →**
+- [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
+- [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
