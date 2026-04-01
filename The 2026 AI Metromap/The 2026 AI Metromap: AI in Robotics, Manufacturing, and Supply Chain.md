@@ -67,8 +67,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Quality control is one of the most impactful applications of computer vision in manufacturing.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Visual Inspection Pipeline"
+    subgraph "**Visual Inspection Pipeline**"
         P[Product on Line] --> C[Camera Capture]
         C --> D[Defect Detection Model]
         D --> R{Defect?}

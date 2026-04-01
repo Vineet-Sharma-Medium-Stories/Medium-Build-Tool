@@ -69,8 +69,14 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 The open source ecosystem has exploded. Here are the major model families.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TD
-    subgraph "Major Open Source Model Families"
+    subgraph "**Major Open Source Model Families**"
         L[LLaMA<br/>Meta<br/>Foundation for many]
         M[Mistral<br/>Mistral AI<br/>Small, fast, efficient]
         D[DeepSeek<br/>DeepSeek<br/>Massive scale, 14.8T tokens]
@@ -166,14 +172,20 @@ model_comparison()
 Quantization reduces model size by using fewer bits per parameter.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TD
-    subgraph "Quantization Levels"
+    subgraph "**Quantization Levels**"
         FP16[FP16<br/>16-bit<br/>2 bytes/param] --> Q8[8-bit<br/>1 byte/param<br/>2x smaller]
         FP16 --> Q4[4-bit<br/>0.5 bytes/param<br/>4x smaller]
         FP16 --> Q2[2-bit<br/>0.25 bytes/param<br/>8x smaller]
     end
     
-    subgraph "Memory Savings"
+    subgraph "**Memory Savings**"
         S7[7B model<br/>FP16: 14GB<br/>8-bit: 7GB<br/>4-bit: 3.5GB]
         S13[13B model<br/>FP16: 26GB<br/>8-bit: 13GB<br/>4-bit: 6.5GB]
         S70[70B model<br/>FP16: 140GB<br/>8-bit: 70GB<br/>4-bit: 35GB]

@@ -65,17 +65,22 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 The learning rate is the most important hyperparameter. But a fixed learning rate is rarely optimal.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Learning Rate Strategies"
-        F[Fixed<br/>Constant η] --> P[Problems:<br/>Too fast → diverge<br/>Too slow → slow convergence]
+    subgraph LearningRate["Learning Rate Strategies"]
+        F["Fixed\nConstant η"] --> P["Problems:\nToo fast → diverge\nToo slow → slow convergence"]
         
-        S[Step Decay<br/>Reduce by factor every N epochs] --> B[Balance:<br/>Fast start, fine later]
+        S["Step Decay\nReduce by factor every N epochs"] --> B["Balance:\nFast start, fine later"]
         
-        E[Exponential Decay<br/>η = η₀·e⁻ᵏᵗ] --> S2[Smooth reduction]
+        E["Exponential Decay\nη = η0 * e^-kt"] --> S2["Smooth reduction"]
         
-        C[Cosine Annealing<br/>η = η_min + (η₀-η_min)·(1+cos(πt/T))/2] --> W[Warm restarts<br/>Escape local minima]
+        C["Cosine Annealing\nη = η_min + (η0-η_min) * (1+cos(πt/T))/2"] --> W1["Warm restarts\nEscape local minima"]
         
-        W[Warmup<br/>Increase η gradually] --> U[Stable start<br/>Prevents early divergence]
+        W2["Warmup\nIncrease η gradually"] --> U["Stable start\nPrevents early divergence"]
     end
     
     style F fill:#f9f,stroke:#333,stroke-width:2px
@@ -280,15 +285,20 @@ pytorch_lr_schedules()
 Gradient accumulation simulates larger batch sizes when memory is limited.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Standard Training"
+    subgraph "**Standard Training**"
         B1[Batch 32] --> G1[Compute Gradients]
         G1 --> U1[Update Weights]
         B2[Batch 32] --> G2[Compute Gradients]
         G2 --> U2[Update Weights]
     end
     
-    subgraph "Gradient Accumulation (4 steps)"
+    subgraph "**Gradient Accumulation** (4 steps)"
         B1b[Batch 32] --> G1b[Compute Gradients<br/>Accumulate]
         B2b[Batch 32] --> G2b[Compute Gradients<br/>Accumulate]
         B3b[Batch 32] --> G3b[Compute Gradients<br/>Accumulate]
@@ -395,8 +405,13 @@ gradient_accumulation()
 Mixed precision uses FP16 for forward/backward and FP32 for weight updates.
 
 ```mermaid
-graph TD
-    subgraph "Mixed Precision Training"
+---
+config:
+  theme: base
+  layout: elk
+---
+graph LR
+    subgraph "**Mixed Precision Training**"
         W[FP32 Weights] --> C[Convert to FP16]
         C --> F[Forward Pass<br/>FP16]
         F --> L[Loss<br/>FP16]
@@ -505,8 +520,13 @@ mixed_precision_training()
 Distributed training scales across GPUs and machines.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Data Parallel"
+    subgraph "**Data Parallel**"
         G1[GPU 1<br/>Batch] --> M1[Model Copy 1]
         G2[GPU 2<br/>Batch] --> M2[Model Copy 2]
         G3[GPU 3<br/>Batch] --> M3[Model Copy 3]

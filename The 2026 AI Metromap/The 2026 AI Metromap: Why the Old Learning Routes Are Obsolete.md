@@ -74,6 +74,11 @@ This is why the **Metromap to Master AI** exists. Not as another curriculum, but
 Traditional AI education looks like this:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Calculus & Linear Algebra] --> B[Statistics & Probability]
     B --> C[Classical ML Algorithms]
@@ -115,6 +120,11 @@ Think of AI mastery like navigating a city's metro system. You don't need to kno
 - **Transfers** – How to move between specialties without starting over.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "The Metromap Structure"
         F[🏛️ FOUNDATIONS STATION<br/>Data Cleaning, Git, Linear Algebra] 
@@ -272,6 +282,11 @@ We'll cover:
 - A practical framework for choosing your next station
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Your Current Position<br/>After Reading This Story] --> B{Choose Your Express Line}
     B --> C[LLMs & Agents Line<br/>Series C + E1-E4]

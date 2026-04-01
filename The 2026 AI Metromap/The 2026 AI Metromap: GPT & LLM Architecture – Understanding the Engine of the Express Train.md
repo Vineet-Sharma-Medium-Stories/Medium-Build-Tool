@@ -56,16 +56,21 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 The original Transformer had two parts: encoder (reads) and decoder (writes). GPT asked: **What if we only need the decoder?**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Encoder-Decoder (BERT, T5)"
+    subgraph "**Encoder-Decoder (BERT, T5)**"
         E[Encoder<br/>Bidirectional<br/>Sees all tokens] --> D[Decoder<br/>Autoregressive<br/>Generates one at a time]
     end
     
-    subgraph "Decoder-Only (GPT)"
+    subgraph "**Decoder-Only (GPT)**"
         D2[Decoder<br/>Autoregressive<br/>Generates one at a time] --> O[Output]
     end
     
-    subgraph "Why Decoder-Only Won"
+    subgraph "**Why Decoder-Only Won**"
         R1[Simplicity<br/>One architecture, not two]
         R2[Scalability<br/>Easier to scale]
         R3[Generative<br/>Built for generation]
@@ -83,8 +88,13 @@ graph TD
 The key innovation in decoder-only models is **causal masking**. When predicting the next token, the model cannot see future tokens.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Causal Masking"
+    subgraph "**Causal Masking**"
         T1[The] --> T2[The cat]
         T2 --> T3[The cat sat]
         T3 --> T4[The cat sat on]
@@ -92,7 +102,7 @@ graph TD
         M[Mask] --> P[Prevents looking at future]
     end
     
-    subgraph "During Training"
+    subgraph "**During Training**"
         I[Input: The cat sat] --> L[Predict next: on]
         I2[Input: The cat sat on] --> L2[Predict next: the]
     end
@@ -260,15 +270,20 @@ visualize_scaling_laws()
 At certain scales, models develop abilities that weren't explicitly trained for.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Emergent Abilities by Scale"
+    subgraph "**Emergent Abilities by Scale**"
         S1[< 1B parameters<br/>Basic language modeling] --> S2[1B - 10B<br/>Translation, summarization]
         S2 --> S3[10B - 50B<br/>Few-shot learning, reasoning]
         S3 --> S4[50B - 100B<br/>Chain-of-thought, code generation]
         S4 --> S5[> 100B<br/>Tool use, self-correction, planning]
     end
     
-    subgraph "Examples"
+    subgraph "**Examples**"
         E1[Few-shot: Learn from examples]
         E2[Chain-of-thought: Step-by-step reasoning]
         E3[Tool use: Call APIs, use calculators]

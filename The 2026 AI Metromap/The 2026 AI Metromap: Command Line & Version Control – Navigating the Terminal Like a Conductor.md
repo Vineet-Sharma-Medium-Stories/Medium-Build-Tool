@@ -63,15 +63,20 @@ You might be thinking: "I use VS Code. I use Jupyter. Why do I need the terminal
 Let's look at what happens when you can't use the command line:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "GUI-Only Workflow"
+    subgraph "**GUI-Only Workflow**"
         A[Train on Laptop] --> B[Laptop Too Slow]
         B --> C[Can't Access GPU Servers]
         C --> D[Stuck with Small Models]
         D --> E[Can't Scale]
     end
     
-    subgraph "Terminal-Powered Workflow"
+    subgraph "**Terminal-Powered Workflow**"
         F[Write Code Locally] --> G[SSH to GPU Server]
         G --> H[Run Training Remotely]
         H --> I[Monitor with CLI Tools]
@@ -99,8 +104,13 @@ graph TD
 Like any board game, the terminal has rules, pieces, and strategies. Master them, and you control the board.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Terminal Board Game"
+    subgraph "**Terminal Board Game**"
         A[Navigation<br/>cd, ls, pwd] --> B[File Operations<br/>cp, mv, rm]
         B --> C[Process Management<br/>ps, kill, nohup]
         C --> D[Remote Access<br/>ssh, scp, rsync]
@@ -292,8 +302,13 @@ In the first foundation story, we covered Git basics. Now let's go deeper with s
 AI development is fundamentally different from software development. You don't know what will work. You need to explore freely without breaking what works.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Experiment Branch Pattern"
+    subgraph "**Experiment Branch Pattern**"
         M[main<br/>Stable, Working] --> B1[branch: experiment/embedding-v2]
         M --> B2[branch: experiment/attention-v3]
         M --> B3[branch: experiment/feature-engineering]

@@ -61,14 +61,20 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Before artificial neurons, there were real ones. Understanding the biology helps us understand the design.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
+
 graph TD
-    subgraph "Biological Neuron"
+    subgraph "**Biological Neuron**"
         D[Dendrites<br/>Receive signals] --> C[Cell Body<br/>Sum inputs]
         C --> A[Axon<br/>Transmit output]
         A --> S[Synapse<br/>Connect to next neuron]
     end
     
-    subgraph "Artificial Neuron (Perceptron)"
+    subgraph "**Artificial Neuron (Perceptron)**"
         X[Inputs<br/>x₁, x₂, x₃] --> W[Weights<br/>w₁, w₂, w₃]
         W --> S2[Sum<br/>Σwᵢxᵢ + b]
         S2 --> F[Activation Function]
@@ -100,8 +106,13 @@ The artificial neuron is a simplified mathematical model of what happens in your
 The perceptron, invented in 1958 by Frank Rosenblatt, was the first artificial neuron. It's the building block of everything that followed.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Perceptron Architecture"
+    subgraph "**Perceptron Architecture**"
         X1[x₁] --> W1[w₁]
         X2[x₂] --> W2[w₂]
         X3[x₃] --> W3[w₃]
@@ -251,14 +262,19 @@ plot_decision_boundary(X_train, y_train, perceptron, 'Perceptron Decision Bounda
 The solution to the perceptron's limitation was simple: **stack them.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Multi-Layer Perceptron (MLP)"
+    subgraph "**Multi-Layer Perceptron (MLP)**"
         I[Input Layer<br/>Features] --> H1[Hidden Layer 1<br/>Learned Features]
         H1 --> H2[Hidden Layer 2<br/>More Abstract Features]
         H2 --> O[Output Layer<br/>Predictions]
     end
     
-    subgraph "What Each Layer Learns"
+    subgraph "**What Each Layer Learns**"
         L1[Layer 1: Simple patterns<br/>Edges, corners, basic shapes]
         L2[Layer 2: Complex patterns<br/>Faces, objects, concepts]
         L3[Layer 3: Abstract concepts<br/>Meaning, relationships, decisions]
@@ -475,19 +491,25 @@ The MLP learned a **non-linear** decision boundary. Unlike the perceptron, it ca
 The Universal Approximation Theorem states: **A feedforward neural network with a single hidden layer can approximate any continuous function to arbitrary accuracy, given enough neurons.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Universal Approximation Theorem"
-        F[Any Continuous Function<br/>f(x)] --> N[Neural Network<br/>One Hidden Layer]
-        N --> A[Arbitrary Accuracy<br/>with enough neurons]
+    subgraph UAT["Universal Approximation Theorem"]
+        F["Any Continuous Function\nf(x)"] --> N["Neural Network\nOne Hidden Layer"]
+        N --> A["Arbitrary Accuracy\nwith enough neurons"]
     end
     
-    subgraph "Why Depth Matters"
-        S[Shallow Network<br/>One hidden layer] --> E[Exponential neurons needed<br/>for complex functions]
-        D[Deep Network<br/>Many hidden layers] --> E2[Linear neurons needed<br/>more efficient]
+    subgraph WhyDepth["Why Depth Matters"]
+        S["Shallow Network\nOne hidden layer"] --> E["Exponential neurons needed\nfor complex functions"]
+        D["Deep Network\nMany hidden layers"] --> E2["Linear neurons needed\nmore efficient"]
     end
     
     style F fill:#f9f,stroke:#333,stroke-width:2px
     style N fill:#ffd700,stroke:#333,stroke-width:2px
+    
 ```
 
 **The Key Insight:**
@@ -560,14 +582,19 @@ Each hidden neuron learns to detect a different pattern in the input space. Some
 The MLP you just built is the foundation. Modern deep learning scales it in three ways:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Modern Deep Learning"
+    subgraph "**Modern Deep Learning**"
         MLP[MLP<br/>1-2 hidden layers] --> D[Depth<br/>100+ layers]
         MLP --> A[Advanced Activations<br/>ReLU, GELU, Swish]
         MLP --> N[New Architectures<br/>CNNs, RNNs, Transformers]
     end
     
-    subgraph "What Scaling Unlocks"
+    subgraph "**What Scaling Unlocks**"
         D --> C1[Learning hierarchies<br/>from simple to complex]
         A --> C2[Better gradients<br/>faster training]
         N --> C3[Specialized for<br/>images, text, sequences]

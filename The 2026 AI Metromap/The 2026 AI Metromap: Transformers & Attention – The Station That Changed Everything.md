@@ -76,8 +76,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 To understand why Transformers revolutionized AI, we need to understand what came before.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "RNNs (Recurrent Neural Networks)"
+    subgraph "**RNNs (Recurrent Neural Networks)**"
         X1[Word 1] --> R1[RNN Cell]
         R1 --> H1[State]
         H1 --> R2[RNN Cell]
@@ -87,7 +92,7 @@ graph TD
         X3[Word 3] --> R3
     end
     
-    subgraph "The Problem"
+    subgraph "**The Problem**"
         P1[Sequential Processing<br/>Cannot parallelize]
         P2[Vanishing Gradients<br/>Long-range dependencies lost]
         P3[Fixed context<br/>Limited memory]
@@ -114,14 +119,20 @@ Transformers solved all of this with one idea: **process all words in parallel a
 The core insight: Instead of processing sequentially, let every token look at every other token and decide how much attention to pay.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Attention Mechanism"
-        Q[Query<br/>"What am I looking for?"] --> S[Similarity<br/>Score]
-        K[Key<br/>"What do I have?"] --> S
-        S --> A[Attention<br/>Weights]
-        A --> V[Value<br/>"What information do I pass?"]
-        V --> O[Output<br/>Weighted sum of values]
+    subgraph Attention["Attention Mechanism"]
+        Q["Query\n'What am I looking for?'"] --> S["Similarity\nScore"]
+        K["Key\n'What do I have?'"] --> S
+        S --> A["Attention\nWeights"]
+        A --> V["Value\n'What information do I pass?'"]
+        V --> O["Output\nWeighted sum of values"]
     end
+
 ```
 
 ### The Attention Formula
@@ -257,8 +268,13 @@ attention_weights = visualize_attention()
 Single attention can only capture one type of relationship. Multi-head attention lets the model look at relationships from multiple perspectives.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Multi-Head Attention"
+    subgraph "**Multi-Head Attention**"
         Q[Query] --> H1[Head 1<br/>Syntax relationships]
         Q --> H2[Head 2<br/>Semantic relationships]
         Q --> H3[Head 3<br/>Coreference]
@@ -463,8 +479,13 @@ plt.show()
 Now let's assemble the complete Transformer block.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Transformer Block"
+    subgraph "**Transformer Block**"
         I[Input] --> A[Multi-Head<br/>Self-Attention]
         A --> A1[Add & Norm<br/>Residual + LayerNorm]
         A1 --> F[Feed-Forward<br/>MLP]
@@ -472,7 +493,7 @@ graph TD
         F1 --> O[Output]
     end
     
-    subgraph "Feed-Forward Network"
+    subgraph "**Feed-Forward Network**"
         F2[Linear<br/>d_model → 4×d_model] --> R[ReLU]
         R --> F3[Linear<br/>4×d_model → d_model]
     end
@@ -608,15 +629,20 @@ output, attention = visualize_transformer_block()
 The original Transformer had two parts: encoder (reads input) and decoder (generates output).
 
 ```mermaid
-graph TD
-    subgraph "Encoder"
+---
+config:
+  theme: base
+  layout: elk
+---
+graph LR
+    subgraph "**Encoder**"
         I1[Input Embeddings<br/>+ Positional] --> E1[Transformer Block 1]
         E1 --> E2[Transformer Block 2]
         E2 --> E3[...]
         E3 --> E4[Transformer Block N]
     end
     
-    subgraph "Decoder"
+    subgraph "**Decoder**"
         O1[Output Embeddings<br/>+ Positional] --> D1[Masked<br/>Self-Attention]
         D1 --> D2[Cross-Attention<br/>with Encoder Output]
         D2 --> D3[Transformer Block 2]

@@ -59,8 +59,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 TensorFlow is more than a framework—it's a complete ecosystem for ML.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "TensorFlow Ecosystem"
+    subgraph "**TensorFlow Ecosystem**"
         TF[TensorFlow Core<br/>Low-level operations]
         
         K[Keras<br/>High-level API<br/>Model building]

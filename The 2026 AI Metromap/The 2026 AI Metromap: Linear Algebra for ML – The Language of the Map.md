@@ -56,8 +56,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 If the words "linear algebra" make you nervous, you're not alone. Most AI learners hit this wall.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "The Anxiety Cycle"
+    subgraph "**The Anxiety Cycle**"
         A[Want to Understand AI] --> B[See Research Paper]
         B --> C[Encounter Equations]
         C --> D[Brain Shuts Down]
@@ -66,7 +71,7 @@ graph TD
         F --> A
     end
     
-    subgraph "The Intuition Path"
+    subgraph "**The Intuition Path**"
         G[Want to Understand AI] --> H[Learn Core Concepts]
         H --> I[Connect to AI Systems]
         I --> J[See Equations Differently]
@@ -88,6 +93,11 @@ graph TD
 Everything in AI linear algebra comes down to four concepts. Master these, and you master the language.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Core Concepts] --> B[Vectors<br/>Points in Space]
     A --> C[Matrices<br/>Transformations]
@@ -117,17 +127,22 @@ Let's explore each one through the lens of AI.
 A vector is just a list of numbers. But more importantly, it's a **point in space**—or an arrow pointing from the origin to that point.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Vector in 2D Space"
-        V[Vector [2, 3]]
-        V --> X[2 units in x-direction]
-        V --> Y[3 units in y-direction]
+    subgraph Vector2D["Vector in 2D Space"]
+        V["Vector [2, 3]"]
+        V --> X["2 units in x-direction"]
+        V --> Y["3 units in y-direction"]
     end
     
-    subgraph "Vector in 512D Space"
-        E[Embedding Vector<br/>512 numbers]
-        E --> W[Represents a Word<br/>in High-Dimensional Space]
-        W --> S[Similar Words<br/>Are Close Together]
+    subgraph Vector512D["Vector in 512D Space"]
+        E["Embedding Vector\n512 numbers"]
+        E --> W["Represents a Word\nin High-Dimensional Space"]
+        W --> S["Similar Words\nAre Close Together"]
     end
 ```
 
@@ -171,15 +186,20 @@ print(real_embedding.shape)  # (512,)
 A matrix is a grid of numbers. But more importantly, it's a **transformation**—it takes vectors and moves them to new positions in space.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Matrix as Transformation"
-        I[Input Vector<br/>[x, y]] --> M[Matrix<br/>[[a, b],<br/>[c, d]]]
-        M --> O[Output Vector<br/>[ax + by, cx + dy]]
+    subgraph MatrixTransform["Matrix as Transformation"]
+        I["Input Vector\n[x, y]"] --> M["Matrix\n[[a, b],\n[c, d]]"]
+        M --> O["Output Vector\n[ax + by, cx + dy]"]
     end
     
-    subgraph "In Neural Networks"
-        L[Layer Input<br/>Vector] --> W[Weight Matrix]
-        W --> A[Layer Output<br/>Vector]
+    subgraph NeuralNetworks["In Neural Networks"]
+        L["Layer Input\nVector"] --> W["Weight Matrix"]
+        W --> A["Layer Output\nVector"]
     end
 ```
 
@@ -188,8 +208,13 @@ graph TD
 Every layer in a neural network is a matrix multiplication. You feed in a vector (your data), multiply by a weight matrix (the learned transformation), and get a new vector (the representation at the next layer).
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "A Simple Neural Network Layer"
+    subgraph "**A Simple Neural Network Layer**"
         X[Input Vector<br/>Dimension: 256] --> W[Weight Matrix<br/>256 x 128]
         W --> H[Hidden Vector<br/>Dimension: 128]
         H --> B[Bias Vector<br/>128]
@@ -234,8 +259,13 @@ print(output_vector)  # New vector in transformed space
 The dot product takes two vectors and returns a single number. It measures **how much they point in the same direction**.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Dot Product Intuition"
+    subgraph "**Dot Product Intuition**"
         A[Vector A] --> D[Dot Product]
         B[Vector B] --> D
         D --> R[Single Number]
@@ -251,14 +281,19 @@ graph TD
 The attention mechanism—the heart of Transformers—is built entirely on dot products.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Attention as Dot Products"
-        Q[Query Vector<br/>"What am I looking for?"] --> D[Query · Key]
-        K[Key Vector<br/>"What does this token have?"] --> D
-        D --> S[Similarity Score]
-        S --> A[Attention Weight]
-        A --> V[Value Vector]
-        V --> O[Output]
+    subgraph AttentionDot["Attention as Dot Products"]
+        Q["Query Vector\n'What am I looking for?'"] --> D["Query * Key"]
+        K["Key Vector\n'What does this token have?'"] --> D
+        D --> S["Similarity Score"]
+        S --> A["Attention Weight"]
+        A --> V["Value Vector"]
+        V --> O["Output"]
     end
 ```
 
@@ -300,8 +335,13 @@ opposite = np.dot([1, 0, 0], [-1, 0, 0])  # = -1.0
 Eigenvalues tell you what's **important** in your data. They measure how much a transformation stretches or compresses vectors in different directions.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Eigenvalues Intuition"
+    subgraph "**Eigenvalues Intuition**"
         D[Dataset of Vectors] --> P[Find Directions<br/>of Maximum Variance]
         P --> E1[Eigenvalue 1: Large<br/>Important Direction]
         P --> E2[Eigenvalue 2: Medium<br/>Less Important]
@@ -352,6 +392,11 @@ Now let's see how these four concepts come together in the AI systems you use ev
 ### Example 1: Word Embeddings (Word2Vec, GloVe)
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Words] --> B[Vectors<br/>Each word is a point in space]
     B --> C[Dot Product<br/>Measures word similarity]
@@ -374,6 +419,11 @@ graph TD
 ### Example 2: Transformer Attention
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Input Tokens] --> B[Vectors<br/>Each token has embedding]
     B --> C[Matrices<br/>Query, Key, Value weight matrices]
@@ -398,12 +448,17 @@ graph TD
 ### Example 3: Neural Network Layer
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    A[Input Vector<br/>x] --> B[Weight Matrix<br/>W]
-    B --> C[Matrix Multiplication<br/>W @ x]
-    C --> D[Bias Vector<br/>b]
-    D --> E[Activation<br/>σ(Wx + b)]
-    E --> F[Output Vector<br/>New Representation]
+    A["Input Vector\nx"] --> B["Weight Matrix\nW"]
+    B --> C["Matrix Multiplication\nW x"]
+    C --> D["Bias Vector\nb"]
+    D --> E["Activation\nσ(Wx + b)"]
+    E --> F["Output Vector\nNew Representation"]
     
     style A fill:#f9f,stroke:#333,stroke-width:1px
     style B fill:#90be6d,stroke:#333,stroke-width:2px
@@ -411,6 +466,7 @@ graph TD
     style D fill:#90be6d,stroke:#333,stroke-width:2px
     style E fill:#90be6d,stroke:#333,stroke-width:2px
     style F fill:#ffd700,stroke:#333,stroke-width:2px
+
 ```
 
 **What's Happening:**
@@ -426,6 +482,11 @@ graph TD
 Let's apply these concepts to build intuition for a real AI system: a movie recommender.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Movie Recommendation with Linear Algebra"
         U[User Vectors<br/>Each user is a vector<br/>of preferences] --> S[Similarity<br/>Dot Product]

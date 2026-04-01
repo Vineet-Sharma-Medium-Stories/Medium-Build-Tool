@@ -51,6 +51,11 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Before you choose your path, let's understand what each line offers, what it demands, and where it leads.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Foundations Station"
         F[🏛️ Foundations<br/>Data Cleaning, Git,<br/>Linear Algebra, CLI]
@@ -217,6 +222,11 @@ This line focuses on the craft of building AI systems that actually work in prod
 Standing at Foundations Station, how do you choose? Let's build a decision framework.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Start: Foundations Completed] --> B{What's Your Primary Goal?}
     
@@ -268,6 +278,11 @@ The Metromap's power isn't in riding one line to the end. It's in knowing when t
 You've learned Transformers, GPT architecture, and RAG. Now you want to build a healthcare chatbot. Transfer to E10 (AI in Healthcare) and E2 (RAG) simultaneously.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[C1: Transformers] --> B[C2: GPT Architecture]
     B --> C[C5: Fine-tuning vs ICL]
@@ -288,6 +303,11 @@ graph LR
 You've built models from scratch and understand backpropagation. Now you want to understand why Transformers work. Your foundation makes advanced concepts intuitive.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[B2: Neural Networks] --> B[B3: Backpropagation]
     B --> C[B4: Optimization]
@@ -308,6 +328,11 @@ graph LR
 You've mastered PyTorch and optimization. Now you want to understand the models you're deploying. Your engineering skills help you implement and optimize architectures faster.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[D1: PyTorch Mastery] --> B[D3: Model Optimization]
     B --> C[D5: Training Strategies]
@@ -366,6 +391,11 @@ Don't plan the entire journey. Just plan the next three stops.
 
 **Transfer Map:**
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Foundations A1,A2,A4] --> B[Modern C1,C2]
     B --> C[Modern C5 + Applied E1]
@@ -399,6 +429,11 @@ graph TD
 
 **Transfer Map:**
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Foundations A1-A4] --> B[Supervised B1-B4]
     B --> C[Engineering D1,D2]
@@ -433,6 +468,11 @@ graph TD
 
 **Transfer Map:**
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Foundations A1-A5] --> B[Supervised B1-B4]
     B --> C[Modern C1-C4]
@@ -471,6 +511,11 @@ graph TD
 If you have one year, here's a proven transfer sequence:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Months 1-3<br/>Foundations] --> B[Months 4-6<br/>Supervised Learning]
     B --> C[Months 7-9<br/>Modern Architecture]

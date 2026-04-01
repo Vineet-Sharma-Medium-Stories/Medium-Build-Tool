@@ -68,20 +68,25 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Before we can optimize, we need to measure. Loss functions quantify how far our predictions are from reality.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Loss Functions"
+    subgraph "**Loss Functions**"
         Y[True Value y] --> L[Loss = f(y, ŷ)]
         YH[Prediction ŷ] --> L
         L --> O[Optimizer minimizes this]
     end
     
-    subgraph "Regression Losses"
+    subgraph "**Regression Losses**"
         MSE[Mean Squared Error<br/>(y - ŷ)²]
         MAE[Mean Absolute Error<br/>|y - ŷ|]
         H[Huber<br/>Combines MSE + MAE]
     end
     
-    subgraph "Classification Losses"
+    subgraph "**Classification Losses**"
         BCE[Binary Cross-Entropy<br/>-y·log(ŷ) - (1-y)·log(1-ŷ)]
         CE[Categorical Cross-Entropy<br/>-Σyᵢ·log(ŷᵢ)]
         HL[Hinge Loss<br/>max(0, 1 - y·ŷ)]
@@ -202,8 +207,13 @@ visualize_loss_functions()
 Think of optimization as navigating a landscape. Your goal: find the lowest point.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Optimization Landscape"
+    subgraph "**Optimization Landscape**"
         S[Starting Point<br/>Random initialization] --> D[Downhill Direction<br/>Negative gradient]
         D --> L1[Local Minimum<br/>Stuck?]
         D --> G[Global Minimum<br/>The goal]
@@ -546,22 +556,27 @@ comparison = compare_optimizers()
 The learning rate is the most important hyperparameter. But a fixed learning rate is rarely optimal.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Learning Rate Strategies"
-        F[Fixed<br/>Constant η] --> P[Problems:<br/>Too fast → diverge<br/>Too slow → slow convergence]
+    subgraph LearningRate["Learning Rate Strategies"]
+        F["Fixed\nConstant η"] --> P["Problems:\nToo fast → diverge\nToo slow → slow convergence"]
         
-        S[Step Decay<br/>Reduce by factor every N epochs] --> B[Balance:<br/>Fast start, fine later]
+        S["Step Decay\nReduce by factor every N epochs"] --> B["Balance:\nFast start, fine later"]
         
-        E[Exponential Decay<br/>η = η₀·e⁻ᵏᵗ] --> S2[Smooth reduction]
+        E["Exponential Decay\nη = η₀ * e⁻ᵏᵗ"] --> S2["Smooth reduction"]
         
-        C[Cosine Annealing<br/>η = η_min + (η₀-η_min)·(1+cos(πt/T))/2] --> W[Warm restarts<br/>Escape local minima]
+        C["Cosine Annealing\nη = η_min + (η₀-η_min) * (1+cos(πt/T))/2"] --> W1["Warm restarts\nEscape local minima"]
         
-        W[Warmup<br/>Increase η gradually] --> U[Stable start<br/>Prevents early divergence]
+        W2["Warmup\nIncrease η gradually"] --> U["Stable start\nPrevents early divergence"]
     end
     
     style F fill:#f9f,stroke:#333,stroke-width:2px
     style S fill:#90be6d,stroke:#333,stroke-width:2px
-    style W fill:#ffd700,stroke:#333,stroke-width:2px
+    style W1 fill:#ffd700,stroke:#333,stroke-width:2px
 ```
 
 ### Implementing Learning Rate Schedules

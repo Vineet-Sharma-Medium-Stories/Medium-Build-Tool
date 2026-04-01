@@ -69,8 +69,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Fraud detection systems must identify suspicious transactions instantly, with high accuracy and low false positives.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Fraud Detection Pipeline"
+    subgraph "**Fraud Detection Pipeline**"
         T[Transaction] --> F[Feature Engineering]
         F --> M[ML Model]
         M --> R{Risk Score}

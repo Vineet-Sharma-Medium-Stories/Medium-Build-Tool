@@ -68,8 +68,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Procedural content generation (PCG) uses AI to create game content automatically—levels, maps, items, quests, and even entire worlds.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Procedural Generation"
+    subgraph "**Procedural Generation**"
         S[Seed] --> G[Generator Model]
         G --> L[Level Layout]
         G --> E[Enemy Placement]
@@ -78,7 +83,7 @@ graph TD
         G --> N[Non-Player Characters]
     end
     
-    subgraph "Applications"
+    subgraph "**Applications**"
         A[Infinite terrain]
         B[Dungeon layouts]
         C[Weapon/Item stats]

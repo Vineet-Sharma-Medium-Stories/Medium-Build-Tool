@@ -58,8 +58,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Model optimization is a spectrum of techniques, each with different trade-offs.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Optimization Techniques"
+    subgraph "**Optimization Techniques**"
         Q[Quantization<br/>Lower precision]
         P[Pruning<br/>Remove weights]
         D[Distillation<br/>Smaller model]
@@ -67,7 +72,7 @@ graph TD
         O[Inference Optimization<br/>Hardware-specific]
     end
     
-    subgraph "Benefits"
+    subgraph "**Benefits**"
         Q --> S[Speed: 2-4x]
         Q --> M[Memory: 4x]
         
@@ -82,7 +87,7 @@ graph TD
         O --> S5[Speed: 2-10x]
     end
     
-    subgraph "Accuracy Trade-off"
+    subgraph "**Accuracy Trade-off**"
         Q --> A[Minimal loss<br/>1-2%]
         P --> A2[Small loss<br/>2-5%]
         D --> A3[Larger loss<br/>5-10%]
@@ -180,15 +185,20 @@ optimization_overview()
 Quantization reduces the number of bits used to represent model weights and activations.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Quantization Levels"
+    subgraph "**Quantization Levels**"
         FP32[FP32<br/>32-bit<br/>4 bytes/param] --> FP16[FP16<br/>16-bit<br/>2 bytes/param]
         FP32 --> INT8[INT8<br/>8-bit<br/>1 byte/param]
         FP32 --> INT4[INT4<br/>4-bit<br/>0.5 bytes/param]
         FP32 --> INT2[INT2<br/>2-bit<br/>0.25 bytes/param]
     end
     
-    subgraph "Memory Savings"
+    subgraph "**Memory Savings**"
         FP32 --> M1[7B model: 28GB]
         FP16 --> M2[7B model: 14GB]
         INT8 --> M3[7B model: 7GB]
@@ -572,22 +582,27 @@ pruned_model = pruning_techniques()
 Knowledge distillation trains a small "student" model to mimic a large "teacher" model.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Knowledge Distillation"
-        T[Teacher Model<br/>Large, Accurate] --> L[Soft Labels<br/>Probabilities]
+    subgraph KnowledgeDistillation["Knowledge Distillation"]
+        T["Teacher Model\nLarge, Accurate"] --> L["Soft Labels\nProbabilities"]
         
-        S[Student Model<br/>Small, Fast] --> P[Predictions]
+        S["Student Model\nSmall, Fast"] --> P["Predictions"]
         
-        L --> D[Distillation Loss<br/>KL Divergence]
+        L --> D["Distillation Loss\nKL Divergence"]
         P --> D
         
-        Y[Hard Labels<br/>Ground Truth] --> C[Cross-Entropy Loss]
+        Y["Hard Labels\nGround Truth"] --> C["Cross-Entropy Loss"]
         P --> C
         
-        D --> Total[Total Loss = α·Distillation + (1-α)·CrossEntropy]
+        D --> Total["Total Loss = α * Distillation + (1-α) * CrossEntropy"]
         C --> Total
         
-        Total --> U[Update Student]
+        Total --> U["Update Student"]
     end
     
     style T fill:#ff6b6b,stroke:#333,stroke-width:2px

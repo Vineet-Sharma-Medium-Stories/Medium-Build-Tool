@@ -61,16 +61,22 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 At its core, supervised learning is simple: **Learn a mapping from inputs to outputs using labeled examples.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Supervised Learning"
-        I[Input: Features<br/>X] --> M[Model<br/>f(X) = Y]
-        L[Labels: Target<br/>Y] --> M
-        M --> P[Prediction<br/>Ŷ]
-        P --> E[Compare with Y<br/>Calculate Error]
-        E --> U[Update Model<br/>Reduce Error]
+    subgraph Supervised["Supervised Learning"]
+        I["Input: Features\nX"] --> M["Model\nf(X) = Y"]
+        L["Labels: Target\nY"] --> M
+        M --> P["Prediction\nY_hat"]
+        P --> E["Compare with Y\nCalculate Error"]
+        E --> U["Update Model\nReduce Error"]
     end
     
     style M fill:#ffd700,stroke:#333,stroke-width:4px
+
 ```
 
 **Two Main Types:**
@@ -93,6 +99,11 @@ Regression finds the relationship between features (bedrooms, bathrooms, sqft) a
 ### Linear Regression: The Simplest Model
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Linear Regression"
         X[Features<br/>x₁, x₂, x₃] --> W[Weights<br/>w₁, w₂, w₃]
@@ -241,13 +252,19 @@ Classification finds the decision boundary that separates categories.
 Despite the name, logistic regression is a **classification** algorithm. It predicts the probability of belonging to a class.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Logistic Regression"
-        X[Features<br/>x₁, x₂, x₃] --> Z[Linear Combination<br/>z = Σwᵢxᵢ + b]
-        Z --> S[Sigmoid Function<br/>σ(z) = 1/(1+e⁻ᶻ)]
-        S --> P[Probability<br/>P(y=1|x)]
-        P --> D[Decision<br/>If P > 0.5 → Class 1]
+    subgraph LogisticRegression["Logistic Regression"]
+        X["Features\nx&#8321;, x&#8322;, x&#8323;"] --> Z["Linear Combination\nz = Σw&#8320;x&#8320; + b"]
+        Z --> S["Sigmoid Function\nσ(z) = 1/(1+e⁻ᶻ)"]
+        S --> P["Probability\nP(y=1|x)"]
+        P --> D["Decision\nIf P > 0.5 → Class 1"]
     end
+
 ```
 
 **The Sigmoid Function:** Squashes any real number into a probability between 0 and 1.
@@ -430,18 +447,24 @@ plot_decision_boundary(X_train, y_train, model)
 Accuracy isn't always enough. Here's the metrics toolkit every AI engineer needs.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Confusion Matrix"
-        TP[True Positives<br/>Correctly predicted positive] --> TPR[Recall = TP/(TP+FN)]
-        FP[False Positives<br/>Wrongly predicted positive] --> FPR[False Positive Rate]
-        FN[False Negatives<br/>Wrongly predicted negative]
-        TN[True Negatives<br/>Correctly predicted negative]
+    subgraph Confusion["Confusion Matrix"]
+        TP["True Positives\nCorrectly predicted positive"] --> TPR["Recall = TP/(TP+FN)"]
+        FP["False Positives\nWrongly predicted positive"] --> FPR["False Positive Rate"]
+        FN["False Negatives\nWrongly predicted negative"]
+        TN["True Negatives\nCorrectly predicted negative"]
     end
     
     style TP fill:#90be6d,stroke:#333,stroke-width:2px
     style TN fill:#90be6d,stroke:#333,stroke-width:2px
     style FP fill:#ff6b6b,stroke:#333,stroke-width:2px
     style FN fill:#ff6b6b,stroke:#333,stroke-width:2px
+
 ```
 
 ### Essential Metrics
@@ -528,6 +551,11 @@ plt.show()
 Everything you just built is the foundation of modern neural networks.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Classical ML"
         LR[Linear Regression] --> N[Neural Network<br/>Single layer]

@@ -59,25 +59,31 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Multimodal models learn to map different modalities (text, images, audio) into the same embedding space.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Shared Embedding Space"
-        T[Text: "A cat sitting on a mat"] --> E[Embedding Space]
-        I[Image of cat on mat] --> E
+    subgraph SharedSpace["Shared Embedding Space"]
+        T["Text: 'A cat sitting on a mat'"] --> E["Embedding Space"]
+        I["Image of cat on mat"] --> E
         
-        E --> S[Similar vectors<br/>are close together]
+        E --> S["Similar vectors\nare close together"]
         
-        T2[Text: "A dog running"] --> E2[Different location]
-        I2[Image of dog] --> E2
+        T2["Text: 'A dog running'"] --> E2["Embedding Space\n(Different location)"]
+        I2["Image of dog"] --> E2
     end
     
-    subgraph "What This Enables"
-        A[Text-to-Image Search]
-        B[Image-to-Text Search]
-        C[Zero-shot Classification]
-        D[Visual Question Answering]
+    subgraph Enabled["What This Enables"]
+        A["Text-to-Image Search"]
+        B["Image-to-Text Search"]
+        C["Zero-shot Classification"]
+        D["Visual Question Answering"]
     end
     
     style E fill:#ffd700,stroke:#333,stroke-width:4px
+    s
 ```
 
 **The Insight:** If we can learn a shared space where "cat" text embeddings are close to "cat" image embeddings, we can compare across modalities.
@@ -89,26 +95,32 @@ graph TD
 CLIP (Contrastive Language-Image Pre-training) learns to align images and text by training on 400 million image-text pairs from the internet.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "CLIP Architecture"
-        I[Image] --> V[Vision Encoder<br/>ViT or ResNet]
-        V --> VI[Image Embedding<br/>512-dim]
+    subgraph CLIPArch["CLIP Architecture"]
+        I["Image"] --> V["Vision Encoder\nViT or ResNet"]
+        V --> VI["Image Embedding\n512-dim"]
         
-        T[Text: "A cat"] --> L[Text Encoder<br/>Transformer]
-        L --> TI[Text Embedding<br/>512-dim]
+        T["Text: 'A cat'"] --> L["Text Encoder\nTransformer"]
+        L --> TI["Text Embedding\n512-dim"]
         
-        VI --> C[Contrastive Loss<br/>Maximize similarity of matching pairs]
+        VI --> C["Contrastive Loss\nMaximize similarity of matching pairs"]
         TI --> C
     end
     
-    subgraph "Training Objective"
-        P[Positive pairs: matching image-text<br/>→ high similarity]
-        N[Negative pairs: mismatched<br/>→ low similarity]
+    subgraph TrainingObj["Training Objective"]
+        P["Positive pairs: matching image-text\n→ high similarity"]
+        N["Negative pairs: mismatched\n→ low similarity"]
     end
     
     style VI fill:#90be6d,stroke:#333,stroke-width:2px
     style TI fill:#90be6d,stroke:#333,stroke-width:2px
     style C fill:#ffd700,stroke:#333,stroke-width:2px
+    
 ```
 
 ```python
@@ -303,8 +315,13 @@ visualize_contrastive_learning()
 Flamingo (DeepMind, 2022) showed how to add vision understanding to frozen language models.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Flamingo Architecture"
+    subgraph "**Flamingo Architecture**"
         I[Images + Videos] --> V[Vision Encoder<br/>Frozen]
         V --> P[Perceiver Resampler<br/>Compresses visual info]
         
@@ -313,7 +330,7 @@ graph TD
         A --> O[Text + Vision Output]
     end
     
-    subgraph "Key Innovations"
+    subgraph "**Key Innovations**"
         K1[Frozen LM: preserves language capabilities]
         K2[Perceiver: handles variable-length visual input]
         K3[Cross-attention: vision attends to text]
@@ -398,8 +415,13 @@ explain_flamingo()
 Unlike models that combine separate encoders, Gemini is natively multimodal—trained from scratch on text, images, audio, and video.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Native Multimodality"
+    subgraph "**Native Multimodality**"
         T[Text] --> M[Multimodal Transformer]
         I[Image] --> M
         A[Audio] --> M
@@ -408,13 +430,13 @@ graph TD
         M --> O[Unified Understanding]
     end
     
-    subgraph "Benefits"
+    subgraph "**Benefits**"
         B1[No information loss from modality-specific encoders]
         B2[Can reason across modalities seamlessly]
         B3[Understands relationships between text and visual elements]
     end
     
-    subgraph "Capabilities"
+    subgraph "**Capabilities**"
         C1[Image understanding + generation]
         C2[Audio transcription + understanding]
         C3[Video analysis + temporal reasoning]

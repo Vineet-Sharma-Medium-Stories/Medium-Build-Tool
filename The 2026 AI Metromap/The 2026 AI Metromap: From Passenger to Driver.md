@@ -58,14 +58,19 @@ The Master Arc is complete. Your journey now continues into the series below. Fo
 In 2026, the AI job market has transformed. Resumes are table stakes. Certificates are meaningless. What matters is **evidence**.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Old World (2018-2022)"
+    subgraph "**Old World (2018-2022)**"
         R1[Resume] --> H1[HR Screen]
         H1 --> I1[Technical Interview]
         I1 --> O1[Offer]
     end
     
-    subgraph "New World (2026)"
+    subgraph "**New World (2026)**"
         P2[Portfolio] --> H2[Technical Screen]
         H2 --> T2[Take-Home Project]
         T2 --> I2[Architecture Discussion]
@@ -95,8 +100,13 @@ Your portfolio answers that question before you walk in the door.
 Your portfolio should mirror the Metromap structure. Show depth in one express line, breadth across the map, and a strong foundation.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Your Portfolio Structure"
+    subgraph "**Your Portfolio Structure**"
         F[🏛️ Foundation Project<br/>Shows you understand the basics]
         
         F --> D[🚀 Deep Project<br/>Your express line specialization<br/>Shows you can go deep]
@@ -158,6 +168,11 @@ Hiring managers need to know you can handle the 80% of work that isn't flashy. I
 ### What to Show
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
     A[Problem Statement] --> B[Data Collection & Cleaning]
     B --> C[Exploratory Analysis]
@@ -249,6 +264,11 @@ Generalists are common. Specialists are hired. A deep project shows you can go b
 ### What Makes a Deep Project Stand Out
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Real Problem] --> B[Custom Architecture]
     B --> C[Rigorous Evaluation]
@@ -371,6 +391,11 @@ Your GitHub is your portfolio's home. Structure it for clarity, not complexity.
 ### Repository Structure Template
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[your-username/] --> B[foundation-project/]
     A --> C[deep-project-llm/]

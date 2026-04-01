@@ -68,6 +68,11 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Recommendation systems fall into several categories.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Recommendation Approaches"
         CF[Collaborative Filtering<br/>User-User or Item-Item]
@@ -511,6 +516,11 @@ neural_collaborative_filtering()
 Two-tower networks are the modern architecture for large-scale recommendation systems.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Two-Tower Architecture"
         U[User Features] --> UT[User Tower<br/>MLP]

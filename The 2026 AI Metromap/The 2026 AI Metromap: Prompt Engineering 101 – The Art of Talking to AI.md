@@ -86,8 +86,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 A prompt is more than just a question. It's a structured communication that guides the model's behavior.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Prompt Components"
+    subgraph "**Prompt Components**"
         R[Role<br/>Who is the AI?]
         T[Task<br/>What should it do?]
         C[Context<br/>What information is relevant?]
@@ -307,12 +312,17 @@ few_shot_prompting()
 Chain-of-Thought (CoT) prompts the model to show its reasoning, improving accuracy on complex tasks.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Standard Prompting"
+    subgraph "**Standard Prompting**"
         Q[Question] --> A[Answer<br/>Often wrong]
     end
     
-    subgraph "Chain-of-Thought"
+    subgraph "**Chain-of-Thought**"
         Q2[Question] --> S[Step 1: Identify key facts]
         S --> T[Step 2: Break down problem]
         T --> U[Step 3: Calculate intermediate]

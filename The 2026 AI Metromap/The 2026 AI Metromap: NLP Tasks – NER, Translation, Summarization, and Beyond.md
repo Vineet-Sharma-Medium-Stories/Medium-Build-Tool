@@ -68,8 +68,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 NER identifies and classifies named entities in text: people, organizations, locations, dates, and more.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "NER Example"
+    subgraph "**NER Example**"
         T[Apple Inc. is planning to open a new office in Paris next March.] --> NER
         
         NER --> E1[Apple Inc. → ORGANIZATION]

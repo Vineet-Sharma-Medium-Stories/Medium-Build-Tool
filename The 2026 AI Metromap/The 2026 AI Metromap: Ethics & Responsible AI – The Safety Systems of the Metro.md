@@ -65,8 +65,13 @@ You've probably heard about AI failures. But you might think they're edge cases�
 They're not.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "AI Failure Cases"
+    subgraph "**AI Failure Cases**"
         A[Recruitment AI<br/>Discriminated against women] --> C[Lost trust<br/>Legal liability<br/>Reputation damage]
         B[Healthcare AI<br/>Underdiagnosed minority patients] --> C
         D[Facial Recognition<br/>Higher error rates for darker skin] --> C
@@ -95,6 +100,11 @@ Ethics isn't optional. It's the safety system that keeps the metro running.
 ## 🎮 The Four Pillars of Responsible AI
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Responsible AI] --> B[Fairness<br/>No Discrimination]
     A --> C[Interpretability<br/>Explain Decisions]
@@ -129,8 +139,13 @@ Let's explore each pillar with practical tools and techniques.
 ### Where Does Bias Come From?
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Sources of Bias"
+    subgraph "**Sources of Bias**"
         D[Historical Data<br/>Past discrimination encoded] --> M[Model]
         S[Sampling Bias<br/>Underrepresented groups] --> M
         L[Label Bias<br/>Biased human labels] --> M
@@ -496,6 +511,11 @@ def robustness_audit(model, test_data):
 ### EU AI Act – Risk Categories
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[EU AI Act] --> B[Unacceptable Risk<br/>Banned]
     A --> C[High Risk<br/>Strict Requirements]
@@ -560,8 +580,13 @@ for req in requirements:
 Integrate ethics into every stage of your AI workflow.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Ethics-Aware AI Workflow"
+    subgraph "**Ethics-Aware AI Workflow**"
         A[Problem Definition] --> B[Data Collection]
         B --> C[Data Preparation]
         C --> D[Model Development]
@@ -570,7 +595,7 @@ graph TD
         F --> G[Monitoring]
     end
     
-    subgraph "Ethics Checkpoints"
+    subgraph "**Ethics Checkpoints**"
         A1[Who is affected?<br/>What could go wrong?]
         B1[Representative data?<br/>Privacy protections?]
         C1[Bias detection<br/>Fairness metrics]

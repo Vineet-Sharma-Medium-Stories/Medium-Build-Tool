@@ -48,8 +48,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 After watching hundreds of learners navigate the AI landscape, I've identified five predictable derailment patterns. They look different on the surface, but they share a common root: **losing sight of your destination while focusing on the tracks.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "The Five Derailments"
+    subgraph "**The Five Derailments**"
         D1[🚨 Derailment 1<br/>Shiny Object Syndrome<br/>Chasing every new model]
         D2[🚨 Derailment 2<br/>Foundation Skipping<br/>Building on sand]
         D3[🚨 Derailment 3<br/>Tutorial Hell<br/>Endless consumption]
@@ -57,7 +62,7 @@ graph TD
         D5[🚨 Derailment 5<br/>Comparison Trap<br/>Measuring against experts]
     end
     
-    D1 --> R[🚑 Derailment Recovery]
+    D1 --> R[🚑 **Derailment Recovery**]
     D2 --> R
     D3 --> R
     D4 --> R
@@ -91,8 +96,13 @@ Six months later, you know the names of thirty models but haven't built anything
 Your brain is wired to seek novelty. Every new model release triggers a dopamine hit—the promise of being "current" and "cutting-edge." But learning AI isn't about knowing every model. It's about understanding the **principles** that persist across models.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "The Shiny Object Spiral"
+    subgraph "**The Shiny Object Spiral**"
         A[Start Model A] --> B[New Model B Drops]
         B --> C[Abandon Model A]
         C --> D[Start Model B]
@@ -150,8 +160,13 @@ You copy-paste code from tutorials. It runs. You feel great. Then something brea
 Foundation skipping feels efficient. Why spend weeks on data cleaning when you can build a chatbot today? The problem is that AI systems are **fragile**. Without foundations, you can't debug. Without foundations, you can't customize. Without foundations, you're just a glorified API caller.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Foundation Skipping"
+    subgraph "**Foundation Skipping**"
         A[Want to Build AI Agent] --> B[Skip Data Cleaning]
         B --> C[Skip Linear Algebra]
         C --> D[Skip Git/CLI]
@@ -161,7 +176,7 @@ graph TD
         G --> H[Give Up]
     end
     
-    subgraph "Strong Foundation"
+    subgraph "**Strong Foundation**"
         A2[Want to Build AI Agent] --> B2[Learn Data Cleaning]
         B2 --> C2[Learn Linear Algebra]
         C2 --> D2[Learn Git/CLI]
@@ -229,15 +244,20 @@ You're in tutorial hell.
 Tutorials feel productive. You're watching, listening, typing along. Your brain registers progress. But consumption is not creation. Tutorials give you the illusion of learning while depriving you of the **struggle** that creates real understanding.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Tutorial Hell"
+    subgraph "**Tutorial Hell**"
         A[Watch Tutorial] --> B[Type Along]
         B --> C[Feel Productive]
         C --> D[Start New Tutorial]
         D --> A
     end
     
-    subgraph "Learning Loop"
+    subgraph "**Learning Loop**"
         E[Learn Concept] --> F[Build Project]
         F --> G[Get Stuck]
         G --> H[Debug & Learn]
@@ -303,15 +323,20 @@ You're a researcher without a release. And in 2026, shipping matters as much as 
 Deployment feels scary. It's "not my job." The model is the interesting part. But AI systems exist to be used. If you can't deploy, you can't prove value. You can't get hired. You can't ship products.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Model Obsession"
+    subgraph "**Model Obsession**"
         A[Train Model] --> B[Fine-tune Model]
         B --> C[Optimize Model]
         C --> D[New Model Drops]
         D --> A
     end
     
-    subgraph "Full Stack AI"
+    subgraph "**Full Stack AI**"
         E[Train Model] --> F[Package Model]
         F --> G[Build API]
         G --> H[Deploy to Cloud]
@@ -379,6 +404,11 @@ The comparison trap is the most dangerous derailment because it attacks your bel
 Social media shows you the **highlights** of other people's journeys. You see their wins. You don't see their late nights, their failed experiments, their imposter syndrome. You're comparing your behind-the-scenes to their highlight reel.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[See Expert Content] --> B[Compare to Self]
     B --> C[Feel Behind]
@@ -428,6 +458,11 @@ You will derail. Everyone does. The difference between those who master AI and t
 When you feel yourself derailing, follow this protocol:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     A[Recognize Warning Sign] --> B[Name the Derailment]
     B --> C{Which Derailment?}

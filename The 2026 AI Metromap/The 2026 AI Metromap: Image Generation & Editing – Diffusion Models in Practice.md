@@ -83,8 +83,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Stable Diffusion is the most popular open-source text-to-image model. It operates in latent space for efficiency.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Stable Diffusion Pipeline"
+    subgraph "**Stable Diffusion Pipeline**"
         T[Text Prompt] --> TE[Text Encoder<br/>CLIP]
         TE --> L[Latent Space<br/>64×64×4]
         
@@ -94,7 +99,7 @@ graph TD
         V --> I[Generated Image<br/>512×512]
     end
     
-    subgraph "Key Components"
+    subgraph "**Key Components**"
         C1[CLIP Text Encoder]
         C2[U-Net Denoiser]
         C3[VAE Encoder/Decoder]

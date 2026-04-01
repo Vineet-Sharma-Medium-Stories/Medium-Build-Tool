@@ -60,8 +60,13 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Why do deep networks need stabilization?
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Without Batch Norm"
+    subgraph "**Without Batch Norm**"
         L1[Layer 1] --> A1[Activation Distribution<br/>Changes every batch]
         A1 --> L2[Layer 2]
         L2 --> A2[Activation Distribution<br/>Changes more]
@@ -69,7 +74,7 @@ graph TD
         L3 --> A3[Distribution Drifts<br/>Training unstable]
     end
     
-    subgraph "With Batch Norm"
+    subgraph "W**ith Batch Norm**"
         L1b[Layer 1] --> BN1[Batch Norm<br/>Stabilizes Distribution]
         BN1 --> L2b[Layer 2]
         L2b --> BN2[Batch Norm<br/>Stable]
@@ -429,15 +434,20 @@ batch_norm_benefits()
 Dropout randomly "drops" neurons during training, forcing the network to learn redundant representations.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Dropout at Training"
+    subgraph "**Dropout at Training**"
         I[Input Layer] --> D1[Dropout Mask<br/>50% neurons dropped]
         D1 --> H1[Hidden Layer]
         H1 --> D2[Dropout Mask]
         D2 --> O[Output]
     end
     
-    subgraph "Dropout at Inference"
+    subgraph "**Dropout at Inference**"
         I2[Input Layer] --> H2[Hidden Layer<br/>All neurons active]
         H2 --> O2[Output<br/>Scaled by dropout rate]
     end

@@ -62,25 +62,43 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Without activation functions, neural networks are just linear regression—no matter how many layers you stack.
 
 ```mermaid
-graph LR
-    subgraph "Without Activation (Linear)"
-        X[Input] --> W1[W1]
-        W1 --> W2[W2]
-        W2 --> Y[Output = W2·W1·X]
-        Y --> N[Still Linear!]
-    end
-    
-    subgraph "With Activation (Non-Linear)"
-        X2[Input] --> W12[W1]
-        W12 --> A1[σ₁]
-        A1 --> W22[W2]
-        W22 --> A2[σ₂]
-        A2 --> Y2[Output = σ₂(W2·σ₁(W1·X))]
-        Y2 --> C[Complex, Non-Linear]
-    end
-    
-    style N fill:#ff6b6b,stroke:#333,stroke-width:2px
-    style C fill:#90be6d,stroke:#333,stroke-width:4px
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph Linear["Without Activation (Linear)"]
+    direction LR
+        B["W1"]
+        A["Input"]
+        C["W2"]
+        D["Output = W2·W1·X"]
+        E["Still Linear!"]
+  end
+ subgraph NonLinear["With Activation (Non-Linear)"]
+    direction LR
+        G["W1"]
+        F["Input"]
+        H["&ﬂ°°963¶ß₁"]
+        I["W2"]
+        J["&ﬂ°°963¶ß₂"]
+        K["Output = &ﬂ°°963¶ß₂(W2·&ﬂ°°963¶ß₁(W1·X))"]
+        L["Complex, Non-Linear"]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+
+    style E fill:#ff6b6b,stroke:#333,stroke-width:2px
+    style L fill:#90be6d,stroke:#333,stroke-width:4px
 ```
 
 **The Core Insight:**
@@ -96,24 +114,34 @@ graph LR
 Different activations for different purposes. Let's explore the most important ones.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Activation Functions"
-        S[Sigmoid<br/>σ(z) = 1/(1+e⁻ᶻ)]
-        T[Tanh<br/>tanh(z) = (eᶻ-e⁻ᶻ)/(eᶻ+e⁻ᶻ)]
-        R[ReLU<br/>max(0, z)]
-        L[Leaky ReLU<br/>max(0.01z, z)]
-        SW[Swish<br/>z·σ(z)]
-        G[GELU<br/>z·Φ(z)]
+    subgraph "**Activation Functions**"
+        S["Sigmoid<br/>σ(z) = 1/(1+e^-z)"]
+        T["Tanh<br/>tanh(z) = (e^z - e^-z)/(e^z + e^-z)"]
+        R["ReLU<br/>max(0, z)"]
+        L["Leaky ReLU<br/>max(0.01z, z)"]
+        SW["Swish<br/>z * σ(z)"]
+        G["GELU<br/>z * Φ(z)"]
     end
     
-    subgraph "When to Use"
-        S --> O[Output layer<br/>Binary classification]
-        T --> H[Hidden layers<br/>(older networks)]
-        R --> H2[Hidden layers<br/>(modern default)]
-        L --> H3[Hidden layers<br/>(when dying ReLU)]
-        SW --> H4[Hidden layers<br/>(advanced)]
-        G --> H5[Hidden layers<br/>(Transformers)]
-    end
+    O["Output layer<br/>Binary classification"]
+    H["Hidden layers<br/>(older networks)"]
+    H2["Hidden layers<br/>(modern default)"]
+    H3["Hidden layers<br/>(when dying ReLU)"]
+    H4["Hidden layers<br/>(advanced)"]
+    H5["Hidden layers<br/>(Transformers)"]
+    
+    S --> O
+    T --> H
+    R --> H2
+    L --> H3
+    SW --> H4
+    G --> H5
     
     style R fill:#ffd700,stroke:#333,stroke-width:4px
 ```
@@ -192,20 +220,28 @@ plt.show()
 Backpropagation is just the chain rule from calculus, applied repeatedly.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "The Chain Rule"
-        A[y = f(g(x))] --> B[dy/dx = f'(g(x))·g'(x)]
+    subgraph Chain["**The Chain Rule**"]
+    direction LR
+        A["y = f(g(x))"] 
+        B["dy/dx = f'(g(x)) * g'(x)"]
     end
     
-    subgraph "In a Neural Network"
-        X[Input x] --> L1[Layer 1: h = σ(W₁x)]
-        L1 --> L2[Layer 2: y = σ(W₂h)]
-        L2 --> L[Loss L(y, ŷ)]
+    subgraph Network["**In a Neural Network**"]
+    
+        X["Input x"] --> L1["Layer 1: h = sigma(W1 x)"]
+        L1 --> L2["Layer 2: y = sigma(W2 h)"]
+        L2 --> L["Loss L(y, y_hat)"]
     end
     
-    subgraph "Chain Rule Applied"
-        C[dL/dW₂ = dL/dy · dy/dz₂ · dz₂/dW₂]
-        D[dL/dW₁ = dL/dy · dy/dz₂ · dz₂/dh · dh/dz₁ · dz₁/dW₁]
+    subgraph Applied["**Chain Rule Applied**"]
+        C["dL/dW2 = dL/dy * dy/dz2 * dz2/dW2"] -->
+        D["dL/dW1 = dL/dy * dy/dz2 * dz2/dh * dh/dz1 * dz1/dW1"]
     end
     
     style A fill:#ffd700,stroke:#333,stroke-width:2px
@@ -471,19 +507,24 @@ plt.show()
 Early deep networks used sigmoid and tanh activations. They had a fatal flaw: **gradients vanished in deep networks.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Vanishing Gradients"
+    subgraph "**Vanishing Gradients**"
         O[Output Layer<br/>Large Gradient] --> H2[Hidden Layer 2<br/>Smaller Gradient]
         H2 --> H1[Hidden Layer 1<br/>Even Smaller]
         H1 --> I[Input Layer<br/>Vanishing Gradient]
     end
     
-    subgraph "Why It Happens"
+    subgraph "**Why It Happens**"
         S[Sigmoid derivative ≤ 0.25] --> M[Multiply across layers]
         M --> V[Gradient → 0 exponentially]
     end
     
-    subgraph "The Solution"
+    subgraph "**The Solution**"
         R[ReLU derivative = 1 for z>0] --> P[Gradients flow freely]
         P --> D[Deep networks become trainable]
     end

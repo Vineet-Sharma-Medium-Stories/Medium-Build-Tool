@@ -59,15 +59,20 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Diffusion models are built on a counterintuitive idea: **learn to reverse destruction.**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Forward Diffusion (Training Data)"
+    subgraph "**Forward Diffusion (Training Data)**"
         I[Image] --> N1[Add Noise]
         N1 --> N2[Add More Noise]
         N2 --> N3[Even More Noise]
         N3 --> P[Pure Noise]
     end
     
-    subgraph "Reverse Diffusion (Generation)"
+    subgraph "**Reverse Diffusion (Generation)**"
         P2[Pure Noise] --> D1[Denoise Step 1]
         D1 --> D2[Denoise Step 2]
         D2 --> D3[Denoise Step 3]
@@ -205,8 +210,13 @@ diffusion_mathematics()
 The denoising network in diffusion models is typically a U-Net—a symmetric architecture with downsampling and upsampling paths.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "U-Net Architecture"
+    subgraph "**U-Net Architecture**"
         I[Input: Noisy Image<br/>+ Timestep] --> D1[Downsample 1<br/>Conv + Pool]
         D1 --> D2[Downsample 2<br/>Conv + Pool]
         D2 --> D3[Downsample 3<br/>Conv + Pool]
@@ -419,8 +429,13 @@ visualize_reverse_diffusion()
 The real power of diffusion models comes from **conditioning**—controlling what gets generated.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Conditioning Methods"
+    subgraph "**Conditioning Methods**"
         T[Text Prompt<br/>"A cat sitting on a mat"] --> C[Conditioning<br/>Embedding]
         
         I[Image<br/>Style reference] --> C
@@ -490,8 +505,13 @@ visualize_conditioning()
 Stable Diffusion made diffusion practical by operating in **latent space**—a compressed representation.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Stable Diffusion Pipeline"
+    subgraph "**Stable Diffusion Pipeline**"
         I[Input Image<br/>512×512] --> E[Encoder<br/>Compress]
         E --> L[Latent Space<br/>64×64×4]
         L --> D2[Diffusion Process<br/>in Latent Space]
@@ -499,7 +519,7 @@ graph TD
         DEC --> O[Generated Image<br/>512×512]
     end
     
-    subgraph "Benefits"
+    subgraph "**Benefits**"
         B1[Faster: 8x smaller]
         B2[Better quality: Focus on perceptually relevant]
         B3[Memory efficient]

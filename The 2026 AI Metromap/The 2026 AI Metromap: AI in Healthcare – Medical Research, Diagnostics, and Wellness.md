@@ -70,6 +70,11 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 Medical imaging AI can detect diseases earlier and more accurately than human radiologists.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Medical Imaging Applications"
         X[X-Ray] --> P1[Pneumonia detection]

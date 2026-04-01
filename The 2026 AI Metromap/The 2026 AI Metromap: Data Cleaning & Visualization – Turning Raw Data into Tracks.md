@@ -63,8 +63,13 @@ You've seen the glamorous demos. A few lines of code. A pretrained model. Beauti
 It's not.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "The AI Iceberg"
+    subgraph "**The AI Iceberg**"
         A[Visible: 20%<br/>Model Selection<br/>Training<br/>Evaluation] 
         
         B[Hidden: 80%<br/>Data Collection<br/>Data Cleaning<br/>Data Validation<br/>Feature Engineering<br/>Data Versioning<br/>Pipeline Building]
@@ -91,8 +96,13 @@ graph TD
 Think of data work as a pipeline. Each stage transforms raw messiness into structured tracks.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "Data Pipeline"
+    subgraph "**Data Pipeline**"
         R[Raw Data<br/>Messy, Unstructured] --> I[Inspect<br/>What's Here?]
         I --> C[Clean<br/>Handle Issues]
         C --> T[Transform<br/>Feature Engineering]

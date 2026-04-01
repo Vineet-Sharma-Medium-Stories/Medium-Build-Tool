@@ -64,6 +64,11 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 AI enhances climate models and improves weather forecasting accuracy.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Climate AI Pipeline"
         S[Satellite Data] --> F[Feature Extraction]

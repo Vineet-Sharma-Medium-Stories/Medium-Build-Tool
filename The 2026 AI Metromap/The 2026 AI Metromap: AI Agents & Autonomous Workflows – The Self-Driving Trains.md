@@ -84,23 +84,32 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 An AI agent is a system that uses an LLM to reason, plan, and take actions autonomously.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Agent Loop"
-        O[Observe<br/>Current State] --> T[Think<br/>Reason & Plan]
-        T --> A[Act<br/>Use Tools]
-        A --> O
-    end
-    
-    subgraph "Agent Components"
+    subgraph "**Agent Components**"
+
         LLM[Large Language Model<br/>Reasoning Engine]
         Tools[Tools<br/>Search, Code, APIs]
         Memory[Memory<br/>Short & Long Term]
         Planning[Planning<br/>Task Decomposition]
     end
+
+    subgraph "**Agent Loop**"
+        O[Observe<br/>Current State] --> T[Think<br/>Reason & Plan]
+        T --> A[Act<br/>Use Tools]
+        A --> O
+    end
+    
+
     
     style O fill:#90be6d,stroke:#333,stroke-width:2px
-    style T fill:#ffd700,stroke:#333,stroke-width:2px
     style A fill:#4d908e,stroke:#333,stroke-width:2px
+    style T fill:#ffd700,stroke:#333,stroke-width:2px
+
 ```
 
 ```python
@@ -155,13 +164,18 @@ agent_introduction()
 ReAct (Reason + Act) is the foundational agent architecture that combines chain-of-thought reasoning with tool use.
 
 ```mermaid
-graph TD
-    subgraph "ReAct Loop"
-        Q[User: "What's the weather in Paris?"] --> T1[Thought: I need to get weather data]
-        T1 --> A1[Act: search_weather("Paris")]
-        A1 --> O1[Observe: "Paris: 18°C, sunny"]
-        O1 --> T2[Thought: I have the weather info]
-        T2 --> A2[Act: Respond with answer]
+---
+config:
+  theme: base
+  layout: elk
+---
+graph LR
+    subgraph ReActLoop["**ReAct Loop**"]
+        Q["User: 'What is the weather in Paris?'"] --> T1["Thought: I need to get weather data"]
+        T1 --> A1["Act: search_weather('Paris')"]
+        A1 --> O1["Observe: 'Paris: 18°C, sunny'"]
+        O1 --> T2["Thought: I have the weather info"]
+        T2 --> A2["Act: Respond with answer"]
     end
 ```
 
@@ -384,19 +398,24 @@ tool_use()
 Plan-and-Execute agents first create a plan, then execute it step by step.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Plan-and-Execute"
-        Q[User: "Research AI trends and write summary"] --> P[Planner<br/>Creates step-by-step plan]
+    subgraph PlanExecute["Plan-and-Execute"]
+        Q["User: 'Research AI trends and write summary'"] --> P["Planner: Creates step-by-step plan"]
         
-        P --> S1[Step 1: Search recent AI papers]
-        P --> S2[Step 2: Extract key trends]
-        P --> S3[Step 3: Write summary]
+        P --> S1["Step 1: Search recent AI papers"]
+        P --> S2["Step 2: Extract key trends"]
+        P --> S3["Step 3: Write summary"]
         
-        S1 --> E[Executor<br/>Executes each step]
+        S1 --> E["Executor: Executes each step"]
         S2 --> E
         S3 --> E
         
-        E --> R[Result: Complete summary]
+        E --> R["Result: Complete summary"]
     end
     
     style P fill:#ffd700,stroke:#333,stroke-width:2px
@@ -488,6 +507,11 @@ plan_execute_agent()
 Memory is essential for agents to maintain context and learn from experience.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Agent Memory"
         STM[Short-Term Memory<br/>Current conversation<br/>Context window]
@@ -576,6 +600,11 @@ agent_memory()
 Multiple agents can collaborate, each specializing in different tasks.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph "Multi-Agent System"
         O[Orchestrator<br/>Coordinates workflow]

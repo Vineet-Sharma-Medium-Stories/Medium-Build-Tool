@@ -64,20 +64,25 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 When you have a pretrained model, you have two ways to adapt it to your task.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "In-Context Learning"
+    subgraph "**In-Context Learning**"
         P[Pretrained Model<br/>Frozen Weights] --> I[Prompt with Examples]
         I --> O[Model Learns from Context]
         O --> R[No weight updates<br/>Fast, flexible, limited context]
     end
     
-    subgraph "Fine-Tuning"
+    subgraph "**Fine-Tuning**"
         P2[Pretrained Model] --> F[Update Weights]
         F --> T[Trained on Your Data]
         T --> R2[Permanent change<br/>Slower, more resource, better performance]
     end
     
-    subgraph "Parameter-Efficient Fine-Tuning"
+    subgraph "**Parameter-Efficient Fine-Tuning**"
         P3[Pretrained Model<br/>Frozen Weights] --> L[Add Small Adapters]
         L --> A[Train Only Adapters]
         A --> B[Best of both worlds]
@@ -209,21 +214,26 @@ visualize_icl_limitations()
 Fine-tuning updates the model's weights to specialize it for your task.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Full Fine-Tuning"
+    subgraph "**Full Fine-Tuning**"
         P[Pretrained Weights] --> T[Train on Your Data]
         T --> N[New Weights]
         N --> D[Deploy Specialized Model]
     end
     
-    subgraph "Costs"
+    subgraph "**Costs**"
         C1[Compute: GPU hours]
         C2[Storage: Full model copy]
         C3[Memory: All parameters]
         C4[Time: Hours to days]
     end
     
-    subgraph "Benefits"
+    subgraph "**Benefits**"
         B1[Better performance]
         B2[Permanent learning]
         B3[No context window limits]
@@ -290,8 +300,13 @@ explain_fine_tuning()
 LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning method that adds small trainable matrices to existing weights.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "LoRA Architecture"
+    subgraph "**LoRA Architecture**"
         W[Pretrained Weight<br/>d×k] --> O[Output = W·x + ΔW·x]
         
         A[LoRA A<br/>r×k] --> B[LoRA B<br/>d×r]
@@ -301,7 +316,7 @@ graph TD
         ΔW --> O
     end
     
-    subgraph "Benefits"
+    subgraph "**Benefits**"
         B1[Trainable parameters: 0.1-1% of full]
         B2[Can switch tasks by swapping adapters]
         B3[No inference latency]
@@ -412,20 +427,25 @@ visualize_lora()
 QLoRA combines LoRA with 4-bit quantization to fine-tune massive models on consumer hardware.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "QLoRA Pipeline"
+    subgraph "**QLoRA Pipeline**"
         M[Pretrained Model<br/>4-bit Quantized] --> L[LoRA Adapters<br/>Added to Quantized Layers]
         L --> T[Train Only Adapters<br/>in 16-bit precision]
         T --> S[Save Adapters<br/>Weights]
     end
     
-    subgraph "Memory Savings"
+    subgraph "**Memory Savings**"
         B1[4-bit base model: 4GB for 7B model]
         B2[LoRA adapters: 0.5-1GB]
         B3[Total: 5-6GB instead of 28GB]
     end
     
-    subgraph "Results"
+    subgraph "**Results**"
         R1[Fine-tune LLaMA-7B on consumer GPU]
         R2[Fine-tune LLaMA-65B on single 48GB GPU]
         R3[Nearly full fine-tuning performance]
@@ -587,23 +607,28 @@ explain_instruction_tuning()
 RLHF (Reinforcement Learning from Human Feedback) is used to align models with human preferences—making them helpful, harmless, and honest.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "RLHF Process"
+    subgraph "**RLHF Process**"
         S[Supervised Fine-Tuning<br/>on demonstrations] --> R[Reward Model Training<br/>Learn human preferences]
         R --> P[RL Fine-Tuning<br/>Optimize for reward]
     end
     
-    subgraph "Step 1: Collect Data"
+    subgraph "**Step 1: Collect Data**"
         D1[Human writes prompts]
         D2[Model generates multiple responses]
         D3[Humans rank responses]
     end
     
-    subgraph "Step 2: Train Reward Model"
+    subgraph "**Step 2: Train Reward Model**"
         RM[Reward Model<br/>Predicts human preference score]
     end
     
-    subgraph "Step 3: RL Fine-Tuning"
+    subgraph "**Step 3: RL Fine-Tuning**"
         RL[PPO Algorithm<br/>Maximize reward while staying close to original model]
     end
     
@@ -704,8 +729,13 @@ explain_rlhf()
 ## 🎯 Decision Framework: Which Approach to Use?
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    A[Start] --> B{Do you have<br/>labeled data?}
+    A[**Start**] --> B{Do you have<br/>labeled data?}
     
     B -->|No| C[In-Context Learning]
     B -->|Yes| D{How many examples?}
@@ -721,7 +751,7 @@ graph TD
     F -->|Extensive| H{Need max<br/>performance?}
     
     H -->|No| G
-    H -->|Yes| I[Full Fine-Tuning]
+    H -->|Yes| I[**Full Fine-Tuning**]
     
     style C fill:#90be6d,stroke:#333,stroke-width:2px
     style G fill:#ffd700,stroke:#333,stroke-width:2px

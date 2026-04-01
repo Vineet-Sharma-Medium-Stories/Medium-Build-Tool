@@ -83,28 +83,42 @@ For a complete view of all upcoming stories across every series, visit the **[Co
 RAG combines three components into a powerful pipeline.
 
 ```mermaid
-graph TD
-    subgraph "1. RETRIEVAL"
-        Q[User Question] --> E1[Embedding Model]
-        E1 --> QE[Question Embedding]
-        QE --> VS[Vector Database]
-        VS --> R[Relevant Documents]
-    end
-    
-    subgraph "2. AUGMENTATION"
-        Q2[User Question] --> P[Prompt Construction]
-        R[Retrieved Documents] --> P
-        P --> A[Augmented Prompt]
-    end
-    
-    subgraph "3. GENERATION"
-        A --> LLM[Large Language Model]
-        LLM --> O[Answer with Sources]
-    end
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph subGraph0["**1. RETRIEVAL**"]
+        E1["Embedding Model"]
+        Q["User Question"]
+        QE["Question Embedding"]
+        VS["Vector Database"]
+        R["Retrieved Documents"]
+  end
+ subgraph subGraph1["**2. AUGMENTATION**"]
+        P["Prompt Construction"]
+        Q2["User Question"]
+        A["Augmented Prompt"]
+  end
+ subgraph subGraph2["**3. GENERATION**"]
+        LLM["Large Language Model"]
+        O["Answer with Sources"]
+  end
+    Q --> E1
+    E1 --> QE
+    QE --> VS
+    VS --> R
+    Q2 --> P
+    R --> P
+    P --> A
+    A --> LLM
+    LLM --> O
+
     style VS fill:#ffd700,stroke:#333,stroke-width:2px
     style P fill:#90be6d,stroke:#333,stroke-width:2px
     style LLM fill:#4d908e,stroke:#333,stroke-width:2px
+
 ```
 
 ```python

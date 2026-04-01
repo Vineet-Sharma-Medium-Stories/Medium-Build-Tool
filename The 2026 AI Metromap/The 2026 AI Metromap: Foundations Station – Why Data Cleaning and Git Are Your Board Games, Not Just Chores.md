@@ -57,8 +57,13 @@ You're smart. You've built things before. You understand code. Why waste time on
 This is the foundation fallacy.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "The Foundation Fallacy"
+    subgraph "**The Foundation Fallacy**"
         A[Want to Build Models] --> B[Skip Data Cleaning]
         B --> C[Skip Git]
         C --> D[Jump to Training]
@@ -70,7 +75,7 @@ graph TD
         I --> J[Start Over]
     end
     
-    subgraph "The Foundation Reality"
+    subgraph "**The Foundation Reality**"
         K[Want to Build Models] --> L[Clean Data First]
         L --> M[Version Everything]
         M --> N[Train with Confidence]
@@ -104,8 +109,13 @@ Board games require strategy, patience, and attention to detail. You don't win b
 Data cleaning is the same.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph LR
-    subgraph "The Data Cleaning Game"
+    subgraph "**The Data Cleaning Game**"
         A[Raw Data<br/>Messy, Unreliable] --> B[Understand<br/>What's There]
         B --> C[Handle Missing<br/>Strategic Decisions]
         C --> D[Remove Noise<br/>Outliers, Errors]
@@ -154,8 +164,13 @@ Data cleaning isn't preparation for the real work. **Data cleaning IS the real w
 Git is often treated as a developer tool that "AI people don't really need." This is dangerous.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Without Git"
+    subgraph "**Without Git**"
         A[Experiment 1<br/>model_v1_final.ipynb] --> B[Experiment 2<br/>model_v2_final_FINAL.ipynb]
         B --> C[Experiment 3<br/>model_v3_FINAL_REALLY.ipynb]
         C --> D[Experiment 4<br/>model_working_last_one.ipynb]
@@ -163,7 +178,7 @@ graph TD
         E --> F[Start Over]
     end
     
-    subgraph "With Git"
+    subgraph "**With Git**"
         G[Commit: Baseline] --> H[Branch: Experiment A]
         G --> I[Branch: Experiment B]
         H --> J[Commit: Results]
@@ -308,8 +323,13 @@ Think of data cleaning and Git as board games you're learning to master.
 Here's a practical workflow that combines data cleaning and Git for any AI project:
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    A[Step 1: Create Repository] --> B[Step 2: Add Raw Data<br/>with DVC or .gitignore]
+    A[*Step 1*: Create Repository] --> B[Step 2: Add Raw Data<br/>with DVC or .gitignore]
     B --> C[Step 3: Create Cleaning Branch]
     C --> D[Step 4: Explore & Document]
     D --> E[Step 5: Clean Strategically]

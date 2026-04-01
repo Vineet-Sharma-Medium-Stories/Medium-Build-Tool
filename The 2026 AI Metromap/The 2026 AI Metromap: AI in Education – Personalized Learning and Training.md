@@ -65,8 +65,13 @@ For a complete view of all 39+ stories across all series, visit the **[Complete 
 Intelligent tutoring systems provide personalized guidance, feedback, and explanations.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
-    subgraph "Intelligent Tutoring System"
+    subgraph "**Intelligent Tutoring System**"
         S[Student Input] --> U[Understand Knowledge State]
         U --> D[Diagnose Misconceptions]
         D --> G[Generate Explanation]
