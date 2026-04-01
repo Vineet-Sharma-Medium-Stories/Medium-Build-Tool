@@ -1,21 +1,12 @@
-# Claude Code Mastery Series
+# Claude Code Mastery - The Memory & Control Layer
 
-## Complete Claude Code Mastery Series (4 stories):
+### A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
 
-- 🧠 [**1. The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints**](#) – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots. *(This story)*
+![The Memory & Control Layer](./images/The-Memory-Control-Layer.png)
 
-- 🔧 [**2. The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins**](#) – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
+# Introduction: The Foundation of Safe AI-Assisted Development
 
-- ⚡ [**3. The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents**](#) – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
-
-- 🏗️ [**4. From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow**](#) – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows.
-
----
-
-# 🧠 Story 1: The Memory & Control Layer
-## CLAUDE.md, Permissions, Plan Mode, and Checkpoints
-
-### Introduction: The Foundation of Safe AI-Assisted Development
+**[CLAUDE.md](http://CLAUDE.md), Permissions, Plan Mode, and Checkpoints**
 
 When you're building production-grade applications, the difference between a helpful AI assistant and a dangerous liability comes down to four critical capabilities: **memory**, **boundaries**, **control**, and **recoverability**. Claude Code's first four features form the security and governance foundation that makes AI-assisted development not just productive, but safe.
 
@@ -41,6 +32,15 @@ graph TB
     style D fill:#e1f5fe
     style I fill:#c8e6c9
 ```
+
+---
+
+## Complete Claude Code Mastery Series (4 stories):
+
+- 🧠 **[1. The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints](#)** – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots. *(This story)*
+- 🔧 **[2. The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins](#)** – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
+- ⚡ **[3. The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents](#)** – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
+- 🏗️ **[4. From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow](#)** – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows.
 
 ---
 
@@ -109,6 +109,7 @@ touch src/config/__init__.py
 ```
 
 **Expected Output:**
+
 ```
 ecommerce-api/
 ├── .git/
@@ -151,29 +152,31 @@ Now, open `CLAUDE.md` and add the following content:
 
 ## 📁 Critical File Structure
 ```
-src/
-├── api/           # Route handlers (never put business logic here)
-│   ├── products.py
-│   ├── orders.py
-│   ├── users.py
-│   └── dependencies.py
-├── services/      # Business logic layer
-│   ├── product_service.py
-│   ├── order_service.py
-│   └── user_service.py
-├── models/        # SQLAlchemy models
-│   ├── product.py
-│   ├── order.py
-│   └── user.py
-├── schemas/       # Pydantic schemas
-│   ├── product.py
-│   ├── order.py
-│   └── user.py
-├── utils/         # Helper functions
-│   ├── logger.py
-│   └── validators.py
-└── config/        # Configuration
+
+src/  
+├── api/           # Route handlers (never put business logic here)  
+│   ├── products.py  
+│   ├── orders.py  
+│   ├── users.py  
+│   └── dependencies.py  
+├── services/      # Business logic layer  
+│   ├── product_service.py  
+│   ├── order_service.py  
+│   └── user_service.py  
+├── models/        # SQLAlchemy models  
+│   ├── product.py  
+│   ├── order.py  
+│   └── user.py  
+├── schemas/       # Pydantic schemas  
+│   ├── product.py  
+│   ├── order.py  
+│   └── user.py  
+├── utils/         # Helper functions  
+│   ├── logger.py  
+│   └── validators.py  
+└── config/        # Configuration  
     └── settings.py
+
 ```
 
 ## 🎨 Coding Standards
@@ -208,11 +211,13 @@ make coverage    # Generate coverage report
 ```
 
 ## 🔧 Environment Variables Required
+
 - `DATABASE_URL`: PostgreSQL connection string
 - `REDIS_URL`: Redis connection string
 - `SECRET_KEY`: JWT signing key (min 32 chars)
 - `STRIPE_API_KEY`: Payment processing key
 - `ELASTICSEARCH_URL`: Search service endpoint
+
 ```
 
 #### Step 3: Create Supporting Configuration Files
@@ -426,6 +431,7 @@ class ProductService:
 ```
 
 **Notice how Claude automatically:**
+
 - Used async functions with `_async` suffix
 - Added type hints throughout
 - Included structured logging
@@ -851,9 +857,11 @@ class User(Base):
 ---
 
 #### 2. `src/schemas/user.py` (NEW)
+
 **Purpose**: Pydantic schemas for validation
 
 **Implementation Preview**:
+
 ```python
 from pydantic import BaseModel, EmailStr, Field, validator
 from typing import Optional
@@ -894,9 +902,11 @@ class TokenRefresh(BaseModel):
 ---
 
 #### 3. `src/services/auth_service.py` (NEW)
+
 **Purpose**: Authentication business logic
 
 **Implementation Preview**:
+
 ```python
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
@@ -952,9 +962,11 @@ class AuthService:
 ---
 
 #### 4. `src/api/auth.py` (NEW)
+
 **Purpose**: Authentication endpoints
 
 **Implementation Preview**:
+
 ```python
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -998,9 +1010,11 @@ async def login_async(
 ---
 
 #### 5. `tests/unit/test_auth.py` (NEW)
+
 **Purpose**: Unit tests for authentication
 
 **Implementation Preview**:
+
 ```python
 import pytest
 from unittest.mock import AsyncMock, patch
@@ -1041,6 +1055,7 @@ pip install python-jose[cryptography] passlib[bcrypt] python-multipart
 ```
 
 Add to `pyproject.toml`:
+
 ```toml
 dependencies = [
     "python-jose[cryptography]>=3.3.0",
@@ -1064,6 +1079,7 @@ alembic revision --autogenerate -m "Create users table"
 ### Security Considerations
 
 ✅ **Following CLAUDE.md rules:**
+
 - Passwords hashed with bcrypt
 - No plaintext passwords stored
 - All inputs validated with Pydantic
@@ -1071,6 +1087,7 @@ alembic revision --autogenerate -m "Create users table"
 - Proper error messages (no stack traces)
 
 ⚠️ **Production Checklist:**
+
 - [ ] Set JWT_SECRET_KEY in environment
 - [ ] Configure token expiration times
 - [ ] Add rate limiting to login endpoint
@@ -1080,14 +1097,16 @@ alembic revision --autogenerate -m "Create users table"
 
 ### API Endpoints Summary
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/register` | Register new user |
-| POST | `/auth/login` | Login and get tokens |
-| POST | `/auth/refresh` | Refresh access token |
-| POST | `/auth/logout` | Invalidate refresh token |
-| POST | `/auth/password-reset-request` | Request password reset |
-| POST | `/auth/password-reset` | Reset password with token |
+
+| Method | Endpoint                       | Description               |
+| ------ | ------------------------------ | ------------------------- |
+| POST   | `/auth/register`               | Register new user         |
+| POST   | `/auth/login`                  | Login and get tokens      |
+| POST   | `/auth/refresh`                | Refresh access token      |
+| POST   | `/auth/logout`                 | Invalidate refresh token  |
+| POST   | `/auth/password-reset-request` | Request password reset    |
+| POST   | `/auth/password-reset`         | Reset password with token |
+
 
 ---
 
@@ -1110,6 +1129,7 @@ alembic revision --autogenerate -m "Create users table"
 5. ❌ **Cancel** - Abort this operation
 
 What would you like to do?
+
 ```
 
 #### Step 3: Interact with Plan Mode
@@ -1117,31 +1137,37 @@ What would you like to do?
 **Option A: Execute with Modifications**
 
 ```
+
 > Let's proceed but skip the password reset feature for now
+
 ```
 
 **Expected Response:**
 
 ```
+
 ✏️ Plan Modified: Password reset feature removed
 
-Updated plan will implement:
-✅ User model
-✅ Registration endpoint
-✅ Login with JWT
-✅ Token refresh
+Updated plan will implement:  
+✅ User model  
+✅ Registration endpoint  
+✅ Login with JWT  
+✅ Token refresh  
 ❌ Password reset (deferred)
 
-Remaining files: 7 (down from 8)
+Remaining files: 7 (down from 8)  
 Estimated lines: ~380
 
 Proceed with execution?
+
 ```
 
 **Option B: Review Specific File**
 
 ```
+
 > Show me the full auth_service.py implementation
+
 ```
 
 **Expected Response:**
@@ -1354,40 +1380,47 @@ class AuthService:
 ```
 
 This implementation:
+
 - ✅ Uses async methods with `_async` suffix
 - ✅ Includes comprehensive type hints
 - ✅ Features structured logging
 - ✅ Implements parameterized queries
 - ✅ Follows error handling best practices
 - ✅ Meets all security requirements from CLAUDE.md
+
 ```
 
 **Option C: Execute in Stages**
 
 ```
+
 > Execute in stages - start with just the model and schemas
+
 ```
 
 **Expected Response:**
 
 ```
+
 🚀 Executing Stage 1: Model and Schemas
 
-Creating checkpoint before changes...
+Creating checkpoint before changes...  
 📸 Checkpoint created: "Before auth implementation"
 
-[1/2] Creating src/models/user.py...
+[1/2] Creating src/models/user.py...  
 ✅ Created (142 lines)
 
-[2/2] Creating src/schemas/user.py...
+[2/2] Creating src/schemas/user.py...  
 ✅ Created (89 lines)
 
 📊 Stage 1 Complete:
-   - 2 files created
-   - 231 lines added
-   - No errors detected
+
+- 2 files created
+- 231 lines added
+- No errors detected
 
 Continue to Stage 2 (Service layer)?
+
 ```
 
 ---
@@ -1846,12 +1879,14 @@ mindmap
       Instant Revert
 ```
 
-| Feature | Purpose | Key Commands | Benefit |
-|---------|---------|--------------|---------|
-| **CLAUDE.md** | Project Memory | Auto-loaded | Consistent standards, no repeated instructions |
-| **Permissions** | Security Boundaries | `/permissions`, config.json | Never touches sensitive files or runs dangerous commands |
-| **Plan Mode** | Collaborative Control | `/plan`, review/approve | Review before execution, no surprises |
-| **Checkpoints** | Recoverability | `/checkpoints list`, `restore`, `diff` | Undo any mistake, explore safely |
+
+| Feature         | Purpose               | Key Commands                           | Benefit                                                  |
+| --------------- | --------------------- | -------------------------------------- | -------------------------------------------------------- |
+| **CLAUDE.md**   | Project Memory        | Auto-loaded                            | Consistent standards, no repeated instructions           |
+| **Permissions** | Security Boundaries   | `/permissions`, config.json            | Never touches sensitive files or runs dangerous commands |
+| **Plan Mode**   | Collaborative Control | `/plan`, review/approve                | Review before execution, no surprises                    |
+| **Checkpoints** | Recoverability        | `/checkpoints list`, `restore`, `diff` | Undo any mistake, explore safely                         |
+
 
 ### Quick Reference Commands
 
@@ -1925,9 +1960,16 @@ graph TB
 
 *Next in the series:*
 
-**🔧 Story 2: The Extension & Integration Framework**
+**🔧 Story 2: The Extension & Integration Framework**  
 *Skills, Hooks, MCP, and Plugins*
 
 ---
 
-*Found this helpful? Follow for more deep dives into Claude Code, AWS, and modern development practices.*
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

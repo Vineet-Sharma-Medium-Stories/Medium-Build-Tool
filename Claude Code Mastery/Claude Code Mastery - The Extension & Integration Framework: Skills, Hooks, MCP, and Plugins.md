@@ -1,25 +1,19 @@
-# Claude Code Mastery Series
+# Claude Code Mastery - The Extension & Integration Framework
 
-## Complete Claude Code Mastery Series (4 stories):
-
-- 🧠 [**1. Claude Code Mastery - The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints**](#) – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots. *(This story)*
-
-- 🔧 [**2. Claude Code Mastery - The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins**](#) – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
-
-- ⚡ [**3. Claude Code Mastery - The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents**](#) – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
-
-- 🏗️ [**4. Claude Code Mastery - From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow**](#) – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows.
+### How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
 
 ---
 
-# 🔧 Story 2: Claude Code Mastery - The Extension & Integration Framework
-## Skills, Hooks, MCP, and Plugins
+![The Extension & Integration Framework](./images/The-Extension-Integration-Framework.png)
 
-### Introduction: Beyond the Built-in Capabilities
+# Introduction: Beyond the Built-in Capabilities
 
-In Story 1, we built a solid foundation with memory, security, control, and recoverability. But Claude Code's true power emerges when you extend it beyond its core capabilities. The Extension & Integration Framework—comprising **Skills**, **Hooks**, **MCP (Model Context Protocol)**, and **Plugins**—transforms Claude from a standalone assistant into a connected, customizable, and infinitely extensible development platform.
+**Skills, Hooks, MCP, and Plugins**
+
+In **Story 1**, we built a solid foundation with memory, security, control, and recoverability. But Claude Code's true power emerges when you extend it beyond its core capabilities. The Extension & Integration Framework—comprising **Skills**, **Hooks**, **MCP (Model Context Protocol)**, and **Plugins**—transforms Claude from a standalone assistant into a connected, customizable, and infinitely extensible development platform.
 
 Imagine Claude that:
+
 - Automatically follows your team's specific testing patterns without prompting
 - Runs security scans every time you modify authentication code
 - Connects directly to your production database to debug issues safely
@@ -49,6 +43,13 @@ graph TB
 ```
 
 ---
+
+## Complete Claude Code Mastery Series (4 stories):
+
+- 🧠 **[1. Claude Code Mastery - The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints](#)** – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots. *(This story)*
+- 🔧 **[2. Claude Code Mastery - The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins](#)** – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
+- ⚡ **[3. Claude Code Mastery - The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents](#)** – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
+- 🏗️ **[4. Claude Code Mastery - From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow](#)** – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows.
 
 ## Feature 5: Skills — Reusable Instructions
 
@@ -197,9 +198,11 @@ Provide review results in this structure:
 ## Examples
 
 ### Example Input:
+
 "Review this authentication service"
 
 ### Example Output:
+
 ```markdown
 ## Code Review Summary
 **Overall Rating**: Needs Improvement
@@ -217,6 +220,7 @@ Provide review results in this structure:
    - Fix: Add password strength requirements
 ...
 ```
+
 ```
 
 #### Step 3: Create a Security Audit Skill
@@ -308,6 +312,7 @@ Perform a thorough security audit focusing on OWASP Top 10 and project-specific 
 ### Recommendations
 [Prioritized action items]
 ```
+
 ```
 
 #### Step 4: Create a Test Generator Skill
@@ -407,6 +412,7 @@ async def test_create_product_success(self, service):
     service.db.add.assert_called_once()
     service.db.commit.assert_called_once()
 ```
+
 ```
 
 #### Step 5: Test Skills in Action
@@ -443,60 +449,53 @@ def login(username, password):
 1. **SQL Injection Vulnerability** (line 2)
    ```python
    user = db.query(f"SELECT * FROM users WHERE username = '{username}'")
-   ```
-   - String concatenation allows SQL injection
-   - Attacker could input: `' OR '1'='1` to bypass authentication
-   - **Fix**: Use parameterized queries:
-   ```python
-   user = db.query("SELECT * FROM users WHERE username = ?", username)
-   ```
+```
 
-2. **Plain Text Password Storage** (line 3)
-   ```python
+- String concatenation allows SQL injection
+- Attacker could input: `' OR '1'='1` to bypass authentication
+- **Fix**: Use parameterized queries:
+
+1. **Plain Text Password Storage** (line 3)
+  ```python
    if user and user.password == password:
-   ```
-   - Passwords should never be stored or compared in plain text
-   - **Fix**: Use bcrypt or argon2 for password hashing:
-   ```python
-   if user and verify_password(password, user.password_hash):
-   ```
-
-3. **Hardcoded JWT Secret** (line 4)
-   ```python
+  ```
+  - Passwords should never be stored or compared in plain text
+  - **Fix**: Use bcrypt or argon2 for password hashing:
+2. **Hardcoded JWT Secret** (line 4)
+  ```python
    token = jwt.encode({"user": username}, "mysecret")
-   ```
-   - Secret key hardcoded in code
-   - **Fix**: Use environment variable:
-   ```python
-   token = jwt.encode({"user": username}, os.getenv("JWT_SECRET_KEY"))
-   ```
+  ```
+  - Secret key hardcoded in code
+  - **Fix**: Use environment variable:
 
 ## Major Issues 🟡
 
 1. **No Password Complexity Validation**
-   - Weak passwords accepted
-   - Add validation: minimum length, special characters, numbers
-
+  - Weak passwords accepted
+  - Add validation: minimum length, special characters, numbers
 2. **No Rate Limiting**
-   - Vulnerable to brute force attacks
-   - Implement rate limiting on login endpoint
+  - Vulnerable to brute force attacks
+  - Implement rate limiting on login endpoint
 
 ## Minor Issues 🟢
 
 1. **Generic Error Message**
-   - "Invalid credentials" doesn't indicate if user exists
-   - Consider: Use consistent messages for security
+  - "Invalid credentials" doesn't indicate if user exists
+  - Consider: Use consistent messages for security
 
 ## Positive Highlights ✅
+
 - Using JWT tokens (though secret management needs improvement)
 - Simple and readable code structure
 
 ## Recommendations
+
 1. Implement SQLAlchemy ORM with parameterized queries
 2. Use password hashing library (passlib, bcrypt)
 3. Move secrets to environment variables
 4. Add input validation for username/password
 5. Implement rate limiting middleware
+
 ```
 
 ---
@@ -1393,12 +1392,14 @@ CMD ["node", "dist/main.js"]
 ```
 
 ### Security Rules
+
 - Never run as root (use USER directive)
 - Keep base images minimal (alpine variants)
 - Scan images for vulnerabilities
 - Use specific version tags, never 'latest'
 
 ### Optimization Rules
+
 - Order layers from least to most frequently changed
 - Combine RUN commands to reduce layers
 - Use .dockerignore to exclude unnecessary files
@@ -1432,6 +1433,7 @@ docker scan myapp:latest
 docker push myapp:$(git rev-parse --short HEAD)
 docker push myapp:latest
 ```
+
 ```
 
 #### Step 4: Create Plugin Hooks
@@ -1600,18 +1602,19 @@ CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 **Building image...**
 
-🔍 Running pre-build checks...
-✅ Docker is running
+🔍 Running pre-build checks...  
+✅ Docker is running  
 ✅ Dockerfile lint passed
 
-Building image...
-✅ Image built: ecommerce-api:abc123
+Building image...  
+✅ Image built: ecommerce-api:abc123  
 ✅ Image tagged: ecommerce-api:latest
 
-📦 Image size: 245 MB
+📦 Image size: 245 MB  
 ✅ Security scan passed - no critical vulnerabilities
 
 Would you like me to run the container locally?
+
 ```
 
 ---
@@ -1782,12 +1785,14 @@ mindmap
       Configuration Bundling
 ```
 
-| Feature | Purpose | Key Components | Benefit |
-|---------|---------|----------------|---------|
-| **Skills** | Reusable instructions | `.claude/skills/*.md` | Team consistency, no repetition |
-| **Hooks** | Automated triggers | Pre/Post/Notification scripts | Workflow automation, validation |
-| **MCP** | External tool integration | Database, APIs, custom servers | Unlimited connectivity |
-| **Plugins** | Packaged extensions | plugin.json, bundled resources | Shareable, versioned workflows |
+
+| Feature     | Purpose                   | Key Components                 | Benefit                         |
+| ----------- | ------------------------- | ------------------------------ | ------------------------------- |
+| **Skills**  | Reusable instructions     | `.claude/skills/*.md`          | Team consistency, no repetition |
+| **Hooks**   | Automated triggers        | Pre/Post/Notification scripts  | Workflow automation, validation |
+| **MCP**     | External tool integration | Database, APIs, custom servers | Unlimited connectivity          |
+| **Plugins** | Packaged extensions       | plugin.json, bundled resources | Shareable, versioned workflows  |
+
 
 ### Quick Reference Commands
 
@@ -1819,4 +1824,11 @@ claude plugin create           # Create new plugin scaffold
 
 ---
 
-*Found this helpful? Follow for more deep dives into Claude Code, AWS, and modern development practices.*
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

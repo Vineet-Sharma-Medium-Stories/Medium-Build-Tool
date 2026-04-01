@@ -1,21 +1,10 @@
-# Claude Code Mastery Series
+# Claude Code Mastery - From Terminal to IDE : Complete VS Code Integration & Real-World Project Workflo
 
-## Complete Claude Code Mastery Series (4 stories):
+### A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
 
-- 🧠 [**1. Claude Code Mastery - The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints**](#) – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
+## ![From Terminal to IDE](./images/From-Terminal-to-IDE.png)
 
-- 🔧 [**2. Claude Code Mastery - The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins**](#) – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
-
-- ⚡ [**3. Claude Code Mastery - The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents**](#) – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
-
-- 🏗️ [**4. Claude Code Mastery - From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow**](#) – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows. *(This story)*
-
----
-
-# 🏗️ Story 4: Claude Code Mastery - From Terminal to IDE
-## Complete VS Code Integration & Real-World Project Workflow
-
-### Introduction: Bridging the Gap Between AI and IDE
+# Introduction: Bridging the Gap Between AI and IDE
 
 Throughout this series, we've explored Claude Code's powerful features—from memory and permissions to advanced workflows and parallel execution. But the true magic happens when Claude Code becomes an integral part of your development environment, working seamlessly alongside your IDE, tools, and existing workflows.
 
@@ -46,6 +35,15 @@ graph LR
     style D fill:#e1f5fe
     style G fill:#c8e6c9
 ```
+
+---
+
+### Complete Claude Code Mastery Series:
+
+- 🧠 **[1. Claude Code Mastery - The Memory & Control Layer: CLAUDE.md, Permissions, Plan Mode, and Checkpoints](#)** – A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
+- 🔧 **[2. Claude Code Mastery - The Extension & Integration Framework: Skills, Hooks, MCP, and Plugins](#)** – How to build reusable instructions, trigger automated workflows, connect Claude to external databases/APIs, and extend functionality with community plugins.
+- ⚡ **[3. Claude Code Mastery - The Advanced Workflow Engine: Context Management, Slash Commands, Compaction, and Subagents](#)** – Mastering parallel execution, custom command shortcuts, token optimization strategies, and dividing complex tasks into scalable AI workflows.
+- 🏗️ **[4. Claude Code Mastery - From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow](#)** – A hands-on guide to integrating Claude Code with VS Code, building a complete microservices project from scratch, and establishing production-ready development workflows. *(This story)*
 
 ---
 
@@ -249,55 +247,57 @@ Based on our previous sessions, I'll create a production-ready microservices arc
 ## Project Structure
 
 ```
-ecommerce-microservices/
-├── .claude/
-│   ├── config.json
-│   ├── skills/
-│   ├── hooks/
-│   ├── commands/
-│   └── mcp/
-├── .vscode/
-│   ├── settings.json
-│   ├── tasks.json
-│   └── launch.json
-├── services/
-│   ├── product-service/
-│   │   ├── src/
-│   │   ├── tests/
-│   │   ├── Dockerfile
-│   │   └── requirements.txt
-│   ├── order-service/
-│   │   ├── src/
-│   │   ├── tests/
-│   │   ├── Dockerfile
-│   │   └── requirements.txt
-│   ├── user-service/
-│   │   ├── src/
-│   │   ├── tests/
-│   │   ├── Dockerfile
-│   │   └── requirements.txt
-│   └── api-gateway/
-│       ├── src/
-│       ├── tests/
-│       ├── Dockerfile
-│       └── requirements.txt
-├── shared/
-│   ├── models/
-│   ├── utils/
-│   └── schemas/
-├── kubernetes/
-│   ├── namespaces/
-│   ├── deployments/
-│   ├── services/
-│   └── ingress/
-├── docker-compose.yml
-├── Makefile
-├── CLAUDE.md
-├── README.md
-└── .github/
-    └── workflows/
-        ├── ci.yml
+
+ecommerce-microservices/  
+├── .claude/  
+│   ├── config.json  
+│   ├── skills/  
+│   ├── hooks/  
+│   ├── commands/  
+│   └── mcp/  
+├── .vscode/  
+│   ├── settings.json  
+│   ├── tasks.json  
+│   └── launch.json  
+├── services/  
+│   ├── product-service/  
+│   │   ├── src/  
+│   │   ├── tests/  
+│   │   ├── Dockerfile  
+│   │   └── requirements.txt  
+│   ├── order-service/  
+│   │   ├── src/  
+│   │   ├── tests/  
+│   │   ├── Dockerfile  
+│   │   └── requirements.txt  
+│   ├── user-service/  
+│   │   ├── src/  
+│   │   ├── tests/  
+│   │   ├── Dockerfile  
+│   │   └── requirements.txt  
+│   └── api-gateway/  
+│       ├── src/  
+│       ├── tests/  
+│       ├── Dockerfile  
+│       └── requirements.txt  
+├── shared/  
+│   ├── models/  
+│   ├── utils/  
+│   └── schemas/  
+├── kubernetes/  
+│   ├── namespaces/  
+│   ├── deployments/  
+│   ├── services/  
+│   └── ingress/  
+├── docker-compose.yml  
+├── Makefile  
+├── CLAUDE.md  
+├── README.md  
+└── .github/  
+    └── workflows/  
+        ├── ci.yml  
         └── cd.yml
+
 ```
 
 I'll now spawn subagents to create each service in parallel...
@@ -1773,14 +1773,16 @@ mindmap
 
 ### Key Takeaways
 
-| Aspect | Benefit |
-|--------|---------|
-| **VS Code Integration** | Seamless AI assistance within your IDE |
-| **Claude Features** | All 12 features working together |
+
+| Aspect                         | Benefit                                  |
+| ------------------------------ | ---------------------------------------- |
+| **VS Code Integration**        | Seamless AI assistance within your IDE   |
+| **Claude Features**            | All 12 features working together         |
 | **Microservices Architecture** | Scalable, maintainable, production-ready |
-| **CI/CD Pipeline** | Automated quality gates |
-| **Kubernetes Deployment** | Cloud-native infrastructure |
-| **Monitoring** | Full observability |
+| **CI/CD Pipeline**             | Automated quality gates                  |
+| **Kubernetes Deployment**      | Cloud-native infrastructure              |
+| **Monitoring**                 | Full observability                       |
+
 
 ### Final Command Reference
 
@@ -1825,6 +1827,7 @@ Throughout this four-part series, we've explored all 12 features of Claude Code:
 4. **Complete VS Code Integration**: Real-world project workflow
 
 These features combine to create a development experience that is:
+
 - **Safer**: With permissions, checkpoints, and plan mode
 - **Smarter**: With context management and compaction
 - **Faster**: With parallel subagents and slash commands
@@ -1858,4 +1861,13 @@ graph LR
 
 *End of Claude Code Mastery Series*
 
-*Found this helpful? Follow for more deep dives into AI-assisted development, modern architectures, and production best practices.*
+---
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
