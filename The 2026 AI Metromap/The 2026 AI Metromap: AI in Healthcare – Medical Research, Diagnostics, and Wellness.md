@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 10 of 15+
 
----
+![The 2026 AI Metromap/images/AI in Healthcare – Medical Research, Diagnostics, and Wellness](<images/AI in Healthcare – Medical Research, Diagnostics, and Wellness.png>)
 
 ## 📖 Introduction
 

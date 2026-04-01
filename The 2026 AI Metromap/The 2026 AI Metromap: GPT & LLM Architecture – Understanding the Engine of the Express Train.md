@@ -2,8 +2,7 @@
 
 ## Series C: Modern Architecture Line | Story 2 of 6
 
----
-
+![The 2026 AI Metromap/images/GPT & LLM Architecture – Understanding the Engine of the Express Train](<images/GPT & LLM Architecture – Understanding the Engine of the Express Train.png>)
 ## 📖 Introduction
 
 **Welcome to the second stop on the Modern Architecture Line.**

@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 15 of 15+
 
----
+![The 2026 AI Metromap/images/AI in Education – Personalized Learning and Training](<images/AI in Education – Personalized Learning and Training.png>)
 
 ## 📖 Introduction
 

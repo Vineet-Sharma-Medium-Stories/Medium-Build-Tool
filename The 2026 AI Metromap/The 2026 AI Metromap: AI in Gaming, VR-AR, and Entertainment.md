@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 12 of 15+
 
----
+![The 2026 AI Metromap/images/AI in Gaming, VR-AR, and Entertainment](<images/AI in Gaming, VR-AR, and Entertainment.png>)
 
 ## 📖 Introduction
 

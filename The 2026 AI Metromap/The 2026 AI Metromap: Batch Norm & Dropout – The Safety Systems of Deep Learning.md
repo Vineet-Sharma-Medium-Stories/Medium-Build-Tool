@@ -2,7 +2,7 @@
 
 ## Series D: Engineering & Optimization Yard | Story 4 of 5
 
----
+![The 2026 AI Metromap/images/Norm & Dropout – The Safety Systems of Deep Learning](<images/Norm & Dropout – The Safety Systems of Deep Learning.png>)
 
 ## 📖 Introduction
 

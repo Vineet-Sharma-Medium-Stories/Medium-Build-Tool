@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 9 of 15+
 
----
+![The 2026 AI Metromap/images/Recommendation Systems – From Collaborative Filtering to Two-Tower Networks](<images/Recommendation Systems – From Collaborative Filtering to Two-Tower Networks.png>)
+
 
 ## 📖 Introduction
 

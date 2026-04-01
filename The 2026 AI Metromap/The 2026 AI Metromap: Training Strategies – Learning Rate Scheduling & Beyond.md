@@ -2,7 +2,8 @@
 
 ## Series D: Engineering & Optimization Yard | Story 5 of 5
 
----
+![The 2026 AI Metromap/images/Training Strategies – Learning Rate Scheduling & Beyond](<images/Training Strategies – Learning Rate Scheduling & Beyond.png>)
+
 
 ## 📖 Introduction
 

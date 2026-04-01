@@ -2,7 +2,8 @@
 
 ## Series D: Engineering & Optimization Yard | Story 1 of 5
 
----
+![The 2026 AI Metromap/images/PyTorch Mastery – The Locomotive of Modern AI](<images/PyTorch Mastery – The Locomotive of Modern AI.png>)
+
 
 ## 📖 Introduction
 

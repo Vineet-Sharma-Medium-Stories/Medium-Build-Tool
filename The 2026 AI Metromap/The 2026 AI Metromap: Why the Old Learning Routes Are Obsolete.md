@@ -2,7 +2,8 @@
 
 ## Your First Stop on the Journey
 
----
+![The 2026 AI Metromap/images/Why the Old Learning Routes Are Obsolete](<images/Why the Old Learning Routes Are Obsolete.png>)
+
 
 ## 📖 Introduction
 

@@ -2,7 +2,8 @@
 
 ## Series B: Supervised Learning Line | Story 2 of 4
 
----
+![The 2026 AI Metromap/images/Neural Network Architecture – From Perceptron to MLP](<images/Neural Network Architecture – From Perceptron to MLP.png>)
+
 
 ## 📖 Introduction
 

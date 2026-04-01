@@ -2,7 +2,8 @@
 
 ## Series C: Modern Architecture Line | Story 6 of 6
 
----
+![The 2026 AI Metromap/images/Open Source LLMs – LLaMA, Mistral, DeepSeek, and Beyond](<images/Open Source LLMs – LLaMA, Mistral, DeepSeek, and Beyond.png>)
+
 
 ## 📖 Introduction
 

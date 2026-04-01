@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 7 of 15+
 
----
+![The 2026 AI Metromap/images/NLP Tasks – NER, Translation, Summarization, and Beyond](<images/NLP Tasks – NER, Translation, Summarization, and Beyond.png>)
+
 
 ## 📖 Introduction
 

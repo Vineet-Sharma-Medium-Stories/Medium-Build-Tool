@@ -2,7 +2,7 @@
 
 ## Series A: Foundations Station | Story 3 of 5
 
----
+![The 2026 AI Metromap/images/Linear Algebra for ML – The Language of the Map](<images/Linear Algebra for ML – The Language of the Map.png>)
 
 ## 📖 Introduction
 

@@ -2,7 +2,7 @@
 
 ## Series D: Engineering & Optimization Yard | Story 3 of 5
 
----
+![The 2026 AI Metromap/images/Model Optimization – Keeping the Train on Time](<images/Model Optimization – Keeping the Train on Time.png>)
 
 ## 📖 Introduction
 

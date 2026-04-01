@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 4 of 15+
 
----
+![The 2026 AI Metromap/images/Voice Assistants & Speech Models – Making AI Talk](<images/Voice Assistants & Speech Models – Making AI Talk.png>)
+
 
 ## 📖 Introduction
 

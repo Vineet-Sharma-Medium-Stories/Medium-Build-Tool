@@ -2,7 +2,8 @@
 
 ## Series B: Supervised Learning Line | Story 1 of 4
 
----
+![The 2026 AI Metromap/images/Regression & Classification – The Grand Central Station of AI](<images/Regression & Classification – The Grand Central Station of AI.png>)
+
 
 ## 📖 Introduction
 

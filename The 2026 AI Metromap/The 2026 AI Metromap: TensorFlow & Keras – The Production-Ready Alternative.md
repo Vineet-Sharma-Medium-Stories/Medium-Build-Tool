@@ -2,7 +2,8 @@
 
 ## Series D: Engineering & Optimization Yard | Story 2 of 5
 
----
+![The 2026 AI Metromap/images/TensorFlow & Keras – The Production-Ready Alternative](<images/TensorFlow & Keras – The Production-Ready Alternative.png>)
+
 
 ## 📖 Introduction
 

@@ -2,7 +2,7 @@
 
 ## Series A: Foundations Station | Story 5 of 5
 
----
+![The 2026 AI Metromap/images/Ethics & Responsible AI – The Safety Systems of the Metro](<images/Ethics & Responsible AI – The Safety Systems of the Metro.png>)
 
 ## 📖 Introduction
 

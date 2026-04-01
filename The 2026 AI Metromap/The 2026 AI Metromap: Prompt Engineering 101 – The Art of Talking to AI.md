@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 1 of 15+
 
----
+![The 2026 AI Metromap/images/Prompt Engineering 101 – The Art of Talking to AI](<images/Prompt Engineering 101 – The Art of Talking to AI.png>)
+
 
 ## 📖 Introduction
 

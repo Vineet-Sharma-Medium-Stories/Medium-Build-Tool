@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 14 of 15+
 
----
+![The 2026 AI Metromap/images/AI for Social Good – Climate Action, Agriculture, and Sustainability](<images/AI for Social Good – Climate Action, Agriculture, and Sustainability.png>)
 
 ## 📖 Introduction
 

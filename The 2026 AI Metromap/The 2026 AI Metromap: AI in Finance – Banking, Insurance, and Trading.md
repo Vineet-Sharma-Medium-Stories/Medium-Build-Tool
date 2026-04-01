@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 11 of 15+
 
----
+![The 2026 AI Metromap/images/AI in Finance – Banking, Insurance, and Trading](<images/AI in Finance – Banking, Insurance, and Trading.png>)
 
 ## 📖 Introduction
 

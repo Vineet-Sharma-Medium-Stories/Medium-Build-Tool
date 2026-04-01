@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 8 of 15+
 
----
+![The 2026 AI Metromap/images/Time Series Forecasting – ARIMA, LSTM, and Transformers.](<images/Time Series Forecasting – ARIMA, LSTM, and Transformers.png>)
+
 
 ## 📖 Introduction
 

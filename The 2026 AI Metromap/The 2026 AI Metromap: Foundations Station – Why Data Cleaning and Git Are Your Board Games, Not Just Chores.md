@@ -2,7 +2,8 @@
 
 ## Series A: Foundations Station | Story 1 of 5
 
----
+![The 2026 AI Metromap/images/Foundations Station – Why Data Cleaning and Git Are Your Board Games, Not Just Chores](<images/Foundations Station – Why Data Cleaning and Git Are Your Board Games, Not Just Chores.png>)
+
 
 ## 📖 Introduction
 

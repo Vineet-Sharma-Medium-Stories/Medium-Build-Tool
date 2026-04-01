@@ -2,7 +2,8 @@
 
 ## Strategic Navigation Across the Three Core Lines
 
----
+![The 2026 AI Metromap/images/Reading the Map](<images/Reading the Map.png>)
+
 
 ## 📖 Introduction
 

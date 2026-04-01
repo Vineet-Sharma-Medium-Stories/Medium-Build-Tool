@@ -2,7 +2,7 @@
 
 ## Series B: Supervised Learning Line | Story 3 of 4
 
----
+![Activation Functions & Backpropagation – The Electrical Grid of the Network](<images/Activation Functions & Backpropagation – The Electrical Grid of the Network.png>)
 
 ## 📖 Introduction
 

@@ -2,7 +2,7 @@
 
 ## Series B: Supervised Learning Line | Story 4 of 4
 
----
+![The 2026 AI Metromap/images/Loss Functions & Optimization – Navigating to the Minimum](<images/Loss Functions & Optimization – Navigating to the Minimum.png>)
 
 ## 📖 Introduction
 

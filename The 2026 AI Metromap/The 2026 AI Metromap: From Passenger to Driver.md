@@ -2,7 +2,8 @@
 
 ## Building Your Portfolio Using the Metromap Structure
 
----
+![The 2026 AI Metromap/images/From Passenger to Driver](<images/From Passenger to Driver.png>)
+
 
 ## 📖 Introduction
 

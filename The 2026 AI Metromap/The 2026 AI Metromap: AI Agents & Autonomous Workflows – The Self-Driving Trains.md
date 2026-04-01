@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 3 of 15+
 
----
+![The 2026 AI Metromap/images/AI Agents & Autonomous Workflows – The Self-Driving Trains](<images/AI Agents & Autonomous Workflows – The Self-Driving Trains.png>)
 
 ## 📖 Introduction
 

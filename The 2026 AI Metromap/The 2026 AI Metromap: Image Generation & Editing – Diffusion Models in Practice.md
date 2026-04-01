@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 6 of 15+
 
----
+![The 2026 AI Metromap/images/Image Generation & Editing – Diffusion Models in Practice](<images/Image Generation & Editing – Diffusion Models in Practice.png>)
 
 ## 📖 Introduction
 

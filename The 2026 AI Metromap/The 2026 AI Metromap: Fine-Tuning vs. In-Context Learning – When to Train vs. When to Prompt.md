@@ -2,7 +2,7 @@
 
 ## Series C: Modern Architecture Line | Story 5 of 6
 
----
+![The 2026 AI Metromap/images/Fine-Tuning vs. In-Context Learning – When to Train vs. When to Prompt](<images/Fine-Tuning vs. In-Context Learning – When to Train vs. When to Prompt.png>)
 
 ## 📖 Introduction
 

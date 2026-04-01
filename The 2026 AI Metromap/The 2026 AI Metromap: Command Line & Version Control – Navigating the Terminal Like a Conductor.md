@@ -2,7 +2,7 @@
 
 ## Series A: Foundations Station | Story 2 of 5
 
----
+![The 2026 AI Metromap/images/Command Line & Version Control – Navigating the Terminal Like a Conductor](<images/Command Line & Version Control – Navigating the Terminal Like a Conductor.png>)
 
 ## 📖 Introduction
 

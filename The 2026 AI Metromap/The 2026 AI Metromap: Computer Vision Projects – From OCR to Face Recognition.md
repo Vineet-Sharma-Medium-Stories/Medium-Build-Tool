@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 5 of 15+
 
----
+![The 2026 AI Metromap/images/Computer Vision Projects – From OCR to Face Recognition](<images/Computer Vision Projects – From OCR to Face Recognition.png>)
 
 ## 📖 Introduction
 

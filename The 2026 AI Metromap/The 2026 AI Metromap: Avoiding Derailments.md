@@ -2,7 +2,8 @@
 
 ## The Most Common Pitfalls That Stop AI Engineers in 2026
 
----
+![The 2026 AI Metromap/images/Avoiding Derailments](<images/Avoiding Derailments.png>)
+
 
 ## 📖 Introduction
 

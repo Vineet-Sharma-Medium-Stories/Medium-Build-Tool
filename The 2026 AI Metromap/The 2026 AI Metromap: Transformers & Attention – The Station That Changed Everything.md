@@ -2,7 +2,8 @@
 
 ## Series C: Modern Architecture Line | Story 1 of 6
 
----
+![The 2026 AI Metromap/images/Transformers & Attention – The Station That Changed Everything](<images/Transformers & Attention – The Station That Changed Everything.png>)
+
 
 ## 📖 Introduction
 

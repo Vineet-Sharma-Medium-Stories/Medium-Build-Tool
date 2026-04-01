@@ -2,7 +2,7 @@
 
 ## Series A: Foundations Station | Story 4 of 5
 
----
+![The 2026 AI Metromap/images/Data Cleaning & Visualization – Turning Raw Data into Tracks](<images/Data Cleaning & Visualization – Turning Raw Data into Tracks.png>)
 
 ## 📖 Introduction
 

@@ -2,7 +2,8 @@
 
 ## Series E: Applied AI & Agents Line | Story 2 of 15+
 
----
+![The 2026 AI Metromap/images/RAG – Retrieval-Augmented Generation for Knowledge-Intensive Tasks](<images/RAG – Retrieval-Augmented Generation for Knowledge-Intensive Tasks.png>)
+
 
 ## 📖 Introduction
 

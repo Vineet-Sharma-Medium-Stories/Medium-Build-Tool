@@ -2,7 +2,7 @@
 
 ## Series E: Applied AI & Agents Line | Story 13 of 15+
 
----
+![The 2026 AI Metromap/images/AI in Robotics, Manufacturing, and Supply Chain](<images/AI in Robotics, Manufacturing, and Supply Chain.png>)
 
 ## 📖 Introduction
 

@@ -2,7 +2,7 @@
 
 ## Series C: Modern Architecture Line | Story 4 of 6
 
----
+![The 2026 AI Metromap/images/Multimodal Models – The Interchange Stations](<images/Multimodal Models – The Interchange Stations.png>)
 
 ## 📖 Introduction
 

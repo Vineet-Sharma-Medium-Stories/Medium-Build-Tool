@@ -2,7 +2,7 @@
 
 ## Series C: Modern Architecture Line | Story 3 of 6
 
----
+![The 2026 AI Metromap/images/Diffusion Models – The Scenic Route to Generative AI](<images/Diffusion Models – The Scenic Route to Generative AI.png>)
 
 ## 📖 Introduction
 
