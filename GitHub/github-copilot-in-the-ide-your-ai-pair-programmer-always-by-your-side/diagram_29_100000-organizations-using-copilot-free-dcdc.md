@@ -1,5 +1,4 @@
-# diagram_29_100000-organizations-using-copilot-free-dcdc
-
+# - **100,000+** organizations using Copilot Free
 
 ```mermaid
 pie title GitHub Copilot Adoption Metrics

@@ -1,5 +1,4 @@
-# diagram_01_each-story-explores-how-github-copilot-transforms-9b75
-
+# Each story explores how GitHub Copilot transforms 
 
 ```mermaid
 graph TB

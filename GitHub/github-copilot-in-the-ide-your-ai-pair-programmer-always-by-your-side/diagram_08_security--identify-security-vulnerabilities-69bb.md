@@ -1,5 +1,4 @@
-# diagram_08_security--identify-security-vulnerabilities-69bb
-
+# | `/security` | Identify security vulnerabilities 
 
 ```mermaid
 flowchart LR

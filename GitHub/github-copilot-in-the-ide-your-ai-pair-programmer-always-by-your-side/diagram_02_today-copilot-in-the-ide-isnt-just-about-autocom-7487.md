@@ -1,5 +1,4 @@
-# diagram_02_today-copilot-in-the-ide-isnt-just-about-autocom-7487
-
+# Today, Copilot in the IDE isn't just about autocom
 
 ```mermaid
 flowchart LR

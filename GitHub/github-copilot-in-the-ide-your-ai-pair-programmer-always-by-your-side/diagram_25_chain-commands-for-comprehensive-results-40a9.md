@@ -1,5 +1,4 @@
-# diagram_25_chain-commands-for-comprehensive-results-40a9
-
+# Chain commands for comprehensive results:
 
 ```mermaid
 flowchart TD

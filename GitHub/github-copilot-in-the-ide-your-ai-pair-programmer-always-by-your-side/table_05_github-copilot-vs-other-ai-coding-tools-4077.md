@@ -1,5 +1,4 @@
-# table_05_github-copilot-vs-other-ai-coding-tools-4077
-
+# ## GitHub Copilot vs. Other AI Coding Tools
 
 | Feature | GitHub Copilot | ChatGPT/Claude | Cursor | Amazon CodeWhisperer |
 |---------|----------------|----------------|--------|---------------------|

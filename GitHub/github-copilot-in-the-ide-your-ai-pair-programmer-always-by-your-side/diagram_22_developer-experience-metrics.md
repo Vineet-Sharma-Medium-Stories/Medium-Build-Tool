@@ -1,5 +1,4 @@
-# diagram_22_developer-experience-metrics
-
+# ### Developer Experience Metrics
 
 ```mermaid
 pie title Developer Satisfaction with Copilot

@@ -1,5 +1,4 @@
-# diagram_15_multi-root-workspace-support--works-across-b4e4
-
+# - **Multi-root workspace support** – Works across 
 
 ```mermaid
 flowchart LR

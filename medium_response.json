@@ -1,0 +1,45 @@
+[
+  {
+    "data": {
+      "post": {
+        "id": "ad29db848116",
+        "earnings": {
+          "dailyEarnings": [],
+          "__typename": "PostEarnings"
+        },
+        "publicationFeaturingEventsConnection": {
+          "edges": [],
+          "__typename": "PublicationFeaturingEventsConnection"
+        },
+        "__typename": "Post"
+      },
+      "postStatsDailyBundle": {
+        "buckets": [
+          {
+            "dayStartsAt": 1775001600000,
+            "membershipType": "MEMBER",
+            "readersThatReadCount": 1,
+            "readersThatViewedCount": 1,
+            "readersThatClappedCount": 0,
+            "readersThatRepliedCount": 0,
+            "readersThatHighlightedCount": 0,
+            "readersThatInitiallyFollowedAuthorFromThisPostCount": 0,
+            "__typename": "PostStatsDailyBundleBucket"
+          },
+          {
+            "dayStartsAt": 1775001600000,
+            "membershipType": "NONMEMBER",
+            "readersThatReadCount": 0,
+            "readersThatViewedCount": 1,
+            "readersThatClappedCount": 0,
+            "readersThatRepliedCount": 0,
+            "readersThatHighlightedCount": 0,
+            "readersThatInitiallyFollowedAuthorFromThisPostCount": 0,
+            "__typename": "PostStatsDailyBundleBucket"
+          }
+        ],
+        "__typename": "PostStatsDailyBundle"
+      }
+    }
+  }
+]

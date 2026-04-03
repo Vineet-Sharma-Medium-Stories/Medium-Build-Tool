@@ -1,5 +1,4 @@
-# diagram_12_transforms-legacy-jquery-dom-manipulation-into-mod-4615
-
+# Transforms legacy jQuery DOM manipulation into mod
 
 ```mermaid
 graph TD

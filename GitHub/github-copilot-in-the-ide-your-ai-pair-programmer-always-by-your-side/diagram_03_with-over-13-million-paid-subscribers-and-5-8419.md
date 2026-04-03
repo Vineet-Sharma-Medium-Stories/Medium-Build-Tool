@@ -1,5 +1,4 @@
-# diagram_03_with-over-13-million-paid-subscribers-and-5-8419
-
+# With over **1.3 million paid subscribers** and **5
 
 ```mermaid
 timeline

@@ -1,5 +1,4 @@
-# diagram_04_core-capabilities-overview
-
+# ### Core Capabilities Overview
 
 ```mermaid
 mindmap

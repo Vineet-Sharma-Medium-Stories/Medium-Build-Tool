@@ -1,5 +1,4 @@
-# diagram_17_remote-development--works-over-ssh-in-remot-dd12
-
+# - **Remote development** – Works over SSH in remot
 
 ```mermaid
 flowchart LR

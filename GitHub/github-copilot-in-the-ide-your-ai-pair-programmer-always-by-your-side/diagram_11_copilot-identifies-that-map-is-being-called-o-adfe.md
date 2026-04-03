@@ -1,5 +1,4 @@
-# diagram_11_copilot-identifies-that-map-is-being-called-o-adfe
-
+# Copilot identifies that `.map()` is being called o
 
 ```mermaid
 flowchart TD

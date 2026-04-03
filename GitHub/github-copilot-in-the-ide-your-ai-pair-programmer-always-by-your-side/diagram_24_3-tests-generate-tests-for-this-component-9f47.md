@@ -1,5 +1,4 @@
-# diagram_24_3-tests-generate-tests-for-this-component-9f47
-
+# 3. `/tests: Generate tests for this component`
 
 ```mermaid
 flowchart LR

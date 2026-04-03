@@ -1,5 +1,4 @@
-# diagram_19_supported-ides-overview
-
+# ### Supported IDEs Overview
 
 ```mermaid
 graph TD

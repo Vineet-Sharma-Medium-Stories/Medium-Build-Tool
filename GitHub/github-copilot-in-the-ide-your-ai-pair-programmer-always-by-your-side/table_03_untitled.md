@@ -1,5 +1,4 @@
-# table_03_untitled
-
+# ```
 
 | Task | Without Copilot | With Copilot | Time Saved |
 |------|----------------|--------------|------------|

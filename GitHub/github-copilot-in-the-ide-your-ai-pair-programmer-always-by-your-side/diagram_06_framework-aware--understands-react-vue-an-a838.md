@@ -1,5 +1,4 @@
-# diagram_06_framework-aware--understands-react-vue-an-a838
-
+# - **Framework aware** – Understands React, Vue, An
 
 ```mermaid
 graph LR

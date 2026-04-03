@@ -1,5 +1,4 @@
-# diagram_13_initialize-project--sets-up-standard-projec-b559
-
+# - **Initialize project** – Sets up standard projec
 
 ```mermaid
 flowchart LR

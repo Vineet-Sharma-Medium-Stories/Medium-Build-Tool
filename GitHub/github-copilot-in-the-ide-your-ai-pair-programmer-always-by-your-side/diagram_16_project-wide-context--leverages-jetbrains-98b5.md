@@ -1,5 +1,4 @@
-# diagram_16_project-wide-context--leverages-jetbrains-98b5
-
+# - **Project-wide context** – Leverages JetBrains' 
 
 ```mermaid
 flowchart LR

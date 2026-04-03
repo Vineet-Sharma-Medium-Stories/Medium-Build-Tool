@@ -1,5 +1,4 @@
-# diagram_28_code-scanning-integration--ai-suggestions-a-42bb
-
+# - **Code scanning integration** – AI suggestions a
 
 ```mermaid
 graph TD

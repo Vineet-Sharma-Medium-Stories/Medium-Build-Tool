@@ -1,5 +1,4 @@
-# table_01_when-github-copilot-launched-in-2021-it-introduce-9669
-
+# When GitHub Copilot launched in 2021, it introduce
 
 | Then | Now |
 |------|-----|

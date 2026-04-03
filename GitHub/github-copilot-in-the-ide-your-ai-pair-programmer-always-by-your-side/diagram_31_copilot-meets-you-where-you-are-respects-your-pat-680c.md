@@ -1,5 +1,4 @@
-# diagram_31_copilot-meets-you-where-you-are-respects-your-pat-680c
-
+# Copilot meets you where you are, respects your pat
 
 ```mermaid
 graph TD

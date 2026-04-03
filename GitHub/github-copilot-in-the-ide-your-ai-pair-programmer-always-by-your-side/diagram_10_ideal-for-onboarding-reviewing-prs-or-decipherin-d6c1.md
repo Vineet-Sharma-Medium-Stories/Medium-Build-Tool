@@ -1,5 +1,4 @@
-# diagram_10_ideal-for-onboarding-reviewing-prs-or-decipherin-d6c1
-
+# Ideal for onboarding, reviewing PRs, or decipherin
 
 ```mermaid
 sequenceDiagram

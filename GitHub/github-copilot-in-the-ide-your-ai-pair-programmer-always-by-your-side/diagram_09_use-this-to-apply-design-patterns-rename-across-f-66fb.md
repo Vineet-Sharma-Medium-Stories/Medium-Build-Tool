@@ -1,5 +1,4 @@
-# diagram_09_use-this-to-apply-design-patterns-rename-across-f-66fb
-
+# Use this to apply design patterns, rename across f
 
 ```mermaid
 flowchart TD

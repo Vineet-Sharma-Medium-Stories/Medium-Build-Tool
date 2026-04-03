@@ -1,5 +1,4 @@
-# diagram_07_copilot-chat-transforms-your-ide-from-a-code-edito-b820
-
+# Copilot Chat transforms your IDE from a code edito
 
 ```mermaid
 flowchart TD

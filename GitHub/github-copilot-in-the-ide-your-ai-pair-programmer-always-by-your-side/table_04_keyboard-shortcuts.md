@@ -1,5 +1,4 @@
-# table_04_keyboard-shortcuts
-
+# ### Keyboard Shortcuts
 
 | Action | VS Code | JetBrains |
 |--------|---------|-----------|

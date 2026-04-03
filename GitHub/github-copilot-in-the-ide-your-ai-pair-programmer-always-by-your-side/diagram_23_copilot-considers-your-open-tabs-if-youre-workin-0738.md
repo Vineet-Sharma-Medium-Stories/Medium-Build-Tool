@@ -1,5 +1,4 @@
-# diagram_23_copilot-considers-your-open-tabs-if-youre-workin-0738
-
+# Copilot considers your open tabs. If you're workin
 
 ```mermaid
 flowchart LR

@@ -1,5 +1,4 @@
-# diagram_18_debugger-integration--suggestions-during-de-57b1
-
+# - **Debugger integration** – Suggestions during de
 
 ```mermaid
 flowchart LR
