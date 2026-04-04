@@ -544,32 +544,37 @@ sequenceDiagram
 Copilot identifies that `.map()` is being called on a non-array, suggests validation, and applies the correction with proper error handling.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 flowchart TD
     subgraph Bug["Bug Detected"]
-        Test[Test fails with:<br/>"Cannot read property 'map' of undefined"]
+        Test["Test fails with:<br/>'Cannot read property map of undefined'"]
     end
     
     subgraph Debug["Debug with Copilot"]
-        Highlight[Highlight failing test]
-        Command[/fix: This test is failing.../]
-        AI[AI analyzes test<br/>and related code]
+        Highlight["Highlight failing test"]
+        Command["/fix: This test is failing..."]
+        AI["AI analyzes test<br/>and related code"]
     end
     
     subgraph Analysis["AI Analysis"]
-        Find[Identifies missing data]
-        Root[Root cause: data is undefined<br/>when .map() is called]
-        Suggest[Suggests adding<br/>conditional check]
+        Find["Identifies missing data"]
+        Root["Root cause: data is undefined<br/>when .map() is called"]
+        Suggest["Suggests adding<br/>conditional check"]
     end
     
     subgraph Fix["Fix Applied"]
-        Generate[Generates corrected code:<br/>data && data.map(...)]
-        Insert[Insert into code]
-        Pass[Error resolved]
+        Generate["Generates corrected code:<br/>data && data.map(...)"]
+        Insert["Insert into code"]
+        Pass["Error resolved"]
     end
     
     Bug --> Debug --> Analysis --> Fix
     
-    style Command fill:#2da44e,stroke:#2da44e,stroke-width:2px,color:#fff
+    style Command fill:#2da44e,stroke:#2da44e,stroke-width:2px,color:white
 ```
 
 ---
@@ -718,6 +723,11 @@ Identifies deprecated functions and replaces them with modern, secure equivalent
 Transforms legacy jQuery DOM manipulation into modern React components with state management.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph Generated["Feature Generation Example"]
         Auth[auth/]
@@ -777,32 +787,33 @@ Copilot automates common but tedious tasks with simple commands:
 - **Initialize project** – Sets up standard project structure for your framework
 
 ```mermaid
-flowchart LR
-    subgraph Actions["Smart Actions"]
-        Commit[Generate Commit Message]
-        PR[Generate PR Description]
-        Spell[Fix Spelling/Grammar]
-        Types[Add Type Hints]
-        Doc[Generate Docstrings]
-        Gitignore[Create .gitignore]
-        Init[Initialize Project]
-    end
-    
-    subgraph Trigger["How to Trigger"]
-        Command[Command Palette]
-        Shortcut[Keyboard Shortcut]
-        RightClick[Right-click Context Menu]
-    end
-    
-    subgraph Result["Results"]
-        Time[Save 5-15 minutes per task]
-        Consistent[Consistent formatting]
-        Best[Follows best practices]
-    end
-    
-    Actions --> Trigger
-    Actions --> Result
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart TB
+ subgraph Actions["Smart Actions"]
+        Commit["Generate Commit Message"]
+        PR["Generate PR Description"]
+        Spell["Fix Spelling/Grammar"]
+        Types["Add Type Hints"]
+        Doc["Generate Docstrings"]
+        Gitignore["Create .gitignore"]
+        Init["Initialize Project"]
+  end
+ subgraph Trigger["How to Trigger"]
+        Command["Command Palette"]
+        Shortcut["Keyboard Shortcut"]
+        RightClick["Right-click Context Menu"]
+  end
+ subgraph Result["Results"]
+        Time["Save 5-15 minutes per task"]
+        Consistent["Consistent formatting"]
+        Best["Follows best practices"]
+  end
+    Actions --> Trigger & Result
+
     style Actions fill:#2da44e40,stroke:#2da44e,stroke-width:1px
 ```
 
@@ -854,6 +865,8 @@ flowchart TD
 ### VS Code – The Native Experience
 
 VS Code is where GitHub Copilot feels most at home, with deep integration that makes AI feel like a natural part of the editor.
+
+- 🎯 **Visual Studio Integration** – Enterprise-grade AI for .NET developers - - Comming soon *coming up* 
 
 **Key features in VS Code:**
 - **Copilot Chat sidebar** – Dedicated chat panel with conversation history
@@ -1011,6 +1024,11 @@ flowchart LR
 ### Supported IDEs Overview
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph IDEs["GitHub Copilot Supported IDEs"]
         VSCode[VS Code<br/>⭐⭐⭐⭐⭐ Native]
@@ -1049,38 +1067,41 @@ graph TD
 ### Complete Workflow Example
 
 ```mermaid
-flowchart TD
-    subgraph Step1["1. Feature Request"]
-        Request[User requests<br/>password reset feature]
-    end
-    
-    subgraph Step2["2. /plan Command"]
-        Plan[/plan: Add password reset<br/>to Express app/]
-        Output[AI generates implementation plan:<br/>- Controllers<br/>- Routes<br/>- Email service<br/>- Token model<br/>- Tests<br/>- Documentation]
-    end
-    
-    subgraph Step3["3. /generate Command"]
-        Generate[/generate: Implement step 1/]
-        Code[AI generates all files<br/>with proper structure]
-    end
-    
-    subgraph Step4["4. /tests Command"]
-        Tests[/tests: Generate tests for new code/]
-        TestFiles[Test files created:<br/>- Unit tests<br/>- Integration tests]
-    end
-    
-    subgraph Step5["5. /docs Command"]
-        Docs[/docs: Document new API/]
-        Documentation[API documentation generated]
-    end
-    
-    subgraph Step6["6. /security Command"]
-        Security[/security: Check vulnerabilities/]
-        Secure[Security review complete<br/>no issues found]
-    end
-    
-    Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6
-    
+---
+config:
+  theme: base
+  layout: elk
+---
+flowchart LR
+ subgraph Step1["1. Feature Request"]
+        Request["User requests<br>password reset feature"]
+  end
+ subgraph Step2["2. /plan Command"]
+        Plan[/"plan: Add password reset<br>to Express app"/]
+        Output["AI generates implementation plan:<br>- Controllers<br>- Routes<br>- Email service<br>- Token model<br>- Tests<br>- Documentation"]
+  end
+ subgraph Step3["3. /generate Command"]
+        Generate[/"generate: Implement step 1"/]
+        Code["AI generates all files<br>with proper structure"]
+  end
+ subgraph Step4["4. /tests Command"]
+        Tests[/"tests: Generate tests for new code"/]
+        TestFiles["Test files created:<br>- Unit tests<br>- Integration tests"]
+  end
+ subgraph Step5["5. /docs Command"]
+        Docs[/"docs: Document new API"/]
+        Documentation["API documentation generated"]
+  end
+ subgraph Step6["6. /security Command"]
+        Security[/"security: Check vulnerabilities"/]
+        Secure["Security review complete<br>no issues found"]
+  end
+    Step1 --> Step2
+    Step2 --> Step3
+    Step3 --> Step4
+    Step4 --> Step5
+    Step5 --> Step6
+
     style Plan fill:#2da44e,stroke:#2da44e,stroke-width:1px,color:#fff
     style Generate fill:#2da44e,stroke:#2da44e,stroke-width:1px,color:#fff
     style Tests fill:#2da44e,stroke:#2da44e,stroke-width:1px,color:#fff
@@ -1095,34 +1116,39 @@ flowchart TD
 ### Developer Time Savings
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 gantt
     title Task Completion Time: Without vs With Copilot
     dateFormat HH:mm
     axisFormat %H:%M
     
     section Writing Boilerplate
-    Without Copilot :00:00, 30m
-    With Copilot    :30m, 5m
+    Without Copilot :a1, 00:00, 30m
+    With Copilot    :a2, after a1, 5m
     
     section Writing Tests
-    Without Copilot :35m, 45m
-    With Copilot    :80m, 15m
+    Without Copilot :b1, after a2, 45m
+    With Copilot    :b2, after b1, 15m
     
     section Documentation
-    Without Copilot :95m, 30m
-    With Copilot    :125m, 10m
+    Without Copilot :c1, after b2, 30m
+    With Copilot    :c2, after c1, 10m
     
     section Understanding Code
-    Without Copilot :135m, 25m
-    With Copilot    :160m, 5m
+    Without Copilot :d1, after c2, 25m
+    With Copilot    :d2, after d1, 5m
     
     section Debugging
-    Without Copilot :165m, 60m
-    With Copilot    :225m, 20m
+    Without Copilot :e1, after d2, 60m
+    With Copilot    :e2, after e1, 20m
     
     section Refactoring
-    Without Copilot :245m, 60m
-    With Copilot    :305m, 15m
+    Without Copilot :f1, after e2, 60m
+    With Copilot    :f2, after f1, 15m
 ```
 
 | Task | Without Copilot | With Copilot | Time Saved |
@@ -1139,6 +1165,11 @@ gantt
 ### Developer Experience Metrics
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 pie title Developer Satisfaction with Copilot
     "Feel more productive (75%)" : 75
     "Stay in flow longer (85%)" : 85
@@ -1497,6 +1528,11 @@ Whether you're:
 Copilot meets you where you are, respects your patterns, and amplifies your capabilities.
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 graph TD
     subgraph IDE["Your IDE"]
         You[You]

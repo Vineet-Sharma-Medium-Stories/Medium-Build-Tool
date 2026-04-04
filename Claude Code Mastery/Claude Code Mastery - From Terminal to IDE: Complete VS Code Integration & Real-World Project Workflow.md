@@ -16,6 +16,11 @@ This final story takes you on a complete journey from zero to production, showin
 - Deploy to production with confidence using everything we've learned
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph LR
     subgraph "Development Environment"
         A[VS Code<br/>IDE] --> E[Seamless Integration]
@@ -1294,7 +1299,12 @@ jobs:
 Now let's see how everything comes together in a complete development cycle:
 
 ```mermaid
-graph TB
+---
+config:
+  layout: elk
+  theme: base
+---
+graph LR
     subgraph "1. Planning"
         A[Open VS Code] --> B[Claude: /plan]
         B --> C[Review Architecture]
@@ -1744,6 +1754,11 @@ git push origin main
 ## Summary: The Complete Claude Code + VS Code Experience
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 mindmap
   root((Complete<br/>Development<br/>Ecosystem))
     VS Code Integration
@@ -1837,6 +1852,11 @@ These features combine to create a development experience that is:
 The result is an AI-powered development platform that doesn't just answer questions—it becomes a true partner in building production-ready software.
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph LR
     subgraph "Your Development Journey"
         A[Start] --> B[Learn Features]

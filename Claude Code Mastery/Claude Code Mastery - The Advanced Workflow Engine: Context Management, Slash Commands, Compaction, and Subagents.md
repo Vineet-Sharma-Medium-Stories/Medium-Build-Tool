@@ -20,6 +20,11 @@ Imagine being able to:
 These four features—**Context Management**, **Slash Commands**, **Compaction**, and **Subagents**—represent the difference between using Claude as a simple Q&A tool and deploying it as a true autonomous development platform.
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TB
     subgraph "Advanced Workflow Engine"
         A[Context Management<br/>Intelligent Memory] --> E[Perfect Recall]
@@ -58,6 +63,11 @@ Context Management is the invisible engine that ensures Claude remembers what ma
 ### Context Architecture
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TB
     subgraph "Context Components"
         A[Files<br/>Source Code & Configs] --> E[Context Window<br/>Up to 200K tokens]
@@ -235,6 +245,11 @@ How would you like to modify it?
 #### Step 5: Context Optimization Strategies
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph LR
     subgraph "Context Optimization"
         A[Request] --> B{Optimization Rules}
@@ -273,6 +288,11 @@ Slash commands are customizable shortcuts that trigger complex workflows with a 
 ### Slash Command Architecture
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 flowchart LR
     subgraph "Command Definition"
         A[.claude/commands/] --> B[review.md]
@@ -853,6 +873,11 @@ Compaction intelligently compresses long conversations to save tokens while pres
 ### Compaction Architecture
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TB
     subgraph "Compaction Process"
         A[Long Conversation] --> B{Token Threshold}
@@ -1074,6 +1099,11 @@ Subagents are parallel AI agents that Claude spawns to handle complex, multi-ste
 ### Subagent Architecture
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TB
     subgraph "Main Claude Session"
         A[User Request<br/>Complex Task] --> B[Task Decomposition]
@@ -1354,6 +1384,11 @@ Would you like to run integration tests now?
 Let's combine all four advanced features in a complete enterprise workflow:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 sequenceDiagram
     participant User
     participant Claude
@@ -1644,6 +1679,11 @@ Worker 4: Notification Service
 These four features transform Claude Code into a sophisticated orchestration platform capable of handling enterprise-scale development tasks:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 mindmap
   root((Advanced<br/>Workflow Engine))
     Context Management

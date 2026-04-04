@@ -2,10 +2,9 @@
 ### VS Code Copilot, JetBrains AI, Inline Code Suggestions, Copilot Chat, Real-time Code Completion, IDE AI Assistant
 *Part of the GitHub Copilot Ecosystem Series*
 
-![alt text](images/GitHub-Copilot-in-the-IDE-Your-AI-Pair-Programmer,-Always-by-Your-Side.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/GitHub-Copilot-in-the-IDE-Your-AI-Pair-Programmer,-Always-by-Your-Side.png)
 
 ## Introduction
-
 This story is part of our comprehensive exploration of **GitHub Copilot: The AI-Powered Development Ecosystem**. While the parent story introduced the full ecosystem across all development surfaces, this deep dive focuses on where developers spend most of their time—the Integrated Development Environment (IDE).
 
 
@@ -26,7 +25,7 @@ Each story explores how GitHub Copilot transforms that specific surface, while t
 ```mermaid
 ```
 
-![🌐 GitHub.com](images/diagram_01_each-story-explores-how-github-copilot-transforms-9b75.png)
+![🌐 GitHub.com](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_01_each-story-explores-how-github-copilot-transforms-9b75.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_01_each-story-explores-how-github-copilot-transforms-9b75.md)
 
@@ -44,7 +43,7 @@ Today, Copilot in the IDE isn't just about autocomplete—it's about having a co
 ```mermaid
 ```
 
-![The IDE: Where Code Comes to Life](images/diagram_02_today-copilot-in-the-ide-isnt-just-about-autocom-7487.png)
+![The IDE: Where Code Comes to Life](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_02_today-copilot-in-the-ide-isnt-just-about-autocom-7487.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_02_today-copilot-in-the-ide-isnt-just-about-autocom-7487.md)
 
@@ -72,7 +71,7 @@ With over **1.3 million paid subscribers** and **50,000+ organizations** using C
 ```mermaid
 ```
 
-![GitHub Copilot Individual](images/diagram_03_with-over-13-million-paid-subscribers-and-5-8419.png)
+![GitHub Copilot Individual](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_03_with-over-13-million-paid-subscribers-and-5-8419.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_03_with-over-13-million-paid-subscribers-and-5-8419.md)
 
@@ -81,7 +80,7 @@ With over **1.3 million paid subscribers** and **50,000+ organizations** using C
 
 When GitHub Copilot launched in 2021, it introduced the world to AI-powered code completion. But that was just the beginning. Today's Copilot is fundamentally different:
 
-![Table](images/table_01_when-github-copilot-launched-in-2021-it-introduce-9669.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/table_01_when-github-copilot-launched-in-2021-it-introduce-9669.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/table_01_when-github-copilot-launched-in-2021-it-introduce-9669.md)
 
@@ -95,7 +94,7 @@ When GitHub Copilot launched in 2021, it introduced the world to AI-powered code
 ```mermaid
 ```
 
-![What GitHub Copilot Brings to Your IDE](images/diagram_04_core-capabilities-overview.png)
+![What GitHub Copilot Brings to Your IDE](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_04_core-capabilities-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_04_core-capabilities-overview.md)
 
@@ -115,7 +114,7 @@ The foundation of Copilot remains its uncanny ability to predict what you're goi
 ```mermaid
 ```
 
-![1. Inline Suggestions – The Original Superpower](images/diagram_05_related-files-and-imports.png)
+![1. Inline Suggestions – The Original Superpower](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_05_related-files-and-imports.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_05_related-files-and-imports.md)
 
@@ -143,7 +142,7 @@ async function fetchUserWithCache(userId) {
 ```mermaid
 ```
 
-![Key features:](images/diagram_06_framework-aware--understands-react-vue-an-a838.png)
+![Key features:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_06_framework-aware--understands-react-vue-an-a838.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_06_framework-aware--understands-react-vue-an-a838.md)
 
@@ -157,7 +156,7 @@ Copilot Chat transforms your IDE from a code editor into an interactive developm
 ```mermaid
 ```
 
-![2. Copilot Chat – Conversational AI in Your Editor](images/diagram_07_copilot-chat-transforms-your-ide-from-a-code-edito-b820.png)
+![2. Copilot Chat – Conversational AI in Your Editor](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_07_copilot-chat-transforms-your-ide-from-a-code-edito-b820.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_07_copilot-chat-transforms-your-ide-from-a-code-edito-b820.md)
 
@@ -205,7 +204,7 @@ Introduced as a core part of Copilot Workspace, these commands turn natural lang
 
 ### Command Reference Overview
 
-![Code insertion](images/table_02_command-reference-overview.png)
+![Code insertion](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/table_02_command-reference-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/table_02_command-reference-overview.md)
 
@@ -213,7 +212,7 @@ Introduced as a core part of Copilot Workspace, these commands turn natural lang
 ```mermaid
 ```
 
-![Diagram](images/diagram_08_security--identify-security-vulnerabilities-69bb.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_08_security--identify-security-vulnerabilities-69bb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_08_security--identify-security-vulnerabilities-69bb.md)
 
@@ -247,7 +246,7 @@ Use this to apply design patterns, rename across files, or modernize legacy code
 ```mermaid
 ```
 
-![After:](images/diagram_09_use-this-to-apply-design-patterns-rename-across-f-66fb.png)
+![After:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_09_use-this-to-apply-design-patterns-rename-across-f-66fb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_09_use-this-to-apply-design-patterns-rename-across-f-66fb.md)
 
@@ -305,7 +304,7 @@ Ideal for onboarding, reviewing PRs, or deciphering legacy logic. Copilot can ex
 ```mermaid
 ```
 
-![Prompt:](images/diagram_10_ideal-for-onboarding-reviewing-prs-or-decipherin-d6c1.png)
+![Prompt:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_10_ideal-for-onboarding-reviewing-prs-or-decipherin-d6c1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_10_ideal-for-onboarding-reviewing-prs-or-decipherin-d6c1.md)
 
@@ -322,7 +321,7 @@ Copilot identifies that `.map()` is being called on a non-array, suggests valida
 ```mermaid
 ```
 
-![Prompt:](images/diagram_11_copilot-identifies-that-map-is-being-called-o-adfe.png)
+![Prompt:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_11_copilot-identifies-that-map-is-being-called-o-adfe.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_11_copilot-identifies-that-map-is-being-called-o-adfe.md)
 
@@ -475,7 +474,7 @@ Transforms legacy jQuery DOM manipulation into modern React components with stat
 ```mermaid
 ```
 
-![Diagram](images/diagram_12_transforms-legacy-jquery-dom-manipulation-into-mod-4615.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_12_transforms-legacy-jquery-dom-manipulation-into-mod-4615.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_12_transforms-legacy-jquery-dom-manipulation-into-mod-4615.md)
 
@@ -497,7 +496,7 @@ Copilot automates common but tedious tasks with simple commands:
 ```mermaid
 ```
 
-![Generate commit message](images/diagram_13_initialize-project--sets-up-standard-projec-b559.png)
+![Generate commit message](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_13_initialize-project--sets-up-standard-projec-b559.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_13_initialize-project--sets-up-standard-projec-b559.md)
 
@@ -517,7 +516,7 @@ Before you even push your code, Copilot can review it:
 ```mermaid
 ```
 
-![Real-time suggestions](images/diagram_14_test-coverage-gaps--identifies-untested-cod-7a8c.png)
+![Real-time suggestions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_14_test-coverage-gaps--identifies-untested-cod-7a8c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_14_test-coverage-gaps--identifies-untested-cod-7a8c.md)
 
@@ -542,7 +541,7 @@ VS Code is where GitHub Copilot feels most at home, with deep integration that m
 ```mermaid
 ```
 
-![Key features in VS Code:](images/diagram_15_multi-root-workspace-support--works-across-b4e4.png)
+![Key features in VS Code:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_15_multi-root-workspace-support--works-across-b4e4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_15_multi-root-workspace-support--works-across-b4e4.md)
 
@@ -569,7 +568,7 @@ JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.) offer a deeply integrate
 ```mermaid
 ```
 
-![Key features in JetBrains:](images/diagram_16_project-wide-context--leverages-jetbrains-98b5.png)
+![Key features in JetBrains:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_16_project-wide-context--leverages-jetbrains-98b5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_16_project-wide-context--leverages-jetbrains-98b5.md)
 
@@ -596,7 +595,7 @@ For developers who live in the terminal, Copilot for Neovim provides a lightweig
 ```mermaid
 ```
 
-![Key features in Neovim:](images/diagram_17_remote-development--works-over-ssh-in-remot-dd12.png)
+![Key features in Neovim:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_17_remote-development--works-over-ssh-in-remot-dd12.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_17_remote-development--works-over-ssh-in-remot-dd12.md)
 
@@ -621,7 +620,7 @@ For developers working in Visual Studio (Windows), Copilot integrates with the e
 ```mermaid
 ```
 
-![Key features in Visual Studio:](images/diagram_18_debugger-integration--suggestions-during-de-57b1.png)
+![Key features in Visual Studio:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_18_debugger-integration--suggestions-during-de-57b1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_18_debugger-integration--suggestions-during-de-57b1.md)
 
@@ -633,7 +632,7 @@ For developers working in Visual Studio (Windows), Copilot integrates with the e
 ```mermaid
 ```
 
-![Diagram](images/diagram_19_supported-ides-overview.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_19_supported-ides-overview.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_19_supported-ides-overview.md)
 
@@ -647,7 +646,7 @@ For developers working in Visual Studio (Windows), Copilot integrates with the e
 ```mermaid
 ```
 
-![Building a New Feature with Copilot](images/diagram_20_complete-workflow-example.png)
+![Building a New Feature with Copilot](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_20_complete-workflow-example.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_20_complete-workflow-example.md)
 
@@ -661,12 +660,12 @@ For developers working in Visual Studio (Windows), Copilot integrates with the e
 ```mermaid
 ```
 
-![Productivity Impact](images/diagram_21_developer-time-savings.png)
+![Productivity Impact](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_21_developer-time-savings.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_21_developer-time-savings.md)
 
 
-![Table](images/table_03_untitled.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/table_03_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/table_03_untitled.md)
 
@@ -678,7 +677,7 @@ For developers working in Visual Studio (Windows), Copilot integrates with the e
 ```mermaid
 ```
 
-![Diagram](images/diagram_22_developer-experience-metrics.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_22_developer-experience-metrics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_22_developer-experience-metrics.md)
 
@@ -731,7 +730,7 @@ Copilot considers your open tabs. If you're working on authentication, keep rela
 ```mermaid
 ```
 
-![Diagram](images/diagram_23_copilot-considers-your-open-tabs-if-youre-workin-0738.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_23_copilot-considers-your-open-tabs-if-youre-workin-0738.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_23_copilot-considers-your-open-tabs-if-youre-workin-0738.md)
 
@@ -754,7 +753,7 @@ Start broad, then refine:
 ```mermaid
 ```
 
-![Diagram](images/diagram_24_3-tests-generate-tests-for-this-component-9f47.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_24_3-tests-generate-tests-for-this-component-9f47.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_24_3-tests-generate-tests-for-this-component-9f47.md)
 
@@ -782,7 +781,7 @@ Start broad, then refine:
 
 ### Keyboard Shortcuts
 
-![For specific quality standards:](images/table_04_keyboard-shortcuts.png)
+![For specific quality standards:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/table_04_keyboard-shortcuts.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/table_04_keyboard-shortcuts.md)
 
@@ -794,7 +793,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![Diagram](images/diagram_25_chain-commands-for-comprehensive-results-40a9.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_25_chain-commands-for-comprehensive-results-40a9.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_25_chain-commands-for-comprehensive-results-40a9.md)
 
@@ -808,7 +807,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![What's New in IDE Copilot (2025-2026)](images/diagram_26_latest-updates.png)
+![What's New in IDE Copilot (2025-2026)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_26_latest-updates.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_26_latest-updates.md)
 
@@ -826,7 +825,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![50% faster suggestions](images/diagram_27_coming-soon.png)
+![50% faster suggestions](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_27_coming-soon.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_27_coming-soon.md)
 
@@ -850,7 +849,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![Specialized variants](images/diagram_28_code-scanning-integration--ai-suggestions-a-42bb.png)
+![Specialized variants](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_28_code-scanning-integration--ai-suggestions-a-42bb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_28_code-scanning-integration--ai-suggestions-a-42bb.md)
 
@@ -884,7 +883,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![85% of developers](images/diagram_29_100000-organizations-using-copilot-free-dcdc.png)
+![85% of developers](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_29_100000-organizations-using-copilot-free-dcdc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_29_100000-organizations-using-copilot-free-dcdc.md)
 
@@ -893,7 +892,7 @@ Chain commands for comprehensive results:
 
 ## GitHub Copilot vs. Other AI Coding Tools
 
-![GitHub Copilot vs. Other AI Coding Tools](images/table_05_github-copilot-vs-other-ai-coding-tools-4077.png)
+![GitHub Copilot vs. Other AI Coding Tools](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/table_05_github-copilot-vs-other-ai-coding-tools-4077.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/table_05_github-copilot-vs-other-ai-coding-tools-4077.md)
 
@@ -907,7 +906,7 @@ Chain commands for comprehensive results:
 ```mermaid
 ```
 
-![Troubleshooting Common Issues](images/diagram_30_troubleshooting-flow.png)
+![Troubleshooting Common Issues](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_30_troubleshooting-flow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_30_troubleshooting-flow.md)
 
@@ -950,7 +949,7 @@ Copilot meets you where you are, respects your patterns, and amplifies your capa
 ```mermaid
 ```
 
-![Writing new features](images/diagram_31_copilot-meets-you-where-you-are-respects-your-pat-680c.png)
+![Writing new features](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/GitHub/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/images/diagram_31_copilot-meets-you-where-you-are-respects-your-pat-680c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/github-copilot-in-the-ide-your-ai-pair-programmer-always-by-your-side/diagram_31_copilot-meets-you-where-you-are-respects-your-pat-680c.md)
 
@@ -960,7 +959,7 @@ Copilot meets you where you are, respects your patterns, and amplifies your capa
 ## Complete Story Links
 
 - [**📖 GitHub Copilot** – – The AI-Powered Development Ecosystem](https://medium.com/@mvineetsharma/github-copilot-the-ai-powered-development-ecosystem-1ff02f7934c8)   
-- 📝 **In the IDE** – Your AI pair programmer, always by your side - Comming soon 
+- [**📝 In the IDE** – Your AI pair programmer, always by your side](#) 
 - 🌐 **GitHub.com** – AI-powered collaboration at scale -  - Comming soon 
 - 💻 **In the Terminal** – Your command line AI assistant - - Comming soon  
 - ⚙️ **In CI/CD** – AI-powered automation in your pipelines - - Comming soon  
