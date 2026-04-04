@@ -365,6 +365,7 @@ For questions, suggestions, or feedback:
 - GitHub Issues: [Create an issue](https://github.com/your-repo/issues)
 - Email: your-email@example.com
 
+https://bulkresizephotos.com/en
 ---
 
 **Happy Documenting!** 🚀

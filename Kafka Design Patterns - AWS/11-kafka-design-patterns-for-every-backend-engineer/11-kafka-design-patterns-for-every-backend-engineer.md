@@ -2,7 +2,7 @@
 ### Brief intro, detailed explainer for each pattern, Mermaid diagrams, small code snippets.
 ## Introduction
 
-![alt text](images/11-Kafka-Design-Patterns-for-Every-Backend-Engineer.jpg)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/11-Kafka-Design-Patterns-for-Every-Backend-Engineer.jpg)
 
 Apache Kafka on AWS has become the de facto event streaming backbone for modern architectures — from startups to enterprises. But using Kafka effectively requires more than just producing and consuming messages. You need battle-tested design patterns to handle ordering, exactly-once semantics, large payloads, failure recovery, and integration with AWS services like MSK, S3, DynamoDB, and Lambda.
 
@@ -38,7 +38,7 @@ Each pattern below includes: **what it is**, **when to use it**, **how it works 
 ---
 
 ## 1. Event Sourcing
-![alt text](images/Event-Sourcing-Pattern.jpg)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Event-Sourcing-Pattern.jpg)
 **What it is:**  
 Instead of storing only the current state of an entity (like a row in a database), you store every state-changing event as an immutable, append-only sequence in Kafka. The current state is derived by replaying all events from the beginning. Kafka's log-based storage makes this natural.
 
@@ -56,7 +56,7 @@ Create an MSK topic with infinite retention (or backup to S3 via MSK Connect S3 
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_01_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_01_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_01_mermaid-diagram.md)
 
@@ -87,7 +87,7 @@ for msg in consumer:
 ---
 
 ## 2. CQRS (Command Query Responsibility Segregation)
-![Kafka Design Patterns - AWS/images/CQRS Pattern](images/CQRS-Pattern-.jpg)
+![Kafka Design Patterns - CQRS Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/CQRS-Pattern-.jpg)
 
 **What it is:**  
 Separate the write path (commands that change state) from the read path (queries that retrieve data). Commands go to Kafka, which then asynchronously updates one or more read-optimized models. This allows reads and writes to scale independently and use different data structures.
@@ -106,7 +106,7 @@ Write commands to an MSK topic. A consumer (Lambda, Kafka Streams, or ksqlDB) up
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_02_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_02_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_02_mermaid-diagram.md)
 
@@ -136,7 +136,7 @@ public void updateReadModels(OrderEvent event) {
 ---
 
 ## 3. Event Carried State Transfer
-![Kafka Design Patterns - AWS/images/Event Carried State Transfer](images/Event-Carried-State-Transfer.jpg)
+![Kafka Design Patterns - AWS/https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Event Carried State Transfer](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Event-Carried-State-Transfer.jpg)
 
 **What it is:**  
 Events contain not just an identifier but the complete state information that downstream consumers need. This eliminates the need for consumers to fetch additional data from the source service, reducing coupling, network calls, and latency.
@@ -155,7 +155,7 @@ Design your event payloads generously. Use Glue Schema Registry for versioning s
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_03_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_03_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_03_mermaid-diagram.md)
 
@@ -190,7 +190,7 @@ def handle_user_update(event):
 ---
 
 ## 4. Claim Check
-![Kafka Design Patterns - AWS/images/Claim Check Pattern](images/Claim-Check-Pattern.jpg)
+![Kafka Design Patterns - AWS/images/Claim Check Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Claim-Check-Pattern.jpg)
 
 **What it is:**  
 Store large message payloads (images, videos, large JSON blobs) in an external storage system like S3. The Kafka message contains only a reference (claim check) to that external data. Consumers retrieve the reference and fetch the actual data from external storage when needed.
@@ -209,7 +209,7 @@ Upload large data to S3 with a unique key. Send a Kafka message containing the S
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_04_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_04_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_04_mermaid-diagram.md)
 
@@ -245,7 +245,7 @@ producer.send("order_attachments", key="123", value=json.dumps(claim_check))
 ---
 
 ## 5. Dead Letter Queue (DLQ)
-![Kafka Design Patterns - AWS/images/Dead Letter Queue Pattern](images/Dead-Letter-Queue-Pattern.jpg)
+![Kafka Design Patterns - AWS/images/Dead Letter Queue Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Dead-Letter-Queue-Pattern.jpg)
 
 **What it is:**  
 When a consumer fails to process a message after all retry attempts, that message is sent to a separate "dead letter" topic instead of being lost or blocking the main topic. The DLQ acts as a quarantine area for problematic messages that need manual inspection or delayed replay.
@@ -264,7 +264,7 @@ Create a DLQ topic per main topic (naming convention: `main-topic.dlq`). Configu
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_05_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_05_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_05_mermaid-diagram.md)
 
@@ -296,7 +296,7 @@ def consume_with_dlq():
 ---
 
 ## 6. Idempotent Consumer
-![Kafka Design Patterns - AWS/images/Idempotent Consumer Pattern](images/Idempotent-Consumer-Pattern.jpg)
+![Kafka Design Patterns - AWS/images/Idempotent Consumer Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Idempotent-Consumer-Pattern.jpg)
 
 **What it is:**  
 A consumer that can safely process the same message multiple times without causing duplicate side effects (double charging a credit card, sending two welcome emails, incrementing a counter twice). This is essential because Kafka guarantees at-least-once delivery by default.
@@ -315,7 +315,7 @@ Maintain an idempotency store (DynamoDB with TTL, or Redis ElastiCache). For eac
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_06_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_06_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_06_mermaid-diagram.md)
 
@@ -325,7 +325,7 @@ Maintain an idempotency store (DynamoDB with TTL, or Redis ElastiCache). For eac
 ---
 
 ## 7. Transactional Outbox
-![Kafka Design Patterns - AWS/images/Transactional Outbox Pattern ](images/Transactional-Outbox-Pattern-.jpg)
+![Kafka Design Patterns - AWS/images/Transactional Outbox Pattern ](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Transactional-Outbox-Pattern-.jpg)
 
 **What it is:**  
 A pattern that solves the dual-write problem: ensuring that a database update and a Kafka message are published atomically. Instead of writing to both in one transaction (impossible across systems), you write to the database and to an "outbox" table in the same local transaction. A separate process polls the outbox and publishes to Kafka, marking records as sent.
@@ -344,7 +344,7 @@ Use RDS (PostgreSQL, MySQL) or Aurora with an outbox table. A Lambda function (o
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_07_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_07_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_07_mermaid-diagram.md)
 
@@ -393,7 +393,7 @@ def lambda_handler(event, context):
 ---
 
 ## 8. Compacted Topic
-![Kafka Design Patterns - AWS/images/Compacted Topic Pattern](images/Compacted-Topic-Pattern.jpg)
+![Kafka Design Patterns - AWS/images/Compacted Topic Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Compacted-Topic-Pattern.jpg)
 
 **What it is:**  
 A Kafka topic with `cleanup.policy=compact`. Instead of deleting old messages by time or size, Kafka retains only the latest message for each key. All previous values for that key are eventually removed during log compaction. This turns the topic into a distributed, replicated, fault-tolerant key-value store.
@@ -412,7 +412,7 @@ Set `cleanup.policy=compact` on your MSK topic. Optionally also set `min.cleanab
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_08_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_08_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_08_mermaid-diagram.md)
 
@@ -437,7 +437,7 @@ msg = consumer.poll()
 ---
 
 ## 9. Partition Key / Ordering Pattern
-![Kafka Design Patterns - AWS/images/Partition Key Pattern](images/Partition-Key-Pattern.jpg)
+![Kafka Design Patterns - AWS/images/Partition Key Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Partition-Key-Pattern.jpg)
 
 **What it is:**  
 Kafka guarantees order only within a single partition. By setting a message key, you ensure all messages with the same key go to the same partition, preserving their order. This is fundamental for event-sourced systems where per-entity order matters (e.g., all events for order #123 must be processed in sequence).
@@ -456,7 +456,7 @@ Choose a high-cardinality key (e.g., `order_id`, `user_id`, `device_id`). Avoid 
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_09_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_09_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_09_mermaid-diagram.md)
 
@@ -509,7 +509,7 @@ Use ksqlDB on Confluent Cloud (available on AWS Marketplace) or run Kafka Stream
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_10_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_10_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_10_mermaid-diagram.md)
 
@@ -569,7 +569,7 @@ KStream<String, EnrichedClick> enriched = clickStream.join(
 ---
 
 ## 11. Saga (Choreography)
-![Kafka Design Patterns - Saga Pattern](images/Saga-Pattern.jpg)
+![Kafka Design Patterns - Saga Pattern](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/Saga-Pattern.jpg)
 **What it is:**  
 A distributed transaction pattern where each local transaction publishes events that trigger the next transaction in other services. No central coordinator. If a step fails, previous services execute compensating transactions (undo actions) by listening to failure events. Kafka acts as the communication backbone.
 
@@ -587,7 +587,7 @@ Each service listens to a Kafka topic, does its local work, and publishes succes
 ```mermaid
 ```
 
-![How on AWS:](images/diagram_11_mermaid-diagram.png)
+![How on AWS:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Kafka%20Design%20Patterns%20-%20AWS/11-kafka-design-patterns-for-every-backend-engineer/images/diagram_11_mermaid-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns-for-every-backend-engineer/diagram_11_mermaid-diagram.md)
 
