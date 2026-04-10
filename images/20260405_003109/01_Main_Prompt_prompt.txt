@@ -1,0 +1,4 @@
+Heading: Main_Prompt
+
+Original Prompt:
+Now create gemini image prompts for all 4 stories and 11 patterns in code block as readme. The images should be in AWS style with light background, infrastructure at background, technology and pattern logos with text. Include title and sub title, all 4 story title starts with "11 Kafka Design Patterns -". Place "Vineet Sharma" at bottom right.

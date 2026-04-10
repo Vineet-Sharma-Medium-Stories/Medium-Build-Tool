@@ -1,0 +1,9 @@
+Generate a professional AWS-style architectural hero image for a technical blog series titled "11 Kafka Design Patterns for Every Backend Engineer" with a LIGHT BACKGROUND.
+
+Background: Clean white or off-white canvas with a subtle light gray grid pattern. Soft abstract cloud infrastructure outlines in very light blue (#E3F2FD). AWS service icons (Amazon MSK, S3, DynamoDB, Lambda, RDS, OpenSearch) in light gray with darker blue accents. Flowing data streams in teal (#00A8C6) and orange (#FF6B35) colors connecting the services. A large Amazon MSK logo centered in the background with data flowing outward like a hub.
+
+Foreground: 11 glowing pattern icons arranged in a circular or grid pattern around the center. Each icon represents a pattern: Outbox (envelope with database), Idempotent Consumer (checkmark with duplicate symbol), Partition Key (key with ordered list), DLQ (skull with queue), Retry (recycling arrows), Event Sourcing (timeline with events), CQRS (split command/query arrows), Compacted Topic (compressed folder with key), Event Carried State Transfer (package with data), Claim Check (ticket with S3), Stream-Table (overlapping stream and table), Saga (chain of circles with checkmarks).
+
+Top text in large bold dark navy font: "11 KAFKA DESIGN PATTERNS". Below in medium dark gray font: "For Every Backend Engineer". Bottom right corner: "Vineet Sharma" in small dark gray text.
+
+Overall style: Clean whiteboard or documentation aesthetic, AWS QuickSight or AWS Training slide style, light background, crisp icons, professional diagrammatic look, no realistic people.

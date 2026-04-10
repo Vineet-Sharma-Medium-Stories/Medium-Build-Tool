@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+    <!-- Background -->
+    <rect width="1200" height="800" fill="#FFFFFF"/>
+    <rect width="1200" height="80" fill="#0078D4"/>
+    
+    <!-- Title -->
+    <text x="50" y="50" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#FFFFFF" font-weight="bold">
+         Story 2 Reliability Ordering Patterns
+    </text>
+    
+    <!-- Info Box -->
+    <rect x="50" y="150" width="1100" height="500" rx="10" ry="10" fill="#F8F9FA" stroke="#0078D4" stroke-width="2"/>
+    <text x="70" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#0078D4" font-weight="bold">
+        Diagram Generation Information
+    </text>
+    
+    <text x="70" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#333333">
+        • Gemini API returned an error for this prompt
+    </text>
+    <text x="70" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#333333">
+        • The prompt has been saved for manual generation
+    </text>
+    <text x="70" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#333333">
+        • Check the .txt file with the same name for the original prompt
+    </text>
+    <text x="70" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#333333">
+        • You can use this prompt with other image generation tools
+    </text>
+    
+    <text x="70" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#0078D4" font-weight="bold">
+        Suggested alternatives:
+    </text>
+    <text x="90" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#666666">
+        1. Use DALL-E or Midjourney with the saved prompt
+    </text>
+    <text x="90" y="490" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#666666">
+        2. Try the Gemini API with a different model
+    </text>
+    <text x="90" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#666666">
+        3. Use an online SVG editor to create the diagram manually
+    </text>
+    
+    <!-- Bottom bar -->
+    <rect x="0" y="750" width="1200" height="50" fill="#F0F0F0"/>
+    <text x="1050" y="780" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#666666">
+        Vineet Sharma
+    </text>
+</svg>

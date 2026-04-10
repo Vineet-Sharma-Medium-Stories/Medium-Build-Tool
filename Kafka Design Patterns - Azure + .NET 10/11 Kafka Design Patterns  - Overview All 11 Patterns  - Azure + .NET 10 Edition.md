@@ -1,6 +1,6 @@
 # 📖 11 Kafka Design Patterns — Overview (All 11 Patterns) — Azure + .NET 10 Edition
 
-## Intro
+## Intro s
 
 Welcome to the **Azure + .NET 10** edition of our Kafka Design Patterns series.
 

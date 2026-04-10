@@ -1,0 +1,12 @@
+Heading: _Story_1_Overview_All_11_Patterns
+
+Original Prompt:
+Generate an AWS-style technical illustration for a blog story titled "11 Kafka Design Patterns - Part 1: Overview of All 11 Patterns" with a LIGHT BACKGROUND.
+
+Background: Clean white canvas with light gray grid. AWS cloud infrastructure diagram with Amazon MSK cluster in the center, surrounded by connection lines to other AWS services: S3 bucket, DynamoDB table, Lambda function, RDS database, OpenSearch domain, and ECS containers. All service icons in light gray with dark blue outlines. Subtle data flow arrows in teal and orange.
+
+Foreground: A large central hub representing Kafka with 11 labeled pattern cards radiating outward in a semicircle or wheel arrangement. Each card has a small icon and pattern name on a white card with light gray border and soft shadow: Outbox, Idempotent Consumer, Partition Key, DLQ, Retry, Event Sourcing, CQRS, Compacted Topic, Event Carried State Transfer, Claim Check, Stream-Table Duality, Saga.
+
+Top title text: "11 KAFKA DESIGN PATTERNS" in bold dark navy (#0A1929). Subtitle: "Part 1 — Overview of All 11 Patterns" in dark teal (#006B6B). Bottom right corner: "Vineet Sharma" in small dark gray text.
+
+Color scheme: White background (#FFFFFF), light gray grid (#F0F0F0), dark navy text (#0A1929), teal accent (#00A8C6), orange accent (#FF6B35). Icons should be clean and modern, similar to AWS architecture diagram icons in dark blue.

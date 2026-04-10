@@ -1,0 +1,16 @@
+Heading: _Story_4_Performance_Integration_Patterns
+
+Original Prompt:
+Generate an AWS-style technical illustration for a blog story titled "11 Kafka Design Patterns - Part 4: Performance & Integration Deep Dive" with a LIGHT BACKGROUND.
+
+Background: Clean white canvas with light gray grid. AWS infrastructure showing Amazon MSK connected to S3 (for Claim Check — large arrow to S3 bucket), ECS/EKS containers running Kafka Streams (light gray container icons), Step Functions workflow for saga orchestration (connected circles), and API Gateway for external integration. High-speed data flow lines in orange and teal.
+
+Foreground: Three pattern icons prominently displayed:
+
+1. Claim Check — A ticket or claim stub with an S3 bucket icon. Visual of large file (red) going to S3, small reference (green) going to Kafka.
+2. Stream-Table Duality — Overlapping icons: a flowing stream (blue wave lines) and a stable table (green grid). Joining symbol (orange overlap) in center.
+3. Saga (Choreography) — A chain of connected circles, each with a checkmark or cross. Compensating arrows looping back in red. Event-driven messaging symbols.
+
+Top title: "11 KAFKA DESIGN PATTERNS" in bold dark navy. Subtitle: "Part 4 — Performance & Integration Deep Dive" in dark orange (#CC5500). Bottom right: "Vineet Sharma".
+
+Color scheme: White background, dark navy text, bright cyan (#00A8C6) and orange (#FF6B35) accents to convey "speed", "integration", and "throughput". Icons should feel dynamic and connected, with arrow flows in teal.

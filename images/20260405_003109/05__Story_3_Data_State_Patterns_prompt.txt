@@ -1,0 +1,17 @@
+Heading: _Story_3_Data_State_Patterns
+
+Original Prompt:
+Generate an AWS-style technical illustration for a blog story titled "11 Kafka Design Patterns - Part 3: Data & State Deep Dive" with a LIGHT BACKGROUND.
+
+Background: Clean white canvas with light gray grid. AWS infrastructure showing Amazon MSK with compacted topic visualization (stack of messages collapsing into one), S3 Glacier for long-term event archive (light blue icon), ksqlDB or Kafka Streams processor, DynamoDB for materialized views, and Glue Schema Registry. Data lineage arrows in teal showing events flowing from producers to storage to materialized views.
+
+Foreground: Four pattern icons prominently displayed:
+
+1. Event Sourcing — A timeline with event dots leading to a database snapshot. Icons for "past", "present", "replay" in teal.
+2. CQRS — Split design: left side "Command" (pencil/arrow in dark blue), right side "Query" (magnifying glass in green). Connected by Kafka in center with orange arrow.
+3. Compacted Topic — A folder or database icon with a key, showing only the latest version retained. Old versions fading to light gray.
+4. Event Carried State Transfer — An event envelope that is "full" or "bulging" with data, with a "no fetch needed" symbol (crossed-out network icon in red).
+
+Top title: "11 KAFKA DESIGN PATTERNS" in bold dark navy. Subtitle: "Part 3 — Data & State Deep Dive" in dark teal (#006B6B). Bottom right: "Vineet Sharma".
+
+Color scheme: White background, dark navy text, teal and green accents conveying "data persistence" and "state management". Icons should feel solid and durable, like database or storage symbols, with dark blue outlines.

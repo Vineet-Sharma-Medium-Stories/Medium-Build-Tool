@@ -1,0 +1,12 @@
+Heading: 1_Transactional_Outbox_Pattern
+
+Original Prompt:
+Generate an AWS-style technical diagram for the "Transactional Outbox" pattern with a LIGHT BACKGROUND.
+
+Visual composition: Clean white background with light gray grid. Left side shows an application service icon (dark blue) writing to a database cylinder (light gray with dark blue outline). Inside the database, two tables represented as grids: "Orders" and "Outbox" (Outbox highlighted in orange). A transaction boundary (dashed dark blue box) surrounds both writes. Right side shows a Debezium connector (or Lambda icon) reading from the Outbox and publishing to an Amazon MSK topic (Kafka icon in dark blue). A consumer icon reads from the topic.
+
+Text labels in dark navy: "1. BEGIN TX", "2. INSERT Order", "3. INSERT Outbox", "4. COMMIT", "CDC / Poller", "Publish to Kafka", "Consumer".
+
+Top title in bold dark navy: "Transactional Outbox Pattern — Exactly-Once Between DB and Kafka". Bottom right corner: "Vineet Sharma" in small dark gray text.
+
+Color scheme: White background, dark navy text and outlines, orange highlight on Outbox table, teal arrows. The transaction boundary should be a dashed dark blue line.

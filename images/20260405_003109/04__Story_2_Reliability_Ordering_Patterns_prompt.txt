@@ -1,0 +1,18 @@
+Heading: _Story_2_Reliability_Ordering_Patterns
+
+Original Prompt:
+Generate an AWS-style technical illustration for a blog story titled "11 Kafka Design Patterns - Part 2: Reliability & Ordering Deep Dive" with a LIGHT BACKGROUND.
+
+Background: Clean white canvas with light gray grid. AWS infrastructure showing Amazon MSK brokers, DynamoDB table (for idempotency), RDS/Aurora database (for outbox table), SQS queue (for DLQ), and CloudWatch alarms. All icons in light gray with dark blue outlines. Orange and teal connection lines.
+
+Foreground: Five pattern icons prominently displayed in a horizontal or circular arrangement:
+
+1. Transactional Outbox — Envelope merging into a database cylinder, with green checkmark.
+2. Idempotent Consumer — Circular arrow with a checkmark inside, and a duplicate symbol crossed out in red.
+3. Partition Key — A key with ordered list items (1,2,3) flowing into partitions.
+4. Dead Letter Queue — A skull icon inside a queue/message box, with an alert bell in orange.
+5. Retry with Backoff — Clock with curved arrows showing increasing delays (1s, 2s, 4s).
+
+Top title: "11 KAFKA DESIGN PATTERNS" in bold dark navy. Subtitle: "Part 2 — Reliability & Ordering Deep Dive" in dark orange (#CC5500). Bottom right: "Vineet Sharma".
+
+Color scheme: White background, dark navy text, orange and teal accents for icons. Icons should have clean dark blue outlines. Use green for success paths, red for warnings/duplicates.

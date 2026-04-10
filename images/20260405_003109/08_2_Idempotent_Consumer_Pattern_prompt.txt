@@ -1,0 +1,12 @@
+Heading: 2_Idempotent_Consumer_Pattern
+
+Original Prompt:
+Generate an AWS-style technical diagram for the "Idempotent Consumer" pattern with a LIGHT BACKGROUND.
+
+Visual composition: Clean white background with light gray grid. Kafka topic icon sending duplicate messages (visualized as two identical envelopes with same offset number, one in green, one in light gray) to a consumer icon (dark blue). The consumer checks a DynamoDB table icon (light gray with dark outline, labeled "Idempotency Store") with conditional write. First message writes marker (green check) and processes; second message sees existing marker and skips (red X).
+
+Text labels in dark navy: "Duplicate Message", "Conditional PUT (attribute_not_exists)", "First → Process", "Duplicate → Skip", "DynamoDB TTL 7 days".
+
+Top title in bold dark navy: "Idempotent Consumer Pattern — Making Duplicates Harmless". Bottom right: "Vineet Sharma".
+
+Color scheme: White background, dark navy text, green for success path, red for duplicate skip. DynamoDB icon prominently displayed in light gray with dark blue outline.
