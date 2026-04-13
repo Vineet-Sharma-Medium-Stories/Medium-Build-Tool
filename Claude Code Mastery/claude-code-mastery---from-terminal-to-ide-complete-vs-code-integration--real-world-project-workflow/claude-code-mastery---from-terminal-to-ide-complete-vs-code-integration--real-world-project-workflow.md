@@ -1,10 +1,9 @@
 # Claude Code Mastery - From Terminal to IDE : Complete VS Code Integration & Real-World Project Workflo
 
 ### A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
-
-## ![From Terminal to IDE](./images/From-Terminal-to-IDE.png)
-
 # Introduction: Bridging the Gap Between AI and IDE
+
+## ![From Terminal to IDE](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images/From-Terminal-to-IDE.png)
 
 Throughout this series, we've explored Claude Code's powerful features—from memory and permissions to advanced workflows and parallel execution. But the true magic happens when Claude Code becomes an integral part of your development environment, working seamlessly alongside your IDE, tools, and existing workflows.
 
@@ -16,30 +15,12 @@ This final story takes you on a complete journey from zero to production, showin
 - Deploy to production with confidence using everything we've learned
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "Development Environment"
-        A[VS Code<br/>IDE] --> E[Seamless Integration]
-        B[Claude Code<br/>AI Assistant] --> E
-        C[Terminal<br/>Command Line] --> E
-        D[Git<br/>Version Control] --> E
-    end
-    
-    subgraph "Workflow"
-        E --> F[Plan → Code → Test → Deploy]
-        F --> G[Production-Ready<br/>Application]
-    end
-    
-    style A fill:#e1f5fe
-    style B fill:#e1f5fe
-    style C fill:#e1f5fe
-    style D fill:#e1f5fe
-    style G fill:#c8e6c9
 ```
+
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images/diagram_01_deploy-to-production-with-confidence-using-every-ae75.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/diagram_01_deploy-to-production-with-confidence-using-every-ae75.md)
+
 
 ---
 
@@ -1299,44 +1280,12 @@ jobs:
 Now let's see how everything comes together in a complete development cycle:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "1. Planning"
-        A[Open VS Code] --> B[Claude: /plan]
-        B --> C[Review Architecture]
-        C --> D[Create Tasks]
-    end
-    
-    subgraph "2. Development"
-        D --> E[Claude Subagents]
-        E --> F[Parallel Implementation]
-        F --> G[Real-time Testing]
-        G --> H[Auto-deploy to Staging]
-    end
-    
-    subgraph "3. Review & Test"
-        H --> I[Claude: /review]
-        I --> J[Security Scan]
-        J --> K[Performance Test]
-    end
-    
-    subgraph "4. Production"
-        K --> L[Claude: /deploy]
-        L --> M[Canary Deployment]
-        M --> N[Monitor Metrics]
-        N --> O[Full Rollout]
-    end
-    
-    style B fill:#e1f5fe
-    style E fill:#e1f5fe
-    style I fill:#e1f5fe
-    style L fill:#e1f5fe
-    style O fill:#c8e6c9
 ```
+
+![Part 4: Complete Development Workflow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images/diagram_02_now-lets-see-how-everything-comes-together-in-a-c-e60c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/diagram_02_now-lets-see-how-everything-comes-together-in-a-c-e60c.md)
+
 
 ### Hands-On Session: Building a New Feature
 
@@ -1754,49 +1703,20 @@ git push origin main
 ## Summary: The Complete Claude Code + VS Code Experience
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-mindmap
-  root((Complete<br/>Development<br/>Ecosystem))
-    VS Code Integration
-      Tasks & Commands
-      Debug Configuration
-      Extensions
-      Terminal Integration
-      Git Integration
-    Claude Code Features
-      Memory & Control Layer
-      Extension Framework
-      Advanced Workflow Engine
-      Parallel Subagents
-    CI/CD Pipeline
-      GitHub Actions
-      Automated Testing
-      Security Scanning
-      Container Building
-      Deployment
-    Infrastructure
-      Docker Compose
-      Kubernetes
-      Prometheus Monitoring
-      Ingress Controller
-      Secrets Management
 ```
+
+![- Error rate: 0.02%](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/code-to-cluster-building-a-bulletproof-kubernetes-deployment-pipeline-on-aws/https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images/diagram_03_summary-the-complete-claude-code--vs-code-exp-d6b5.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/diagram_03_summary-the-complete-claude-code--vs-code-exp-d6b5.md)
+
 
 ### Key Takeaways
 
 
-| Aspect                         | Benefit                                  |
-| ------------------------------ | ---------------------------------------- |
-| **VS Code Integration**        | Seamless AI assistance within your IDE   |
-| **Claude Features**            | All 12 features working together         |
-| **Microservices Architecture** | Scalable, maintainable, production-ready |
-| **CI/CD Pipeline**             | Automated quality gates                  |
-| **Kubernetes Deployment**      | Cloud-native infrastructure              |
-| **Monitoring**                 | Full observability                       |
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images/table_01_key-takeaways.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/table_01_key-takeaways.md)
+
 
 
 ### Final Command Reference
@@ -1852,30 +1772,12 @@ These features combine to create a development experience that is:
 The result is an AI-powered development platform that doesn't just answer questions—it becomes a true partner in building production-ready software.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "Your Development Journey"
-        A[Start] --> B[Learn Features]
-        B --> C[Configure Environment]
-        C --> D[Build Projects]
-        D --> E[Optimize Workflows]
-        E --> F[Production Deploy]
-    end
-    
-    subgraph "Claude Code Evolution"
-        G[Terminal Assistant] --> H[IDE Integration]
-        H --> I[Team Collaboration]
-        I --> J[Enterprise Platform]
-    end
-    
-    style A fill:#e1f5fe
-    style F fill:#c8e6c9
-    style J fill:#c8e6c9
 ```
+
+![Safer](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/images//diagram_04_the-result-is-an-ai-powered-development-platform-t-a508.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---from-terminal-to-ide-complete-vs-code-integration--real-world-project-workflow/diagram_04_the-result-is-an-ai-powered-development-platform-t-a508.md)
+
 ---
 
 Coming soon! Want it sooner? Let me know with a clap or comment below
