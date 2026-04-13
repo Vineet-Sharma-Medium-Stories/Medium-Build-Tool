@@ -2,7 +2,7 @@
 ### Deep dive on patterns that ensure message durability, exactly-once processing, failure handling, and strict ordering.
 ## Introduction
 
-![Kafka Design Patterns - AWS/images/11 Kafka Design Patterns - Reliability & Ordering Deep Dive](<images/11 Kafka Design Patterns - Reliability & Ordering Deep Dive.jpg>)
+![Kafka Design Patterns - AWS/images/11 Kafka Design Patterns - Reliability & Ordering Deep Dive](images/11-Kafka-Design-Patterns---Reliability-&-Ordering-Deep-Dive.jpg)
 
 Welcome back to our Kafka Design Patterns series. In Part 1, we introduced all 11 patterns with diagrams and code snippets — a bird's-eye view of what's possible when you combine Kafka with AWS services like MSK, DynamoDB, RDS, and Lambda.
 
@@ -78,7 +78,7 @@ Each pattern includes:
 ---
 
 # 1. Transactional Outbox Pattern (Deep Dive)
-![Kafka Design Patterns - AWS/images/Transactional Outbox Pattern](<images/Transactional Outbox Pattern .jpg>)
+![Kafka Design Patterns - AWS/images/Transactional Outbox Pattern](images/Transactional-Outbox-Pattern-.jpg)
 ## The Problem: Dual-Write Inconsistency
 
 When your application writes to both a database and Kafka in separate steps, you risk inconsistency that can break your entire event-driven architecture. This is known as the **dual-write problem** — one of the most common and dangerous mistakes in event-driven systems.
@@ -149,48 +149,12 @@ The outbox publisher can be as simple as a polling loop or as sophisticated as a
 ### Architecture on AWS
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TB
-    subgraph "Application Layer"
-        App[API / Microservice<br/>FastAPI / Spring Boot]
-    end
-    
-    subgraph "AWS RDS / Aurora PostgreSQL"
-        DB[(Orders Table)]
-        Outbox[(Outbox Table)]
-    end
-    
-    subgraph "Change Data Capture (Two Options)"
-        Poller[Lambda Poller<br/>Every 100ms]
-        Debezium[Debezium Connector<br/>MSK Connect]
-    end
-    
-    subgraph "Kafka on Amazon MSK"
-        Topic[order_events Topic]
-    end
-    
-    App -->|1. BEGIN TRANSACTION| DB
-    App -->|2. INSERT order| DB
-    App -->|3. INSERT outbox record| Outbox
-    App -->|4. COMMIT| DB
-    
-    Outbox -->|Option A: Polling| Poller
-    Outbox -->|Option B: CDC| Debezium
-    
-    Poller -->|5a. SELECT pending| Outbox
-    Poller -->|6a. PUBLISH| Topic
-    
-    Debezium -->|5b. Stream changes| Debezium
-    Debezium -->|6b. PUBLISH| Topic
-    
-    style Outbox fill:#f9f,stroke:#333,stroke-width:2px
-    style App fill:#e1f5fe,stroke:#333
-    style Topic fill:#c8e6c9,stroke:#333
 ```
+
+![buffer](images/diagram_01_architecture-on-aws.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/diagram_01_architecture-on-aws.md)
+
 
 ### Detailed Walkthrough of the Flow
 
@@ -554,17 +518,16 @@ def emit_outbox_metrics():
 **CloudWatch Alarm configuration:**
 
 
-| Alarm                 | Condition                      | Action                |
-| --------------------- | ------------------------------ | --------------------- |
-| OutboxLagHigh         | > 10,000 records for 5 minutes | Page on-call engineer |
-| OutboxAgeHigh         | > 300 seconds                  | Page on-call engineer |
-| DebeziumConnectorDown | Connector status = FAILED      | Page on-call engineer |
+![CloudWatch Alarm configuration:](images/table_01_cloudwatch-alarm-configuration.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/table_01_cloudwatch-alarm-configuration.md)
+
 
 
 ---
 
 # 2. Idempotent Consumer Pattern (Deep Dive)
-![Kafka Design Patterns - AWS/images/Idempotent Consumer Pattern](<images/Idempotent Consumer Pattern.jpg>)
+![Kafka Design Patterns - AWS/images/Idempotent Consumer Pattern](images/Idempotent-Consumer-Pattern.jpg)
 ## The Problem: Duplicate Messages
 
 Kafka guarantees **at-least-once delivery** by default. This is a feature, not a bug — it ensures that no message is lost, even if consumers crash or networks fail. But it comes with a cost: the same message may be delivered multiple times.
@@ -622,45 +585,12 @@ The store needs to be:
 ### Architecture on AWS
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "Kafka Consumer"
-        M[Message<br/>key=order_123<br/>offset=42<br/>partition=0]
-    end
-    
-    subgraph "Idempotency Store"
-        D[(DynamoDB Table<br/>pk: order_123:0:42<br/>ttl: 7 days)]
-    end
-    
-    subgraph "Business Logic"
-        B[Process order]
-        C[Charge credit card]
-        E[Send confirmation]
-    end
-    
-    subgraph "AWS Services"
-        CW[CloudWatch Metrics]
-        SN[SNS Alert]
-    end
-    
-    M -->|1. Extract key| D
-    D -->|2. Conditional PUT| D
-    D -->|3a. Success (first time)| B
-    D -->|3b. Failure (duplicate)| Skip[Skip processing]
-    
-    B -->|4. Execute| C
-    C -->|5. Commit offset| M
-    C -->|6. Emit metrics| CW
-    
-    Skip -->|6. Emit duplicate metric| CW
-    CW -->|7. Alert if high duplicate rate| SN
-    
-    style D fill:#ffd,stroke:#333,stroke-width:2px
 ```
+
+![Atomic:](images/diagram_02_architecture-on-aws.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/diagram_02_architecture-on-aws.md)
+
 
 ### Complete Implementation: DynamoDB-Based Idempotency (Production Grade)
 
@@ -980,14 +910,10 @@ class RedisIdempotentConsumer:
 **When to use Redis vs DynamoDB:**
 
 
-| Characteristic           | DynamoDB                  | Redis                    |
-| ------------------------ | ------------------------- | ------------------------ |
-| **Latency**              | Single-digit milliseconds | Sub-millisecond          |
-| **Throughput**           | Unlimited (on-demand)     | Limited by instance size |
-| **Persistence**          | Durable by default        | Optional (snapshots/AOF) |
-| **TTL**                  | Native                    | Native                   |
-| **Operational overhead** | Serverless                | Managed ElastiCache      |
-| **Best for**             | Up to 10k msg/sec         | 10k-100k+ msg/sec        |
+![When to use Redis vs DynamoDB:](images/table_02_when-to-use-redis-vs-dynamodb.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/table_02_when-to-use-redis-vs-dynamodb.md)
+
 
 
 ### Common Pitfalls and Their Mitigations
@@ -1052,7 +978,7 @@ def emit_idempotency_metrics(consumer: IdempotentConsumer):
 # 3. Partition Key / Ordering Pattern (Deep Dive)
 
 ## The Problem: Event Ordering
-![Kafka Design Patterns - AWS/images/Partition Key Pattern](<images/Partition Key Pattern.jpg>)
+![Kafka Design Patterns - AWS/images/Partition Key Pattern](images/Partition-Key-Pattern.jpg)
 Kafka makes a fundamental guarantee: **within a single partition, messages are stored and delivered in the order they were sent.** But this guarantee comes with a critical limitation: **across different partitions, Kafka provides no ordering guarantees whatsoever.**
 
 This means if related events end up in different partitions, they can be processed out of order. For many business processes, out-of-order events lead to incorrect state and broken business logic.
@@ -1167,13 +1093,10 @@ A single partition on a modern MSK broker can handle approximately 100-200 MB/s 
 MSK clusters have maximum partition counts per broker type:
 
 
-| Broker Type       | Max Partitions per Cluster | Recommended Max |
-| ----------------- | -------------------------- | --------------- |
-| kafka.m5.large    | 1,000                      | 500             |
-| kafka.m5.xlarge   | 2,000                      | 1,000           |
-| kafka.m5.2xlarge  | 4,000                      | 2,000           |
-| kafka.m5.4xlarge  | 8,000                      | 4,000           |
-| kafka.m5.12xlarge | 24,000                     | 12,000          |
+![Rule 2: Partitions >= target throughput / 100 MB/s (rough estimate)](images/table_03_msk-clusters-have-maximum-partition-counts-per-bro-8099.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/table_03_msk-clusters-have-maximum-partition-counts-per-bro-8099.md)
+
 
 
 Exceeding these limits causes longer leader election times, slower rebalancing, and increased memory usage.
@@ -1380,7 +1303,7 @@ def check_partition_balance(topic, bootstrap_servers):
 ---
 
 # 4. Dead Letter Queue (DLQ) Pattern (Deep Dive)
-![Kafka Design Patterns - AWS/images/Dead Letter Queue Pattern](<images/Dead Letter Queue Pattern.jpg>)
+![Kafka Design Patterns - AWS/images/Dead Letter Queue Pattern](images/Dead-Letter-Queue-Pattern.jpg)
 ## The Problem: Poison Messages
 
 In any production Kafka system, you will eventually encounter a message that cannot be processed successfully, no matter how many times you try. These are called **poison messages** — and they can bring your entire consumer to a halt.
@@ -1417,48 +1340,12 @@ The DLQ acts as a holding area for failed messages. From there, you can:
 ### Architecture on AWS
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TB
-    subgraph "Kafka MSK Cluster"
-        Main[main_topic: order_events<br/>Messages: 0-999]
-        DLQ[DLQ Topic: order_events.dlq<br/>Poison messages only]
-    end
-    
-    subgraph "Consumer Application"
-        C[Consumer Service<br/>process_order()]
-        R[Retry Tracker<br/>max_retries=3]
-    end
-    
-    subgraph "Alerting & Monitoring"
-        CW[CloudWatch Alarm<br/>DLQ message count > 0]
-        SNS[SNS Topic]
-        Ops[On-call Engineer]
-        Replay[DLQ Replay Tool<br/>Manual or automated]
-    end
-    
-    Main -->|read| C
-    C -->|success| Commit[Commit offset]
-    C -->|failure| R
-    
-    R -->|retry count < 3| Retry[Retry later<br/>don't commit]
-    R -->|retry count = 3| SendDLQ[Send to DLQ]
-    
-    SendDLQ --> DLQ
-    SendDLQ --> Commit
-    
-    DLQ -->|CloudWatch metric| CW
-    CW --> SNS --> Ops
-    
-    DLQ -->|inspect & replay| Replay
-    Replay -->|republished| Main
-    
-    style DLQ fill:#f99,stroke:#333,stroke-width:2px
-    style Ops fill:#ffcc00,stroke:#333
 ```
+
+![Inspect](images/diagram_03_architecture-on-aws.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/diagram_03_architecture-on-aws.md)
+
 
 ### Complete Implementation
 
@@ -1881,7 +1768,7 @@ When you replay a DLQ message back to the main topic, it will be a new message w
 ---
 
 # 5. Retry with Backoff Pattern (Deep Dive)
-![Kafka Design Patterns - AWS/images/Retry with Backoff Pattern](<images/Retry with Backoff Pattern.jpg>)
+![Kafka Design Patterns - AWS/images/Retry with Backoff Pattern](images/Retry-with-Backoff-Pattern.jpg)
 
 ## The Problem: Transient Failures
 
@@ -1909,49 +1796,12 @@ Imagine 1,000 consumers all experience a transient failure at the same time (e.g
 ### Architecture on AWS
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TB
-    subgraph "Kafka Topics"
-        Main[main_topic]
-        R1[retry_1s_topic<br/>delay: 1 second]
-        R2[retry_5s_topic<br/>delay: 5 seconds]
-        R3[retry_30s_topic<br/>delay: 30 seconds]
-        DLQ[dlq_topic<br/>after max retries]
-    end
-    
-    subgraph "Consumer Group: Main"
-        MainC[Main Consumer]
-    end
-    
-    subgraph "Consumer Group: Retry 1s"
-        R1C[Retry Consumer 1s<br/>processes after 1s delay]
-    end
-    
-    subgraph "Consumer Group: Retry 5s"
-        R2C[Retry Consumer 5s<br/>processes after 5s delay]
-    end
-    
-    subgraph "Consumer Group: Retry 30s"
-        R3C[Retry Consumer 30s<br/>processes after 30s delay]
-    end
-    
-    Main --> MainC
-    MainC -->|transient failure| R1
-    R1 --> R1C
-    R1C -->|still failing| R2
-    R2 --> R2C
-    R2C -->|still failing| R3
-    R3 --> R3C
-    R3C -->|still failing| DLQ
-    
-    style R1 fill:#ffe,stroke:#333
-    style R2 fill:#ffe,stroke:#333
-    style R3 fill:#ffe,stroke:#333
 ```
+
+![Exponential backoff:](images/diagram_04_architecture-on-aws.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/diagram_04_architecture-on-aws.md)
+
 
 ### Complete Implementation
 
@@ -2305,13 +2155,10 @@ Without monitoring, you won't know if messages are stuck in retry loops or if yo
 We've covered five essential reliability patterns in this part:
 
 
-| Pattern                      | Problem Solved                                    | AWS Services                                       |
-| ---------------------------- | ------------------------------------------------- | -------------------------------------------------- |
-| **Transactional Outbox**     | Dual-write inconsistency between DB and Kafka     | RDS/Aurora + MSK Connect (Debezium) or Lambda      |
-| **Idempotent Consumer**      | Duplicate messages causing duplicate side effects | DynamoDB (conditional writes) or ElastiCache Redis |
-| **Partition Key / Ordering** | Out-of-order event processing                     | MSK with high-cardinality keys                     |
-| **Dead Letter Queue**        | Poison messages blocking processing               | MSK (DLQ topics) + CloudWatch alarms               |
-| **Retry with Backoff**       | Transient failures causing data loss              | MSK (retry topics) or SQS redrive policies         |
+![Summary: Part 2 Reliability Patterns](images/table_04_weve-covered-five-essential-reliability-patterns-3610.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/11-kafka-design-patterns---reliability--ordering-deep-dive/table_04_weve-covered-five-essential-reliability-patterns-3610.md)
+
 
 
 ## What's Coming in Part 3
