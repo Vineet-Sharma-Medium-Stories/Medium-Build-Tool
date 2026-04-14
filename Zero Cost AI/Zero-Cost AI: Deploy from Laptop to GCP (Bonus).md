@@ -1,13 +1,8 @@
-Here is the **GCP Bonus Story** – a complete, detailed deployment guide for Google Cloud Platform, following the exact same structure as the Azure and AWS bonus stories.
-
----
-
 # Zero-Cost AI: Deploy from Laptop to GCP (Bonus)
 
 ## A Complete Handbook for Deploying Your Zero-Cost AI Stack to Google Cloud Run, Cloud Storage, and GKE for Kubernetes-Based Scaling — with TPU Acceleration and Vertex AI Integration
 
----
-
+![Zero Cost AI/images/Deploy from Laptop to GCP](<images/Deploy from Laptop to GCP.jpg>)
 ## Introduction
 
 You have built a complete zero-cost AI stack that runs on your laptop and deploys to HuggingFace Spaces for free. You have deployed to Azure and AWS. Now it's time for Google Cloud Platform – the cloud built by the company that pioneered modern AI infrastructure.
@@ -1115,7 +1110,14 @@ The same Docker container. The same environment variables. The same core logic. 
 > *"Google Cloud Run is the most cost-effective way to deploy LLMs in production. Automatic scaling to zero means you pay nothing when your app is idle – perfect for AI workloads with variable traffic." — Zero-Cost AI Handbook*
 
 ---
+Coming soon! Want it sooner? Let me know with a clap or comment below
 
-**Estimated read time for this bonus story:** 35-45 minutes.
 
-**All 11 main stories + 3 bonus stories are now complete. Would you like me to compile the complete handbook into a single document?**
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

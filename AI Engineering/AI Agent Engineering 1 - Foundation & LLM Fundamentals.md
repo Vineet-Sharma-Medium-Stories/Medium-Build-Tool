@@ -1,6 +1,7 @@
 # AI Agent Engineering 1 - Foundation & LLM Fundamentals
+### Python mastery for agents (asyncio, FastAPI, Pydantic), LLM internals (transformers, tokens, context windows), prompting strategies (zero-shot, few-shot, chain-of-thought, ReAct), major LLM APIs (OpenAI, Anthropic, Gemini), development tools (OpenAI Playground, LangSmith, Guardrails AI), and your first working agent
 
-
+![AI Engineering/images/Foundation & LLM Fundamentals](<images/Foundation & LLM Fundamentals.png>)
 ## Welcome to the Future of AI Development
 
 *"The best way to predict the future is to build it."*
@@ -15,22 +16,24 @@ I've spent the last two years building production AI agents for Fortune 500 comp
 
 ## 🎯 What We'll Cover in This 5-Part Series
 
+Parent Story: **[AI Engineering: The 5-Step Blueprint to Building and Deploying AI Agents That Scale to Millions](https://mvineetsharma.medium.com/ai-engineering-the-5-step-blueprint-to-building-and-deploying-ai-agents-that-scale-to-millions-93b5bfa4fd07)**
 This isn't just another tutorial. This is a complete, structured journey through every layer of the AI agent stack. Here's what awaits you:
 
-### **Part 1: Foundation & LLM Fundamentals** (You Are Here)
-We start at the very beginning — the bedrock of AI agent development. You'll master Python programming for agents, understand how LLMs actually work under the hood, and learn to communicate effectively with models through advanced prompting techniques. By the end, you'll have your first working agent that can reason and respond.
+### **Part 1: [Foundation & LLM Fundamentals](#)** (You Are Here)
+We start at the very beginning — the bedrock of AI agent development. You'll master Python programming for agents, understand how LLMs actually work under the hood, and learn to communicate effectively with models through advanced prompting techniques. By the end, you'll have your first working agent that can reason and respond. *This story*
 
-### **Part 2: Building Your First Agent — Architecture, Tools, and Memory**
-Now we get hands-on. You'll learn the core architecture that makes an agent an agent — the think-act-observe loop that separates autonomous systems from simple chatbots. We'll give your agent hands through tools and function calling, and we'll give it a memory so it remembers users across conversations. You'll build a complete WhatsApp travel agent that can actually book flights.
 
-### **Part 3: Going Pro — RAG Systems and Multi-Agent Collaboration**
-Your agent is working, but now we need to make it truly intelligent. You'll learn to connect your agent to vast knowledge bases using RAG (Retrieval-Augmented Generation) and vector databases. Then we'll level up dramatically — moving from single agents to multi-agent systems where specialized agents collaborate, debate, and swarm to solve complex problems that no single agent could handle.
+### **Part 2: [Building Your First Agent — Architecture, Tools, and Memory](#)**
+Now we get hands-on. You'll learn the core architecture that makes an agent an agent — the think-act-observe loop that separates autonomous systems from simple chatbots. We'll give your agent hands through tools and function calling, and we'll give it a memory so it remembers users across conversations. You'll build a complete WhatsApp travel agent that can actually book flights. *- Coming soon*
 
-### **Part 4: Keeping Agents Safe — Evaluation, Guardrails, and Observability**
-Production agents need to be reliable, safe, and measurable. You'll learn how to detect hallucinations before they reach users, how to red-team your agents to find vulnerabilities, and how to implement guardrails that enforce business rules. We'll also cover observability — tracking token usage, latency, costs, and detecting performance drift over time.
+### **Part 3: [Going Pro — RAG Systems and Multi-Agent Collaboration](#)**
+Your agent is working, but now we need to make it truly intelligent. You'll learn to connect your agent to vast knowledge bases using RAG (Retrieval-Augmented Generation) and vector databases. Then we'll level up dramatically — moving from single agents to multi-agent systems where specialized agents collaborate, debate, and swarm to solve complex problems that no single agent could handle. *- Coming soon*
 
-### **Part 5: Taking Agents to Production — Deployment, Scaling, and Security**
-The final frontier: shipping your agent to the real world. You'll learn to handle thousands of concurrent users with async workers, manage traffic spikes with queues, cache responses to save costs, and deploy with Docker and Kubernetes. We'll also cover enterprise security — AI gateways, rate limiting, prompt filtering, and integration with AWS Bedrock and Azure Content Safety.
+### **Part 4: [Keeping Agents Safe — Evaluation, Guardrails, and Observability](#)**
+Production agents need to be reliable, safe, and measurable. You'll learn how to detect hallucinations before they reach users, how to red-team your agents to find vulnerabilities, and how to implement guardrails that enforce business rules. We'll also cover observability — tracking token usage, latency, costs, and detecting performance drift over time. *- Coming soon*
+
+### **Part 5: [Taking Agents to Production — Deployment, Scaling, and Security](#)**
+The final frontier: shipping your agent to the real world. You'll learn to handle thousands of concurrent users with async workers, manage traffic spikes with queues, cache responses to save costs, and deploy with Docker and Kubernetes. We'll also cover enterprise security — AI gateways, rate limiting, prompt filtering, and integration with AWS Bedrock and Azure Content Safety. *- Coming soon*
 
 ---
 
@@ -2486,10 +2489,15 @@ In the next story, we'll transform this basic agent into a真正 autonomous syst
 ---
 
 ---
-*� Questions? Drop a response - I read and reply to every comment.*
-*📌 Save this story to your reading list - it helps other engineers discover it.*
+
+Coming soon! Want it sooner? Let me know with a clap or comment below
+
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
 **🔗 Follow me →**
-- [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
-- [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
 
 *In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
