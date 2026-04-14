@@ -1,9 +1,8 @@
-Here is the **full Story #1** in the series, written with the same depth, structure, and quality as the master introduction story.
-
----
-
 # API Security Arsenal: Securing the Perimeter with Gateways & Ingress Controllers
 
+### Master API gateways and ingress controllers including Kong, NGINX, AWS API Gateway, Azure API Management, Google Cloud Endpoints, and Tyk. Learn rate limiting strategies (fixed window, sliding window, token bucket), authentication forwarding, request validation, security headers, performance benchmarks (1-50k req/sec), and open-source vs managed trade-offs with real configuration examples in YAML, NGINX.conf, and CloudFormation.
+
+![API Security Arsenal/images/Securing the Perimeter with Gateways & Ingress Controllers](<images/Securing the Perimeter with Gateways & Ingress Controllers - 1.jpg>)
 APIs are everywhere. They power your mobile banking, your food delivery, your ride-sharing, and your favorite social media app. But before a single request reaches your backend code, it must pass through the front door — your API gateway.
 
 Think of an API gateway as the reception desk of a large office building. The receptionist checks who you are, asks where you are going, validates your badge, limits how many people you brought, and then directs you to the correct elevator. Without this receptionist, anyone could wander directly into the CEO's office.
@@ -1110,5 +1109,14 @@ We will cover:
 **Next story:** API Security Arsenal: Mastering Authentication with Okta, Auth0, and Keycloak *(Coming soon)*
 
 ---
+Coming soon! Want it sooner? Let me know with a clap or comment below
 
-Would you like me to continue with **Story #2** (Authentication with Okta, Auth0, and Keycloak) next?
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

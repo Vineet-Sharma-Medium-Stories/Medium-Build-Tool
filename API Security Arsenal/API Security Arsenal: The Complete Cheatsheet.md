@@ -1,12 +1,28 @@
-Here is a **companion cheatsheet and summary infographic** for the entire five-part series. This is designed as a printable reference, a slide deck, or a standalone Medium story.
-
----
 
 # API Security Arsenal: The Complete Cheatsheet
 
-## A 5-Minute Reference Guide to All 15 Tools
+### A 5-minute printable reference guide summarizing all 15 API security tools across gateways (Kong, NGINX, AWS, Azure, GCP, Tyk), identity providers (Okta, Auth0, Keycloak), threat detection (Apigee, Salt, Cloudflare), and security testing (OWASP ZAP, Burp Suite, Postman). Includes rate limiting by endpoint type, JWT validation checklist, security headers, OWASP API Top 10 one-liners, GraphQL test queries, budget-based stack selection, team size recommendations, and API security launch checklist — distilled from 50,000+ words of detailed content.
 
-*This cheatsheet summarizes the entire five-part series. Bookmark it, print it, or share it with your team.*
+![API Security Arsenal/images/The Complete Cheatsheet](<images/The Complete Cheatsheet.png>)
+## Introduction
+
+You have just completed the five-part API Security Arsenal series. You have explored 15 essential tools across four critical layers: gateways, identity providers, threat detection platforms, and security testing tools.
+
+But let us be honest — you cannot remember every configuration snippet, every OAuth flow, or every rate limiting strategy. Nobody can.
+
+That is exactly why this cheatsheet exists.
+
+Think of this as your **API security cockpit reference**. Keep it open on your second monitor. Print it and stick it on your wall. Share it with your team during incident response. Use it to quickly look up:
+
+- Which gateway has the best performance? (NGINX: 1-2ms latency)
+- What is the difference between Okta, Auth0, and Keycloak? (Enterprise vs Developer vs Open-source)
+- How do I test for BOLA vulnerabilities? (Change the user ID parameter and see if you get another user's data)
+- What rate limit should I set on my login endpoint? (5-10 requests per minute)
+- Which tools do I need for SOC2 compliance? (Audit logging, access controls, encryption)
+
+This cheatsheet distills **five detailed stories** (over 50,000 words) into **five minutes of essential reading**.
+
+Let us dive in.
 
 ---
 
@@ -436,4 +452,11 @@ mindmap
 
 ---
 
-**Would you like me to create a downloadable PDF version of this cheatsheet, or format it for a specific platform (Notion, GitHub, Confluence)?**
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

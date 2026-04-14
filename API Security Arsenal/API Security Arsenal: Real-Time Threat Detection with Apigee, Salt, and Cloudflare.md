@@ -1,8 +1,8 @@
-Here is the **full Story #3** in the series, written with the same depth, structure, and quality as the previous stories.
-
----
-
 # API Security Arsenal: Real-Time Threat Detection with Apigee, Salt, and Cloudflare
+
+### Advanced API threat detection using Apigee (full lifecycle management, spike arrest, quota enforcement, JSON/XML schema validation), Salt Security (ML behavioral analysis, API discovery, shadow APIs, attack path mapping, posture governance), and Cloudflare API Shield (edge DDoS protection, mTLS authentication, OpenAPI validation, global rate limiting). Learn what traditional WAFs and gateways miss: slow DDoS, distributed credential stuffing, API scraping, business logic abuse, data enumeration, and off-hours exfiltration with mTLS decision frameworks.
+
+![API Security Arsenal/images/Real-Time Threat Detection with Apigee, Salt, and Cloudflare](<images/Real-Time Threat Detection with Apigee, Salt, and Cloudflare.jpg>)
 
 You have deployed your API gateway. Rate limiting is configured. Authentication is handled by a proper identity provider. Your JWTs are validated correctly. You should be secure, right?
 
@@ -1102,5 +1102,14 @@ We will cover:
 **Next story:** API Security Arsenal: Breaking APIs Safely with OWASP ZAP, Burp Suite, and Postman *(Coming soon)*
 
 ---
+Coming soon! Want it sooner? Let me know with a clap or comment below
 
-Would you like me to continue with **Story #4** (Penetration Testing with OWASP ZAP, Burp Suite, and Postman) next?
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
