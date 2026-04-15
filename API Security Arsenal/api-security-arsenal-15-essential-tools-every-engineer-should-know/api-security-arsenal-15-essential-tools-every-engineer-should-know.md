@@ -1,7 +1,7 @@
 # API Security Arsenal: 15 Essential Tools Every Engineer Should Know
 ### A complete guide to API security tools including Kong, NGINX, AWS Gateway, Okta, Auth0, Keycloak, Apigee, Salt Security, Cloudflare, OWASP ZAP, Burp Suite, and Postman — with rate limiting strategies, OAuth 2.0 flows, JWT validation, mTLS, behavioral detection, and CI/CD security testing.
 
-![API Security Arsenal/images/15 Essential Tools Every Engineer Should Know -2](images/15-Essential-Tools-Every-Engineer-Should-Know--2.jpg)
+![API Security Arsenal/images/15 Essential Tools Every Engineer Should Know -2](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/15-Essential-Tools-Every-Engineer-Should-Know--2.jpg)
 APIs are the backbone of modern applications. They connect microservices, power mobile apps, and expose business logic to the world. But with great connectivity comes great vulnerability.
 
 API attacks have grown significantly in recent years, and the majority of organizations experience security incidents in production APIs. The numbers are staggering — but not surprising.
@@ -80,7 +80,7 @@ This introduction story serves as your map. Below, you will find a navigation li
 
 ## Quick Reference: All 15 Tools at a Glance
 
-![Tools covered:](images/table_01_quick-reference-all-15-tools-at-a-glance-4aa4.png)
+![Tools covered:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_01_quick-reference-all-15-tools-at-a-glance-4aa4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_01_quick-reference-all-15-tools-at-a-glance-4aa4.md)
 
@@ -94,14 +94,14 @@ Before diving into individual tools, it helps to understand how they work togeth
 ```mermaid
 ```
 
-![Identity & Access](images/diagram_01_before-diving-into-individual-tools-it-helps-to-u-6129.png)
+![Identity & Access](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_01_before-diving-into-individual-tools-it-helps-to-u-6129.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_01_before-diving-into-individual-tools-it-helps-to-u-6129.md)
 
 
 **What this diagram shows:** Security is not a single tool — it is a layered strategy. Each layer serves a different purpose:
 
-![What this diagram shows:](images/table_02_what-this-diagram-shows-security-is-not-a-sin-0cfc.png)
+![What this diagram shows:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_02_what-this-diagram-shows-security-is-not-a-sin-0cfc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_02_what-this-diagram-shows-security-is-not-a-sin-0cfc.md)
 
@@ -115,14 +115,14 @@ To appreciate why these tools matter, you need to understand what you are defend
 ```mermaid
 ```
 
-![Identity](images/diagram_02_to-appreciate-why-these-tools-matter-you-need-to-01dc.png)
+![Identity](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_02_to-appreciate-why-these-tools-matter-you-need-to-01dc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_02_to-appreciate-why-these-tools-matter-you-need-to-01dc.md)
 
 
 **Where the tools fit against OWASP Top 10:**
 
-![Where the tools fit against OWASP Top 10:](images/table_03_where-the-tools-fit-against-owasp-top-10-f321.png)
+![Where the tools fit against OWASP Top 10:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_03_where-the-tools-fit-against-owasp-top-10-f321.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_03_where-the-tools-fit-against-owasp-top-10-f321.md)
 
@@ -140,14 +140,14 @@ API gateways are the bouncers of your API nightclub. They decide who gets in, ho
 ```mermaid
 ```
 
-![categories](images/diagram_03_api-gateways-are-the-bouncers-of-your-api-nightclu-dc5c.png)
+![categories](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_03_api-gateways-are-the-bouncers-of-your-api-nightclu-dc5c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_03_api-gateways-are-the-bouncers-of-your-api-nightclu-dc5c.md)
 
 
 **Key capabilities to evaluate:**
 
-![Key capabilities to evaluate:](images/table_04_key-capabilities-to-evaluate.png)
+![Key capabilities to evaluate:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_04_key-capabilities-to-evaluate.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_04_key-capabilities-to-evaluate.md)
 
@@ -157,7 +157,7 @@ API gateways are the bouncers of your API nightclub. They decide who gets in, ho
 ```mermaid
 ```
 
-![The open-source vs. managed trade-off:](images/diagram_04_the-open-source-vs-managed-trade-off-2160.png)
+![The open-source vs. managed trade-off:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_04_the-open-source-vs-managed-trade-off-2160.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_04_the-open-source-vs-managed-trade-off-2160.md)
 
@@ -171,14 +171,14 @@ Authentication answers "Who are you?" Authorization answers "What can you do?" T
 ```mermaid
 ```
 
-![Diagram](images/diagram_05_authentication-answers-who-are-you-authorizatio-32c3.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_05_authentication-answers-who-are-you-authorizatio-32c3.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_05_authentication-answers-who-are-you-authorizatio-32c3.md)
 
 
 **When to choose each identity provider:**
 
-![When to choose each identity provider:](images/table_05_when-to-choose-each-identity-provider-863e.png)
+![When to choose each identity provider:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_05_when-to-choose-each-identity-provider-863e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_05_when-to-choose-each-identity-provider-863e.md)
 
@@ -203,14 +203,14 @@ Traditional security tools look for **known signatures** — specific patterns t
 ```mermaid
 ```
 
-![Anti-pattern #3:](images/diagram_06_traditional-security-tools-look-for-known-signat-f7de.png)
+![Anti-pattern #3:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_06_traditional-security-tools-look-for-known-signat-f7de.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_06_traditional-security-tools-look-for-known-signat-f7de.md)
 
 
 **What behavioral detection catches that signatures miss:**
 
-![What behavioral detection catches that signatures miss:](images/table_06_what-behavioral-detection-catches-that-signature-0a70.png)
+![What behavioral detection catches that signatures miss:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_06_what-behavioral-detection-catches-that-signature-0a70.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_06_what-behavioral-detection-catches-that-signature-0a70.md)
 
@@ -226,14 +226,14 @@ Traditional security tools look for **known signatures** — specific patterns t
 ```mermaid
 ```
 
-![Real-world example:](images/diagram_07_shift-left-means-moving-security-testing-earlier-c51c.png)
+![Real-world example:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_07_shift-left-means-moving-security-testing-earlier-c51c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_07_shift-left-means-moving-security-testing-earlier-c51c.md)
 
 
 **Testing tool comparison:**
 
-![Testing tool comparison:](images/table_07_testing-tool-comparison.png)
+![Testing tool comparison:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_07_testing-tool-comparison.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_07_testing-tool-comparison.md)
 
@@ -243,7 +243,7 @@ Traditional security tools look for **known signatures** — specific patterns t
 ```mermaid
 ```
 
-![OWASP ZAP](images/diagram_08_minimum-viable-testing-pipeline-0df5.png)
+![OWASP ZAP](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_08_minimum-viable-testing-pipeline-0df5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_08_minimum-viable-testing-pipeline-0df5.md)
 
@@ -268,12 +268,12 @@ Not every organization needs all 15 tools. Use this maturity model to determine 
 ```mermaid
 ```
 
-![Tech leads](images/diagram_09_not-every-organization-needs-all-15-tools-use-thi-aacd.png)
+![Tech leads](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/diagram_09_not-every-organization-needs-all-15-tools-use-thi-aacd.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/diagram_09_not-every-organization-needs-all-15-tools-use-thi-aacd.md)
 
 
-![Table](images/table_08_untitled.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_08_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_08_untitled.md)
 
@@ -313,7 +313,7 @@ Without schema validation, attackers can inject unexpected fields (mass assignme
 
 ## Real-World Breach Examples and How These Tools Help
 
-![Fix:](images/table_09_real-world-breach-examples-and-how-these-tools-6c2b.png)
+![Fix:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/table_09_real-world-breach-examples-and-how-these-tools-6c2b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-15-essential-tools-every-engineer-should-know/table_09_real-world-breach-examples-and-how-these-tools-6c2b.md)
 

@@ -1,7 +1,8 @@
 # API Security Arsenal: 15 Essential Tools Every Engineer Should Know
 ### A complete guide to API security tools including Kong, NGINX, AWS Gateway, Okta, Auth0, Keycloak, Apigee, Salt Security, Cloudflare, OWASP ZAP, Burp Suite, and Postman — with rate limiting strategies, OAuth 2.0 flows, JWT validation, mTLS, behavioral detection, and CI/CD security testing.
 
-![API Security Arsenal/images/15 Essential Tools Every Engineer Should Know -2](<images/15 Essential Tools Every Engineer Should Know -2.jpg>)
+![API Security Arsenal/images/15 Essential Tools Every Engineer Should Know -2](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-15-essential-tools-every-engineer-should-know/images/15 Essential Tools Every Engineer Should Know -2.jpg>)
+
 APIs are the backbone of modern applications. They connect microservices, power mobile apps, and expose business logic to the world. But with great connectivity comes great vulnerability.
 
 API attacks have grown significantly in recent years, and the majority of organizations experience security incidents in production APIs. The numbers are staggering — but not surprising.
