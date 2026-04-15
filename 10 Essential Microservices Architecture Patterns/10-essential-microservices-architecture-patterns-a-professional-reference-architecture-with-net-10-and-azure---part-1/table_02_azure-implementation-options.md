@@ -1,5 +1,4 @@
-# table_02_azure-implementation-options
-
+# ### Azure Implementation Options
 
 | Option | Best For | Scaling | Cost Model | Features |
 | --- | --- | --- | --- | --- |

@@ -1,5 +1,4 @@
-# diagram_01_high-level-architecture
-
+# ### High-Level Architecture
 
 ```mermaid
 ---

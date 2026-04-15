@@ -1,5 +1,4 @@
-# table_04_azure-load-balancing-options
-
+# ### Azure Load Balancing Options
 
 | Option | Layer | Algorithm | Session Affinity | Global | WAF | SSL Offload |
 | --- | --- | --- | --- | --- | --- | --- |

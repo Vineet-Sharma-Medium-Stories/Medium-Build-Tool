@@ -1,5 +1,4 @@
-# diagram_04_with-service-discovery
-
+# **With service discovery:**
 
 ```mermaid
 ---

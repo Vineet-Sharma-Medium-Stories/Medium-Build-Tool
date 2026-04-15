@@ -1,5 +1,4 @@
-# table_06_after-completing-both-parts-well-release-a-compa-0d55
-
+# After completing both parts, we'll release a compa
 
 | Azure Service | AWS Equivalent |
 | --- | --- |

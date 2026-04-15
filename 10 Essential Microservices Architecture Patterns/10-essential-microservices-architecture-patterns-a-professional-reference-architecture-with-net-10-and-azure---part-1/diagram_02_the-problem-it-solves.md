@@ -1,5 +1,4 @@
-# diagram_02_the-problem-it-solves
-
+# ### The Problem It Solves
 
 ```mermaid
 ---

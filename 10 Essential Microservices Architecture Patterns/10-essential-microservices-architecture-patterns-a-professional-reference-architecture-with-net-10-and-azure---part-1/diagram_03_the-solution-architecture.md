@@ -1,5 +1,4 @@
-# diagram_03_the-solution-architecture
-
+# **The solution architecture:**
 
 ```mermaid
 ---

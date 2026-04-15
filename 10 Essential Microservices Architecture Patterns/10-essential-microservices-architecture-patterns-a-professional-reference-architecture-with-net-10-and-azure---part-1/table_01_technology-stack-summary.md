@@ -1,5 +1,4 @@
-# table_01_technology-stack-summary
-
+# ### Technology Stack Summary
 
 | Component | Technology | Justification |
 | --- | --- | --- |

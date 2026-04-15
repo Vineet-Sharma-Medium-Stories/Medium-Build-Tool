@@ -1,5 +1,4 @@
-# diagram_06_the-state-machine
-
+# ### The State Machine
 
 ```mermaid
 ---

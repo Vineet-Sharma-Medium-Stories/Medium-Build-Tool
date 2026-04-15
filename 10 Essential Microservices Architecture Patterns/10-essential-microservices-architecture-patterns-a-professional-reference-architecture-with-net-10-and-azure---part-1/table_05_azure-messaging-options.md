@@ -1,5 +1,4 @@
-# table_05_azure-messaging-options
-
+# ### Azure Messaging Options
 
 | Service | Pattern | Max Size | Ordering | Exactly-Once | Best For |
 | --- | --- | --- | --- | --- | --- |

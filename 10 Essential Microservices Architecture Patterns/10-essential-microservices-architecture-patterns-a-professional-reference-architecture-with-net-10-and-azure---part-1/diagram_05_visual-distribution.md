@@ -1,5 +1,4 @@
-# diagram_05_visual-distribution
-
+# ### Visual Distribution
 
 ```mermaid
 ---

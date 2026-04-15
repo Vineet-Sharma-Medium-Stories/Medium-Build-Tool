@@ -1,5 +1,4 @@
-# table_03_azure-implementation-matrix
-
+# ### Azure Implementation Matrix
 
 | Service | Discovery Mechanism | Use Case | Registration Method |
 | --- | --- | --- | --- |
