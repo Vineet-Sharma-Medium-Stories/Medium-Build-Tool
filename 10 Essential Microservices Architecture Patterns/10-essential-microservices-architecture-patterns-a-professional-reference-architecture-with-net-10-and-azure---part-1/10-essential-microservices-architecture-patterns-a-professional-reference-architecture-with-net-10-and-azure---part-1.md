@@ -3,7 +3,7 @@
 
 
 ## Introduction
-![alt text](images/Azure-Part-1.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/Azure-Part-1.png)
 
 The journey from monolithic applications to microservices is paved with both opportunity and complexity. After architecting distributed systems for Fortune 500 companies over the past decade, I've learned that success isn't about adopting every pattern—it's about understanding which patterns solve specific problems and implementing them correctly.
 
@@ -47,17 +47,14 @@ Before diving into individual patterns, let's understand how all the pieces fit 
 
 ### High-Level Architecture
 
-```mermaid
-```
-
-![Containerization](images/diagram_01_high-level-architecture.png)
+![Containerization](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_01_high-level-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_01_high-level-architecture.md)
 
 
 ### Technology Stack Summary
 
-![Table](images/table_01_technology-stack-summary.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_01_technology-stack-summary.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_01_technology-stack-summary.md)
 
@@ -80,7 +77,7 @@ Before diving into individual patterns, let's understand how all the pieces fit 
 ---
 
 ## Pattern 1: API Gateway
-![alt text](images/API-Gateway-Azure1.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/API-Gateway-Azure1.png)
 
 ### Concept Overview
 
@@ -103,7 +100,7 @@ The API Gateway pattern addresses a fundamental challenge in microservices archi
 ```mermaid
 ```
 
-![Real-world analogy:](images/diagram_02_the-problem-it-solves.png)
+![Real-world analogy:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_02_the-problem-it-solves.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_02_the-problem-it-solves.md)
 
@@ -113,14 +110,14 @@ The API Gateway pattern addresses a fundamental challenge in microservices archi
 ```mermaid
 ```
 
-![The solution architecture:](images/diagram_03_the-solution-architecture.png)
+![The solution architecture:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_03_the-solution-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_03_the-solution-architecture.md)
 
 
 ### Azure Implementation Options
 
-![Table](images/table_02_azure-implementation-options.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_02_azure-implementation-options.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_02_azure-implementation-options.md)
 
@@ -429,7 +426,7 @@ public class ApiGateway
 ---
 
 ## Pattern 2: Service Discovery
-![alt text](images/Service-Discovery-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/Service-Discovery-Azure.png)
 
 ### Concept Overview
 
@@ -462,14 +459,14 @@ client.BaseAddress = new Uri("http://10.0.0.12:8080"); // Fixed IP? Good luck!
 ```mermaid
 ```
 
-![Without service discovery (The Old Way):](images/diagram_04_with-service-discovery.png)
+![Without service discovery (The Old Way):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_04_with-service-discovery.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_04_with-service-discovery.md)
 
 
 ### Azure Implementation Matrix
 
-![Table](images/table_03_azure-implementation-matrix.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_03_azure-implementation-matrix.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_03_azure-implementation-matrix.md)
 
@@ -946,7 +943,7 @@ public class DiscoveryDelegatingHandler : DelegatingHandler
 ---
 
 ## Pattern 3: Load Balancing
-![alt text](images/Load-Balancing-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/Load-Balancing-Azure.png)
 ### Concept Overview
 
 Load balancing is the art of distributing incoming requests across multiple instances of a service to ensure optimal resource utilization, maximum throughput, and minimal response time.
@@ -968,14 +965,14 @@ Load balancing is the art of distributing incoming requests across multiple inst
 ```mermaid
 ```
 
-![Real-world analogy:](images/diagram_05_visual-distribution.png)
+![Real-world analogy:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_05_visual-distribution.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_05_visual-distribution.md)
 
 
 ### Azure Load Balancing Options
 
-![Table](images/table_04_azure-load-balancing-options.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_04_azure-load-balancing-options.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_04_azure-load-balancing-options.md)
 
@@ -1418,7 +1415,7 @@ public class LoadBalancerOptions
 ---
 
 ## Pattern 4: Circuit Breaker
-![alt text](images/Circuit-Breaker-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/Circuit-Breaker-Azure.png)
 ### Concept Overview
 
 The Circuit Breaker pattern prevents cascading failures in distributed systems by failing fast when a service is unhealthy, allowing it time to recover.
@@ -1440,7 +1437,7 @@ The Circuit Breaker pattern prevents cascading failures in distributed systems b
 ```mermaid
 ```
 
-![Real-world analogy:](images/diagram_06_the-state-machine.png)
+![Real-world analogy:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_06_the-state-machine.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_06_the-state-machine.md)
 
@@ -2027,7 +2024,7 @@ builder.Services.AddHealthChecks()
 ---
 
 ## Pattern 5: Event-Driven Communication
-![alt text](images/Enent-Driven-Azure.png)
+![alt text](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/Enent-Driven-Azure.png)
 ### Concept Overview
 
 Event-driven communication enables loose coupling between microservices by using asynchronous message passing. Services communicate through events rather than direct calls.
@@ -2049,14 +2046,14 @@ Event-driven communication enables loose coupling between microservices by using
 ```mermaid
 ```
 
-![Real-world analogy:](images/diagram_07_the-pattern.png)
+![Real-world analogy:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/diagram_07_the-pattern.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/diagram_07_the-pattern.md)
 
 
 ### Azure Messaging Options
 
-![Table](images/table_05_azure-messaging-options.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_05_azure-messaging-options.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_05_azure-messaging-options.md)
 
@@ -2657,7 +2654,7 @@ In the second part of this series, we'll tackle advanced patterns for data manag
 
 After completing both parts, we'll release a companion series implementing **the exact same patterns on AWS**:
 
-![the exact same patterns on AWS](images/table_06_after-completing-both-parts-well-release-a-compa-0d55.png)
+![the exact same patterns on AWS](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/10%20Essential%20Microservices%20Architecture%20Patterns/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/images/table_06_after-completing-both-parts-well-release-a-compa-0d55.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/10-essential-microservices-architecture-patterns-a-professional-reference-architecture-with-net-10-and-azure---part-1/table_06_after-completing-both-parts-well-release-a-compa-0d55.md)
 

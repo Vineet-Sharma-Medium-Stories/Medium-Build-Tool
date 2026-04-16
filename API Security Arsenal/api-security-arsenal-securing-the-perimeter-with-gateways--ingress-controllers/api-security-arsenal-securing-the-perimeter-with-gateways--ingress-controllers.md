@@ -2,7 +2,7 @@
 
 ### Master API gateways and ingress controllers including Kong, NGINX, AWS API Gateway, Azure API Management, Google Cloud Endpoints, and Tyk. Learn rate limiting strategies (fixed window, sliding window, token bucket), authentication forwarding, request validation, security headers, performance benchmarks (1-50k req/sec), and open-source vs managed trade-offs with real configuration examples in YAML, NGINX.conf, and CloudFormation.
 
-![API Security Arsenal/images/Securing the Perimeter with Gateways & Ingress Controllers](<images/Securing the Perimeter with Gateways & Ingress Controllers - 1.jpg>)  
+![API Security Arsenal/images/Securing the Perimeter with Gateways & Ingress Controllers](images/Securing-the-Perimeter-with-Gateways-&-Ingress-Controllers---1.jpg)
 APIs are everywhere. They power your mobile banking, your food delivery, your ride-sharing, and your favorite social media app. But before a single request reaches your backend code, it must pass through the front door — your API gateway.
 
 Think of an API gateway as the reception desk of a large office building. The receptionist checks who you are, asks where you are going, validates your badge, limits how many people you brought, and then directs you to the correct elevator. Without this receptionist, anyone could wander directly into the CEO's office.
@@ -41,55 +41,20 @@ An API gateway is a reverse proxy that sits between your clients and your backen
 Here is the basic architecture:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart LR
-    subgraph Clients
-        Mobile[Mobile App]
-        Web[Web Browser]
-        Server[Server-to-Server]
-    end
-    
-    subgraph "API Gateway Layer"
-        direction TB
-        RateLimit[Rate Limiting]
-        Auth[Authentication]
-        Routing[Request Routing]
-        Logging[Logging & Analytics]
-    end
-    
-    subgraph "Backend Services"
-        Users[User Service]
-        Orders[Order Service]
-        Payments[Payment Service]
-    end
-    
-    Mobile --> RateLimit
-    Web --> RateLimit
-    Server --> RateLimit
-    
-    RateLimit --> Auth
-    Auth --> Routing
-    
-    Routing --> Users
-    Routing --> Orders
-    Routing --> Payments
-    
-    Logging --> Logs[(Log Storage)]
 ```
+
+![5. API Security Arsenal: How to Choose the Right Tools for Your Stack](images/diagram_01_here-is-the-basic-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_01_here-is-the-basic-architecture.md)
+
 
 **What an API gateway is NOT:**
 
 
-| Misconception                                   | Reality                                                                              |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------ |
-| "A gateway replaces my backend security"        | No — it adds a layer, but your backend must still validate everything                |
-| "A gateway is just a load balancer"             | Load balancers distribute traffic; gateways enforce policies                         |
-| "I can skip authentication if I have a gateway" | The gateway can *verify* auth, but your backend still needs to know *who* is calling |
-| "One gateway fits all use cases"                | Different gateways excel at different things — choose carefully                      |
+![What an API gateway is NOT:](images/table_01_what-an-api-gateway-is-not.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_01_what-an-api-gateway-is-not.md)
+
 
 
 ---
@@ -99,14 +64,10 @@ flowchart LR
 Before diving into details, here is a quick comparison of the six tools covered in this story:
 
 
-| Tool                       | Type        | Best For                     | Key Strength                        | Cost Model                              |
-| -------------------------- | ----------- | ---------------------------- | ----------------------------------- | --------------------------------------- |
-| **Kong**                   | Open-source | Hybrid/multi-cloud           | Plugin ecosystem, Kubernetes native | Free (OSS) or paid (Enterprise)         |
-| **NGINX**                  | Open-source | High-performance routing     | Blazing fast, lightweight           | Free (OSS) or paid (Plus)               |
-| **AWS API Gateway**        | Managed     | AWS-native workloads         | Seamless AWS integration            | Pay per request                         |
-| **Azure API Management**   | Managed     | Azure-native workloads       | Full lifecycle API management       | Pay per unit + requests                 |
-| **Google Cloud Endpoints** | Managed     | GCP + OpenAPI users          | Tight Cloud Run/IaC integration     | Pay per request                         |
-| **Tyk**                    | Open-source | Developer portal + analytics | Built-in developer portal           | Free (OSS) or paid (Cloud/Self-managed) |
+![The Six Gateway Tools at a Glance](images/table_02_before-diving-into-details-here-is-a-quick-compar-6370.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_02_before-diving-into-details-here-is-a-quick-compar-6370.md)
+
 
 
 ---
@@ -129,43 +90,12 @@ Kong is built on top of NGINX with a plugin architecture that allows you to exte
 **Architecture diagram:**
 
 ```mermaid
-
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    Client[API Client] --> LB[Load Balancer]
-    LB --> Kong1[Kong Node 1]
-    LB --> Kong2[Kong Node 2]
-    LB --> Kong3[Kong Node 3]
-    
-    subgraph Kong_Cluster [Kong Cluster]
-        Kong1 --> Cache1[Redis Cache]
-        Kong2 --> Cache1
-        Kong3 --> Cache1
-        Kong1 --> DB[(PostgreSQL/Cassandra)]
-        Kong2 --> DB
-        Kong3 --> DB
-    end
-    
-    Kong1 --> Service1[Backend Service A]
-    Kong2 --> Service2[Backend Service B]
-    Kong3 --> Service3[Backend Service C]
-    
-    subgraph Plugins [Plugin Ecosystem]
-        P1[Rate Limiting]
-        P2[JWT Auth]
-        P3[IP Restriction]
-        P4[Request Transformer]
-    end
-    
-    Kong1 -.-> P1
-    Kong1 -.-> P2
-    Kong2 -.-> P3
-    Kong3 -.-> P4
 ```
+
+![Architecture diagram:](images/diagram_02_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_02_architecture-diagram.md)
+
 
 **Configuration example (declarative):**
 
@@ -241,32 +171,12 @@ NGINX started as a web server and reverse proxy. Over time, it has evolved into 
 **Architecture diagram:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart LR
-    Client[Client] --> NGINX[NGINX Gateway]
-    
-    subgraph NGINX_Config [NGINX Configuration]
-        direction TB
-        HTTP[HTTP Block]
-        Server[Server Block]
-        Location[Location Blocks]
-        Limit[Limit Req Zone]
-        Auth[JWT Auth]
-    end
-    
-    NGINX --> Upstream1[Upstream: User Service]
-    NGINX --> Upstream2[Upstream: Order Service]
-    NGINX --> Upstream3[Upstream: Payment Service]
-    
-    HTTP --> Server
-    Server --> Location
-    Location --> Limit
-    Location --> Auth
 ```
+
+![Architecture diagram:](images/diagram_03_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_03_architecture-diagram.md)
+
 
 **Configuration example (NGINX Plus with JWT):**
 
@@ -357,34 +267,12 @@ AWS API Gateway is a fully managed service that integrates seamlessly with the A
 **Architecture diagram:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    Client[API Client] --> Edge[CloudFront Edge Location]
-    Edge --> APIGW[AWS API Gateway]
-    
-    subgraph AWS_Cloud [AWS Cloud]
-        APIGW --> WAF[AWS WAF]
-        WAF --> Auth{Authorization}
-        
-        Auth -->|IAM| IAM[AWS IAM]
-        Auth -->|Cognito| Cognito[Cognito User Pool]
-        Auth -->|Lambda| LambdaAuth[Lambda Authorizer]
-        
-        APIGW --> Integration{Integration Type}
-        Integration -->|HTTP| HTTP[External HTTP API]
-        Integration -->|Lambda| Lambda[Lambda Function]
-        Integration -->|VPC Link| NLB[Network Load Balancer]
-        Integration -->|Mock| Mock[Mock Response]
-        
-        APIGW --> Logs[CloudWatch Logs]
-        APIGW --> Metrics[CloudWatch Metrics]
-        APIGW --> XRay[X-Ray Tracing]
-    end
 ```
+
+![Architecture diagram:](images/diagram_04_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_04_architecture-diagram.md)
+
 
 **Configuration example (CloudFormation / CDK):**
 
@@ -523,33 +411,12 @@ Azure API Management (APIM) is a full lifecycle API management platform. It goes
 **Architecture diagram:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    Client[API Client] --> APIM[Azure API Management]
-    
-    subgraph Azure [Microsoft Azure]
-        APIM --> Gateway[Gateway Layer]
-        APIM --> Portal[Developer Portal]
-        APIM --> Management[Management Plane]
-        
-        Gateway --> Policies{Policies}
-        Policies --> Rate[Rate Limit]
-        Policies --> JWT[JWT Validate]
-        Policies --> IP[IP Filter]
-        Policies --> CORS[CORS]
-        
-        Gateway --> Backend1[Azure Function]
-        Gateway --> Backend2[App Service]
-        Gateway --> Backend3[AKS Service]
-        
-        APIM --> Monitor[Application Insights]
-        APIM --> Logs[Diagnostic Logs]
-    end
 ```
+
+![Architecture diagram:](images/diagram_05_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_05_architecture-diagram.md)
+
 
 **Policy configuration example (XML-based):**
 
@@ -647,28 +514,12 @@ Google Cloud Endpoints is a lightweight API gateway built on top of the open-sou
 **Architecture diagram:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    Client[API Client] --> ESP[Extensible Service Proxy]
-    
-    subgraph GCP [Google Cloud Platform]
-        ESP --> Service[Cloud Run / App Engine / Compute Engine]
-        ESP --> Endpoints[Cloud Endpoints Service Management]
-        
-        Endpoints --> Config[OpenAPI Config]
-        Endpoints --> Logs[Cloud Logging]
-        Endpoints --> Metrics[Cloud Monitoring]
-        Endpoints --> Trace[Cloud Trace]
-        
-        Service --> Backend[Backend Service]
-        
-        ESP --> CloudArmor[Cloud Armor - WAF]
-    end
 ```
+
+![Architecture diagram:](images/diagram_06_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_06_architecture-diagram.md)
+
 
 **OpenAPI configuration example (with security extensions):**
 
@@ -805,32 +656,12 @@ Tyk is an open-source API gateway that emphasizes developer experience. It inclu
 **Architecture diagram:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    Client[API Client] --> Gateway[Tyk Gateway Node]
-    
-    subgraph Tyk_Architecture [Tyk Architecture]
-        Gateway --> Dashboard[Tyk Dashboard]
-        Gateway --> Pump[Tyk Pump - Analytics]
-        Gateway --> MDCB[MDCB - Multi-Cloud]
-        
-        Dashboard --> Redis[(Redis)]
-        Pump --> Redis
-        MDCB --> Redis
-        
-        Dashboard --> DB[(MongoDB/PostgreSQL)]
-    end
-    
-    Gateway --> Service1[Service 1]
-    Gateway --> Service2[Service 2]
-    Gateway --> Service3[Service 3]
-    
-    Dashboard --> Portal[Developer Portal]
 ```
+
+![Architecture diagram:](images/diagram_07_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_07_architecture-diagram.md)
+
 
 **API definition example (JSON):**
 
@@ -934,36 +765,20 @@ If you implement nothing else, implement rate limiting. It protects your API fro
 **Rate limiting strategies compared:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart LR
-    subgraph Strategies [Rate Limiting Strategies]
-        Fixed[Fixed Window<br/>Simple but bursty]
-        Sliding[Sliding Window<br/>Smoother, more accurate]
-        Token[Token Bucket<br/>Allows bursts]
-        Leaky[Leaky Bucket<br/>Constant rate]
-    end
-    
-    Fixed --> Use1[Simple APIs, low traffic]
-    Sliding --> Use2[Production APIs, fair usage]
-    Token --> Use3[APIs with bursty traffic]
-    Leaky --> Use4[Message queues, webhooks]
 ```
+
+![Rate limiting strategies compared:](images/diagram_08_rate-limiting-strategies-compared-1038.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_08_rate-limiting-strategies-compared-1038.md)
+
 
 **Configuration comparison across gateways:**
 
 
-| Strategy        | Kong | NGINX | AWS Gateway         | Azure APIM    | GCP Endpoints | Tyk |
-| --------------- | ---- | ----- | ------------------- | ------------- | ------------- | --- |
-| Fixed window    | ✅    | ✅     | ✅                   | ✅             | ✅             | ✅   |
-| Sliding window  | ✅    | ❌     | ❌                   | ✅             | ❌             | ✅   |
-| Token bucket    | ❌    | ❌     | ✅ (burst)           | ❌             | ❌             | ❌   |
-| Per-user limits | ✅    | ✅     | ✅ (via usage plans) | ✅             | ✅             | ✅   |
-| Per-API key     | ✅    | ✅     | ✅                   | ✅             | ✅             | ✅   |
-| Redis-backed    | ✅    | ✅     | N/A (managed)       | N/A (managed) | N/A (managed) | ✅   |
+![Configuration comparison across gateways:](images/table_03_configuration-comparison-across-gateways-908f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_03_configuration-comparison-across-gateways-908f.md)
+
 
 
 **Example: Progressive rate limiting (recommended):**
@@ -992,36 +807,12 @@ tiers:
 One of the most common gateway mistakes is assuming authentication happens *only* at the gateway. The correct pattern is authentication at the gateway, authorization at the service.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-sequenceDiagram
-    participant Client
-    participant Gateway
-    participant Auth as Auth Service
-    participant Service
-    
-    Note over Client,Service: ✅ Correct Pattern
-    
-    Client->>Gateway: Request + JWT
-    Gateway->>Auth: Validate JWT
-    Auth-->>Gateway: Valid + Claims
-    Gateway->>Gateway: Extract user_id, roles
-    Gateway->>Service: Forward + X-User-ID, X-Roles
-    Service->>Service: Authorize based on forwarded claims
-    Service-->>Client: Response
-    
-    Note over Client,Service: ❌ Incorrect Pattern
-    
-    Client->>Gateway: Request + JWT
-    Gateway->>Auth: Validate JWT
-    Auth-->>Gateway: Valid
-    Gateway->>Service: Forward (no user context)
-    Service-->>Gateway: "Who is calling?"
-    Gateway-->>Client: Error
 ```
+
+![Authentication Forwarding: Patterns and Anti-Patterns](images/diagram_09_one-of-the-most-common-gateway-mistakes-is-assumin-27d4.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_09_one-of-the-most-common-gateway-mistakes-is-assumin-27d4.md)
+
 
 **Forwarding headers pattern (universal):**
 
@@ -1042,38 +833,20 @@ X-Forwarded-Proto: https
 This is a common source of confusion. Both sit between services, but they serve different purposes.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TD
-    subgraph Gateway_Pattern [API Gateway Pattern]
-        External[External Client] --> GW[API Gateway]
-        GW --> ServiceA[Service A]
-        GW --> ServiceB[Service B]
-        ServiceA --> ServiceB
-    end
-    
-    subgraph Mesh_Pattern [Service Mesh Pattern]
-        Internal[Internal Client] --> SidecarA[Sidecar Proxy A]
-        SidecarA --> ServiceA2[Service A]
-        ServiceA2 --> SidecarB[Sidecar Proxy B]
-        SidecarB --> ServiceB2[Service B]
-    end
 ```
+
+![Gateway vs. Service Mesh: Which One Do You Need?](images/diagram_10_this-is-a-common-source-of-confusion-both-sit-bet-4056.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_10_this-is-a-common-source-of-confusion-both-sit-bet-4056.md)
+
 
 **Decision matrix:**
 
 
-| Consideration  | Use API Gateway      | Use Service Mesh       | Use Both                                |
-| -------------- | -------------------- | ---------------------- | --------------------------------------- |
-| Traffic source | External clients     | Internal services      | Both                                    |
-| Authentication | OAuth, JWT, API keys | mTLS (SPIFFE)          | Gateway for external, mesh for internal |
-| Rate limiting  | Client-based         | Service-based          | Both                                    |
-| Observability  | Request/response     | Network-level          | Combined                                |
-| Team maturity  | Ops-focused          | Platform-focused       | Large org                               |
-| Example tools  | Kong, AWS Gateway    | Istio, Linkerd, Consul | Kong + Istio                            |
+![Decision matrix:](images/table_04_decision-matrix.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_04_decision-matrix.md)
+
 
 
 **Rule of thumb:** Start with an API gateway. Add a service mesh when you have more than 10 internal services and need fine-grained control over service-to-service communication.
@@ -1117,16 +890,10 @@ Attackers send 1GB JSON payloads to exhaust memory.
 ## Cost Comparison: Open-Source vs. Managed
 
 
-| Gateway         | Entry Cost         | Operational Overhead  | Scaling Cost               |
-| --------------- | ------------------ | --------------------- | -------------------------- |
-| Kong (OSS)      | $0                 | High (self-managed)   | Add nodes                  |
-| NGINX (OSS)     | $0                 | High (self-managed)   | Add nodes + LB             |
-| Tyk (OSS)       | $0                 | Medium (self-managed) | Add nodes + Redis          |
-| AWS Gateway     | $0 upfront         | Low (fully managed)   | $3.50 per million requests |
-| Azure APIM      | $0.04/hour (basic) | Low (managed)         | Consumption tier available |
-| GCP Endpoints   | $0 upfront         | Low (managed)         | $2 per million requests    |
-| Kong Enterprise | Custom             | Medium                | Includes support           |
-| NGINX Plus      | ~$2500/node/year   | Medium                | Per-node licensing         |
+![Fix:](images/table_05_cost-comparison-open-source-vs-managed-1a63.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_05_cost-comparison-open-source-vs-managed-1a63.md)
+
 
 
 **When self-hosting makes sense:**
@@ -1148,14 +915,10 @@ Attackers send 1GB JSON payloads to exhaust memory.
 ## Performance Benchmarks (Approximate)
 
 
-| Gateway       | Latency (p99) | Throughput (req/sec) | Notes              |
-| ------------- | ------------- | -------------------- | ------------------ |
-| NGINX         | 1-2ms         | 50,000+              | Fastest            |
-| Kong          | 2-5ms         | 30,000+              | Plugin overhead    |
-| Tyk           | 3-6ms         | 25,000+              | Analytics overhead |
-| AWS Gateway   | 5-10ms        | 10,000+              | Regional latency   |
-| Azure APIM    | 8-15ms        | 8,000+               | Policy processing  |
-| GCP Endpoints | 5-10ms        | 10,000+              | ESP overhead       |
+![Performance Benchmarks (Approximate)](images/table_06_performance-benchmarks-approximate-a1bc.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_06_performance-benchmarks-approximate-a1bc.md)
+
 
 
 *Note: Actual performance depends on plugins, policies, and backend latency.*

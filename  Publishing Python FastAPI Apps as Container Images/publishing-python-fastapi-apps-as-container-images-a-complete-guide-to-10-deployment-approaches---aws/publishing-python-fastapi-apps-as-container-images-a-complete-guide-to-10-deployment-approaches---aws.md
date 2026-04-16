@@ -3,7 +3,7 @@
 ## The Python series adapts the proven patterns from .NET to the Python ecosystem, focusing on FastAPI applications with dependencies like FastAPI, Motor, and Pydantic with AWS
 
 
-![ Publishing Python FastAPI Apps as Container Images/images/Python FastAPI Containerization Guide - AWS Edition](<images/Python FastAPI Containerization Guide - AWS Edition.png>)
+![ Publishing Python FastAPI Apps as Container Images/images/Python FastAPI Containerization Guide - AWS Edition](images/Python-FastAPI-Containerization-Guide---AWS-Edition.png)
 
 ### Introduction: The Python Containerization Journey on AWS
 
@@ -14,47 +14,12 @@ Python powers some of the most innovative applications today, particularly in th
 This series adapts the proven patterns from our .NET containerization guide to the Python ecosystem, focusing on AWS deployment with Visual Studio Code as the primary development environment. Whether you're deploying a FastAPI backend, a machine learning service, or a data processing pipeline to AWS, you'll find battle-tested patterns for containerizing Python applications at scale—from Graviton-optimized builds to ECS Fargate and EKS orchestration.
 
 ```mermaid
----
-config:
-  theme: base
-  layout: elk
----
-graph TD
-    A[Python FastAPI App] --> B{Container Build Method}
-    
-    B --> C[Poetry + Docker Multi-Stage - AWS]
-    B --> D[UV + Docker - AWS]
-    B --> E[Pip + Docker - AWS]
-    B --> F[AWS Copilot]
-    B --> G[VS Code Dev Containers - AWS]
-    B --> H[AWS CDK with Python]
-    B --> I[Tarball Export + Security Scan - AWS]
-    B --> J[Amazon EKS - AWS]
-    B --> K[GitHub Actions + ECR - AWS]
-    B --> L[AWS App Runner]
-    
-    C --> M[Amazon ECR]
-    D --> M
-    E --> M
-    F --> N[ECS/Fargate]
-    G --> O[Local Dev]
-    H --> M
-    I --> P[Security Gates]
-    J --> Q[Amazon EKS]
-    K --> M
-    L --> R[AWS App Runner]
-    
-    O --> M
-    P --> M
-    M --> S[AWS Deployment]
-    Q --> S
-    R --> S
-    
-    style C fill:#2b6cb0,color:#fff
-    style D fill:#48bb78,color:#fff
-    style F fill:#ff9900,color:#fff
-    style J fill:#ff9900,color:#fff
 ```
+
+![Amazon Web Services (AWS)](images/diagram_01_this-series-adapts-the-proven-patterns-from-our-n-f21d.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/publishing-python-fastapi-apps-as-container-images-a-complete-guide-to-10-deployment-approaches---aws/diagram_01_this-series-adapts-the-proven-patterns-from-our-n-f21d.md)
+
 
 ### Stories at a Glance
 
