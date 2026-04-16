@@ -2,7 +2,8 @@
 
 ### Master API gateways and ingress controllers including Kong, NGINX, AWS API Gateway, Azure API Management, Google Cloud Endpoints, and Tyk. Learn rate limiting strategies (fixed window, sliding window, token bucket), authentication forwarding, request validation, security headers, performance benchmarks (1-50k req/sec), and open-source vs managed trade-offs with real configuration examples in YAML, NGINX.conf, and CloudFormation.
 
-![API Security Arsenal/images/Securing the Perimeter with Gateways & Ingress Controllers](images/Securing-the-Perimeter-with-Gateways-&-Ingress-Controllers---1.jpg)
+![API Security Arsenal/images/Securing the Perimeter with Gateways & Ingress Controllers](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/Securing-the-Perimeter-with-Gateways-&-Ingress-Controllers---1.jpg)
+
 APIs are everywhere. They power your mobile banking, your food delivery, your ride-sharing, and your favorite social media app. But before a single request reaches your backend code, it must pass through the front door — your API gateway.
 
 Think of an API gateway as the reception desk of a large office building. The receptionist checks who you are, asks where you are going, validates your badge, limits how many people you brought, and then directs you to the correct elevator. Without this receptionist, anyone could wander directly into the CEO's office.
@@ -43,7 +44,7 @@ Here is the basic architecture:
 ```mermaid
 ```
 
-![5. API Security Arsenal: How to Choose the Right Tools for Your Stack](images/diagram_01_here-is-the-basic-architecture.png)
+![5. API Security Arsenal: How to Choose the Right Tools for Your Stack](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_01_here-is-the-basic-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_01_here-is-the-basic-architecture.md)
 
@@ -51,7 +52,7 @@ Here is the basic architecture:
 **What an API gateway is NOT:**
 
 
-![What an API gateway is NOT:](images/table_01_what-an-api-gateway-is-not.png)
+![What an API gateway is NOT:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_01_what-an-api-gateway-is-not.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_01_what-an-api-gateway-is-not.md)
 
@@ -64,7 +65,7 @@ Here is the basic architecture:
 Before diving into details, here is a quick comparison of the six tools covered in this story:
 
 
-![The Six Gateway Tools at a Glance](images/table_02_before-diving-into-details-here-is-a-quick-compar-6370.png)
+![The Six Gateway Tools at a Glance](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_02_before-diving-into-details-here-is-a-quick-compar-6370.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_02_before-diving-into-details-here-is-a-quick-compar-6370.md)
 
@@ -92,7 +93,7 @@ Kong is built on top of NGINX with a plugin architecture that allows you to exte
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_02_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_02_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_02_architecture-diagram.md)
 
@@ -173,7 +174,7 @@ NGINX started as a web server and reverse proxy. Over time, it has evolved into 
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_03_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_03_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_03_architecture-diagram.md)
 
@@ -269,7 +270,7 @@ AWS API Gateway is a fully managed service that integrates seamlessly with the A
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_04_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_04_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_04_architecture-diagram.md)
 
@@ -413,7 +414,7 @@ Azure API Management (APIM) is a full lifecycle API management platform. It goes
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_05_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_05_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_05_architecture-diagram.md)
 
@@ -516,7 +517,7 @@ Google Cloud Endpoints is a lightweight API gateway built on top of the open-sou
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_06_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_06_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_06_architecture-diagram.md)
 
@@ -658,7 +659,7 @@ Tyk is an open-source API gateway that emphasizes developer experience. It inclu
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_07_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_07_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_07_architecture-diagram.md)
 
@@ -767,7 +768,7 @@ If you implement nothing else, implement rate limiting. It protects your API fro
 ```mermaid
 ```
 
-![Rate limiting strategies compared:](images/diagram_08_rate-limiting-strategies-compared-1038.png)
+![Rate limiting strategies compared:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_08_rate-limiting-strategies-compared-1038.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_08_rate-limiting-strategies-compared-1038.md)
 
@@ -775,7 +776,7 @@ If you implement nothing else, implement rate limiting. It protects your API fro
 **Configuration comparison across gateways:**
 
 
-![Configuration comparison across gateways:](images/table_03_configuration-comparison-across-gateways-908f.png)
+![Configuration comparison across gateways:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_03_configuration-comparison-across-gateways-908f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_03_configuration-comparison-across-gateways-908f.md)
 
@@ -809,7 +810,7 @@ One of the most common gateway mistakes is assuming authentication happens *only
 ```mermaid
 ```
 
-![Authentication Forwarding: Patterns and Anti-Patterns](images/diagram_09_one-of-the-most-common-gateway-mistakes-is-assumin-27d4.png)
+![Authentication Forwarding: Patterns and Anti-Patterns](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_09_one-of-the-most-common-gateway-mistakes-is-assumin-27d4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_09_one-of-the-most-common-gateway-mistakes-is-assumin-27d4.md)
 
@@ -835,7 +836,7 @@ This is a common source of confusion. Both sit between services, but they serve 
 ```mermaid
 ```
 
-![Gateway vs. Service Mesh: Which One Do You Need?](images/diagram_10_this-is-a-common-source-of-confusion-both-sit-bet-4056.png)
+![Gateway vs. Service Mesh: Which One Do You Need?](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/diagram_10_this-is-a-common-source-of-confusion-both-sit-bet-4056.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/diagram_10_this-is-a-common-source-of-confusion-both-sit-bet-4056.md)
 
@@ -843,7 +844,7 @@ This is a common source of confusion. Both sit between services, but they serve 
 **Decision matrix:**
 
 
-![Decision matrix:](images/table_04_decision-matrix.png)
+![Decision matrix:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_04_decision-matrix.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_04_decision-matrix.md)
 
@@ -890,7 +891,7 @@ Attackers send 1GB JSON payloads to exhaust memory.
 ## Cost Comparison: Open-Source vs. Managed
 
 
-![Fix:](images/table_05_cost-comparison-open-source-vs-managed-1a63.png)
+![Fix:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_05_cost-comparison-open-source-vs-managed-1a63.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_05_cost-comparison-open-source-vs-managed-1a63.md)
 
@@ -915,7 +916,7 @@ Attackers send 1GB JSON payloads to exhaust memory.
 ## Performance Benchmarks (Approximate)
 
 
-![Performance Benchmarks (Approximate)](images/table_06_performance-benchmarks-approximate-a1bc.png)
+![Performance Benchmarks (Approximate)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/images/table_06_performance-benchmarks-approximate-a1bc.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-securing-the-perimeter-with-gateways--ingress-controllers/table_06_performance-benchmarks-approximate-a1bc.md)
 

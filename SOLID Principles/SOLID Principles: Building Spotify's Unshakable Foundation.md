@@ -1,12 +1,13 @@
 # SOLID Principles: Building Spotify's Unshakable Foundation
+
 ## A 6-Part Journey from Rigid Code to Resilient Architecture
 
 ---
 
-**Subtitle:**
+**Subtitle:**  
 How we transformed Spotify's spaghetti code into a maintainable masterpiece using SOLID principles with .NET 10, Reactive Programming, and Entity Framework Core—a comprehensive series for architects and engineers.
 
-**Keywords:**
+**Keywords:**  
 SOLID Principles, Clean Architecture, .NET 10, Software Design, Spotify Case Study, Code Quality, Technical Debt, Refactoring, Design Patterns, System Architecture
 
 ---
@@ -23,9 +24,30 @@ This series chronicles how Spotify rebuilt its foundation using the SOLID princi
 
 ---
 
-## The Series at a Glance
+### The Series at a Glance
+
+- **🏗️ SOLID Principles: Building Unbreakable Foundations**  
+
+- 🧱 **[S]ingle Responsibility** – *Prevents Fragility where one change breaks unrelated features. Real-world consequence: A single update in one module unexpectedly crashes another part of the system.*
+  *- Coming soon*
+- 🔓 **[O]pen-Closed** – *Prevents Rigidity where you can't add features without modifying existing code. Real-world consequence: Every new feature requires risky changes to stable, working code.*  
+*- Coming soon*  
+
+- 🔄 **[L]iskov Substitution** – *Prevents Surprise where subclasses behave unexpectedly, causing crashes. Real-world consequence: Replacing a parent class with its child class leads to unpredictable runtime errors.*
+  *- Coming soon*  
+
+- ✂️ **[I]nterface Segregation** – *Prevents Coupling where clients depend on methods they don't use. Real-world consequence: Classes are forced to implement irrelevant methods, creating unnecessary dependencies.*
+  *- Coming soon*  
+
+- 🔌 **[D]ependency Inversion** – *Prevents Immobility where you can't test, can't reuse, can't evolve. Real-world consequence: High-level modules are stuck to low-level details, making the system rigid and untestable.*
+  *- Coming soon*
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "The SOLID Journey"
         A[Part 1: Introduction] --> B[Part 2: Single Responsibility]
@@ -46,22 +68,16 @@ graph TD
     F --> H
 ```
 
-| Part | Title | Problem | Solution | Key .NET 10 Features |
-|------|-------|---------|----------|---------------------|
-| **1** | **Redefining SOLID Principles** | Systems collapse under their own weight | SOLID as survival strategy | Primary constructors, records |
-| **2** | **Single Responsibility** | God classes with 50+ methods | One reason to change per class | CQRS, repository pattern |
-| **3** | **Open-Closed** | Every new feature risks breaking old ones | Strategy pattern, decorators | Keyed services, DI |
-| **4** | **Liskov Substitution** | Type checks and runtime surprises | Behavioral contracts, polymorphism | Records, inheritance |
-| **5** | **Interface Segregation** | Fat interfaces with NotImplementedException | Role-based interfaces | Default interface methods |
-| **6** | **Dependency Inversion** | High-level code tied to low-level details | Dependency injection, abstractions | Built-in DI container |
-
----
-
 ## The Cast of Characters
 
 Throughout this series, you'll meet the same Spotify components at different stages of SOLID maturity:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class PlaybackService {
         +PlayAsync()
@@ -106,27 +122,31 @@ classDiagram
 ---
 
 ## Part 1: Redefining SOLID Principles
+
 *Beyond Acronyms, Into Architectural Reality*
 
-**The Problem:**
+**The Problem:**  
 Most developers learn SOLID as abstract rules to memorize for interviews. They implement them mechanically without understanding the *why*. The result? Code that follows the letter of SOLID but violates its spirit—interfaces everywhere, but still fragile; dependency injection, but still untestable.
 
-**The Spotify Context:**
+**The Spotify Context:**  
 Spotify's early architecture had no clear separation of concerns. A single `UserService` class handled authentication, playback, payments, and analytics. The team feared every change. Adding a new feature required regression testing everything. Onboarding new developers took months.
 
-**The Solution:**
+**The Solution:**  
 We reframed SOLID not as rules but as **early warning systems** for architectural decay:
 
-| Principle | Warning Sign | What It Prevents |
-|-----------|--------------|------------------|
-| **SRP** | One change breaks unrelated features | Fragility |
-| **OCP** | Can't add features without modifying existing code | Rigidity |
-| **LSP** | Subclasses behave unexpectedly | Surprise |
-| **ISP** | Clients depend on methods they don't use | Coupling |
-| **DIP** | Can't test, can't reuse, can't evolve | Immobility |
 
-**The .NET 10 Foundation:**
+| Principle | Warning Sign                                       | What It Prevents |
+| --------- | -------------------------------------------------- | ---------------- |
+| **SRP**   | One change breaks unrelated features               | Fragility        |
+| **OCP**   | Can't add features without modifying existing code | Rigidity         |
+| **LSP**   | Subclasses behave unexpectedly                     | Surprise         |
+| **ISP**   | Clients depend on methods they don't use           | Coupling         |
+| **DIP**   | Can't test, can't reuse, can't evolve              | Immobility       |
+
+
+**The .NET 10 Foundation:**  
 We introduced the tools that would power our SOLID transformation:
+
 - **Primary constructors** for explicit dependencies
 - **Record types** for immutable data carriers
 - **Source generators** for reducing boilerplate
@@ -138,9 +158,10 @@ We introduced the tools that would power our SOLID transformation:
 ---
 
 ## Part 2: Single Responsibility Principle
+
 *One Class, One Job - The .NET 10 Way*
 
-**The Problem:**
+**The Problem:**  
 Spotify's original `UserService` was a 5,000-line monster with 50+ methods:
 
 ```csharp
@@ -169,10 +190,15 @@ public class UserService
 
 This class had multiple reasons to change—security team, audio team, product team, finance team—all touching the same file. A security patch could accidentally break playback. A payment change required redeploying the entire service.
 
-**The Solution:**
+**The Solution:**  
 We decomposed the monolith into focused services, each with one responsibility:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before"
         A[UserService<br/>50 methods]
@@ -229,6 +255,7 @@ public class PlaybackService
 **Repository Pattern:** Each aggregate root got its own repository interface.
 
 **The Result:**
+
 - **Testability:** Each service tested in isolation
 - **Maintainability:** Changes isolated to one service
 - **Team autonomy:** Teams own different services
@@ -239,9 +266,10 @@ public class PlaybackService
 ---
 
 ## Part 3: Open-Closed Principle
+
 *Open for Extension, Closed for Modification*
 
-**The Problem:**
+**The Problem:**  
 Spotify's recommendation engine was a nightmare of conditional logic:
 
 ```csharp
@@ -274,10 +302,15 @@ public class RecommendationEngine
 
 Adding a new algorithm meant modifying the engine, risking breaking all existing algorithms. The team avoided innovation because change was dangerous.
 
-**The Solution:**
+**The Solution:**  
 We applied the Strategy Pattern, making the engine open for extension but closed for modification:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IRecommendationStrategy {
         <<interface>>
@@ -359,6 +392,7 @@ public class LicensingHandler : IPlaybackHandler { /* ... */ }
 ```
 
 **The Result:**
+
 - **Zero-risk** addition of new algorithms
 - **A/B testing** by simply adding new strategies
 - **Cross-cutting concerns** via decorators
@@ -369,9 +403,10 @@ public class LicensingHandler : IPlaybackHandler { /* ... */ }
 ---
 
 ## Part 4: Liskov Substitution Principle
+
 *Subtypes Must Be Substitutable*
 
-**The Problem:**
+**The Problem:**  
 Spotify's content hierarchy was riddled with LSP violations:
 
 ```csharp
@@ -408,10 +443,15 @@ public void HandleContent(PlayableContent content)
 
 The code was littered with `is` and `as` checks. Adding a new content type meant finding every type check. Runtime exceptions were common when someone forgot a check.
 
-**The Solution:**
+**The Solution:**  
 We redesigned the hierarchy with proper contracts and capability interfaces:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IPlayable {
         <<interface>>
@@ -514,6 +554,7 @@ public abstract class PlayableContractTests
 ```
 
 **The Result:**
+
 - **Zero type checks** in client code
 - **New content types** added without changes
 - **Clear contracts** with pre/post conditions
@@ -524,9 +565,10 @@ public abstract class PlayableContractTests
 ---
 
 ## Part 5: Interface Segregation Principle
+
 *Don't Depend on What You Don't Use*
 
-**The Problem:**
+**The Problem:**  
 Spotify had a fat `IMediaPlayer` interface that tried to do everything:
 
 ```csharp
@@ -576,10 +618,15 @@ public class SimpleAudioPlayer : IMediaPlayer
 
 The interface was a lie. Clients never knew what would work and what would throw.
 
-**The Solution:**
+**The Solution:**  
 We decomposed the fat interface into focused role interfaces:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IPlayable {
         <<interface>>
@@ -681,6 +728,7 @@ public interface IShareable
 **Role-Based Design:** Each interface represented a single capability or role.
 
 **The Result:**
+
 - **No more NotImplementedException**
 - **Clients only see what they need**
 - **Interfaces match capabilities**
@@ -691,9 +739,10 @@ public interface IShareable
 ---
 
 ## Part 6: Dependency Inversion Principle
+
 *Depend on Abstractions, Not Concretions*
 
-**The Problem:**
+**The Problem:**  
 Spotify's high-level services were tightly coupled to low-level implementations:
 
 ```csharp
@@ -723,14 +772,20 @@ public class MusicPlayer
 ```
 
 This code was:
+
 - **Untestable** without actual hardware and database
 - **Inflexible** - couldn't swap to PostgreSQL or PayPal
 - **Rigid** - changes to any dependency affected the player
 
-**The Solution:**
+**The Solution:**  
 We inverted dependencies, making high-level modules depend on abstractions:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before"
         A[MusicPlayer] --> B[SqlServerUserRepo]
@@ -840,6 +895,7 @@ public async Task PlaySongAsync_ShouldCallHardware()
 ```
 
 **The Result:**
+
 - **Testable** - mock any dependency
 - **Flexible** - swap implementations via configuration
 - **Decoupled** - changes isolated to one layer
@@ -852,6 +908,11 @@ public async Task PlaySongAsync_ShouldCallHardware()
 ## The Transformation: Before and After
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before SOLID"
         A[God Classes<br/>50+ methods]
@@ -881,15 +942,17 @@ graph TD
 
 **Metrics That Matter:**
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| Lines per class | 5,000+ | <200 | 96% reduction |
-| Methods per class | 50+ | <10 | 80% reduction |
-| NotImplementedException | 100+ | 0 | 100% elimination |
-| Type checks (`is`/`as`) | 500+ | <10 | 98% reduction |
-| Test coverage | 30% | 95% | 65% increase |
-| Time to add new feature | 2 weeks | 2 days | 80% faster |
-| Onboarding time | 3 months | 2 weeks | 83% faster |
+
+| Metric                  | Before   | After   | Improvement      |
+| ----------------------- | -------- | ------- | ---------------- |
+| Lines per class         | 5,000+   | <200    | 96% reduction    |
+| Methods per class       | 50+      | <10     | 80% reduction    |
+| NotImplementedException | 100+     | 0       | 100% elimination |
+| Type checks (`is`/`as`) | 500+     | <10     | 98% reduction    |
+| Test coverage           | 30%      | 95%     | 65% increase     |
+| Time to add new feature | 2 weeks  | 2 days  | 80% faster       |
+| Onboarding time         | 3 months | 2 weeks | 83% faster       |
+
 
 ---
 
@@ -897,15 +960,18 @@ graph TD
 
 Each SOLID principle leveraged specific .NET 10 features:
 
-| Principle | .NET 10 Features | Benefit |
-|-----------|-----------------|---------|
-| **SRP** | Primary constructors, records | Explicit dependencies, focused types |
-| **OCP** | Keyed services, DI container | Multiple implementations, easy extension |
-| **LSP** | Records, inheritance, interfaces | Clear contracts, value-based equality |
-| **ISP** | Default interface methods | Evolution without breaking |
-| **DIP** | Built-in DI, options pattern | Configuration-driven, testable |
+
+| Principle | .NET 10 Features                 | Benefit                                  |
+| --------- | -------------------------------- | ---------------------------------------- |
+| **SRP**   | Primary constructors, records    | Explicit dependencies, focused types     |
+| **OCP**   | Keyed services, DI container     | Multiple implementations, easy extension |
+| **LSP**   | Records, inheritance, interfaces | Clear contracts, value-based equality    |
+| **ISP**   | Default interface methods        | Evolution without breaking               |
+| **DIP**   | Built-in DI, options pattern     | Configuration-driven, testable           |
+
 
 **Common Themes:**
+
 - **Reactive programming** with `IObservable<T>` for event-driven architectures
 - **Async streaming** with `IAsyncEnumerable` for efficient data processing
 - **Thread-safe queues** with `Channel<T>` for producer-consumer patterns
@@ -917,6 +983,7 @@ Each SOLID principle leveraged specific .NET 10 features:
 ## Lessons Learned
 
 ### What Worked
+
 1. **Start with tests** - SOLID makes testing possible; testing enforces SOLID
 2. **Refactor in small steps** - Don't rewrite everything at once
 3. **Let pain guide you** - The code tells you where SOLID is violated
@@ -924,12 +991,14 @@ Each SOLID principle leveraged specific .NET 10 features:
 5. **Document the contract** - Interfaces tell you what, not how
 
 ### What We'd Do Differently
+
 1. **Apply SOLID from day one** - Refactoring legacy code is expensive
 2. **Use more source generators** - Reduce boilerplate for repetitive patterns
 3. **Invest in tooling** - Automated architecture validation
 4. **Train the whole team** - SOLID is a team sport
 
 ### Signs of Success
+
 - **No more fear** when adding features
 - **New developers** productive in weeks, not months
 - **Production incidents** down by 90%
@@ -948,6 +1017,7 @@ SOLID is not the destination—it's the foundation. With a SOLID base, Spotify c
 5. **Onboard partners** - Clear interfaces for third-party integrations
 
 **The Next Frontier:**
+
 - **Domain-Driven Design** with SOLID aggregates
 - **Event Sourcing** with immutable events
 - **CQRS** at scale with separate read/write models
@@ -959,7 +1029,7 @@ SOLID is not the destination—it's the foundation. With a SOLID base, Spotify c
 
 SOLID is not about writing perfect code. It's about **designing for change**. Software that doesn't change is dead. SOLID keeps your code alive, adaptable, and maintainable for years to come.
 
-**The Five Questions:**
+**The Five Questions:**  
 When you face a design decision, ask:
 
 1. **SRP:** Who might want this to change?
@@ -968,7 +1038,7 @@ When you face a design decision, ask:
 4. **ISP:** What do clients actually need?
 5. **DIP:** What are the stable abstractions?
 
-**The Final Word:**
+**The Final Word:**  
 SOLID principles are your canary in the coal mine. They sing when your architecture is healthy and fall silent when it's dying. Learn to listen.
 
 ---
@@ -977,16 +1047,19 @@ SOLID principles are your canary in the coal mine. They sing when your architect
 
 This series gives you everything you need to transform your own codebase:
 
-| Part | Focus | Read |
-|------|-------|------|
-| **1** | Introduction & Foundations | [Start Here](#) |
-| **2** | Single Responsibility | [One Class, One Job](#) |
-| **3** | Open-Closed | [Open for Extension](#) |
-| **4** | Liskov Substitution | [Subtypes Must Be Substitutable](#) |
-| **5** | Interface Segregation | [Don't Depend on What You Don't Use](#) |
-| **6** | Dependency Inversion | [Depend on Abstractions](#) |
+
+| Part  | Focus                      | Read                                    |
+| ----- | -------------------------- | --------------------------------------- |
+| **1** | Introduction & Foundations | [Start Here](#)                         |
+| **2** | Single Responsibility      | [One Class, One Job](#)                 |
+| **3** | Open-Closed                | [Open for Extension](#)                 |
+| **4** | Liskov Substitution        | [Subtypes Must Be Substitutable](#)     |
+| **5** | Interface Segregation      | [Don't Depend on What You Don't Use](#) |
+| **6** | Dependency Inversion       | [Depend on Abstractions](#)             |
+
 
 Each part includes:
+
 - Real Spotify examples with production-ready .NET 10 code
 - Mermaid diagrams for visual understanding
 - Step-by-step refactoring guidance
