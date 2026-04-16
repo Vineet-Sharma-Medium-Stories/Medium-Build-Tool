@@ -1,7 +1,7 @@
 # SOLID Principles: Building Spotify's Unshakable Foundation
 ### How we transformed Spotify's spaghetti code into a maintainable masterpiece using SOLID principles with .NET 10, Reactive Programming, and Entity Framework Core—a comprehensive series for architects and engineers.
 
-![SOLID Principles/images/SOLID Principles: Building Spotify's Unshakable Foundation](<images/SOLID Principles: Building Spotify's Unshakable Foundation.png>)
+![SOLID Principles/images/SOLID Principles: Building Spotify's Unshakable Foundation](images/SOLID-Principles-Building-Spotify's-Unshakable-Foundation.png)
 
 # Introduction
 ## A 6-Part Journey from Rigid Code to Resilient Architecture
@@ -38,80 +38,24 @@ This series chronicles how Spotify rebuilt its foundation using the SOLID princi
   *- Coming soon*
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "The Transformation"
-        G[Spaghetti Code] --> H[SOLID Foundation]
-        H --> I[Maintainable]
-        H --> J[Testable]
-        H --> K[Extensible]
-        H --> L[Resilient]
-    end
-
-    subgraph "The SOLID Journey"
-        A[Part 1: Introduction] --> B[Part 2: Single Responsibility]
-        B --> C[Part 3: Open-Closed]
-        C --> D[Part 4: Liskov Substitution]
-        D --> E[Part 5: Interface Segregation]
-        E --> F[Part 6: Dependency Inversion]
-    end
-    
 ```
+
+![[L]iskov Substitution](images/diagram_01_coming-soon.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_01_coming-soon.md)
+
 
 ## The Cast of Characters
 
 Throughout this series, you'll meet the same Spotify components at different stages of SOLID maturity:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-classDiagram
-    class PlaybackService {
-        +PlayAsync()
-        +PauseAsync()
-        +StopAsync()
-        +SeekAsync()
-    }
-    
-    class UserService {
-        +RegisterAsync()
-        +LoginAsync()
-        +UpdateProfileAsync()
-    }
-    
-    class RecommendationEngine {
-        +GetRecommendationsAsync()
-    }
-    
-    class PlaylistManager {
-        +CreatePlaylist()
-        +AddSong()
-        +RemoveSong()
-    }
-    
-    class AudioPlayer {
-        +PlayAsync()
-        +PauseAsync()
-        +SetVolumeAsync()
-    }
-    
-    class PaymentProcessor {
-        +ProcessPayment()
-        +Refund()
-    }
-    
-    PlaybackService --> AudioPlayer
-    RecommendationEngine --> PlaybackService
-    PlaylistManager --> PlaybackService
-    UserService --> PaymentProcessor
 ```
+
+![The Cast of Characters](images/diagram_02_throughout-this-series-youll-meet-the-same-spoti-3070.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_02_throughout-this-series-youll-meet-the-same-spoti-3070.md)
+
 
 ---
 
@@ -129,13 +73,10 @@ Spotify's early architecture had no clear separation of concerns. A single `User
 We reframed SOLID not as rules but as **early warning systems** for architectural decay:
 
 
-| Principle | Warning Sign                                       | What It Prevents |
-| --------- | -------------------------------------------------- | ---------------- |
-| **SRP**   | One change breaks unrelated features               | Fragility        |
-| **OCP**   | Can't add features without modifying existing code | Rigidity         |
-| **LSP**   | Subclasses behave unexpectedly                     | Surprise         |
-| **ISP**   | Clients depend on methods they don't use           | Coupling         |
-| **DIP**   | Can't test, can't reuse, can't evolve              | Immobility       |
+![The Problem:](images/table_01_we-reframed-solid-not-as-rules-but-as-early-warn-6b92.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_01_we-reframed-solid-not-as-rules-but-as-early-warn-6b92.md)
+
 
 
 **The .NET 10 Foundation:**  
@@ -188,32 +129,12 @@ This class had multiple reasons to change—security team, audio team, product t
 We decomposed the monolith into focused services, each with one responsibility:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TD
-    subgraph "Before"
-        A[UserService<br/>50 methods]
-    end
-    
-    subgraph "After"
-        B[UserRegistrationService]
-        C[UserLoginService]
-        D[PlaybackService]
-        E[PlaylistService]
-        F[PaymentService]
-        G[AnalyticsService]
-    end
-    
-    A -.-> B
-    A -.-> C
-    A -.-> D
-    A -.-> E
-    A -.-> F
-    A -.-> G
 ```
+
+![The Solution:](images/diagram_03_we-decomposed-the-monolith-into-focused-services-54ee.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_03_we-decomposed-the-monolith-into-focused-services-54ee.md)
+
 
 **Key Implementations:**
 
@@ -300,36 +221,12 @@ Adding a new algorithm meant modifying the engine, risking breaking all existing
 We applied the Strategy Pattern, making the engine open for extension but closed for modification:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-classDiagram
-    class IRecommendationStrategy {
-        <<interface>>
-        +GetRecommendationsAsync()
-        +AppliesToUser()
-    }
-    
-    class PopularityStrategy
-    class CollaborativeStrategy
-    class NeuralStrategy
-    class HybridStrategy
-    class ABTestStrategy
-    
-    class RecommendationEngine {
-        -IEnumerable~IRecommendationStrategy~ _strategies
-        +GetRecommendationsAsync()
-    }
-    
-    IRecommendationStrategy <|.. PopularityStrategy
-    IRecommendationStrategy <|.. CollaborativeStrategy
-    IRecommendationStrategy <|.. NeuralStrategy
-    IRecommendationStrategy <|.. HybridStrategy
-    IRecommendationStrategy <|.. ABTestStrategy
-    RecommendationEngine --> IRecommendationStrategy
 ```
+
+![The Solution:](images/diagram_04_we-applied-the-strategy-pattern-making-the-engine-36b4.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_04_we-applied-the-strategy-pattern-making-the-engine-36b4.md)
+
 
 **Key Implementations:**
 
@@ -441,59 +338,12 @@ The code was littered with `is` and `as` checks. Adding a new content type meant
 We redesigned the hierarchy with proper contracts and capability interfaces:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-classDiagram
-    class IPlayable {
-        <<interface>>
-        +PlayAsync()
-        +PauseAsync()
-        +StopAsync()
-    }
-    
-    class IDownloadable {
-        <<interface>>
-        +DownloadAsync()
-        +DeleteDownloadAsync()
-    }
-    
-    class IShareable {
-        <<interface>>
-        +ShareAsync()
-    }
-    
-    class Song {
-        +IPlayable
-        +IDownloadable
-        +IShareable
-    }
-    
-    class Podcast {
-        +IPlayable
-        +IDownloadable
-        +IShareable
-    }
-    
-    class Ad {
-        +IPlayable
-    }
-    
-    class Playlist {
-        +IShareable
-    }
-    
-    IPlayable <|.. Song
-    IPlayable <|.. Podcast
-    IPlayable <|.. Ad
-    IDownloadable <|.. Song
-    IDownloadable <|.. Podcast
-    IShareable <|.. Song
-    IShareable <|.. Podcast
-    IShareable <|.. Playlist
 ```
+
+![The Solution:](images/diagram_05_we-redesigned-the-hierarchy-with-proper-contracts-0f78.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_05_we-redesigned-the-hierarchy-with-proper-contracts-0f78.md)
+
 
 **Key Implementations:**
 
@@ -616,70 +466,12 @@ The interface was a lie. Clients never knew what would work and what would throw
 We decomposed the fat interface into focused role interfaces:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-classDiagram
-    class IPlayable {
-        <<interface>>
-        +PlayAsync()
-        +PauseAsync()
-        +StopAsync()
-    }
-    
-    class IDownloadable {
-        <<interface>>
-        +DownloadAsync()
-        +DeleteDownloadAsync()
-    }
-    
-    class IShareable {
-        <<interface>>
-        +ShareAsync()
-    }
-    
-    class IAnalyticsTrackable {
-        <<interface>>
-        +TrackPlayAsync()
-    }
-    
-    class IPlaylistManageable {
-        <<interface>>
-        +AddToPlaylistAsync()
-    }
-    
-    class Song {
-        +IPlayable
-        +IDownloadable
-        +IShareable
-        +IAnalyticsTrackable
-    }
-    
-    class Podcast {
-        +IPlayable
-        +IDownloadable
-        +IShareable
-        +IAnalyticsTrackable
-    }
-    
-    class Ad {
-        +IPlayable
-        +IAnalyticsTrackable
-    }
-    
-    IPlayable <|.. Song
-    IPlayable <|.. Podcast
-    IPlayable <|.. Ad
-    IDownloadable <|.. Song
-    IDownloadable <|.. Podcast
-    IShareable <|.. Song
-    IShareable <|.. Podcast
-    IAnalyticsTrackable <|.. Song
-    IAnalyticsTrackable <|.. Podcast
-    IAnalyticsTrackable <|.. Ad
 ```
+
+![The Solution:](images/diagram_06_we-decomposed-the-fat-interface-into-focused-role-aca2.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_06_we-decomposed-the-fat-interface-into-focused-role-aca2.md)
+
 
 **Key Implementations:**
 
@@ -775,33 +567,12 @@ This code was:
 We inverted dependencies, making high-level modules depend on abstractions:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TD
-    subgraph "Before"
-        A[MusicPlayer] --> B[SqlServerUserRepo]
-        A --> C[Mp3AudioHardware]
-        A --> D[StripeProcessor]
-    end
-    
-    subgraph "After"
-        E[MusicPlayer] --> F[IUserRepository]
-        E --> G[IAudioHardware]
-        E --> H[IPaymentProcessor]
-        
-        F --> I[SqlServerImpl]
-        F --> J[PostgresImpl]
-        
-        G --> K[WindowsImpl]
-        G --> L[MacImpl]
-        
-        H --> M[StripeImpl]
-        H --> N[PayPalImpl]
-    end
 ```
+
+![Untestable](images/diagram_07_we-inverted-dependencies-making-high-level-module-cdf7.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_07_we-inverted-dependencies-making-high-level-module-cdf7.md)
+
 
 **Key Implementations:**
 
@@ -902,50 +673,20 @@ public async Task PlaySongAsync_ShouldCallHardware()
 ## The Transformation: Before and After
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph TD
-    subgraph "Before SOLID"
-        A[God Classes<br/>50+ methods]
-        B[Fat Interfaces<br/>NotImplementedException]
-        C[Type Checks Everywhere<br/>if (x is Y)]
-        D[Hard Dependencies<br/>new Concrete()]
-        E[Untestable Code<br/>Requires real DB]
-        F[Fear of Change<br/>Every change risky]
-    end
-    
-    subgraph "After SOLID"
-        G[Focused Classes<br/>One responsibility]
-        H[Role Interfaces<br/>Clients get what they need]
-        I[Polymorphism<br/>No type checks]
-        J[Dependency Injection<br/>Abstractions only]
-        K[Fully Testable<br/>Mocks everywhere]
-        L[Confident Evolution<br/>Changes are safe]
-    end
-    
-    A --> G
-    B --> H
-    C --> I
-    D --> J
-    E --> K
-    F --> L
 ```
+
+![Flexible](images/diagram_08_the-transformation-before-and-after-fb80.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_08_the-transformation-before-and-after-fb80.md)
+
 
 **Metrics That Matter:**
 
 
-| Metric                  | Before   | After   | Improvement      |
-| ----------------------- | -------- | ------- | ---------------- |
-| Lines per class         | 5,000+   | <200    | 96% reduction    |
-| Methods per class       | 50+      | <10     | 80% reduction    |
-| NotImplementedException | 100+     | 0       | 100% elimination |
-| Type checks (`is`/`as`) | 500+     | <10     | 98% reduction    |
-| Test coverage           | 30%      | 95%     | 65% increase     |
-| Time to add new feature | 2 weeks  | 2 days  | 80% faster       |
-| Onboarding time         | 3 months | 2 weeks | 83% faster       |
+![Metrics That Matter:](images/table_02_metrics-that-matter.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_02_metrics-that-matter.md)
+
 
 
 ---
@@ -955,13 +696,10 @@ graph TD
 Each SOLID principle leveraged specific .NET 10 features:
 
 
-| Principle | .NET 10 Features                 | Benefit                                  |
-| --------- | -------------------------------- | ---------------------------------------- |
-| **SRP**   | Primary constructors, records    | Explicit dependencies, focused types     |
-| **OCP**   | Keyed services, DI container     | Multiple implementations, easy extension |
-| **LSP**   | Records, inheritance, interfaces | Clear contracts, value-based equality    |
-| **ISP**   | Default interface methods        | Evolution without breaking               |
-| **DIP**   | Built-in DI, options pattern     | Configuration-driven, testable           |
+![The .NET 10 Advantage Throughout](images/table_03_each-solid-principle-leveraged-specific-net-10-fe-6833.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_03_each-solid-principle-leveraged-specific-net-10-fe-6833.md)
+
 
 
 **Common Themes:**
@@ -1042,14 +780,10 @@ SOLID principles are your canary in the coal mine. They sing when your architect
 This series gives you everything you need to transform your own codebase:
 
 
-| Part  | Focus                      | Read                                    |
-| ----- | -------------------------- | --------------------------------------- |
-| **1** | Introduction & Foundations | [Start Here](#)                         |
-| **2** | Single Responsibility      | [One Class, One Job](#)                 |
-| **3** | Open-Closed                | [Open for Extension](#)                 |
-| **4** | Liskov Substitution        | [Subtypes Must Be Substitutable](#)     |
-| **5** | Interface Segregation      | [Don't Depend on What You Don't Use](#) |
-| **6** | Dependency Inversion       | [Depend on Abstractions](#)             |
+![The Final Word:](images/table_04_this-series-gives-you-everything-you-need-to-trans-2430.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_04_this-series-gives-you-everything-you-need-to-trans-2430.md)
+
 
 
 Each part includes:
