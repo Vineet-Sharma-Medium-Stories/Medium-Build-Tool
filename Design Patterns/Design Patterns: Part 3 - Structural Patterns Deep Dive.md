@@ -1,4 +1,4 @@
-# Part 3: Structural Patterns Deep Dive
+# Design Patterns: Part 3 - Structural Patterns Deep Dive
 ## How Spotify Composes Its Features (The .NET 10 Way)
 
 ---

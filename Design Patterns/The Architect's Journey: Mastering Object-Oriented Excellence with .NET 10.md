@@ -1,4 +1,4 @@
-# The Architect's Journey: Mastering Object-Oriented Excellence
+# The Architect's Journey: Mastering Object-Oriented Excellence with .NET 10
 ## A Comprehensive 16-Part Series on OOPS, Design Patterns, and SOLID Principles with .NET 10
 
 ---

@@ -1,4 +1,4 @@
-# Redefining OOPs: Beyond the Car and Animal Analogy
+# Redefining OOPs: Beyond the Car and Animal Analogy .Net 10
 
 If you have ever prepared for a technical interview or sat through a college lecture on Object-Oriented Programming (OOPs), you have likely encountered the same tired analogies:
 

@@ -1,4 +1,4 @@
-# Part 2: Creational Patterns Deep Dive
+# Design Patterns: Part 2 - Creational Patterns Deep Dive
 ## How Spotify Creates Its Universe (The .NET 10 Way)
 
 ---

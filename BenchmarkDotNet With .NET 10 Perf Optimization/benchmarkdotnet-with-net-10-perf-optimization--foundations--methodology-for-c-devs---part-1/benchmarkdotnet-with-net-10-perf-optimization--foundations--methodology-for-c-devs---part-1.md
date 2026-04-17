@@ -2,7 +2,7 @@
 
 ### BenchmarkDotNet: Micro-benchmarks, memory allocation, hardware counters & SIMD for real-time fleet telemetry systems
 
-![BenchmarkDotNet With .NET 10 Perf Optimization/images/Foundations & Methodology](<images/Foundations & Methodology.jpg>)
+![BenchmarkDotNet With .NET 10 Perf Optimization/images/Foundations & Methodology](images/Foundations-&-Methodology.jpg)
 
 ## 📖 Introduction
 
@@ -45,16 +45,10 @@ Complete BenchmarkDotNet setup guide for .NET 10, attribute explanations with Ve
 **BenchmarkDotNet** is a powerful open-source library for benchmarking .NET code. It handles all the complexities of reliable performance measurement that most developers don't even know exist:
 
 
-| Challenge                 | How BenchmarkDotNet Solves It                                               |
-| ------------------------- | --------------------------------------------------------------------------- |
-| **JIT Warm-up**           | Runs automatic warmup iterations before measuring to eliminate startup bias |
-| **Garbage Collection**    | Forces GC between runs for consistent memory state                          |
-| **CPU Frequency Scaling** | Uses high-resolution timers (RDTSC instruction) for nanosecond precision    |
-| **Statistical Outliers**  | Removes anomalies using statistical analysis (Q-test, Grubbs' test)         |
-| **Hardware Variations**   | Runs multiple iterations with confidence intervals (99.9% default)          |
-| **Memory Allocations**    | Tracks Gen0/Gen1/Gen2 collections per operation via ETW events              |
-| **PGO Effects**           | Accounts for Profile-Guided Optimization warmup across runs                 |
-| **Inlining Decisions**    | Disassembly diagnoser shows actual JIT-generated assembly                   |
+![BenchmarkDotNet](images/table_01_benchmarkdotnet-is-a-powerful-open-source-libr-c5cf.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_01_benchmarkdotnet-is-a-powerful-open-source-libr-c5cf.md)
+
 
 
 ### 1.2 Why BenchmarkDotNet for Performance Optimization?
@@ -72,56 +66,28 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 1.3 The Optimization Landscape: Tools Overview
 
 
-| Tool                | Best For                                                     | Limitations                        | When to Use in Vehixcare                                       |
-| ------------------- | ------------------------------------------------------------ | ---------------------------------- | -------------------------------------------------------------- |
-| **BenchmarkDotNet** | Micro-benchmarks, algorithm comparison, regression detection | No I/O, no async complex workflows | **Primary focus** - Driver scoring, serialization, geo-fencing |
-| **dotnet-trace**    | Production profiling, GC analysis, event tracing             | Noisy, requires interpretation     | After Benchmarks identify hotspots in production               |
-| **dotnet-counters** | Live metric monitoring (CPU, memory, GC)                     | Surface-level only                 | During load testing and canary deployments                     |
-| **dotnet-stack**    | Live stack traces for hung processes                         | Performance overhead               | Debugging production deadlocks                                 |
-| **dotnet-gcdump**   | GC heap analysis                                             | Single snapshot only               | Investigating memory leaks                                     |
-| **Apache JMeter**   | Full API endpoint load testing                               | Complex setup, no micro-benchmarks | Integration/E2E testing of complete API surface                |
-| **k6**              | Load testing with JavaScript/TypeScript scripts              | No .NET native integration         | API stress testing for telemetry ingestion endpoints           |
-| **NBomber**         | .NET-native load testing and simulation                      | Less mature than JMeter            | Scenario-based load tests for SignalR hubs                     |
-| **OpenTelemetry**   | Distributed tracing, metrics collection                      | High overhead, production-only     | Post-optimization monitoring across microservices              |
-| **PerfView**        | Deep Windows ETW analysis                                    | Windows-only, complex              | Investigating GC patterns and JIT issues                       |
-| **EventPipe**       | Cross-platform event tracing                                 | Requires interpretation            | Linux container profiling                                      |
-| **Valgrind**        | Memory leak detection on Linux                               | Slow, no .NET-specific             | Native memory investigations                                   |
+![Statistical significance testing](images/table_02_13-the-optimization-landscape-tools-overview-e70a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_02_13-the-optimization-landscape-tools-overview-e70a.md)
+
 
 
 ### 1.4 .NET 10 Advantages for Benchmarking
 
 
-| Feature              | .NET 8         | .NET 9     | **.NET 10**                            | Benchmarking Impact                                 | Vehixcare Benefit                               |
-| -------------------- | -------------- | ---------- | -------------------------------------- | --------------------------------------------------- | ----------------------------------------------- |
-| **SIMD Width**       | 256-bit (AVX2) | 256-bit    | **512-bit (AVX-512)**                  | Test vectorized code paths with 8-16 values at once | 2x faster telemetry batch processing            |
-| **PGO**              | Experimental   | Default    | **Dynamic + Guided**                   | Measure branch prediction accuracy across runs      | 30% better branch prediction for driver scoring |
-| **NativeAOT**        | Limited        | Improved   | **Full support with WASM**             | Benchmark startup time and memory footprint         | 50% faster cold start for telemetry processor   |
-| **GC**               | Gen0/1/2       | Added Gen3 | **NUMA-aware + POH**                   | Test multi-socket scaling and pinned object impact  | Better multi-socket server utilization          |
-| **String Interning** | Manual         | Improved   | **Automatic pool with deduplication**  | Measure memory reduction for repeated telemetry IDs | 40% less memory for vehicle IDs                 |
-| **Vectorization**    | Loop           | Basic      | **Automatic for common patterns**      | Zero-code SIMD for array operations                 | Simplified optimization path                    |
-| **TLB**              | 4KB pages      | 4KB pages  | **Large pages (2MB/1GB)**              | Measure TLB miss reduction                          | 20% fewer page faults for large datasets        |
-| **JSON**             | Reflection     | Source gen | **Utf8JsonWriter with pooled buffers** | Serialization benchmark improvements                | 3x faster JSON processing                       |
+![NBomber](images/table_03_14-net-10-advantages-for-benchmarking-4920.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_03_14-net-10-advantages-for-benchmarking-4920.md)
+
 
 
 ### 1.5 BenchmarkDotNet Attributes: Complete Reference
 
 
-| Attribute                      | Purpose                           | Vehixcare Usage Example              | Advanced Options                                      |
-| ------------------------------ | --------------------------------- | ------------------------------------ | ----------------------------------------------------- |
-| `[Benchmark]`                  | Marks method to benchmark         | Telemetry deserialization methods    | `[Benchmark(Description="...")]`                      |
-| `[Benchmark(Baseline = true)]` | Reference point for comparison    | Current JSON serializer as baseline  | Only one per class                                    |
-| `[MemoryDiagnoser]`            | Tracks allocations per operation  | Detect GC pressure in scoring engine | `[MemoryDiagnoser(true)]` for pinned objects          |
-| `[SimpleJob]`                  | Configures runtime and iterations | Compare .NET 8 vs 9 vs 10            | `invocationCount`, `unrollFactor`                     |
-| `[Params]`                     | Test multiple input sizes         | Fleet sizes: 100, 1000, 10000        | Can use `[ParamsSource]` for dynamic values           |
-| `[GlobalSetup]`                | Runs once before all benchmarks   | Initialize test data and connections | Async version: `[GlobalSetup(Target = "Setup")]`      |
-| `[IterationSetup]`             | Runs before each iteration        | Reset state between runs             | Avoid heavy operations (affects measurement)          |
-| `[HardwareCounters]`           | Collects CPU metrics              | Cache misses in geo-fencing          | `HardwareCounter.CacheMisses`, `BranchMispredictions` |
-| `[DisassemblyDiagnoser]`       | Shows generated assembly code     | Analyze JIT output for SIMD          | `printSource: true, maxDepth: 5`                      |
-| `[Orderer]`                    | Controls result ordering          | Fastest to slowest                   | `SummaryOrderPolicy.FastestToSlowest`                 |
-| `[GroupBenchmarksBy]`          | Groups benchmarks in output       | By category                          | `BenchmarkLogicalGroupRule.ByCategory`                |
-| `[ExceptionDiagnoser]`         | Tracks exception statistics       | Monitor timeouts under stress        | Shows exception counts per benchmark                  |
-| `[TailCallDiagnoser]`          | Detects tail call optimizations   | Verify recursive method optimization | Helps with recursive parsing scenarios                |
-| `[ThreadingDiagnoser]`         | Tracks thread pool statistics     | Monitor thread contention            | Shows thread count, pending work items                |
+![NUMA-aware + POH](images/table_04_15-benchmarkdotnet-attributes-complete-refer-d5c1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_04_15-benchmarkdotnet-attributes-complete-refer-d5c1.md)
+
 
 
 ## 2.0 The Vehixcare Platform (Where Benchmarking is Applied)
@@ -133,30 +99,19 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 2.2 Platform Capabilities
 
 
-| Capability Category             | Features                                                                         | Performance Requirement | Business Impact                   |
-| ------------------------------- | -------------------------------------------------------------------------------- | ----------------------- | --------------------------------- |
-| **Real-time Vehicle Telemetry** | GPS tracking, speed monitoring, engine diagnostics, fuel consumption             | < 5ms per message       | Real-time fleet visibility        |
-| **Driver Behavior Analysis**    | Scoring system for driving patterns, safety violations, coaching recommendations | < 50ms per vehicle      | 40% reduction in accidents        |
-| **Geo-fencing**                 | Virtual boundaries with automated entry/exit alerts, route compliance            | < 2ms per coordinate    | Theft prevention, route adherence |
-| **Maintenance Management**      | Service scheduling, record keeping, automated alerts, predictive maintenance     | < 100ms per batch       | 30% reduction in breakdowns       |
-| **Lease Management**            | Vehicle leasing and rental tracking with expiration alerts                       | < 50ms per query        | Optimized fleet utilization       |
-| **Anti-theft Protection**       | Unauthorized movement detection, geofence breach alerts, real-time notifications | < 1s detection          | 90% recovery rate                 |
-| **Multi-tenant Architecture**   | Support for multiple organizations with strict data isolation                    | Linear scaling          | Enterprise readiness              |
+![Vehixcare](images/table_05_22-platform-capabilities.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_05_22-platform-capabilities.md)
+
 
 
 ### 2.3 Technology Stack
 
 
-| Layer                       | Technology                                 | Version | .NET 10 Advantage                                          |
-| --------------------------- | ------------------------------------------ | ------- | ---------------------------------------------------------- |
-| **Backend Framework**       | ASP.NET Core                               | 10.0    | Native AOT, PGO, SIMD intrinsics, improved minimal APIs    |
-| **Database**                | MongoDB                                    | 7.0+    | Bulk operations, change streams, native .NET 10 driver     |
-| **Real-time Communication** | SignalR                                    | 10.0    | WebSocket compression, group management, Redis backplane   |
-| **Reactive Processing**     | Rx.NET                                     | 6.0.1   | Async enumerables, channels, System.Threading.RateLimiting |
-| **Authentication**          | JWT Bearer + Google OAuth 2.0              | 10.0    | Source-generated validation, improved token handling       |
-| **Containerization**        | Docker & Kubernetes                        | 1.30+   | Native container optimizations, cgroup v2 support          |
-| **Event Bus**               | Kafka / Azure Event Grid / AWS EventBridge | Latest  | High-throughput serialization with MessagePack             |
-| **Caching**                 | Redis                                      | 7.2+    | RESP3 protocol, client-side caching                        |
+![Geo-fencing](images/table_06_23-technology-stack.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_06_23-technology-stack.md)
+
 
 
 ### 2.4 Why Performance Matters for Vehixcare
@@ -179,49 +134,19 @@ Every millisecond saved in processing translates to:
 ### 2.5 Performance Critical Paths in Vehixcare
 
 ```mermaid
-flowchart LR
-    subgraph "Ingestion Layer - 10,000 msg/sec"
-        H1[1. Telemetry Deserialization<br/>JSON → POCO]
-        H2[2. Protocol Validation<br/>Schema + Range checks]
-        H3[3. Duplicate Detection<br/>Idempotency keys]
-    end
-    
-    subgraph "Processing Layer - Real-time"
-        H4[4. Driver Scoring Engine<br/>10+ metrics per vehicle]
-        H5[5. Geo-fencing Check<br/>Polygon contains point]
-        H6[6. Anomaly Detection<br/>Statistical outliers]
-    end
-    
-    subgraph "Storage Layer - 1M ops/min"
-        H7[7. MongoDB Upsert<br/>Bulk vs individual]
-        H8[8. Cache Serialization<br/>Redis round-trip]
-        H9[9. Event Publication<br/>Kafka partitioner]
-    end
-    
-    subgraph "Delivery Layer - 50k clients"
-        H10[10. SignalR Broadcast<br/>Group fan-out]
-    end
-    
-    H1 --> H2 --> H3 --> H4
-    H4 --> H5 --> H6
-    H6 --> H7 --> H8 --> H9
-    H9 --> H10
-    
-    classDef hotspot fill:#f39c12,color:white
-    class H1,H2,H3,H4,H5,H6,H7,H8,H9,H10 hotspot
 ```
+
+![15% more vehicles per server](images/diagram_01_25-performance-critical-paths-in-vehixcare-bb51.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_01_25-performance-critical-paths-in-vehixcare-bb51.md)
+
 
 ### 2.6 Performance Targets vs. Current State
 
-| Component | Current Performance (.NET 8) | Target (.NET 10) | Gap | Priority |
-|-----------|-------------------------------|------------------|-----|----------|
-| Telemetry ingestion | 1,021 ns per message | < 100 ns | 10.2x | P0 |
-| Driver scoring (10k vehicles) | 8,234 ns per vehicle | < 1,000 ns | 8.2x | P0 |
-| Geo-fencing check | 450 ns per coordinate | < 50 ns | 9x | P1 |
-| MongoDB upserts (1,000 docs) | 5,000 ms | < 500 ms | 10x | P0 |
-| SignalR broadcast (50k clients) | 12,500 ms | < 500 ms | 25x | P0 |
-| Cache serialization | 1,245 ns per operation | < 100 ns | 12.4x | P1 |
-| Duplicate detection | 890 ns per key | < 100 ns | 8.9x | P2 |
+![Table](images/table_07_26-performance-targets-vs-current-state-0d7e.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_07_26-performance-targets-vs-current-state-0d7e.md)
+
 
 ## 3.0 BenchmarkDotNet Installation & Setup for .NET 10
 
@@ -1433,146 +1358,74 @@ public static class XXH3
 
 ### 6.1 Performance Improvement Summary
 
-| Component | Baseline (.NET 8) | Optimized (.NET 10) | Improvement | Technique Used |
-|-----------|------------------|---------------------|-------------|----------------|
-| JSON Deserialization | 1,245 ns | 342 ns (MessagePack) | 3.6x | Binary serialization |
-| JSON Deserialization | 1,245 ns | 98 ns (MemoryPack) | 12.7x | Zero-copy deserialization |
-| Driver Scoring (LINQ) | 8,234 ns | 1,234 ns (SIMD) | 6.7x | AVX-512 vectorization |
-| Geo-fencing (Haversine) | 450 ns | 34 ns (SIMD + Grid) | 13.2x | Spatial index + SIMD |
-| MongoDB Upserts (1k docs) | 5,000 ms | 350 ms (Bulk) | 14.3x | Bulk unordered writes |
-| SignalR Broadcast (50k clients) | 12,500 ms | 225 ms (Grouped) | 55.6x | Group-based routing |
-| Duplicate Detection | 890 ns | 120 ns (Bloom) | 7.4x | Probabilistic filter |
+![6.0 Expected Benchmark Results & Analysis](images/table_08_61-performance-improvement-summary-001a.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_08_61-performance-improvement-summary-001a.md)
+
 
 ### 6.2 Memory Allocation Improvements
 
 
-| Component            | Baseline Allocation | Optimized Allocation | Reduction | Technique        |
-| -------------------- | ------------------- | -------------------- | --------- | ---------------- |
-| JSON Deserialization | 640 B               | 96 B (MessagePack)   | 85%       | Binary format    |
-| JSON Deserialization | 640 B               | 32 B (MemoryPack)    | 95%       | Zero-copy        |
-| Driver Scoring       | 2,240 B             | 0 B (SIMD)           | 100%      | Vector registers |
-| SignalR Broadcast    | 100 B               | 12 B (Grouped)       | 88%       | Group filtering  |
-| String Operations    | 1,024 B             | 0 B (Span)           | 100%      | Span slicing     |
+![Table](images/table_09_62-memory-allocation-improvements-6094.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_09_62-memory-allocation-improvements-6094.md)
+
 
 
 ### 6.3 Hardware Counter Improvements
 
 
-| Counter                   | Baseline | Optimized | Improvement   | What It Means               |
-| ------------------------- | -------- | --------- | ------------- | --------------------------- |
-| L1 Cache Miss Rate        | 15%      | 4%        | 73% reduction | Better data locality        |
-| L2 Cache Miss Rate        | 32%      | 8%        | 75% reduction | Working set fits in L2      |
-| Branch Misprediction Rate | 12%      | 3%        | 75% reduction | Predictable branching       |
-| Instructions per Cycle    | 1.2      | 2.8       | 2.3x          | Better pipeline utilization |
-| TLB Misses                | 5%       | 1%        | 80% reduction | Large page benefits         |
+![Table](images/table_10_63-hardware-counter-improvements-0e68.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_10_63-hardware-counter-improvements-0e68.md)
+
 
 
 ### 6.4 Business Impact for Vehixcare
 
 
-| Metric               | Baseline | Optimized | Business Benefit                                             |
-| -------------------- | -------- | --------- | ------------------------------------------------------------ |
-| Telemetry processing | 1,021 ns | 98 ns     | 10x more vehicles per server → $50k annual savings           |
-| Memory per vehicle   | 640 B    | 32 B      | 95% less RAM → 20x fleet size on same hardware               |
-| Driver scoring       | 8,234 ns | 1,234 ns  | Real-time scoring for 100k vehicles → 40% accident reduction |
-| Geo-fencing          | 450 ns   | 34 ns     | Instant theft alerts → 90% recovery rate                     |
-| Dashboard latency    | 12.5 sec | 0.225 sec | Real-time visibility → 30% fuel savings                      |
+![Table](images/table_11_64-business-impact-for-vehixcare-3324.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_11_64-business-impact-for-vehixcare-3324.md)
+
 
 
 ## 7.0 Optimization Priority Matrix for Vehixcare
 
 ```mermaid
-quadrantChart
-    title Vehixcare Optimization Priority Matrix
-    x-axis "Low Impact" --> "High Impact"
-    y-axis "Low Effort" --> "High Effort"
-    quadrant-1 "Quick Wins - Implement Now"
-    quadrant-2 "Strategic - Plan for Next Sprint"
-    quadrant-3 "Avoid - Not Worth It"
-    quadrant-4 "Major Projects - Q3/Q4 Planning"
-    
-    "MessagePack Serialization": [0.85, 0.25]
-    "Bulk MongoDB Writes": [0.90, 0.20]
-    "SignalR Grouping": [0.75, 0.35]
-    "SIMD Driver Scoring": [0.65, 0.65]
-    "Bloom Filter Duplicates": [0.55, 0.45]
-    "Spatial Grid Index": [0.70, 0.40]
-    "NativeAOT Deployment": [0.35, 0.75]
-    "Custom JSON Parser": [0.15, 0.65]
-    "Rewrite in C++": [0.10, 0.90]
 ```
+
+![7.0 Optimization Priority Matrix for Vehixcare](images/diagram_02_70-optimization-priority-matrix-for-vehixcare-a850.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_02_70-optimization-priority-matrix-for-vehixcare-a850.md)
+
 
 ### Priority Classification
 
 
-| Priority | Optimization               | Effort | Impact | Rationale                                | Timeline |
-| -------- | -------------------------- | ------ | ------ | ---------------------------------------- | -------- |
-| **P0**   | Bulk MongoDB writes        | Low    | High   | Simple code change, 14x improvement      | Day 1    |
-| **P0**   | SignalR grouping           | Low    | High   | 55x improvement for real-time dashboards | Day 1    |
-| **P0**   | MessagePack serialization  | Medium | High   | 3.6x faster, 85% less allocation         | Week 1   |
-| **P1**   | Spatial grid index         | Medium | High   | 10x faster geofence checks               | Week 1   |
-| **P1**   | Bloom filter deduplication | Medium | Medium | 80% memory reduction                     | Week 2   |
-| **P2**   | SIMD driver scoring        | High   | High   | 6.7x faster, requires AVX-512            | Week 3-4 |
-| **P3**   | NativeAOT deployment       | High   | Medium | Faster startup, larger binary            | Month 2  |
+![Table](images/table_12_priority-classification.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_12_priority-classification.md)
+
 
 
 ## 8.0 Production Rollout Strategy
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Benchmarks: Step 1 - Measure
-    
-    state Benchmarks {
-        [*] --> IdentifyHotspots: Profile production with dotnet-trace
-        IdentifyHotspots --> WriteBenchmarks: Create BenchmarkDotNet tests
-        WriteBenchmarks --> EstablishBaseline: Run on .NET 8/9/10
-        EstablishBaseline --> [*]: Document metrics
-    }
-    
-    Benchmarks --> Implement: Step 2 - Optimize (if baseline > target)
-    
-    state Implement {
-        [*] --> ApplyOptimization: Code change with SOLID
-        ApplyOptimization --> RunBenchmarks: Re-run BenchmarkDotNet
-        RunBenchmarks --> CompareResults: Compare with baseline
-        CompareResults --> Decision: Improved?
-        Decision --> ApplyOptimization: No - try different approach
-        Decision --> [*]: Yes - ready for staging
-    }
-    
-    Implement --> Staging: Step 3 - Validate
-    
-    state Staging {
-        [*] --> DeployToStaging: Deploy to staging environment
-        DeployToStaging --> LoadTest: Run k6/JMeter tests
-        LoadTest --> MonitorMetrics: Check OpenTelemetry
-        MonitorMetrics --> [*]: Validation complete
-    }
-    
-    Staging --> Production: Step 4 - Rollout
-    
-    state Production {
-        [*] --> CanaryDeploy: 5% of traffic for 24 hours
-        CanaryDeploy --> MonitorCanary: Monitor error rates, latency
-        MonitorCanary --> FullRollout: No regressions
-        FullRollout --> [*]: Complete
-    }
-    
-    Production --> Monitor: Step 5 - Observe
-    Monitor --> Rollback: Regression detected
-    Rollback --> Benchmarks: Restart process
-    Monitor --> [*]: Success - document results
 ```
+
+![P0](images/diagram_03_80-production-rollout-strategy.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_03_80-production-rollout-strategy.md)
+
 
 ### Canary Deployment Checklist
 
 
-| Phase            | Duration | Success Criteria                           | Rollback Trigger                             |
-| ---------------- | -------- | ------------------------------------------ | -------------------------------------------- |
-| **5% canary**    | 24 hours | Error rate < 0.1%, latency < baseline +10% | Error rate > 0.5% or latency > baseline +50% |
-| **25% canary**   | 24 hours | CPU < 70%, memory < 80%                    | CPU > 85% or memory > 90%                    |
-| **50% canary**   | 24 hours | GC pause < 100ms, throughput > baseline    | GC pause > 500ms                             |
-| **100% rollout** | -        | All metrics stable for 1 week              | Any regression > 20%                         |
+![Table](images/table_13_canary-deployment-checklist.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_13_canary-deployment-checklist.md)
+
 
 
 ## 9.0 .NET 10 Optimization Checklist
@@ -1589,18 +1442,10 @@ stateDiagram-v2
 ### 9.2 Code-Level Optimizations
 
 
-| Optimization               | .NET 10 Feature                    | Implementation                                         | Expected Gain                        | Priority |
-| -------------------------- | ---------------------------------- | ------------------------------------------------------ | ------------------------------------ | -------- |
-| **Use source generators**  | `[JsonSerializable]`               | Replace `JsonSerializer` with source-generated context | 3-5x faster, zero reflection         | P0       |
-| **Span**** everywhere**    | `CollectionsMarshal`               | Use spans for array slices, avoid substrings           | 2x faster, zero allocation           | P0       |
-| **SIMD vectorization**     | `Vector512<T>`, `Avx512`           | Batch process 8-16 values at once                      | 4-16x faster                         | P1       |
-| **Object pooling**         | `Microsoft.Extensions.ObjectPool`  | Pool telemetry objects and JSON writers                | 90% less GC pressure                 | P1       |
-| **Native memory**          | `NativeMemory.Alloc`               | Critical hot paths (geo-fencing)                       | 30% faster, no GC                    | P2       |
-| **PGO optimization**       | `TieredPGO=true`                   | Let JIT learn branch patterns at runtime               | 15-30% faster                        | P0       |
-| **String interpolation**   | `DefaultInterpolatedStringHandler` | Use interpolated handlers for logging                  | 50% less allocation                  | P1       |
-| **Async streaming**        | `IAsyncEnumerable`                 | Stream telemetry batches from MongoDB                  | Memory efficient, no batching        | P1       |
-| **Required keyword**       | `required` modifier                | Enforce mandatory properties at compile time           | Better validation, no runtime checks | P0       |
-| **Collection expressions** | `[..]` syntax                      | Cleaner collection initialization                      | Minor readability improvement        | P3       |
+![Table](images/table_14_92-code-level-optimizations.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_14_92-code-level-optimizations.md)
+
 
 
 ### 9.3 Project File Optimizations
@@ -1747,30 +1592,20 @@ performance-benchmark:
 ### 11.2 When to Stop Optimizing
 
 ```mermaid
-flowchart LR
-    A[Start] --> B{Meet SLA?}
-    B -->|Yes| C[Stop Optimizing<br/>Document Results]
-    B -->|No| D{ROI Positive?}
-    D -->|No| E[Accept Current<br/>Performance]
-    D -->|Yes| F[Continue Optimization]
-    F --> A
-    
-    style C fill:#00b894,color:white
-    style E fill:#f39c12,color:white
-    style F fill:#0984e3,color:white
 ```
+
+![Never optimize without measuring](images/diagram_04_112-when-to-stop-optimizing.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_04_112-when-to-stop-optimizing.md)
+
 
 ### 11.3 Key Takeaways from This Story
 
 
-| Concept                          | Key Learning                                                                | Vehixcare Application                     |
-| -------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
-| **BenchmarkDotNet Fundamentals** | Scientific measurement with warmup, outlier removal, statistical confidence | All performance decisions now data-driven |
-| **.NET 10 Advantages**           | AVX-512 (512-bit SIMD), Dynamic PGO, NativeAOT, NUMA-aware GC               | 10-55x improvements across components     |
-| **Vehixcare Baseline**           | 1,021 ns deserialization, 8,234 ns scoring, 5s DB writes                    | Clear targets for optimization            |
-| **Quick Wins Achieved**          | MessagePack (3.6x), bulk MongoDB (14.3x), SignalR grouping (55x)            | Immediate production gains                |
-| **SOLID Benchmark Patterns**     | Single Responsibility benchmarks, Open/Closed for new serializers           | Maintainable performance tests            |
-| **Priority Matrix**              | P0 quick wins vs P2 strategic investments                                   | Efficient resource allocation             |
+![Table](images/table_15_113-key-takeaways-from-this-story-e35f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_15_113-key-takeaways-from-this-story-e35f.md)
+
 
 
 ### 11.4 Final Word

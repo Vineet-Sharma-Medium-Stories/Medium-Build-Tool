@@ -1,7 +1,7 @@
 # SOLID Principles: Building Spotify's Unshakable Foundation
 ### How we transformed Spotify's spaghetti code into a maintainable masterpiece using SOLID principles with .NET 10, Reactive Programming, and Entity Framework Core—a comprehensive series for architects and engineers.
 
-![SOLID Principles/images/SOLID Principles: Building Spotify's Unshakable Foundation](images/SOLID-Principles-Building-Spotify's-Unshakable-Foundation.png)
+![SOLID Principles: Building Spotify's Unshakable Foundation](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/SOLID-Principles-Building-Spotify's-Unshakable-Foundation.png)
 
 # Introduction
 ## A 6-Part Journey from Rigid Code to Resilient Architecture
@@ -40,7 +40,7 @@ This series chronicles how Spotify rebuilt its foundation using the SOLID princi
 ```mermaid
 ```
 
-![[L]iskov Substitution](images/diagram_01_coming-soon.png)
+![[L]iskov Substitution](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_01_coming-soon.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_01_coming-soon.md)
 
@@ -52,7 +52,7 @@ Throughout this series, you'll meet the same Spotify components at different sta
 ```mermaid
 ```
 
-![The Cast of Characters](images/diagram_02_throughout-this-series-youll-meet-the-same-spoti-3070.png)
+![The Cast of Characters](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_02_throughout-this-series-youll-meet-the-same-spoti-3070.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_02_throughout-this-series-youll-meet-the-same-spoti-3070.md)
 
@@ -73,7 +73,7 @@ Spotify's early architecture had no clear separation of concerns. A single `User
 We reframed SOLID not as rules but as **early warning systems** for architectural decay:
 
 
-![The Problem:](images/table_01_we-reframed-solid-not-as-rules-but-as-early-warn-6b92.png)
+![The Problem:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/table_01_we-reframed-solid-not-as-rules-but-as-early-warn-6b92.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_01_we-reframed-solid-not-as-rules-but-as-early-warn-6b92.md)
 
@@ -131,7 +131,7 @@ We decomposed the monolith into focused services, each with one responsibility:
 ```mermaid
 ```
 
-![The Solution:](images/diagram_03_we-decomposed-the-monolith-into-focused-services-54ee.png)
+![The Solution:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_03_we-decomposed-the-monolith-into-focused-services-54ee.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_03_we-decomposed-the-monolith-into-focused-services-54ee.md)
 
@@ -223,7 +223,7 @@ We applied the Strategy Pattern, making the engine open for extension but closed
 ```mermaid
 ```
 
-![The Solution:](images/diagram_04_we-applied-the-strategy-pattern-making-the-engine-36b4.png)
+![The Solution:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_04_we-applied-the-strategy-pattern-making-the-engine-36b4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_04_we-applied-the-strategy-pattern-making-the-engine-36b4.md)
 
@@ -340,7 +340,7 @@ We redesigned the hierarchy with proper contracts and capability interfaces:
 ```mermaid
 ```
 
-![The Solution:](images/diagram_05_we-redesigned-the-hierarchy-with-proper-contracts-0f78.png)
+![The Solution:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_05_we-redesigned-the-hierarchy-with-proper-contracts-0f78.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_05_we-redesigned-the-hierarchy-with-proper-contracts-0f78.md)
 
@@ -468,7 +468,7 @@ We decomposed the fat interface into focused role interfaces:
 ```mermaid
 ```
 
-![The Solution:](images/diagram_06_we-decomposed-the-fat-interface-into-focused-role-aca2.png)
+![The Solution:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_06_we-decomposed-the-fat-interface-into-focused-role-aca2.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_06_we-decomposed-the-fat-interface-into-focused-role-aca2.md)
 
@@ -569,7 +569,7 @@ We inverted dependencies, making high-level modules depend on abstractions:
 ```mermaid
 ```
 
-![Untestable](images/diagram_07_we-inverted-dependencies-making-high-level-module-cdf7.png)
+![Untestable](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_07_we-inverted-dependencies-making-high-level-module-cdf7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_07_we-inverted-dependencies-making-high-level-module-cdf7.md)
 
@@ -675,7 +675,7 @@ public async Task PlaySongAsync_ShouldCallHardware()
 ```mermaid
 ```
 
-![Flexible](images/diagram_08_the-transformation-before-and-after-fb80.png)
+![Flexible](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/diagram_08_the-transformation-before-and-after-fb80.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/diagram_08_the-transformation-before-and-after-fb80.md)
 
@@ -683,7 +683,7 @@ public async Task PlaySongAsync_ShouldCallHardware()
 **Metrics That Matter:**
 
 
-![Metrics That Matter:](images/table_02_metrics-that-matter.png)
+![Metrics That Matter:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/table_02_metrics-that-matter.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_02_metrics-that-matter.md)
 
@@ -696,7 +696,7 @@ public async Task PlaySongAsync_ShouldCallHardware()
 Each SOLID principle leveraged specific .NET 10 features:
 
 
-![The .NET 10 Advantage Throughout](images/table_03_each-solid-principle-leveraged-specific-net-10-fe-6833.png)
+![The .NET 10 Advantage Throughout](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/table_03_each-solid-principle-leveraged-specific-net-10-fe-6833.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_03_each-solid-principle-leveraged-specific-net-10-fe-6833.md)
 
@@ -780,7 +780,7 @@ SOLID principles are your canary in the coal mine. They sing when your architect
 This series gives you everything you need to transform your own codebase:
 
 
-![The Final Word:](images/table_04_this-series-gives-you-everything-you-need-to-trans-2430.png)
+![The Final Word:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/SOLID%20Principles/solid-principles-building-spotifys-unshakable-foundation/images/table_04_this-series-gives-you-everything-you-need-to-trans-2430.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/solid-principles-building-spotifys-unshakable-foundation/table_04_this-series-gives-you-everything-you-need-to-trans-2430.md)
 

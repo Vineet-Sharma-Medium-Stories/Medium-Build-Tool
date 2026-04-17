@@ -3,6 +3,7 @@
 
 ![SOLID Principles/images/SOLID Principles: Building Spotify's Unshakable Foundation](<images/SOLID Principles: Building Spotify's Unshakable Foundation.png>)
 
+
 # Introduction
 ## A 6-Part Journey from Rigid Code to Resilient Architecture
 

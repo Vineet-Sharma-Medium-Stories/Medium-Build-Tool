@@ -1,4 +1,4 @@
-# Part 1: Redefining Design Patterns with .NET 10
+# Design Patterns: Part 1 -  Redefining Design Patterns
 ## Beyond the Textbook, Into the Streaming World
 
 ---

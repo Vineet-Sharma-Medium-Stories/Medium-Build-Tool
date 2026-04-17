@@ -1,4 +1,4 @@
-# Part 4: Behavioral Patterns Deep Dive
+# Design Patterns: Part 4 - Behavioral Patterns Deep Dive
 ## How Spotify's Objects Communicate (The .NET 10 Way)
 
 ---
