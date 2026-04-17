@@ -3,7 +3,7 @@ Here are all **6 prompts** (2 story banners + 4 category banners) merged into co
 ```markdown
 # Prompt 1: Story Banner for Part 1
 
-Create a wide horizontal banner image (16:9 aspect ratio) for a Medium story titled "73 New AI Tools in 2026 to Supercharge Your Work & Life".
+Create a wide horizontal banner image (16:9 aspect ratio) for a Medium story titled "73 New AI Tools in 2026 to Supercharge Your Work & Life" in low resolution.
 
 Background: Clean white background with a very subtle soft gradient from white to off-white (#FFFFFF to #F8F9FA). No dark colors.
 

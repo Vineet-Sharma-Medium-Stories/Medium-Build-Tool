@@ -2,7 +2,7 @@
 
 ### BenchmarkDotNet: Micro-benchmarks, memory allocation, hardware counters & SIMD for real-time fleet telemetry systems
 
-![BenchmarkDotNet With .NET 10 Perf Optimization/images/Foundations & Methodology](images/Foundations-&-Methodology.jpg)
+![BenchmarkDotNet With .NET 10 Perf Optimization/images/Foundations & Methodology](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/Foundations-&-Methodology.jpg)
 
 ## 📖 Introduction
 
@@ -45,7 +45,7 @@ Complete BenchmarkDotNet setup guide for .NET 10, attribute explanations with Ve
 **BenchmarkDotNet** is a powerful open-source library for benchmarking .NET code. It handles all the complexities of reliable performance measurement that most developers don't even know exist:
 
 
-![BenchmarkDotNet](images/table_01_benchmarkdotnet-is-a-powerful-open-source-libr-c5cf.png)
+![BenchmarkDotNet](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_01_benchmarkdotnet-is-a-powerful-open-source-libr-c5cf.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_01_benchmarkdotnet-is-a-powerful-open-source-libr-c5cf.md)
 
@@ -66,7 +66,7 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 1.3 The Optimization Landscape: Tools Overview
 
 
-![Statistical significance testing](images/table_02_13-the-optimization-landscape-tools-overview-e70a.png)
+![Statistical significance testing](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_02_13-the-optimization-landscape-tools-overview-e70a.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_02_13-the-optimization-landscape-tools-overview-e70a.md)
 
@@ -75,7 +75,7 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 1.4 .NET 10 Advantages for Benchmarking
 
 
-![NBomber](images/table_03_14-net-10-advantages-for-benchmarking-4920.png)
+![NBomber](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_03_14-net-10-advantages-for-benchmarking-4920.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_03_14-net-10-advantages-for-benchmarking-4920.md)
 
@@ -84,7 +84,7 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 1.5 BenchmarkDotNet Attributes: Complete Reference
 
 
-![NUMA-aware + POH](images/table_04_15-benchmarkdotnet-attributes-complete-refer-d5c1.png)
+![NUMA-aware + POH](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_04_15-benchmarkdotnet-attributes-complete-refer-d5c1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_04_15-benchmarkdotnet-attributes-complete-refer-d5c1.md)
 
@@ -99,7 +99,7 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 2.2 Platform Capabilities
 
 
-![Vehixcare](images/table_05_22-platform-capabilities.png)
+![Vehixcare](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_05_22-platform-capabilities.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_05_22-platform-capabilities.md)
 
@@ -108,7 +108,7 @@ Unlike other tools that give you rough estimates, BenchmarkDotNet provides **sci
 ### 2.3 Technology Stack
 
 
-![Geo-fencing](images/table_06_23-technology-stack.png)
+![Geo-fencing](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_06_23-technology-stack.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_06_23-technology-stack.md)
 
@@ -136,14 +136,14 @@ Every millisecond saved in processing translates to:
 ```mermaid
 ```
 
-![15% more vehicles per server](images/diagram_01_25-performance-critical-paths-in-vehixcare-bb51.png)
+![15% more vehicles per server](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/diagram_01_25-performance-critical-paths-in-vehixcare-bb51.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_01_25-performance-critical-paths-in-vehixcare-bb51.md)
 
 
 ### 2.6 Performance Targets vs. Current State
 
-![Table](images/table_07_26-performance-targets-vs-current-state-0d7e.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_07_26-performance-targets-vs-current-state-0d7e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_07_26-performance-targets-vs-current-state-0d7e.md)
 
@@ -1358,7 +1358,7 @@ public static class XXH3
 
 ### 6.1 Performance Improvement Summary
 
-![6.0 Expected Benchmark Results & Analysis](images/table_08_61-performance-improvement-summary-001a.png)
+![6.0 Expected Benchmark Results & Analysis](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_08_61-performance-improvement-summary-001a.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_08_61-performance-improvement-summary-001a.md)
 
@@ -1366,7 +1366,7 @@ public static class XXH3
 ### 6.2 Memory Allocation Improvements
 
 
-![Table](images/table_09_62-memory-allocation-improvements-6094.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_09_62-memory-allocation-improvements-6094.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_09_62-memory-allocation-improvements-6094.md)
 
@@ -1375,7 +1375,7 @@ public static class XXH3
 ### 6.3 Hardware Counter Improvements
 
 
-![Table](images/table_10_63-hardware-counter-improvements-0e68.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_10_63-hardware-counter-improvements-0e68.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_10_63-hardware-counter-improvements-0e68.md)
 
@@ -1384,7 +1384,7 @@ public static class XXH3
 ### 6.4 Business Impact for Vehixcare
 
 
-![Table](images/table_11_64-business-impact-for-vehixcare-3324.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_11_64-business-impact-for-vehixcare-3324.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_11_64-business-impact-for-vehixcare-3324.md)
 
@@ -1395,7 +1395,7 @@ public static class XXH3
 ```mermaid
 ```
 
-![7.0 Optimization Priority Matrix for Vehixcare](images/diagram_02_70-optimization-priority-matrix-for-vehixcare-a850.png)
+![7.0 Optimization Priority Matrix for Vehixcare](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/diagram_02_70-optimization-priority-matrix-for-vehixcare-a850.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_02_70-optimization-priority-matrix-for-vehixcare-a850.md)
 
@@ -1403,7 +1403,7 @@ public static class XXH3
 ### Priority Classification
 
 
-![Table](images/table_12_priority-classification.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_12_priority-classification.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_12_priority-classification.md)
 
@@ -1414,7 +1414,7 @@ public static class XXH3
 ```mermaid
 ```
 
-![P0](images/diagram_03_80-production-rollout-strategy.png)
+![P0](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/diagram_03_80-production-rollout-strategy.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_03_80-production-rollout-strategy.md)
 
@@ -1422,7 +1422,7 @@ public static class XXH3
 ### Canary Deployment Checklist
 
 
-![Table](images/table_13_canary-deployment-checklist.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_13_canary-deployment-checklist.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_13_canary-deployment-checklist.md)
 
@@ -1442,7 +1442,7 @@ public static class XXH3
 ### 9.2 Code-Level Optimizations
 
 
-![Table](images/table_14_92-code-level-optimizations.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_14_92-code-level-optimizations.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_14_92-code-level-optimizations.md)
 
@@ -1594,7 +1594,7 @@ performance-benchmark:
 ```mermaid
 ```
 
-![Never optimize without measuring](images/diagram_04_112-when-to-stop-optimizing.png)
+![Never optimize without measuring](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/diagram_04_112-when-to-stop-optimizing.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/diagram_04_112-when-to-stop-optimizing.md)
 
@@ -1602,7 +1602,7 @@ performance-benchmark:
 ### 11.3 Key Takeaways from This Story
 
 
-![Table](images/table_15_113-key-takeaways-from-this-story-e35f.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/BenchmarkDotNet%20With%20.NET%2010%20Perf%20Optimization/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/images/table_15_113-key-takeaways-from-this-story-e35f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/benchmarkdotnet-with-net-10-perf-optimization--foundations--methodology-for-c-devs---part-1/table_15_113-key-takeaways-from-this-story-e35f.md)
 
@@ -1627,3 +1627,17 @@ performance-benchmark:
 **📎 Read BenchmarkDotNet With .NET 10 Perf Optimization – AI-Powered Performance Engineering - Part 3**
 
 **📎 Read BenchmarkDotNet With .NET 10 Perf Optimization – The Future of Performance Tuning - Part 4**
+
+---
+
+Coming soon! Want it sooner? Let me know with a clap or comment below
+
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
