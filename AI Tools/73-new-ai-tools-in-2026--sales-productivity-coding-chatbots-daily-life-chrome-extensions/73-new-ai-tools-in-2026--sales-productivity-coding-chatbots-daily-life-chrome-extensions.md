@@ -1,7 +1,7 @@
 # 73 New AI Tools in 2026 — Sales, Productivity, Coding, Chatbots, Daily Life, Chrome Extensions
 ### Part 2 of a 2-part series covering 36 AI tools. At the end, you'll find a link back to Part 1 covering Images, YouTube, Content Creation, Writing, Twitter, and Music.*
 
-![73 New AI Tools in 2026 — Sales, Productivity, Coding, Chatbots, Daily Life, Chrome Extensions](<images/73 New AI Tools in 2026 — Sales, Productivity, Coding, Chatbots, Daily Life, Chrome Extensions.png>)
+![73 New AI Tools in 2026 — Sales, Productivity, Coding, Chatbots, Daily Life, Chrome Extensions](images/73-New-AI-Tools-in-2026-—-Sales,-Productivity,-Coding,-Chatbots,-Daily-Life,-Chrome-Extensions.png)
 ## 🚀 The Ultimate 2026 Arsenal: 73 New AI Tools to Supercharge Your Work & Life (Continued)
 
 Welcome back! In **Part 1**, we covered 37 powerful AI tools across Images, YouTube, Content Creation, Writing, Twitter, and Music.
@@ -26,7 +26,7 @@ Let's jump right in.
 
 
 ## 💼 Sales Tools
-![Sales Tools.png](<images/Sales Tools.png>)
+![Sales Tools.png](images/Sales-Tools.png)
 
 ### 38. [Lavender](https://www.lavender.ai)
 
@@ -67,7 +67,7 @@ While [**Tome AI**](https://tome.app) focuses on narrative presentations, Simpli
 
 
 ## ⏳ Productivity Tools
-![Productivity Tools.png](<images/Productivity Tools.png>)
+![Productivity Tools.png](images/Productivity-Tools.png)
 ### 44. [ChatGPT](https://chat.openai.com) (Productivity)
 
 **ChatGPT** has become an indispensable productivity tool for millions of knowledge workers. Beyond conversation, it can draft emails, summarize long documents, translate text, brainstorm ideas, create to-do lists from meeting notes, and even write Excel formulas. The 2026 version includes a "Tasks" feature where you can assign recurring requests — "every Monday, summarize my unread emails" — and ChatGPT delivers. The mobile app now includes voice conversations with real-time translation.
@@ -108,7 +108,7 @@ While [**Tome AI**](https://tome.app) focuses on narrative presentations, Simpli
 
 ## 💻 Coding Tools
 
-![Coding Tools](<images/Coding Tools.png>)
+![Coding Tools](images/Coding-Tools.png)
 ### 50. [GitHub Copilot](https://github.com/features/copilot)
 
 **GitHub Copilot** is an AI pair programmer that suggests whole lines or entire functions as you type. It trains on billions of lines of public code and integrates directly into [**VS Code**](https://code.visualstudio.com), [**JetBrains**](https://www.jetbrains.com), and [**Neovim**](https://neovim.io). Copilot understands comments, variable names, and even your coding style, offering relevant suggestions that feel like they came from a human colleague. The 2026 version includes "Copilot Chat" for explaining code, suggesting refactors, and generating unit tests.
@@ -149,7 +149,7 @@ Durable AI builds entire websites, including copy, images, and contact forms, in
 
 ## 💬 Chatbots Tools
 
-![Chatbot Tools](<images/Chatbot Tools.png>)
+![Chatbot Tools](images/Chatbot-Tools.png)
 ### 56. [ChatGPT](https://chat.openai.com) (Chatbots)
 
 **ChatGPT** is the most widely used chatbot in the world, powering everything from customer service to personal assistance. The 2026 version includes customizable "GPTs" — specialized versions of ChatGPT that you can build for specific tasks without coding. You can create a GPT for your business that knows your products, policies, and tone, then embed it on your website or share a link. The platform also includes API access for developers building custom integrations.
@@ -190,7 +190,7 @@ Durable AI builds entire websites, including copy, images, and contact forms, in
 
 ## 🏠 Daily Life Tools
 
-![Daily Life Tools](<images/Daily Life Tools.png>)
+![Daily Life Tools](images/Daily-Life-Tools.png)
 ### 62. [ChatGPT](https://chat.openai.com) (Daily Life)
 
 **ChatGPT** has become a daily companion for millions of people, helping with everything from meal planning to travel itineraries, relationship advice to homework help. The 2026 mobile app includes voice conversations, image recognition, and real-time web search. You can take a photo of your refrigerator contents and ask ChatGPT to suggest a recipe, or snap a picture of a plant to identify it. The "memory" feature remembers your preferences across conversations.
@@ -231,7 +231,7 @@ Durable AI builds entire websites, including copy, images, and contact forms, in
 
 ## 🔌 Chrome Extensions
 
-![alt text](<images/Chrome Extenstion.png>)
+![alt text](images/Chrome-Extenstion.png)
 ### 68. [ChatGPT](https://chat.openai.com) (Chrome Extension)
 
 **ChatGPT**'s official Chrome extension brings AI assistance to every website you visit. You can select text anywhere on the web and ask ChatGPT to explain, summarize, translate, or rewrite it. The extension also adds a sidebar that can reference the page you're viewing — "what are the key arguments in this article?" — and answers without leaving the tab. The extension is free for all ChatGPT users.

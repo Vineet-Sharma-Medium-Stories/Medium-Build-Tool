@@ -4357,4 +4357,15 @@ Now go build something. Make it ugly. Deploy it to Azure. Then make it better. T
 
 ---
 
-*What lessons would you add to this list? Let me know in the responses, or share how you're using Azure to accelerate your .NET learning journey.*
+
+Coming soon! Want it sooner? Let me know with a clap or comment below
+
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
