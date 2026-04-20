@@ -2,7 +2,7 @@
 
 ## A Complete Handbook for Building Production-Ready AI Applications on a Laptop Using Only Free Tiers and Open-Source Tools
 
-![Zero Cost AI - Complete Handbook](<images/Zero Cost AI - Complete Handbook.jpg>)
+![Zero Cost AI - Complete Handbook](images/Zero-Cost-AI---Complete-Handbook.jpg)
 ## Introduction
 
 The year is 2026. Artificial intelligence has never been more powerful, yet the default path for most developers still leads to a monthly cloud bill that rivals a car payment.
@@ -87,36 +87,12 @@ With these seven takeaways firmly in place, you are ready to explore the complet
 Before writing a single line of code, you need a mental model of how all eight layers of the zero-cost stack interact. The diagram below visualizes the complete data flow from user input to deployed application, with each layer annotated with its primary technology choices and data characteristics.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart TB
-    User["👤 User Browser / Mobile Device<br>HTTP/2 Requests<br>WebSocket for Streaming"] --> Frontend["🖥️ Frontend Layer<br>Next.js 15 / Streamlit 1.35<br>Vercel Free Tier<br>100GB/month bandwidth"]
-    
-    Frontend --> Orchestrator["🧠 Agent Orchestrator<br>LangGraph v0.2 / CrewAI v0.70<br>Runs Locally via Docker<br>State checkpoints every 10 steps"]
-    
-    Orchestrator --> LLM["🤖 LLM Layer<br>Ollama 0.5 Server<br>Llama 3.3 70B Q4_K_M (12GB)<br>Gemma 4 E4B Q4_0 (2.5GB)<br>Mistral Small 4 Q5_K_M (15GB)"]
-    
-    LLM --> MCP["🔧 Tool Use via MCP<br>Model Context Protocol 2026.1<br>JSON-RPC over stdio/SSE<br>Filesystem | SQLite | Shell | Web"]
-    MCP --> CodeAgent["💻 Code Agent Layer<br>Claude Code CLI 2.1<br>Aider 0.55<br>Local Python/Node execution"]
-    
-    LLM --> RAG["📚 RAG Pipeline<br>LlamaIndex 0.10 Retriever<br>ChromaDB 0.4 / Qdrant 1.10<br>all-MiniLM-L6-v2 embeddings"]
-    RAG --> Data[("🗄️ Data Layer<br>SQLite 3.45 (transactions)<br>DuckDB 0.10 (analytics)<br>Supabase Free Tier (500MB cloud sync)")]
-    
-    Orchestrator --> Obs["📊 Observability Layer<br>Structured JSON Logs<br>OpenTelemetry Collector<br>Grafana Free Tier Dashboard"]
-    
-    LLM --> Deployment["🚀 Deployment Layer<br>Docker 27.0 Container<br>HuggingFace Spaces<br>16GB RAM | 2 vCPUs | Auto HTTPS"]
-    
-    style LLM fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000
-    style Frontend fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff
-    style Orchestrator fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#fff
-    style Data fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#000
-    style MCP fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
-    style Obs fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:#fff
-    style Deployment fill:#1abc9c,stroke:#16a085,stroke-width:2px,color:#fff
 ```
+
+![9. 📎 Read](images/diagram_01_before-writing-a-single-line-of-code-you-need-a-m-d936.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_01_before-writing-a-single-line-of-code-you-need-a-m-d936.md)
+
 
 ### Layer 1: Frontend Layer (User Input to Orchestrator)
 
@@ -131,37 +107,19 @@ The journey begins when a user types a prompt into a web or mobile application. 
 **Routing architecture:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-sequenceDiagram
-    participant User
-    participant Next.js
-    participant API Route
-    participant Orchestrator
-    participant LLM
-    
-    User->>Next.js: POST /api/chat {prompt}
-    Next.js->>API Route: /app/api/chat/route.ts
-    API Route->>Orchestrator: HTTP POST to localhost:8000/agent
-    Orchestrator->>LLM: Ollama API call
-    LLM-->>Orchestrator: Streaming tokens
-    Orchestrator-->>API Route: Stream via Server-Sent Events
-    API Route-->>Next.js: Chunked response
-    Next.js-->>User: Render streaming text
 ```
+
+![Technology choices:](images/diagram_02_routing-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_02_routing-architecture.md)
+
 
 **Vercel free tier limits in detail:**
 
-| Resource | Limit | Equivalent Workload |
-|----------|-------|---------------------|
-| Bandwidth | 100GB/month | 500,000 API responses at 200KB each |
-| Serverless Functions | 1000 invocations/day soft | ~30,000 requests/month typical |
-| Build Minutes | 1,000 minutes/month | 20 full deploys of a Next.js app |
-| Edge Config | 5 projects | Store LLM endpoints, API keys |
-| Image Optimization | 1,000 images/month | 33 images/day |
+![Vercel free tier limits in detail:](images/table_01_vercel-free-tier-limits-in-detail-5a8d.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_01_vercel-free-tier-limits-in-detail-5a8d.md)
+
 
 **Cost to exceed:** $20 per 100GB additional bandwidth, $0.40 per 1,000 additional function invocations. Most individual developers and small startups never exceed the free tier.
 
@@ -233,13 +191,10 @@ app = workflow.compile()
 
 **Performance characteristics on a laptop (16GB RAM, no GPU):**
 
-| Metric | Value |
-|--------|-------|
-| Agent step latency | 3–5 seconds (includes LLM call) |
-| Tool call latency | 50–200ms (depends on tool) |
-| State checkpoint size | 10KB per step |
-| Concurrent agents supported | 5–10 (limited by RAM) |
-| Max steps before timeout | 50 (configurable) |
+![Performance characteristics on a laptop (16GB RAM, no GPU):](images/table_02_performance-characteristics-on-a-laptop-16gb-ra-7233.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_02_performance-characteristics-on-a-laptop-16gb-ra-7233.md)
+
 
 ### Layer 3: LLM Layer (Local Inference)
 
@@ -247,25 +202,19 @@ Ollama acts as a lightweight inference server that loads quantized models into m
 
 **Quantization methods explained:**
 
-| Method | Bits | Memory (70B) | Accuracy loss | Use case |
-|--------|------|--------------|---------------|----------|
-| FP16 | 16 | 140GB | 0% | Impossible on laptop |
-| Q8_0 | 8 | 70GB | 2–3% | High-end desktop with 64GB+ |
-| Q5_K_M | 5 | 44GB | 4–5% | Desktop with 32GB RAM |
-| Q4_K_M | 4 | 35GB (full) / 12GB (quantized weights only) | 5–7% | Laptop with 16GB RAM |
-| Q4_K_S | 4 | 33GB | 7–9% | Laptop with 12GB RAM |
-| IQ4_XS | 4 | 31GB | 8–10% | Older laptops |
+![quantization](images/table_03_quantization-methods-explained.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_03_quantization-methods-explained.md)
+
 
 For most laptops with 16GB of RAM, the sweet spot is **Llama 3.3 70B in Q4_K_M quantization**, which consumes approximately 12GB of memory while retaining 95% of the full-precision model's reasoning ability. The remaining 4GB of RAM accommodates ChromaDB (1–2GB), the agent orchestrator (500MB), and the operating system (1–2GB).
 
 **Model comparison (all runnable locally):**
 
-| Model | Parameters | Quantized size | RAM required | MMLU score | Best for |
-|-------|------------|----------------|--------------|------------|----------|
-| Llama 3.3 70B Q4_K_M | 70B | 8GB download, 12GB RAM | 16GB | 86.4% | General purpose, complex reasoning |
-| Gemma 4 E4B Q4_0 | 4B | 2.5GB download, 3GB RAM | 8GB | 84.2% | Edge devices, fast inference |
-| Mistral Small 4 Q5_K_M | 24B | 15GB download, 18GB RAM | 24GB | 85.1% | Desktop with 32GB RAM |
-| Phi-3 Medium Q4_K_M | 14B | 8GB download, 10GB RAM | 16GB | 84.9% | Code generation, structured output |
+![Llama 3.3 70B in Q4_K_M quantization](images/table_04_model-comparison-all-runnable-locally-9ffa.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_04_model-comparison-all-runnable-locally-9ffa.md)
+
 
 **Installing and running Ollama (all operating systems):**
 
@@ -298,13 +247,10 @@ ollama run llama3.3:70b-instruct-q4_K_M "Explain quantum computing in one paragr
 
 **Performance benchmarks on a MacBook Pro M2 (16GB RAM):**
 
-| Operation | Time | Tokens/second |
-|-----------|------|---------------|
-| Model load (first call) | 8.2 seconds | N/A |
-| Prompt processing (100 tokens) | 0.45 seconds | 222 tokens/sec |
-| Generation (50 tokens) | 3.8 seconds | 13 tokens/sec |
-| Generation (500 tokens) | 38 seconds | 13 tokens/sec |
-| Batch inference (10 prompts) | 42 seconds | ~120 tokens/sec total |
+![Performance benchmarks on a MacBook Pro M2 (16GB RAM):](images/table_05_performance-benchmarks-on-a-macbook-pro-m2-16gb-03e8.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_05_performance-benchmarks-on-a-macbook-pro-m2-16gb-03e8.md)
+
 
 **API integration (OpenAI-compatible):**
 
@@ -353,25 +299,12 @@ MCP standardizes how LLMs invoke external capabilities. Instead of writing britt
 **MCP architecture:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart LR
-    LLM[Ollama LLM\nLlama 3.3 70B] -->|Generates tool request| MCP_Client[MCP Client\nEmbedded in agent]
-    MCP_Client -->|JSON-RPC over stdio| MCP_Server[MCP Server\nPython/Node process]
-    MCP_Server -->|Executes| Tool1[Filesystem Tool]
-    MCP_Server -->|Executes| Tool2[SQLite Tool]
-    MCP_Server -->|Executes| Tool3[Shell Tool]
-    MCP_Server -->|Executes| Tool4[Web API Tool]
-    Tool1 -->|Result| MCP_Server
-    Tool2 -->|Result| MCP_Server
-    Tool3 -->|Result| MCP_Server
-    Tool4 -->|Result| MCP_Server
-    MCP_Server -->|JSON-RPC response| MCP_Client
-    MCP_Client -->|Injects result| LLM
 ```
+
+![Why MCP eliminates cloud costs:](images/diagram_03_mcp-architecture.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_03_mcp-architecture.md)
+
 
 **Installing an MCP server (filesystem example):**
 
@@ -506,29 +439,12 @@ aider --message "Add comprehensive error handling and logging to the fetch_data(
 **Code agent workflow:**
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-sequenceDiagram
-    participant User
-    participant Aider
-    participant Git
-    participant Ollama
-    participant FileSystem
-    
-    User->>Aider: "Add retry logic to api_client.py"
-    Aider->>FileSystem: Read api_client.py
-    FileSystem-->>Aider: Current file content
-    Aider->>Ollama: Prompt with code + request
-    Ollama-->>Aider: Generated code with retry logic
-    Aider->>FileSystem: Write modified file
-    Aider->>Git: git diff to show changes
-    Aider->>User: Show changes, ask for approval
-    User->>Aider: "Approved"
-    Aider->>Git: git commit -m "Add retry logic to api_client"
 ```
+
+![Code agent workflow:](images/diagram_04_code-agent-workflow.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_04_code-agent-workflow.md)
+
 
 ### Layer 6: RAG Pipeline (Retrieval-Augmented Generation)
 
@@ -581,13 +497,10 @@ print(response)
 
 **RAG performance on laptop (16GB RAM, 100,000 document chunks):**
 
-| Operation | Time | Memory |
-|-----------|------|--------|
-| Chunk 1000 documents | 2 seconds | 100MB |
-| Generate embeddings (10,000 chunks) | 1 minute | 500MB |
-| Vector search (top 5) | 15ms | N/A |
-| Augmented LLM call | 4 seconds | N/A |
-| Total query latency | 4.5 seconds | ~2GB (ChromaDB) |
+![RAG performance on laptop (16GB RAM, 100,000 document chunks):](images/table_06_rag-performance-on-laptop-16gb-ram-100000-doc-500f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_06_rag-performance-on-laptop-16gb-ram-100000-doc-500f.md)
+
 
 ### Layer 7: Observability Layer
 
@@ -773,12 +686,10 @@ ollama pull llama3.3:70b-instruct-q4_K_M
 
 **Download times by connection speed:**
 
-| Internet speed | Download time |
-|----------------|---------------|
-| 100 Mbps | 11 minutes |
-| 50 Mbps | 22 minutes |
-| 25 Mbps | 44 minutes |
-| 10 Mbps | 1 hour 50 minutes |
+![Download times by connection speed:](images/table_07_download-times-by-connection-speed-c07f.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_07_download-times-by-connection-speed-c07f.md)
+
 
 **Model storage location by OS:**
 - macOS: `~/.ollama/models/`
