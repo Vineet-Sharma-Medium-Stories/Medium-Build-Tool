@@ -1,5 +1,4 @@
-
-# Zero-Cost AI: The $0 Stack That Actually Works – Part 1
+# Zero-Cost AI: The $0 Stack That Actually Works - Part 1
 
 ## A Complete Handbook for Building Production-Ready AI Applications on a Laptop Using Only Free Tiers and Open-Source Tools
 
