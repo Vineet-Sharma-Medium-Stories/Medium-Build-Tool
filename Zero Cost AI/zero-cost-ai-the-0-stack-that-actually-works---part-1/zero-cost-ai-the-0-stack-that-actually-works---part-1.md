@@ -2,8 +2,10 @@
 
 ## A Complete Handbook for Building Production-Ready AI Applications on a Laptop Using Only Free Tiers and Open-Source Tools
 
-![Zero Cost AI - Complete Handbook](images/Zero-Cost-AI---Complete-Handbook.jpg)
+![Zero Cost AI - Complete Handbook](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/Zero-Cost-AI---Complete-Handbook.jpg)
+
 ## Introduction
+
 
 The year is 2026. Artificial intelligence has never been more powerful, yet the default path for most developers still leads to a monthly cloud bill that rivals a car payment.
 
@@ -89,7 +91,7 @@ Before writing a single line of code, you need a mental model of how all eight l
 ```mermaid
 ```
 
-![9. 📎 Read](images/diagram_01_before-writing-a-single-line-of-code-you-need-a-m-d936.png)
+![9. 📎 Read](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/diagram_01_before-writing-a-single-line-of-code-you-need-a-m-d936.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_01_before-writing-a-single-line-of-code-you-need-a-m-d936.md)
 
@@ -109,14 +111,14 @@ The journey begins when a user types a prompt into a web or mobile application. 
 ```mermaid
 ```
 
-![Technology choices:](images/diagram_02_routing-architecture.png)
+![Technology choices:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/diagram_02_routing-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_02_routing-architecture.md)
 
 
 **Vercel free tier limits in detail:**
 
-![Vercel free tier limits in detail:](images/table_01_vercel-free-tier-limits-in-detail-5a8d.png)
+![Vercel free tier limits in detail:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_01_vercel-free-tier-limits-in-detail-5a8d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_01_vercel-free-tier-limits-in-detail-5a8d.md)
 
@@ -191,7 +193,7 @@ app = workflow.compile()
 
 **Performance characteristics on a laptop (16GB RAM, no GPU):**
 
-![Performance characteristics on a laptop (16GB RAM, no GPU):](images/table_02_performance-characteristics-on-a-laptop-16gb-ra-7233.png)
+![Performance characteristics on a laptop (16GB RAM, no GPU):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_02_performance-characteristics-on-a-laptop-16gb-ra-7233.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_02_performance-characteristics-on-a-laptop-16gb-ra-7233.md)
 
@@ -202,7 +204,7 @@ Ollama acts as a lightweight inference server that loads quantized models into m
 
 **Quantization methods explained:**
 
-![quantization](images/table_03_quantization-methods-explained.png)
+![quantization](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_03_quantization-methods-explained.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_03_quantization-methods-explained.md)
 
@@ -211,7 +213,7 @@ For most laptops with 16GB of RAM, the sweet spot is **Llama 3.3 70B in Q4_K_M q
 
 **Model comparison (all runnable locally):**
 
-![Llama 3.3 70B in Q4_K_M quantization](images/table_04_model-comparison-all-runnable-locally-9ffa.png)
+![Llama 3.3 70B in Q4_K_M quantization](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_04_model-comparison-all-runnable-locally-9ffa.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_04_model-comparison-all-runnable-locally-9ffa.md)
 
@@ -247,7 +249,7 @@ ollama run llama3.3:70b-instruct-q4_K_M "Explain quantum computing in one paragr
 
 **Performance benchmarks on a MacBook Pro M2 (16GB RAM):**
 
-![Performance benchmarks on a MacBook Pro M2 (16GB RAM):](images/table_05_performance-benchmarks-on-a-macbook-pro-m2-16gb-03e8.png)
+![Performance benchmarks on a MacBook Pro M2 (16GB RAM):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_05_performance-benchmarks-on-a-macbook-pro-m2-16gb-03e8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_05_performance-benchmarks-on-a-macbook-pro-m2-16gb-03e8.md)
 
@@ -301,7 +303,7 @@ MCP standardizes how LLMs invoke external capabilities. Instead of writing britt
 ```mermaid
 ```
 
-![Why MCP eliminates cloud costs:](images/diagram_03_mcp-architecture.png)
+![Why MCP eliminates cloud costs:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/diagram_03_mcp-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_03_mcp-architecture.md)
 
@@ -441,7 +443,7 @@ aider --message "Add comprehensive error handling and logging to the fetch_data(
 ```mermaid
 ```
 
-![Code agent workflow:](images/diagram_04_code-agent-workflow.png)
+![Code agent workflow:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/diagram_04_code-agent-workflow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/diagram_04_code-agent-workflow.md)
 
@@ -497,7 +499,7 @@ print(response)
 
 **RAG performance on laptop (16GB RAM, 100,000 document chunks):**
 
-![RAG performance on laptop (16GB RAM, 100,000 document chunks):](images/table_06_rag-performance-on-laptop-16gb-ram-100000-doc-500f.png)
+![RAG performance on laptop (16GB RAM, 100,000 document chunks):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_06_rag-performance-on-laptop-16gb-ram-100000-doc-500f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_06_rag-performance-on-laptop-16gb-ram-100000-doc-500f.md)
 
@@ -686,7 +688,7 @@ ollama pull llama3.3:70b-instruct-q4_K_M
 
 **Download times by connection speed:**
 
-![Download times by connection speed:](images/table_07_download-times-by-connection-speed-c07f.png)
+![Download times by connection speed:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Zero%20Cost%20AI/zero-cost-ai-the-0-stack-that-actually-works---part-1/images/table_07_download-times-by-connection-speed-c07f.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/zero-cost-ai-the-0-stack-that-actually-works---part-1/table_07_download-times-by-connection-speed-c07f.md)
 

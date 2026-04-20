@@ -5,6 +5,8 @@
 ![Zero Cost AI - Complete Handbook](<images/Zero Cost AI - Complete Handbook.jpg>)
 ## Introduction
 
+
+
 The year is 2026. Artificial intelligence has never been more powerful, yet the default path for most developers still leads to a monthly cloud bill that rivals a car payment.
 
 OpenAI charges $2.50 per million input tokens and $10 per million output tokens for GPT-4o. Anthropic's Claude 3.5 Sonnet runs $3 per million input tokens and $15 per million output tokens. LangSmith's cheapest paid tier starts at $39 per month per seat. Pinecone's vector database free tier expires after 90 days. And that's before you add agent orchestration platforms, observability tools, monitoring dashboards, and deployment hosting.
