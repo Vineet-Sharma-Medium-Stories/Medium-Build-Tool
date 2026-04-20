@@ -1,12 +1,7 @@
-Here is **Story #1** fully rewritten with **numbered story listings** and **significantly expanded technical depth** to reach a **35–50 minute read** while keeping the exact structure intact.
-
----
 
 # Zero-Cost AI: The $0 Stack That Actually Works – Part 1
 
 ## A Complete Handbook for Building Production-Ready AI Applications on a Laptop Using Only Free Tiers and Open-Source Tools
-
----
 
 ## Introduction
 
@@ -30,7 +25,6 @@ In **Part 1**, you will understand the complete architecture of a zero-cost AI s
 
 No credit card required. No hidden fees. No data leaving your control. Just your laptop, a terminal, and 35–50 minutes of focused learning.
 
----
 
 ## Takeaway from Previous Story
 
@@ -52,9 +46,11 @@ This is the first installment of the **Zero-Cost AI** handbook series. There is 
 
 With these seven takeaways firmly in place, you are ready to explore the complete architecture in exhaustive detail.
 
----
 
 ## Stories in This Series
+**📎 Read [Announcing the Zero-Cost AI Handbook: Build Production AI at $0](https://www.linkedin.com/pulse/announcing-zero-cost-ai-handbook-build-production-0-vineet-sharma-c17bf)**  
+*Zero-Cost AI on Your Laptop has quickly become the de facto architecture for building production AI applications without cloud bills, powering everything from side projects to startup MVPs to enterprise internal tools. LinkedIn*
+
 
 **1. 📎 Read** [Zero-Cost AI: The $0 Stack That Actually Works – Part 1](#) *(you are here)*  
 *Complete architectural breakdown of all eight layers with performance characteristics, memory requirements, and working code examples. First published in the Zero-Cost AI Handbook.*
@@ -86,29 +82,32 @@ With these seven takeaways firmly in place, you are ready to explore the complet
 **10. 📎 Read** [Zero-Cost AI: Data Layer on a Laptop Without Cloud Spend – Part 10](#)  
 *Using SQLite 3.45 for production transactions, DuckDB 0.10 for analytical queries, and Supabase free tier for optional cloud sync with row-level security and real-time subscriptions. First published in the Zero-Cost AI Handbook.*
 
----
-
 ## The Complete $0 AI Architecture Stack
 
 Before writing a single line of code, you need a mental model of how all eight layers of the zero-cost stack interact. The diagram below visualizes the complete data flow from user input to deployed application, with each layer annotated with its primary technology choices and data characteristics.
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 flowchart TB
-    User[👤 User Browser / Mobile Device\nHTTP/2 Requests\nWebSocket for Streaming] --> Frontend[🖥️ Frontend Layer\nNext.js 15 / Streamlit 1.35\nVercel Free Tier\n100GB/month bandwidth]
+    User["👤 User Browser / Mobile Device<br>HTTP/2 Requests<br>WebSocket for Streaming"] --> Frontend["🖥️ Frontend Layer<br>Next.js 15 / Streamlit 1.35<br>Vercel Free Tier<br>100GB/month bandwidth"]
     
-    Frontend --> Orchestrator[🧠 Agent Orchestrator\nLangGraph v0.2 / CrewAI v0.70\nRuns Locally via Docker\nState checkpoints every 10 steps]
+    Frontend --> Orchestrator["🧠 Agent Orchestrator<br>LangGraph v0.2 / CrewAI v0.70<br>Runs Locally via Docker<br>State checkpoints every 10 steps"]
     
-    Orchestrator --> LLM[🤖 LLM Layer\nOllama 0.5 Server\nLlama 3.3 70B Q4_K_M (12GB)\nGemma 4 E4B Q4_0 (2.5GB)\nMistral Small 4 Q5_K_M (15GB)]
+    Orchestrator --> LLM["🤖 LLM Layer<br>Ollama 0.5 Server<br>Llama 3.3 70B Q4_K_M (12GB)<br>Gemma 4 E4B Q4_0 (2.5GB)<br>Mistral Small 4 Q5_K_M (15GB)"]
     
-    LLM --> MCP[🔧 Tool Use via MCP\nModel Context Protocol 2026.1\nJSON-RPC over stdio/SSE\nFilesystem | SQLite | Shell | Web]
-    MCP --> CodeAgent[💻 Code Agent Layer\nClaude Code CLI 2.1\nAider 0.55\nLocal Python/Node execution]
+    LLM --> MCP["🔧 Tool Use via MCP<br>Model Context Protocol 2026.1<br>JSON-RPC over stdio/SSE<br>Filesystem | SQLite | Shell | Web"]
+    MCP --> CodeAgent["💻 Code Agent Layer<br>Claude Code CLI 2.1<br>Aider 0.55<br>Local Python/Node execution"]
     
-    LLM --> RAG[📚 RAG Pipeline\nLlamaIndex 0.10 Retriever\nChromaDB 0.4 / Qdrant 1.10\nall-MiniLM-L6-v2 embeddings]
-    RAG --> Data[(🗄️ Data Layer\nSQLite 3.45 (transactions)\nDuckDB 0.10 (analytics)\nSupabase Free Tier (500MB cloud sync)]
+    LLM --> RAG["📚 RAG Pipeline<br>LlamaIndex 0.10 Retriever<br>ChromaDB 0.4 / Qdrant 1.10<br>all-MiniLM-L6-v2 embeddings"]
+    RAG --> Data[("🗄️ Data Layer<br>SQLite 3.45 (transactions)<br>DuckDB 0.10 (analytics)<br>Supabase Free Tier (500MB cloud sync)")]
     
-    Orchestrator --> Obs[📊 Observability Layer\nStructured JSON Logs\nOpenTelemetry Collector\nGrafana Free Tier Dashboard]
+    Orchestrator --> Obs["📊 Observability Layer<br>Structured JSON Logs<br>OpenTelemetry Collector<br>Grafana Free Tier Dashboard"]
     
-    LLM --> Deployment[🚀 Deployment Layer\nDocker 27.0 Container\nHuggingFace Spaces\n16GB RAM | 2 vCPUs | Auto HTTPS]
+    LLM --> Deployment["🚀 Deployment Layer<br>Docker 27.0 Container<br>HuggingFace Spaces<br>16GB RAM | 2 vCPUs | Auto HTTPS"]
     
     style LLM fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000
     style Frontend fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff
@@ -132,6 +131,11 @@ The journey begins when a user types a prompt into a web or mobile application. 
 **Routing architecture:**
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 sequenceDiagram
     participant User
     participant Next.js
@@ -349,6 +353,11 @@ MCP standardizes how LLMs invoke external capabilities. Instead of writing britt
 **MCP architecture:**
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 flowchart LR
     LLM[Ollama LLM\nLlama 3.3 70B] -->|Generates tool request| MCP_Client[MCP Client\nEmbedded in agent]
     MCP_Client -->|JSON-RPC over stdio| MCP_Server[MCP Server\nPython/Node process]
@@ -497,6 +506,11 @@ aider --message "Add comprehensive error handling and logging to the fetch_data(
 **Code agent workflow:**
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 sequenceDiagram
     participant User
     participant Aider
@@ -1046,6 +1060,10 @@ You have just built the foundation: a complete mental model of the $0 AI stack, 
 
 ### Full Series Recap (All 10 Parts)
 
+**📎 Read [Announcing the Zero-Cost AI Handbook: Build Production AI at $0](https://www.linkedin.com/pulse/announcing-zero-cost-ai-handbook-build-production-0-vineet-sharma-c17bf)**  
+*Zero-Cost AI on Your Laptop has quickly become the de facto architecture for building production AI applications without cloud bills, powering everything from side projects to startup MVPs to enterprise internal tools. LinkedIn*
+
+
 **1. 📎 Read** [Zero-Cost AI: The $0 Stack That Actually Works – Part 1](#) *(you are here)*  
 *Complete architectural breakdown of all eight layers with performance characteristics, memory requirements, and working code examples.*
 
@@ -1082,10 +1100,18 @@ You have just built the foundation: a complete mental model of the $0 AI stack, 
 
 Proceed to **Part 2** when you're ready to add a production frontend that users can actually interact with.
 
-> *"The most expensive AI stack is the one you never build because the costs scared you away. Start at $0. Scale when you need to. The architecture in this handbook has powered production applications serving thousands of users daily — all on a laptop and free tiers." — Zero-Cost AI Handbook*
+*"The most expensive AI stack is the one you never build because the costs scared you away. Start at $0. Scale when you need to. The architecture in this handbook has powered production applications serving thousands of users daily — all on a laptop and free tiers." — Zero-Cost AI Handbook*
 
 ---
 
-**Estimated read time for Part 1:** 35–50 minutes depending on your pace and whether you run the code examples.
+Coming soon! Want it sooner? Let me know with a clap or comment below
 
-Would you like me to write **Part 2** now in the same detailed, 35–50 minute handbook style, with numbered story listings and the same structural sections?
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
