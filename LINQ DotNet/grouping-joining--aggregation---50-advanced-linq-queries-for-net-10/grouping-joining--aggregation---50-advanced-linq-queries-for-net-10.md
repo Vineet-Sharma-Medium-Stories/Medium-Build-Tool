@@ -1,7 +1,9 @@
 # Grouping, Joining & Aggregation - 50 Advanced LINQ Queries for .NET 10
 ### Deep dive on multi-key grouping, all join types (Group, Left, Right, Full), conditional aggregation, running totals, set operations, and pagination. Patterns covered: Multi-Key Grouping, GroupJoin, Full Outer Join, Left Join, Conditional Aggregation, Running Totals, Set Operations, Pagination, Distinct, Lookup,
 
-![Grouping, Joining & Aggregation - 50 Advanced LINQ Queries for .NET 10](images/Grouping,-Joining-&-Aggregation---50-Advanced-LINQ-Queries-for-.NET-10.png)
+![Grouping, Joining & Aggregation - 50 Advanced LINQ Queries for .NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/LINQ%20DotNet/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/images/Grouping,-Joining-&-Aggregation---50-Advanced-LINQ-Queries-for-.NET-10.png)
+
+
 
 > **📌 New in .NET 10 & LINQ:** This series leverages the latest .NET 10 features including collection expressions (`[..]`), primary constructors, `IAsyncEnumerable<T>`, `TimeSpan.From*` improvements, `SearchValues<T>` for string searching, enhanced `DateOnly`/`TimeOnly` support, and the new `System.Linq.AsyncExtensions` for async LINQ operations.
 
@@ -22,7 +24,7 @@ Language Integrated Query (LINQ) revolutionized .NET development when it was int
 
 ### Why LINQ Matters More Than Ever in .NET 10
 
-![In-memory collections](images/table_01_why-linq-matters-more-than-ever-in-net-10-b108.png)
+![In-memory collections](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/LINQ%20DotNet/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/images/table_01_why-linq-matters-more-than-ever-in-net-10-b108.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/table_01_why-linq-matters-more-than-ever-in-net-10-b108.md)
 
@@ -2153,7 +2155,7 @@ public class CustomerSegmentationEngine
 
 ## 📊 Query Performance Comparison (Part 1)
 
-![Take with LINQ](images/table_02_query-performance-comparison-part-1-6f28.png)
+![Take with LINQ](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/LINQ%20DotNet/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/images/table_02_query-performance-comparison-part-1-6f28.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/table_02_query-performance-comparison-part-1-6f28.md)
 
@@ -2164,7 +2166,7 @@ public class CustomerSegmentationEngine
 
 **What to expect in Part 2:**
 
-![What to expect in Part 2:](images/table_03_what-to-expect-in-part-2.png)
+![What to expect in Part 2:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/LINQ%20DotNet/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/images/table_03_what-to-expect-in-part-2.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/grouping-joining--aggregation---50-advanced-linq-queries-for-net-10/table_03_what-to-expect-in-part-2.md)
 

@@ -1,15 +1,11 @@
 # Design Patterns: Part 1 -  Redefining Design Patterns
-## Beyond the Textbook, Into the Streaming World
 
----
-
-**Subtitle:**
-Forget cooking recipes—Design Patterns are architectural survival tools. Here is how Creational, Structural, and Behavioral patterns map directly to building Spotify with .NET 10, Reactive Programming, and EF Core.
+### Forget cooking recipes—Design Patterns are architectural survival tools. Here is how Creational, Structural, and Behavioral patterns map directly to building Spotify with .NET 10, Reactive Programming, and EF Core.
 
 **Keywords:**
 Design Patterns, .NET 10, C# 13, Reactive Programming, Entity Framework Core, SPAP<T>, Creational Patterns, Structural Patterns, Behavioral Patterns, Architectural Patterns, MVC, Layered Architecture, Spotify system design
 
----
+![Design Patterns: Part 1 -  Redefining Design Patterns](<images/Design Patterns: Part 1 -  Redefining Design Patterns.png>)
 
 ## Introduction: Why .NET 10 Changes Everything
 
@@ -65,7 +61,12 @@ Before we dive into the examples, understand the three families of design patter
 
 Let's continue building **Spotify** and see where these patterns emerge naturally.
 
----
+**Coming Up in Part 2**: Creational *Patterns Deep Dive: How Spotify Creates Its Universe (Singleton, Factory, Abstract Factory, Builder, Prototype) with .NET 10*
+
+**Coming Up in Part 3**: *Structural Patterns Deep Dive: How Spotify Composes Its Features (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy) with .NET 10*
+
+**Coming Up in Part 4**: *Behavioral Patterns Deep Dive: How Spotify's Objects Communicate (Observer, Strategy, Command, State, Chain of Responsibility, Template Method, Visitor) with .NET 10*
+
 
 ## The .NET 10 Toolbox for Design Patterns
 
@@ -191,7 +192,12 @@ Before diving into the 23 design patterns, we need to understand where they live
 **The Structure:**
 
 ```mermaid
-graph TD
+---
+config:
+  theme: base
+  layout: elk
+---
+graph LR
     subgraph "Presentation Layer"
         UI[Web/Mobile Apps]
     end
@@ -307,6 +313,11 @@ public class PlaybackDbContext : DbContext
 **The Structure:**
 
 ```mermaid
+---
+config:
+  theme: base
+  layout: elk
+---
 classDiagram
     class Model {
         +Song

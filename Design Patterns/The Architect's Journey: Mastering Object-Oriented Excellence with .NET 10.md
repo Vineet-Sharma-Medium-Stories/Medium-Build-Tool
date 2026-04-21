@@ -1,15 +1,14 @@
 # The Architect's Journey: Mastering Object-Oriented Excellence with .NET 10
 ## A Comprehensive 16-Part Series on OOPS, Design Patterns, and SOLID Principles with .NET 10
 
----
-
-**Subtitle:**
-From foundational concepts to production-ready architecture—how we built Spotify's streaming platform using object-oriented principles, 23 design patterns, and SOLID fundamentals with .NET 10, Reactive Programming, and Entity Framework Core.
+Introduction 
+Introductioning object-oriented principles, 23 design patterns, and SOLID fundamentals with .NET 10, Reactive Programming, and Entity Framework Core.
 
 **Keywords:**
 Object-Oriented Programming, Design Patterns, SOLID Principles, .NET 10, Clean Architecture, Software Design, Spotify Case Study, Gang of Four, C# 13, Reactive Programming, System Architecture
 
 ---
+![The Architect's Journey: Mastering Object-Oriented Excellence with .NET 10](<images/The Architect's Journey: Mastering Object-Oriented Excellence with .NET 10.png>)
 
 ## The Vision: From Chaos to Cathedral
 
@@ -26,6 +25,11 @@ This 16-part series chronicles the complete transformation of Spotify's architec
 ## The Three Pillars of Architectural Excellence
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "The Foundation (OOPS)"
         A[Object-Oriented Programming]
@@ -75,6 +79,11 @@ graph TD
 Throughout this series, we'll follow the same Spotify components as they evolve through each layer of understanding:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class User {
         +string Id
@@ -647,6 +656,11 @@ The `UserService` had multiple reasons to change—security team, audio team, pr
 We decomposed the monolith into focused services, each with one responsibility:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before"
         A[UserService<br/>50 methods]
@@ -750,6 +764,11 @@ The `RecommendationEngine` had switch statements for every algorithm type. A/B t
 We applied the Strategy Pattern, making the engine open for extension but closed for modification:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IRecommendationStrategy {
         <<interface>>
@@ -887,6 +906,11 @@ Every method that accepted a `PlayableContent` had to check the concrete type. A
 We redesigned the hierarchy with proper contracts and capability interfaces:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IPlayable {
         <<interface>>
@@ -1034,6 +1058,11 @@ The simple audio player had to implement download methods it didn't support. The
 We decomposed the fat interface into focused role interfaces:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 classDiagram
     class IPlayable {
         <<interface>>
@@ -1180,6 +1209,11 @@ The playback service knew about SQL Server, MP3 codecs, and Stripe APIs. Moving 
 We inverted dependencies, making high-level modules depend on abstractions:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before"
         A[MusicPlayer] --> B[SqlServerUserRepo]
@@ -1338,6 +1372,11 @@ We took one real Spotify feature—the "Add to Playlist" functionality—and app
 A complete walkthrough of refactoring a real feature:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Feature: Add to Playlist"
         A[API Controller] --> B[AddToPlaylistCommand - SRP]
@@ -1704,6 +1743,11 @@ Every part leverages modern .NET 10 features:
 ## The Transformation: Before and After
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: base
+---
 graph TD
     subgraph "Before"
         A[God Classes]
