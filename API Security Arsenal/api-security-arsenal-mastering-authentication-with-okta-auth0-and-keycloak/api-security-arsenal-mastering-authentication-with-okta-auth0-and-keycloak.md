@@ -2,7 +2,7 @@
 
 ### Deep dive into API authentication and identity management with Okta (enterprise SSO, Universal Directory, adaptive MFA), Auth0 (passwordless, breached password detection, B2B organizations), and Keycloak (open-source, LDAP federation, fine-grained authorization). Learn OAuth 2.0 flows (Authorization Code, PKCE, Client Credentials, Device Flow), OIDC, JWT validation (signature, exp, iss, aud, nbf, revocation), authentication anti-patterns, and real breach examples from Uber, Okta, and major ride-sharing platforms.
 
-![API Security Arsenal/images/Mastering Authentication with Okta, Auth0, and Keycloak](<images/Mastering Authentication with Okta, Auth0, and Keycloak.jpg>)
+![API Security Arsenal/images/Mastering Authentication with Okta, Auth0, and Keycloak](images/Mastering-Authentication-with-Okta,-Auth0,-and-Keycloak.jpg)
 
 You have deployed your API gateway. Rate limiting is configured. IP whitelists are in place. But there is one critical question your gateway cannot answer on its own: *Who is calling your API?*
 
@@ -47,52 +47,31 @@ Before diving into specific tools, you need to understand three foundational tec
 OAuth 2.0 is a framework that allows one application to access resources on behalf of a user without sharing credentials. Think of it as a "valet key" for your API.
 
 ```mermaid
-sequenceDiagram
-    participant User
-    participant Client as Client App
-    participant Auth as Authorization Server
-    participant API as Resource Server (API)
-    
-    User->>Client: 1. "Login with Google"
-    Client->>Auth: 2. Redirect to authorization endpoint
-    Auth->>User: 3. "Do you approve?"
-    User->>Auth: 4. Yes
-    Auth->>Client: 5. Authorization code
-    Client->>Auth: 6. Exchange code for access token
-    Auth->>Client: 7. Access token
-    Client->>API: 8. Request + Access token
-    API->>Auth: 9. Validate token (optional)
-    API-->>Client: 10. Response
 ```
+
+![The Authentication Landscape: Core Concepts](images/diagram_01_oauth-20-is-a-framework-that-allows-one-applicati-cf46.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_01_oauth-20-is-a-framework-that-allows-one-applicati-cf46.md)
+
 
 **OAuth 2.0 grant types (when to use each):**
 
-| Grant Type | Use Case | Example |
-|------------|----------|---------|
-| Authorization Code | Web apps with backend | Traditional web app login |
-| Authorization Code + PKCE | Mobile/native apps | Mobile banking app |
-| Client Credentials | Server-to-server | Microservice calling another |
-| Device Code | Input-constrained devices | Smart TV login |
-| Refresh Token | Long-lived access | Keep user logged in |
+![OAuth 2.0 grant types (when to use each):](images/table_01_oauth-20-grant-types-when-to-use-each-fdeb.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_01_oauth-20-grant-types-when-to-use-each-fdeb.md)
+
 
 ### OIDC (OpenID Connect): Identity on Top of OAuth
 
 OAuth 2.0 handles *access* but not *identity*. OIDC adds an identity layer that tells you *who* the user is.
 
 ```mermaid
-flowchart LR
-    subgraph OAuth [OAuth 2.0 Only]
-        Access[Access Token] --> API[API Call]
-        Note1["Knows: 'This token allows access'"]
-        Note2["Does NOT know: 'Who is the user?'"]
-    end
-    
-    subgraph OIDC [OAuth 2.0 + OIDC]
-        Access2[Access Token] --> API2[API Call]
-        ID[ID Token (JWT)] --> Client[Client App]
-        Note3["ID Token contains: user_id, email, name, etc."]
-    end
 ```
+
+![Diagram](images/diagram_02_oauth-20-handles-access-but-not-identity-oid-d35b.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_02_oauth-20-handles-access-but-not-identity-oid-d35b.md)
+
 
 **ID Token example (decoded JWT):**
 
@@ -115,30 +94,19 @@ flowchart LR
 JWTs are self-contained tokens that carry claims (user data) in a cryptographically signed package.
 
 ```mermaid
-flowchart LR
-    subgraph JWT [JWT Structure]
-        Header[Header<br/>Base64Url]
-        Dot1[.]
-        Payload[Payload<br/>Base64Url]
-        Dot2[.]
-        Signature[Signature<br/>Base64Url]
-    end
-    
-    Header --> HContent["{'alg': 'RS256', 'typ': 'JWT'}"]
-    Payload --> PContent["{'sub': '123', 'email': 'user@example.com', 'exp': 1735689600}"]
-    Signature --> SContent["HMAC-SHA256(<br/>  base64UrlEncode(header) + '.' +<br/>  base64UrlEncode(payload),<br/>  secret<br/>)"]
 ```
+
+![Diagram](images/diagram_03_jwts-are-self-contained-tokens-that-carry-claims-ba4e.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_03_jwts-are-self-contained-tokens-that-carry-claims-ba4e.md)
+
 
 **JWT validation checklist (for your API):**
 
-| Validation Step | Why It Matters | If Missing |
-|----------------|----------------|------------|
-| Verify signature | Token wasn't tampered with | Attacker can forge tokens |
-| Check expiration (`exp`) | Token isn't expired | Stolen tokens work forever |
-| Verify issuer (`iss`) | Token came from your IdP | Attackers can use their own tokens |
-| Check audience (`aud`) | Token is meant for your API | Token meant for other service works |
-| Validate not-before (`nbf`) | Token isn't active yet | Clock skew attacks |
-| Check revocation | Token wasn't explicitly revoked | Compromised tokens remain valid |
+![JWT validation checklist (for your API):](images/table_02_jwt-validation-checklist-for-your-api-35f0.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_02_jwt-validation-checklist-for-your-api-35f0.md)
+
 
 ---
 
@@ -146,11 +114,10 @@ flowchart LR
 
 Before diving into details, here is a quick comparison of the three tools covered in this story:
 
-| Tool | Type | Best For | Key Strength | Cost Model |
-|------|------|----------|--------------|-------------|
-| **Okta** | Commercial | Enterprise (500+ employees) | Enterprise integrations (SAP, Workday, Salesforce) | Per user/month |
-| **Auth0** | Commercial | Developer-first teams | Most flexible rule engine, excellent DX | Per active user/month |
-| **Keycloak** | Open-source | Cost-sensitive, self-managed | Full-featured, no per-seat licensing | Free (self-hosted) |
+![The Three Identity Providers at a Glance](images/table_03_before-diving-into-details-here-is-a-quick-compar-6370.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_03_before-diving-into-details-here-is-a-quick-compar-6370.md)
+
 
 ---
 
@@ -172,31 +139,12 @@ Okta is the market leader in enterprise identity management. It started as a sin
 **Architecture diagram:**
 
 ```mermaid
-flowchart TD
-    User[End User] --> App[Application / API Gateway]
-    App --> Okta[Okta Platform]
-    
-    subgraph Okta_Platform [Okta Platform]
-        direction TB
-        Auth[Authentication Engine]
-        Directory[Universal Directory]
-        MFA[MFA / Adaptive Auth]
-        Policies[Authorization Policies]
-        Workflows[Workflow Engine]
-    end
-    
-    subgraph Enterprise_Data [Enterprise Data Sources]
-        AD[Active Directory]
-        HR[HR System / Workday]
-        LDAP[LDAP]
-    end
-    
-    Directory --> AD
-    Directory --> HR
-    Directory --> LDAP
-    
-    Okta --> API[Your API / Backend]
 ```
+
+![Architecture diagram:](images/diagram_04_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_04_architecture-diagram.md)
+
 
 **OIDC configuration example (Okta application settings):**
 
@@ -339,33 +287,12 @@ Auth0 (acquired by Okta but operates independently) is designed for developers. 
 **Architecture diagram:**
 
 ```mermaid
-flowchart TD
-    User[User] --> App[Application]
-    App --> Auth0[Auth0 Tenant]
-    
-    subgraph Auth0_Tenant [Auth0 Tenant]
-        direction TB
-        Login[Universal Login Page]
-        Rules[Rules Engine]
-        Hooks[Hooks / Actions]
-        Anomaly[Anomaly Detection]
-        Attack[Attack Protection]
-    end
-    
-    subgraph Connections [Identity Sources]
-        Social[Social: Google, Facebook, etc.]
-        Enterprise[Enterprise: SAML, LDAP, ADFS]
-        Database[Database Connection]
-        Passwordless[Passwordless: Email, SMS]
-    end
-    
-    Login --> Connections
-    Rules --> Hooks
-    Anomaly --> Attack
-    
-    Auth0 --> API[Your API]
-    Auth0 --> Gateway[API Gateway]
 ```
+
+![Architecture diagram:](images/diagram_05_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_05_architecture-diagram.md)
+
 
 **Auth0 Action (replaces Rules) example:**
 
@@ -537,40 +464,12 @@ Keycloak is an open-source identity and access management solution maintained by
 **Architecture diagram:**
 
 ```mermaid
-flowchart TD
-    User[User] --> App[Application]
-    App --> Keycloak[Keycloak Server]
-    
-    subgraph Keycloak_Deployment [Keycloak Deployment]
-        direction TB
-        LoadBalancer[Load Balancer]
-        
-        subgraph Cluster [Keycloak Cluster]
-            Node1[Keycloak Node 1]
-            Node2[Keycloak Node 2]
-            Node3[Keycloak Node 3]
-        end
-        
-        DB[(PostgreSQL)]
-        Cache[(Infinispan Cache)]
-    end
-    
-    subgraph Federation [User Federation]
-        LDAP[LDAP / AD]
-        Custom[Custom Provider]
-    end
-    
-    Node1 --> DB
-    Node2 --> DB
-    Node3 --> DB
-    
-    Node1 --> Cache
-    Node2 --> Cache
-    Node3 --> Cache
-    
-    Keycloak --> Federation
-    Keycloak --> API[Your API]
 ```
+
+![Architecture diagram:](images/diagram_06_architecture-diagram.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_06_architecture-diagram.md)
+
 
 **Keycloak Docker Compose setup:**
 
@@ -850,34 +749,19 @@ async def create_user(user_data: dict, token_data: dict = Depends(verify_keycloa
 Choosing the wrong OAuth flow is a common security mistake. Here is a decision framework:
 
 ```mermaid
-flowchart TD
-    Start[What type of client?] --> Web{Web Application<br/>with backend?}
-    Web -->|Yes| AuthCode[Authorization Code Flow]
-    Web -->|No| SPA{SPA / JavaScript app?}
-    
-    SPA -->|Yes| PKCE[Authorization Code Flow<br/>with PKCE]
-    SPA -->|No| Mobile{Mobile / Native app?}
-    
-    Mobile -->|Yes| PKCE
-    Mobile -->|No| M2M{Service-to-service?}
-    
-    M2M -->|Yes| ClientCreds[Client Credentials Flow]
-    M2M -->|No| Device{IoT / input-limited?}
-    
-    Device -->|Yes| DeviceFlow[Device Authorization Flow]
-    Device -->|No| Legacy[Consult documentation]
 ```
+
+![OAuth 2.0 Flows: Which One Should You Use?](images/diagram_07_choosing-the-wrong-oauth-flow-is-a-common-security-65c1.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_07_choosing-the-wrong-oauth-flow-is-a-common-security-65c1.md)
+
 
 **Flow comparison table:**
 
-| Flow | Frontend | Backend | Refresh Tokens | PKCE Required | Use Case |
-|------|----------|---------|----------------|---------------|----------|
-| Authorization Code | No | Yes | Yes | No (but recommended) | Traditional web app |
-| Auth Code + PKCE | Yes | Yes | Yes | Yes | SPA, mobile app |
-| Implicit (deprecated) | Yes | No | No | N/A | ❌ Do not use |
-| Client Credentials | No | Yes | Yes (opt-in) | N/A | Server-to-server |
-| Device Code | No | No (polling) | Yes | N/A | Smart TV, CLI |
-| Resource Owner Password | No | Yes | Yes | N/A | ❌ Do not use (legacy only) |
+![Flow comparison table:](images/table_04_flow-comparison-table.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_04_flow-comparison-table.md)
+
 
 **Critical warning:** The Implicit Flow and Resource Owner Password Flow are considered obsolete and should not be used for new applications.
 
@@ -979,17 +863,12 @@ async function checkTokenRevocation(tokenId, userId) {
 Authentication tells you *who* the user is. Authorization tells you *what* they can do. Many breaches happen because developers stop at authentication.
 
 ```mermaid
-flowchart TD
-    subgraph AuthZ_Models [Authorization Models]
-        RBAC[RBAC<br/>Role-Based]
-        ABAC[ABAC<br/>Attribute-Based]
-        ReBAC[ReBAC<br/>Relationship-Based]
-    end
-    
-    RBAC --> Ex1["User has role 'admin'<br/>→ Can delete any record"]
-    ABAC --> Ex2["User.department == 'finance'<br/>AND time > 9am AND time < 5pm<br/>→ Can access reports"]
-    ReBAC --> Ex3["User is 'owner' of Document X<br/>→ Can edit Document X<br/>→ Can share with others"]
 ```
+
+![Authorization: Beyond Authentication](images/diagram_08_authentication-tells-you-who-the-user-is-author-c4c4.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_08_authentication-tells-you-who-the-user-is-author-c4c4.md)
+
 
 **Implementation examples:**
 
@@ -1075,23 +954,12 @@ Coarse scopes (like `write`) give too much permission.
 Your identity provider and API gateway must work together. Here is the standard integration pattern:
 
 ```mermaid
-sequenceDiagram
-    participant Client
-    participant Gateway as API Gateway
-    participant IdP as Okta/Auth0/Keycloak
-    participant Backend
-    
-    Note over Client,IdP: 1. Authentication (handled by IdP)
-    Client->>IdP: Login (redirect or direct)
-    IdP-->>Client: Access token (JWT)
-    
-    Note over Client,Backend: 2. API Request (gateway validates)
-    Client->>Gateway: Request + Bearer token
-    Gateway->>Gateway: Validate JWT (signature, expiry, issuer, audience)
-    Gateway->>Gateway: Extract claims (user_id, roles, scopes)
-    Gateway->>Backend: Forward request + X-User-ID, X-Roles, X-Scopes
-    Backend-->>Client: Response
 ```
+
+![Fix:](images/diagram_09_your-identity-provider-and-api-gateway-must-work-t-d275.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_09_your-identity-provider-and-api-gateway-must-work-t-d275.md)
+
 
 **Gateway configuration snippets (from Story #1):**
 
@@ -1118,15 +986,10 @@ plugins:
 
 ## Cost Comparison: Okta vs. Auth0 vs. Keycloak
 
-| Factor | Okta | Auth0 | Keycloak |
-|--------|------|-------|----------|
-| **License Cost** | $2-15/user/month | $0.50-2.50/active user/month | $0 (open-source) |
-| **Minimum Monthly** | ~$2,000 (enterprise) | $0 (free tier: 7k users) | $0 |
-| **Hosting** | Managed | Managed | Self-hosted |
-| **Support** | Included (SLA) | Included (SLA) | Community / Paid Red Hat |
-| **Compliance** | SOC2, FedRAMP, HIPAA | SOC2, HIPAA, PCI | You certify yourself |
-| **Operations Team** | None | None | 1-2 engineers |
-| **Time to Deploy** | Hours | Hours | Days to weeks |
+![NGINX JWT validation (NGINX Plus)](images/table_05_cost-comparison-okta-vs-auth0-vs-keycloak-74c7.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_05_cost-comparison-okta-vs-auth0-vs-keycloak-74c7.md)
+
 
 **When self-hosting Keycloak saves money:**
 - You have >10,000 active users
@@ -1144,13 +1007,10 @@ plugins:
 
 ## Real-World Breach Examples and Lessons
 
-| Breach | Year | Cause | Lesson | Prevention |
-|--------|------|-------|--------|------------|
-| **Uber** | 2022 | Hardcoded service account credentials in PowerShell scripts | Never hardcode credentials. Rotate service account keys. | Use workload identity (AWS IAM, GCP Workload Identity) |
-| **Okta** | 2023 | Service account with excessive privileges | Least privilege applies to service accounts too. | Regular privilege audits. Short-lived tokens. |
-| **Microsoft** | 2023 | Test tenant with overly permissive OAuth | Staging/production separation is critical. | Separate IdP tenants for staging. Different audiences. |
-| **Ride-sharing co** | 2022 | JWT accepted without audience validation | Validate every claim. | Always validate `aud`, `iss`, `exp`. |
-| **Social media co** | 2021 | API key leak in mobile app binary | API keys in client apps cannot be kept secret. | Use OAuth with PKCE, not API keys. |
+![When managed (Okta/Auth0) is worth the cost:](images/table_06_real-world-breach-examples-and-lessons-cf19.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_06_real-world-breach-examples-and-lessons-cf19.md)
+
 
 ---
 

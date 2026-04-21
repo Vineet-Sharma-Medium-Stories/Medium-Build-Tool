@@ -5,7 +5,7 @@
 **Keywords:**
 Design Patterns, .NET 10, C# 13, Reactive Programming, Entity Framework Core, SPAP<T>, Creational Patterns, Structural Patterns, Behavioral Patterns, Architectural Patterns, MVC, Layered Architecture, Spotify system design
 
-![Design Patterns: Part 1 -  Redefining Design Patterns](images/Design-Patterns-Part-1----Redefining-Design-Patterns.png)
+![Design Patterns: Part 1 -  Redefining Design Patterns](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/Design-Patterns-Part-1----Redefining-Design-Patterns.png)
 
 ## Introduction: Why .NET 10 Changes Everything
 
@@ -26,7 +26,7 @@ Spotify's backend, if built today on Microsoft stack, would leverage .NET 10's c
 
 **Why .NET 10 for Spotify?**
 
-![Reactive Extensions (System.Reactive)](images/table_01_why-net-10-for-spotify.png)
+![Reactive Extensions (System.Reactive)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_01_why-net-10-for-spotify.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_01_why-net-10-for-spotify.md)
 
@@ -49,7 +49,7 @@ Think of them as **architectural reflexes**. When you see a problem, you don't t
 
 Before we dive into the examples, understand the three families of design patterns:
 
-![survival strategies](images/table_02_before-we-dive-into-the-examples-understand-the-t-ca28.png)
+![survival strategies](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_02_before-we-dive-into-the-examples-understand-the-t-ca28.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_02_before-we-dive-into-the-examples-understand-the-t-ca28.md)
 
@@ -189,7 +189,7 @@ Before diving into the 23 design patterns, we need to understand where they live
 ```mermaid
 ```
 
-![What it does:](images/diagram_01_the-structure.png)
+![What it does:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/diagram_01_the-structure.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/diagram_01_the-structure.md)
 
@@ -274,7 +274,7 @@ public class PlaybackDbContext : DbContext
 
 **What it does:** Separates an application into three interconnected components:
 
-![Why it works:](images/table_03_what-it-does-separates-an-application-into-th-4097.png)
+![Why it works:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_03_what-it-does-separates-an-application-into-th-4097.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_03_what-it-does-separates-an-application-into-th-4097.md)
 
@@ -284,7 +284,7 @@ public class PlaybackDbContext : DbContext
 ```mermaid
 ```
 
-![What it does:](images/diagram_02_the-structure.png)
+![What it does:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/diagram_02_the-structure.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/diagram_02_the-structure.md)
 
@@ -382,21 +382,21 @@ Now that we understand the architectural context, let's preview the 23 design pa
 
 ### Creational Patterns (Object Creation)
 
-![Why it works:](images/table_04_creational-patterns-object-creation-38b9.png)
+![Why it works:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_04_creational-patterns-object-creation-38b9.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_04_creational-patterns-object-creation-38b9.md)
 
 
 ### Structural Patterns (Object Composition)
 
-![Singleton](images/table_05_structural-patterns-object-composition-b4b7.png)
+![Singleton](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_05_structural-patterns-object-composition-b4b7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_05_structural-patterns-object-composition-b4b7.md)
 
 
 ### Behavioral Patterns (Object Interaction)
 
-![Adapter](images/table_06_behavioral-patterns-object-interaction-ecad.png)
+![Adapter](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_06_behavioral-patterns-object-interaction-ecad.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_06_behavioral-patterns-object-interaction-ecad.md)
 
@@ -587,7 +587,7 @@ static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 Over this series, we'll explore each pattern family in depth:
 
-![The Road Ahead: Four-Part Series](images/table_07_over-this-series-well-explore-each-pattern-famil-c329.png)
+![The Road Ahead: Four-Part Series](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/design-patterns-part-1----redefining-design-patterns/images/table_07_over-this-series-well-explore-each-pattern-famil-c329.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/design-patterns-part-1----redefining-design-patterns/table_07_over-this-series-well-explore-each-pattern-famil-c329.md)
 
@@ -647,3 +647,16 @@ All implemented with .NET 10's latest features, reactive programming, and produc
 *Behavioral Patterns Deep Dive: How Spotify's Objects Communicate (Observer, Strategy, Command, State, Chain of Responsibility, Template Method, Visitor) with .NET 10*
 
 ---
+
+---
+Coming soon! Want it sooner? Let me know with a clap or comment below
+
+
+*� Questions? Drop a response - I read and reply to every comment.*  
+*📌 Save this story to your reading list - it helps other engineers discover it.*  
+**🔗 Follow me →**
+
+- **[Medium](mvineetsharma.medium.com)** - mvineetsharma.medium.com
+- **[LinkedIn](www.linkedin.com/in/vineet-sharma-architect)** -  [www.linkedin.com/in/vineet-sharma-architect](http://www.linkedin.com/in/vineet-sharma-architect)
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
