@@ -1,6 +1,6 @@
 # Terraform with Kubernetes on Azure: A Complete Architectural Guide With Vehixcare
 
-## Vehixcare Platform Implementation
+## From Infrastructure as Code to Real-Time Fleet Telemetry — A Complete Cloud-Native Journey on Microsoft Azure with Vehixcare Platform
 
 **Keywords:** Infrastructure as Code, Azure Kubernetes Service (AKS), Cosmos DB MongoDB API, Terraform State Management, Pod Identity, Horizontal Pod Autoscaler, Secrets Store CSI Driver, Azure CNI, Workload Identity, Multi-Region Failover, SignalR, Event-Driven Architecture, Rx.NET, Geo-fencing, Telemetry Processing, KEDA, Azure Event Grid
 

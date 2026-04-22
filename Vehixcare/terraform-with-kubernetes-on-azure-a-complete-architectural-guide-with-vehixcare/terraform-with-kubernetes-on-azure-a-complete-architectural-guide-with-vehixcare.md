@@ -1,11 +1,13 @@
-# Terraform with Kubernetes on Azure: A Complete Architectural Guide
+# Terraform with Kubernetes on Azure: A Complete Architectural Guide With Vehixcare
 
-## Vehixcare Platform Implementation
+## From Infrastructure as Code to Real-Time Fleet Telemetry — A Complete Cloud-Native Journey on Microsoft Azure with Vehixcare Platform
 
 **Keywords:** Infrastructure as Code, Azure Kubernetes Service (AKS), Cosmos DB MongoDB API, Terraform State Management, Pod Identity, Horizontal Pod Autoscaler, Secrets Store CSI Driver, Azure CNI, Workload Identity, Multi-Region Failover, SignalR, Event-Driven Architecture, Rx.NET, Geo-fencing, Telemetry Processing, KEDA, Azure Event Grid
 
-![Terraform with Kubernetes on Azure: A Complete Architectural Guide](images/Terraform-with-Kubernetes-on-Azure-A-Complete-Architectural-Guide.png)
+![Terraform with Kubernetes on Azure: A Complete Architectural Guide](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/Terraform-with-Kubernetes-on-Azure-A-Complete-Architectural-Guide.png)
 ## Introduction: Terraform and Kubernetes on Azure
+
+
 
 When building cloud-native applications on Microsoft Azure, infrastructure teams face a critical architectural decision: how to provision cloud resources and how to deploy applications. Two dominant tools emerge—Terraform and Kubernetes—but they serve fundamentally different purposes.
 
@@ -23,14 +25,14 @@ This document provides a complete implementation guide for both tools working in
 
 Vehixcare is a comprehensive fleet management and vehicle telemetry platform built with .NET 9.0, ASP.NET Core, and MongoDB. Below are its core features and how each maps to Terraform and Kubernetes concepts:
 
-![cloud control plane](images/table_01_vehixcare-is-a-comprehensive-fleet-management-and-5ce8.png)
+![cloud control plane](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_01_vehixcare-is-a-comprehensive-fleet-management-and-5ce8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_01_vehixcare-is-a-comprehensive-fleet-management-and-5ce8.md)
 
 
 **Technical Features and Infrastructure Mapping:**
 
-![Real-time Vehicle Telemetry](images/table_02_technical-features-and-infrastructure-mapping-e979.png)
+![Real-time Vehicle Telemetry](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_02_technical-features-and-infrastructure-mapping-e979.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_02_technical-features-and-infrastructure-mapping-e979.md)
 
@@ -45,7 +47,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Health Checks](images/diagram_01_11-high-level-architecture-diagram-b54d.png)
+![Health Checks](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_01_11-high-level-architecture-diagram-b54d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_01_11-high-level-architecture-diagram-b54d.md)
 
@@ -55,7 +57,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_02_12-deployment-workflow-sequence-diagram-44fd.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_02_12-deployment-workflow-sequence-diagram-44fd.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_02_12-deployment-workflow-sequence-diagram-44fd.md)
 
@@ -65,7 +67,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_03_13-telemetry-processing-sequence-diagram-c19d.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_03_13-telemetry-processing-sequence-diagram-c19d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_03_13-telemetry-processing-sequence-diagram-c19d.md)
 
@@ -75,7 +77,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_04_14-network-topology-diagram.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_04_14-network-topology-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_04_14-network-topology-diagram.md)
 
@@ -85,7 +87,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_05_15-responsibility-matrix-diagram-4c8c.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_05_15-responsibility-matrix-diagram-4c8c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_05_15-responsibility-matrix-diagram-4c8c.md)
 
@@ -95,7 +97,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_06_16-cicd-pipeline-flow-diagram.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_06_16-cicd-pipeline-flow-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_06_16-cicd-pipeline-flow-diagram.md)
 
@@ -105,7 +107,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_07_17-aks-cluster-node-pools-diagram-fdaa.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_07_17-aks-cluster-node-pools-diagram-fdaa.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_07_17-aks-cluster-node-pools-diagram-fdaa.md)
 
@@ -115,7 +117,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_08_18-cosmos-db-mongodb-architecture-diagram-91b6.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_08_18-cosmos-db-mongodb-architecture-diagram-91b6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_08_18-cosmos-db-mongodb-architecture-diagram-91b6.md)
 
@@ -125,7 +127,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_09_19-azure-key-vault-secrets-architecture-diagr-8371.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_09_19-azure-key-vault-secrets-architecture-diagr-8371.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_09_19-azure-key-vault-secrets-architecture-diagr-8371.md)
 
@@ -135,7 +137,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 ```mermaid
 ```
 
-![Diagram](images/diagram_10_110-data-flow-mongodb-operations-with-cosmos-acf8.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_10_110-data-flow-mongodb-operations-with-cosmos-acf8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_10_110-data-flow-mongodb-operations-with-cosmos-acf8.md)
 
@@ -184,7 +186,7 @@ Vehixcare is a comprehensive fleet management and vehicle telemetry platform bui
 
 ### 2.3 Responsibility Matrix
 
-![ConfigMaps and Secrets:](images/table_03_23-responsibility-matrix.png)
+![ConfigMaps and Secrets:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_03_23-responsibility-matrix.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_03_23-responsibility-matrix.md)
 
@@ -1358,7 +1360,7 @@ resource "azurerm_application_gateway" "vehixcare" {
 
 ### 3.8 Common Terraform Pitfalls and Mitigations
 
-![Table](images/table_04_38-common-terraform-pitfalls-and-mitigations-c656.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_04_38-common-terraform-pitfalls-and-mitigations-c656.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_04_38-common-terraform-pitfalls-and-mitigations-c656.md)
 
@@ -2199,7 +2201,7 @@ spec:
 
 ### 4.11 Common Kubernetes Pitfalls and Mitigations
 
-![Table](images/table_05_411-common-kubernetes-pitfalls-and-mitigation-a3bf.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_05_411-common-kubernetes-pitfalls-and-mitigation-a3bf.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_05_411-common-kubernetes-pitfalls-and-mitigation-a3bf.md)
 
@@ -2213,7 +2215,7 @@ spec:
 ```mermaid
 ```
 
-![OOM kills](images/diagram_11_51-integration-workflow.png)
+![OOM kills](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/diagram_11_51-integration-workflow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/diagram_11_51-integration-workflow.md)
 
@@ -2408,7 +2410,7 @@ jobs:
 
 ## 6. Summary: Terraform vs Kubernetes on Azure
 
-![6. Summary: Terraform vs Kubernetes on Azure](images/table_06_6-summary-terraform-vs-kubernetes-on-azure-f505.png)
+![6. Summary: Terraform vs Kubernetes on Azure](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_06_6-summary-terraform-vs-kubernetes-on-azure-f505.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_06_6-summary-terraform-vs-kubernetes-on-azure-f505.md)
 
@@ -2457,7 +2459,7 @@ The Terraform and Kubernetes integration documented above delivers measurable op
 
 ## Cost and Performance Metrics
 
-![Multi-tenant Architecture:](images/table_07_cost-and-performance-metrics.png)
+![Multi-tenant Architecture:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_07_cost-and-performance-metrics.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_07_cost-and-performance-metrics.md)
 
@@ -2480,7 +2482,7 @@ The Terraform and Kubernetes integration documented above delivers measurable op
 
 ## Summary: Why This Architecture Works for Vehixcare
 
-![Observability Built-In:](images/table_08_summary-why-this-architecture-works-for-vehixc-2cef.png)
+![Observability Built-In:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/images/table_08_summary-why-this-architecture-works-for-vehixc-2cef.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/terraform-with-kubernetes-on-azure-a-complete-architectural-guide-with-vehixcare/table_08_summary-why-this-architecture-works-for-vehixc-2cef.md)
 
