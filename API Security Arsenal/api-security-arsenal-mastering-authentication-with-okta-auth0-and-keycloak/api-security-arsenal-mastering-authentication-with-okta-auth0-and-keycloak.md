@@ -2,7 +2,8 @@
 
 ### Deep dive into API authentication and identity management with Okta (enterprise SSO, Universal Directory, adaptive MFA), Auth0 (passwordless, breached password detection, B2B organizations), and Keycloak (open-source, LDAP federation, fine-grained authorization). Learn OAuth 2.0 flows (Authorization Code, PKCE, Client Credentials, Device Flow), OIDC, JWT validation (signature, exp, iss, aud, nbf, revocation), authentication anti-patterns, and real breach examples from Uber, Okta, and major ride-sharing platforms.
 
-![API Security Arsenal/images/Mastering Authentication with Okta, Auth0, and Keycloak](images/Mastering-Authentication-with-Okta,-Auth0,-and-Keycloak.jpg)
+![Mastering Authentication with Okta, Auth0, and Keycloak](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/Mastering-Authentication-with-Okta,-Auth0,-and-Keycloak.jpg)
+
 
 You have deployed your API gateway. Rate limiting is configured. IP whitelists are in place. But there is one critical question your gateway cannot answer on its own: *Who is calling your API?*
 
@@ -49,14 +50,14 @@ OAuth 2.0 is a framework that allows one application to access resources on beha
 ```mermaid
 ```
 
-![The Authentication Landscape: Core Concepts](images/diagram_01_oauth-20-is-a-framework-that-allows-one-applicati-cf46.png)
+![The Authentication Landscape: Core Concepts](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_01_oauth-20-is-a-framework-that-allows-one-applicati-cf46.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_01_oauth-20-is-a-framework-that-allows-one-applicati-cf46.md)
 
 
 **OAuth 2.0 grant types (when to use each):**
 
-![OAuth 2.0 grant types (when to use each):](images/table_01_oauth-20-grant-types-when-to-use-each-fdeb.png)
+![OAuth 2.0 grant types (when to use each):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_01_oauth-20-grant-types-when-to-use-each-fdeb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_01_oauth-20-grant-types-when-to-use-each-fdeb.md)
 
@@ -68,7 +69,7 @@ OAuth 2.0 handles *access* but not *identity*. OIDC adds an identity layer that 
 ```mermaid
 ```
 
-![Diagram](images/diagram_02_oauth-20-handles-access-but-not-identity-oid-d35b.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_02_oauth-20-handles-access-but-not-identity-oid-d35b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_02_oauth-20-handles-access-but-not-identity-oid-d35b.md)
 
@@ -96,14 +97,14 @@ JWTs are self-contained tokens that carry claims (user data) in a cryptographica
 ```mermaid
 ```
 
-![Diagram](images/diagram_03_jwts-are-self-contained-tokens-that-carry-claims-ba4e.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_03_jwts-are-self-contained-tokens-that-carry-claims-ba4e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_03_jwts-are-self-contained-tokens-that-carry-claims-ba4e.md)
 
 
 **JWT validation checklist (for your API):**
 
-![JWT validation checklist (for your API):](images/table_02_jwt-validation-checklist-for-your-api-35f0.png)
+![JWT validation checklist (for your API):](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_02_jwt-validation-checklist-for-your-api-35f0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_02_jwt-validation-checklist-for-your-api-35f0.md)
 
@@ -114,7 +115,7 @@ JWTs are self-contained tokens that carry claims (user data) in a cryptographica
 
 Before diving into details, here is a quick comparison of the three tools covered in this story:
 
-![The Three Identity Providers at a Glance](images/table_03_before-diving-into-details-here-is-a-quick-compar-6370.png)
+![The Three Identity Providers at a Glance](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_03_before-diving-into-details-here-is-a-quick-compar-6370.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_03_before-diving-into-details-here-is-a-quick-compar-6370.md)
 
@@ -141,7 +142,7 @@ Okta is the market leader in enterprise identity management. It started as a sin
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_04_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_04_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_04_architecture-diagram.md)
 
@@ -289,7 +290,7 @@ Auth0 (acquired by Okta but operates independently) is designed for developers. 
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_05_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_05_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_05_architecture-diagram.md)
 
@@ -466,7 +467,7 @@ Keycloak is an open-source identity and access management solution maintained by
 ```mermaid
 ```
 
-![Architecture diagram:](images/diagram_06_architecture-diagram.png)
+![Architecture diagram:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_06_architecture-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_06_architecture-diagram.md)
 
@@ -751,14 +752,14 @@ Choosing the wrong OAuth flow is a common security mistake. Here is a decision f
 ```mermaid
 ```
 
-![OAuth 2.0 Flows: Which One Should You Use?](images/diagram_07_choosing-the-wrong-oauth-flow-is-a-common-security-65c1.png)
+![OAuth 2.0 Flows: Which One Should You Use?](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_07_choosing-the-wrong-oauth-flow-is-a-common-security-65c1.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_07_choosing-the-wrong-oauth-flow-is-a-common-security-65c1.md)
 
 
 **Flow comparison table:**
 
-![Flow comparison table:](images/table_04_flow-comparison-table.png)
+![Flow comparison table:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_04_flow-comparison-table.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_04_flow-comparison-table.md)
 
@@ -865,7 +866,7 @@ Authentication tells you *who* the user is. Authorization tells you *what* they 
 ```mermaid
 ```
 
-![Authorization: Beyond Authentication](images/diagram_08_authentication-tells-you-who-the-user-is-author-c4c4.png)
+![Authorization: Beyond Authentication](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_08_authentication-tells-you-who-the-user-is-author-c4c4.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_08_authentication-tells-you-who-the-user-is-author-c4c4.md)
 
@@ -956,7 +957,7 @@ Your identity provider and API gateway must work together. Here is the standard 
 ```mermaid
 ```
 
-![Fix:](images/diagram_09_your-identity-provider-and-api-gateway-must-work-t-d275.png)
+![Fix:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/diagram_09_your-identity-provider-and-api-gateway-must-work-t-d275.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/diagram_09_your-identity-provider-and-api-gateway-must-work-t-d275.md)
 
@@ -986,7 +987,7 @@ plugins:
 
 ## Cost Comparison: Okta vs. Auth0 vs. Keycloak
 
-![NGINX JWT validation (NGINX Plus)](images/table_05_cost-comparison-okta-vs-auth0-vs-keycloak-74c7.png)
+![NGINX JWT validation (NGINX Plus)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_05_cost-comparison-okta-vs-auth0-vs-keycloak-74c7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_05_cost-comparison-okta-vs-auth0-vs-keycloak-74c7.md)
 
@@ -1007,7 +1008,7 @@ plugins:
 
 ## Real-World Breach Examples and Lessons
 
-![When managed (Okta/Auth0) is worth the cost:](images/table_06_real-world-breach-examples-and-lessons-cf19.png)
+![When managed (Okta/Auth0) is worth the cost:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/API%20Security%20Arsenal/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/images/table_06_real-world-breach-examples-and-lessons-cf19.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/api-security-arsenal-mastering-authentication-with-okta-auth0-and-keycloak/table_06_real-world-breach-examples-and-lessons-cf19.md)
 

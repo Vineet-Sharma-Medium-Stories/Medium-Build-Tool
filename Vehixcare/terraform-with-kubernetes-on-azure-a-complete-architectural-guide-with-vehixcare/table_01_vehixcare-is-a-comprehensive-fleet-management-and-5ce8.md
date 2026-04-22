@@ -1,0 +1,11 @@
+# Vehixcare is a comprehensive fleet management and 
+
+| Feature | Description | Terraform Responsibility | Kubernetes Responsibility |
+|---------|-------------|--------------------------|---------------------------|
+| **Real-time Vehicle Telemetry** | GPS tracking, speed monitoring, engine diagnostics with sub-second latency | Provision Cosmos DB for telemetry storage (40,000 RU/s autoscale), Event Grid namespace for event routing | Deploy Telemetry API pods (3-20 replicas), HPA based on telemetry messages/sec, SignalR for live streaming |
+| **Driver Behavior Analysis** | Scoring system for driving patterns, safety metrics, risk assessment using Rx.NET pipelines | Create MongoDB collections for driver scores with TTL indexes, configure change feed processors | Run Rx.NET background processors (2-15 replicas), scale with KEDA based on Azure Queue depth |
+| **Geo-fencing** | Virtual boundaries with entry/exit alerts and automated triggers | Provision geospatial indexes (2dsphere) in Cosmos DB, configure private endpoints | Deploy Geo-fence Monitor pods (2-10 replicas), cache active fences in Redis, trigger alerts |
+| **Maintenance Management** | Service scheduling, predictive maintenance alerts, digital records | Create ServiceRecords collection with 180-day TTL, configure backup policies | Run maintenance scheduler as Kubernetes CronJob, send notifications via Event Grid |
+| **Lease Management** | Vehicle leasing, rental tracking, contract lifecycle management | Configure lease collections with partition keys by organization_id, enable point-in-time recovery | Deploy Lease API pods, integrate with Stripe payment gateway, manage lease state machines |
+| **Anti-theft Protection** | Unauthorized movement detection, geolocation alerts, immobilization triggers | Set up Cosmos DB change feed processors, configure Azure Functions for serverless detection | Run anomaly detection pods (2-5 replicas), trigger alerts via SignalR, log to Azure Monitor |
+| **Multi-tenant Architecture** | Isolated data and configurations for multiple organizations | Configure Cosmos DB partition keys by organization_id, separate Key Vault secrets per tenant | Enforce tenant isolation via namespace policies, RBAC roles (SuperAdmin, OrgAdmin, FleetManager), network policies |
