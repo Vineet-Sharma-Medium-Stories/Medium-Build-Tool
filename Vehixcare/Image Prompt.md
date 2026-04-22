@@ -200,3 +200,66 @@ Microsoft Fluent Design hero image featuring 5 concept icons: Vertical Scaling, 
 ---
 
 These prompts are designed to generate consistent, professional images suitable for Medium stories, technical blogs, and presentations. Each prompt maintains the Microsoft Fluent Design aesthetic while clearly conveying the system design concept with appropriate technology branding.
+
+## 
+
+```
+# 🧠 Gemini Image Prompt — Microsoft Style Architecture Poster
+
+## Title: **Terraform with Kubernetes on Azure — Vehixcare Platform**
+### Subtitle: *Fleet Telemetry at Scale | .NET 9.0 | Cosmos DB MongoDB | SignalR | Rx.NET*
+
+---
+
+## Terraform with Kubernetes on Azure — Vehixcare Platform
+```text
+Generate a Microsoft-style architectural poster in bright, modern theme (Azure blue, white, cyan, and neon green accents). Low resolution (720p) suitable for presentation slides.
+
+[TOP SECTION]
+Title: "Terraform with Kubernetes on Azure — Vehixcare Platform"
+Subtitle: "Fleet Telemetry at Scale | .NET 9.0 | Cosmos DB MongoDB | SignalR | Rx.NET"
+Background: Gradient from bright sky blue (#0078D4) to cyan (#00BFFF) with soft white grid lines.
+
+[CENTRAL WORKFLOW — Left to Right]
+Left Side (Infrastructure — Terraform):
+- Icon: Azure Virtual Network (VNet)
+- Icon: AKS Cluster (Kubernetes services)
+- Icon: Cosmos DB (MongoDB API) with lightning bolt (low latency)
+- Icon: Key Vault (lock with key)
+- Icon: Container Registry (ACR)
+- Arrow: "Terraform provisions →"
+
+Middle (Orchestration — Kubernetes):
+- Icon: Pods (3 containers inside dotted circle)
+- Icon: Horizontal Pod Autoscaler (up/down arrows with number "3–20")
+- Icon: SignalR Hub (WebSocket icon)
+- Icon: Secrets Store CSI (plug with key)
+- Arrow: "Kubernetes runs →"
+
+Right Side (Vehixcare Features):
+- GPS Tracking (satellite icon) "Real-time Telemetry"
+- Driver Score (speedometer + star) "Behavior Analysis"
+- Geo-fence (fence + location pin) "Entry/Exit Alerts"
+- Anti-theft (shield + alert triangle) "Protection"
+- Multi-tenant (building + users) "Organizations"
+
+[BOTTOM SECTION — Workflow Arrows]
+Vehicle Device → Telemetry API Pod → Rx.NET Processor → SignalR → Dashboard
+Arrows in neon green (#16C60C) showing data flow.
+
+[TECHNOLOGY ICONS — Bottom Center Row]
+.NET 9.0 • Azure • Terraform • Kubernetes • MongoDB • SignalR • Rx.NET • KEDA • Prometheus • GitHub Actions
+
+[BOTTOM LEFT CORNER — Attribution]
+Icon: LinkedIn logo
+Text: "Vineet Sharma" with link "www.linkedin.com/in/vineet-sharma-architect"
+White text on dark blue pill background.
+
+[STYLE NOTES]
+- Microsoft Fluent Design: Soft shadows, rounded corners, acrylic material effect
+- Low resolution: 1280x720 pixels, 72 DPI
+- Bright background with high contrast for readability
+- Technology icons: Simple, flat, colored (Azure blue, Kubernetes blue, MongoDB green)
+- No complex 3D, keep flat 2D with subtle gradients
+- Include a subtle watermark of "Vehixcare" in light cyan in background
+```
