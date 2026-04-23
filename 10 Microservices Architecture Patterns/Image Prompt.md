@@ -719,3 +719,48 @@ A breathtaking visualization of AWS Containerization pattern set above a stunnin
 | **Landscape Details** | Soft lighting, atmospheric perspective, beautiful natural scenes with pastel colors |
 | **Universe Details** | Gentle nebulae, soft star fields, ethereal cosmic colors, all in light tones |
 | **Logo Placement** | Subtly integrated into panels, not overwhelming the design |
+
+## AMedium Article Prompt
+```
+Create a vibrant, open-source-style technical illustration with a dynamic bright background (light gradients of cyan, orange, and purple). Use a flat vector style similar to modern tech blog headers (like Medium, Dev.to, or GitHub README banners). The image should represent a microservices reference architecture for .NET 10 running on both Azure and AWS.
+
+At the top center, place a bold title in dark navy blue:
+
+**"The Ultimate Microservices Reference Architecture Series"**
+
+Below it, a smaller subtitle:
+
+**".NET 10 with Azure & AWS | 10 Essential Patterns"**
+
+Split the image into two vertical halves or two main columns:
+
+**LEFT SIDE (Azure Edition):**  
+- Include Azure logo and .NET 10 logo.  
+- Show 5 connected boxes labeled: "API Gateway", "Service Discovery", "Load Balancing", "Circuit Breaker", "Event-Driven Communication".  
+- Add smaller service icons inside boxes: "Azure API Management", "Container Apps", "Service Bus".  
+- Below these, show another row of 5 boxes: "CQRS", "Saga Pattern", "Service Mesh", "Distributed Tracing", "Containerization" with icons: "Azure SQL", "Cosmos DB", "Dapr", "Application Insights".
+
+**RIGHT SIDE (AWS Edition):**  
+- Include AWS logo and .NET 10 logo.  
+- Show matching boxes: "API Gateway", "Service Discovery", "Load Balancing", "Circuit Breaker", "Event-Driven Communication" with icons: "Amazon API Gateway", "Cloud Map", "SQS/SNS".  
+- Below, show: "CQRS", "Saga", "Service Mesh", "Distributed Tracing", "Containerization" with icons: "Aurora", "DynamoDB", "Step Functions", "App Mesh", "X-Ray".
+
+**CONNECTORS & WORKFLOW:**  
+Use curved arrows and dotted lines to show communication flow between boxes. Add small code snippet badges (white background, monospace font) showing short .NET code like:  
+`builder.Services.AddCircuitBreaker();`  
+`app.MapGet("/api/orders", ...);`  
+`await bus.PublishAsync(event);`  
+Place these snippets near relevant boxes.
+
+**BACKGROUND EFFECTS:**  
+Add subtle hexagonal grid or network node patterns in the background. Use light glowing connection lines. Keep the style open-source, modern, and developer-friendly (like a mix between Excalidraw and Microsoft Fluent).
+
+**BOTTOM SECTION (Footer):**  
+At the bottom left, place a Medium logo with the text:  
+**"https://mvineetsharma.medium.com/"**
+
+At the bottom right, place a LinkedIn logo with the text:  
+**"www.linkedin.com/in/vineet-sharma-architect"**
+
+Make sure both URLs are clearly readable. Keep the overall layout clean, bright, and suitable for a blog post hero image. Low to medium resolution (e.g., 1200x800) for fast loading.
+```

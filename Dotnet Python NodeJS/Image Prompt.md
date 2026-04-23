@@ -95,3 +95,165 @@ Text "Vineet Sharma" positioned at bottom right corner in clean sans-serif font,
 16:9 landscape orientation, ultra-high resolution (3840×2160), suitable for conference presentations, technical documentation covers, and blog post headers.
 
 ```
+
+## Prompt .NET 10: CLR, CTS, CLS, JIT, and GC - The Silent Guardians Architectural Deep Dive 
+
+```
+Create a bright, professional Microsoft-style technical infographic in landscape format (16:9) for a .NET 10 architecture article. Use a subtle Microsoft gradient background (light blue to white, #E5F1FB to #FFFFFF) with subtle grid lines typical of Microsoft documentation style.
+
+The graphic must feature five distinct technology sections arranged in a workflow pipeline from left to right across the middle of the image.
+
+TOP SECTION (Large, prominent):
+- Title: ".NET 10: CLR, CTS, CLS, JIT, and GC - The Silent Guardians Architectural Deep Dive" in bold Microsoft blue (#0078D4), 28pt
+- Subtitle: "CLR, CTS, CLS, JIT, and Garbage Collection: .NET 10 Code Runs 45% Faster Than .NET 8 — And What Changed Under the Hood" in dark gray (#505050), 16pt
+- Small .NET logo (purple square with dot) at top-left corner
+
+MIDDLE SECTION (Five connected workflow boxes, smaller size but more detailed content):
+
+BOX 1 - CLR (Common Language Runtime) - Microsoft Blue theme:
+┌─────────────────────────────────────┐
+│           ⚙️ CLR ⚙️                  │
+│      Common Language Runtime        │
+├─────────────────────────────────────┤
+│ • Memory Management (GC)            │
+│ • Exception Handling                │
+│ • Security & CAS                    │
+│ • Assembly Loading                  │
+│ • Thread Management                 │
+│ • Pinned Object Heap (NEW)          │
+└─────────────────────────────────────┘
+
+BOX 2 - CTS (Common Type System) - Microsoft Green theme:
+┌─────────────────────────────────────┐
+│           📊 CTS 📊                  │
+│       Common Type System            │
+├─────────────────────────────────────┤
+│ ┌─────┐ ┌─────┐ ┌─────┐ ┌───────┐  │
+│ │ int │ │long│ │Half│ │Int128 │  │
+│ └─────┘ └─────┘ └─────┘ └───────┘  │
+│ ┌─────┐ ┌─────┐ ┌─────┐ ┌───────┐  │
+│ │string│class│struct│Vector512│  │
+│ └─────┘ └─────┘ └─────┘ └───────┘  │
+│ • Value Types vs Reference Types   │
+│ • Boxing/Unboxing (0 alloc in .NET10)│
+│ • Generic Math INumber<T>          │
+└─────────────────────────────────────┘
+
+BOX 3 - CLS (Common Language Specification) - Microsoft Purple theme:
+┌─────────────────────────────────────┐
+│           📜 CLS 📜                  │
+│     Common Language Specification   │
+├─────────────────────────────────────┤
+│ ┌─────┐ ┌─────┐ ┌─────┐            │
+│ │ C#  │ │ VB  │ │ F#  │            │
+│ └─────┘ └─────┘ └─────┘            │
+│ • Rules for language interop        │
+│ • No unsigned types in public APIs  │
+│ • No pointers in contracts          │
+│ • Generic variance (out T/in T)     │
+│ • Case-insensitive safe (VB.NET)    │
+│ • Default interface methods         │
+└─────────────────────────────────────┘
+
+BOX 4 - JIT (Just-In-Time Compiler) - Microsoft Orange theme:
+┌─────────────────────────────────────┐
+│           🚀 JIT 🚀                  │
+│       Just-In-Time Compiler         │
+├─────────────────────────────────────┤
+│ Tier 0: Quick JIT (~1ms)            │
+│    ↓ (30+ calls - PGO)              │
+│ Tier 1: Optimizing JIT (~20-100ms)  │
+├─────────────────────────────────────┤
+│ • AVX-512 auto-vectorization        │
+│ • ML-guided inlining (depth 25)     │
+│ • Loop unrolling (2x-8x predicted)  │
+│ • Guarded devirtualization (GDV)    │
+│ • Range check elimination (95%)     │
+│ • Hot/Cold method splitting         │
+└─────────────────────────────────────┘
+
+BOX 5 - GC (Garbage Collection) - Microsoft Red/Orange theme:
+┌─────────────────────────────────────┐
+│           🗑️ GC 🗑️                  │
+│        Garbage Collection           │
+├─────────────────────────────────────┤
+│ ┌──────┐ ┌──────┐ ┌──────┐         │
+│ │ Gen0 │→│ Gen1 │→│ Gen2 │         │
+│ │ephemeral│survivor│long-lived│    │
+│ └──────┘ └──────┘ └──────┘         │
+│                                     │
+│ ✅ Pinned Object Heap (NEW .NET10)  │
+│ ✅ LOH Background Compaction        │
+│ ✅ Server GC (1 heap per CPU)       │
+│ ✅ Background GC (<1ms pauses)      │
+│ ✅ TryStartNoGCRegion (real-time)   │
+└─────────────────────────────────────┘
+
+CONNECTORS: Bright blue curved arrows (#0078D4) with 3px thickness connecting CLR → CTS → CLS → JIT → GC in a flowing pipeline.
+
+BOTTOM SECTION (Three panels side by side):
+
+PANEL 1 (Left) - Code Comparison:
+┌─────────────────────────────────────────────────┐
+│  📝 .NET 1.0 / .NET 8 Code                      │
+│  ┌───────────────────────────────────────────┐  │
+│  │ int sum = 0;                               │  │
+│  │ for(int i = 0; i < arr.Length; i++)        │  │
+│  │ {                                           │  │
+│  │     sum += arr[i];  // scalar, 1 int/cycle │  │
+│  │ }                                           │  │
+│  │ return sum;                                │  │
+│  └───────────────────────────────────────────┘  │
+│                                                 │
+│  🚀 .NET 10 Code                                │
+│  ┌───────────────────────────────────────────┐  │
+│  │ Span<int> span = arr;                      │  │
+│  │ Vector512<int> sumVec = Vector512<int>.Zero│  │
+│  │ for(int i=0;i<span.Length;i+=16)           │  │
+│  │ {                                           │  │
+│  │     var v = Vector512.Create(span, i);     │  │
+│  │     sumVec = Avx512F.Add(sumVec, v);       │  │
+│  │ }            // 16 ints per cycle!         │  │
+│  │ return Vector512.Sum(sumVec);              │  │
+│  └───────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────┘
+
+PANEL 2 (Center) - Performance Matrix:
+┌─────────────────────────────────────────────────┐
+│  📊 PERFORMANCE MATRIX (.NET 8 → .NET 10)       │
+├────────────────────┬────────────┬───────────────┤
+│  Metric            │ .NET 8     │ .NET 10       │
+├────────────────────┼────────────┼───────────────┤
+│  📐 Math Ops/ms    │ 52M        │ 84M    ▲ 61%  │
+│  📊 Array Sum/ms   │ 122M       │ 194M   ▲ 59%  │
+│  🗑️ GC Pause (typ) │ 5.0ms      │ 0.5ms  ▲ 90%  │
+│  🚀 Startup (cold) │ 8.0ms      │ 2.0ms  ▲ 75%  │
+│  🔗 P/Invoke calls │ 2.8M/ms    │ 6.6M/ms▲135%  │
+│  💾 Memory (base)  │ 60MB       │ 35MB   ▲ 42%  │
+└────────────────────┴────────────┴───────────────┘
+
+PANEL 3 (Right) - Key Improvements Summary:
+┌─────────────────────────────────────────────────┐
+│  ✨ KEY IMPROVEMENTS IN .NET 10                 │
+├─────────────────────────────────────────────────┤
+│  ✅ Pinned Object Heap (Zero fragmentation)     │
+│  ✅ Int128 / UInt128 hardware acceleration      │
+│  ✅ AVX-512 auto-vectorization (16-wide)        │
+│  ✅ Native AOT (Production ready)               │
+│  ✅ Tiered PGO (Default in .NET 10)             │
+│  ✅ ML-guided inlining & loop unrolling         │
+│  ✅ Generic variance (Full out T/in T)          │
+│  ✅ LOH Background Compaction                   │
+│  ✅ Half precision (16-bit float) acceleration  │
+│  ✅ Collection expressions (C# 12)              │
+└─────────────────────────────────────────────────┘
+
+FOOTER SECTION:
+Dark gray bar (#2D2D2D) at bottom with white text:
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  📘 Medium    🔗 LinkedIn                                                           │
+│  Vineet Sharma | medium.com/@mvineetsharma | linkedin.com/in/vineet-sharma-architect│
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+Style: Microsoft Fluent UI, flat design, crisp 1px borders, rounded corners (8px), ample white space, extremely readable, 16:9 aspect ratio. Use subtle Microsoft gradient background (top to bottom: #E5F1FB to #FFFFFF). Add subtle grid dots (like graph paper) in background at 10% opacity. No harsh shadows. Professional Microsoft Learn documentation aesthetic with vibrant accent colors.
+```
