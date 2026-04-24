@@ -2,7 +2,8 @@
 
 ### CLR, CTS, CLS, JIT, and Garbage Collection: .NET 10 Code Runs 45% Faster Than .NET 8 — And What Changed Under the Hood
 
-![.NET 10: CLR, CTS, CLS, JIT, and GC - The Silent Guardians Architectural Deep Dive](images/.NET-10-CLR,-CTS,-CLS,-JIT,-and-GC---The-Silent-Guardians-Architectural-Deep-Dive.png)
+![.NET 10: CLR, CTS, CLS, JIT, and GC - The Silent Guardians Architectural Deep Dive](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/.NET-10-CLR,-CTS,-CLS,-JIT,-and-GC---The-Silent-Guardians-Architectural-Deep-Dive.png)
+
 
 The .NET runtime isn't just a version bump. Between .NET 8 and .NET 10, the CLR, JIT compiler, and type system underwent fundamental shifts in memory management, dynamic code generation, and cross-language interoperability. This document maps those changes layer by layer.
 
@@ -14,14 +15,14 @@ The .NET runtime isn't just a version bump. Between .NET 8 and .NET 10, the CLR,
 ```mermaid
 ```
 
-![1. Core Architecture Overview (.NET 10)](images/diagram_01_11-the-three-pillars-of-net-runtime-d6d6.png)
+![1. Core Architecture Overview (.NET 10)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_01_11-the-three-pillars-of-net-runtime-d6d6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_01_11-the-three-pillars-of-net-runtime-d6d6.md)
 
 
 ### 1.2 Layer Responsibilities (.NET 10)
 
-![Table](images/table_01_12-layer-responsibilities-net-10-30e3.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_01_12-layer-responsibilities-net-10-30e3.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_01_12-layer-responsibilities-net-10-30e3.md)
 
@@ -36,7 +37,7 @@ The **Common Type System (CTS)** is the foundational type backbone of the entire
 
 **Core responsibilities of CTS:**
 
-![Common Type System (CTS)](images/table_02_core-responsibilities-of-cts.png)
+![Common Type System (CTS)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_02_core-responsibilities-of-cts.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_02_core-responsibilities-of-cts.md)
 
@@ -48,14 +49,14 @@ The CTS divides all types into two fundamental categories with distinct memory a
 ```mermaid
 ```
 
-![Type relationships](images/diagram_02_the-cts-divides-all-types-into-two-fundamental-cat-2174.png)
+![Type relationships](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_02_the-cts-divides-all-types-into-two-fundamental-cat-2174.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_02_the-cts-divides-all-types-into-two-fundamental-cat-2174.md)
 
 
 ### 2.3 CTS Type Categories — Deep Technical Comparison
 
-![Table](images/table_03_23-cts-type-categories--deep-technical-compa-535e.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_03_23-cts-type-categories--deep-technical-compa-535e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_03_23-cts-type-categories--deep-technical-compa-535e.md)
 
@@ -64,7 +65,7 @@ The CTS divides all types into two fundamental categories with distinct memory a
 
 All CTS primitive types map directly to .NET Framework types and have language aliases:
 
-![Base type](images/table_04_all-cts-primitive-types-map-directly-to-net-frame-0cfb.png)
+![Base type](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_04_all-cts-primitive-types-map-directly-to-net-frame-0cfb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_04_all-cts-primitive-types-map-directly-to-net-frame-0cfb.md)
 
@@ -76,7 +77,7 @@ Boxing is the process of converting a value type to a reference type (object or 
 ```mermaid
 ```
 
-![Diagram](images/diagram_03_boxing-is-the-process-of-converting-a-value-type-t-c815.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_03_boxing-is-the-process-of-converting-a-value-type-t-c815.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_03_boxing-is-the-process-of-converting-a-value-type-t-c815.md)
 
@@ -186,7 +187,7 @@ public class ModernBoxingDemo
 ```mermaid
 ```
 
-![Diagram](images/diagram_04_26-cts-type-inheritance-rules--complete-spec-9f07.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_04_26-cts-type-inheritance-rules--complete-spec-9f07.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_04_26-cts-type-inheritance-rules--complete-spec-9f07.md)
 
@@ -195,7 +196,7 @@ public class ModernBoxingDemo
 
 Every CTS type can contain the following member types:
 
-![Table](images/table_05_every-cts-type-can-contain-the-following-member-ty-3b76.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_05_every-cts-type-can-contain-the-following-member-ty-3b76.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_05_every-cts-type-can-contain-the-following-member-ty-3b76.md)
 
@@ -646,21 +647,21 @@ namespace ModernCTSDemo
 
 ### 2.9 Boxing Performance Benchmark: .NET 1.0 vs .NET 10
 
-![Table](images/table_06_29-boxing-performance-benchmark-net-10-vs-7aef.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_06_29-boxing-performance-benchmark-net-10-vs-7aef.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_06_29-boxing-performance-benchmark-net-10-vs-7aef.md)
 
 
 ### 2.10 CTS Type Safety Features in .NET 10
 
-![9x faster](images/table_07_210-cts-type-safety-features-in-net-10-7805.png)
+![9x faster](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_07_210-cts-type-safety-features-in-net-10-7805.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_07_210-cts-type-safety-features-in-net-10-7805.md)
 
 
 ### 2.11 Advancement Summary: CTS Evolution (.NET 1.0 → .NET 10)
 
-![Covariant arrays](images/table_08_211-advancement-summary-cts-evolution-net-74c8.png)
+![Covariant arrays](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_08_211-advancement-summary-cts-evolution-net-74c8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_08_211-advancement-summary-cts-evolution-net-74c8.md)
 
@@ -677,7 +678,7 @@ The **Common Language Specification (CLS)** is a set of rules that, when followe
 
 **CLS Compliance Levels:**
 
-![Common Language Specification (CLS)](images/table_09_cls-compliance-levels.png)
+![Common Language Specification (CLS)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_09_cls-compliance-levels.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_09_cls-compliance-levels.md)
 
@@ -687,21 +688,21 @@ The **Common Language Specification (CLS)** is a set of rules that, when followe
 ```mermaid
 ```
 
-![CLS Compliance Levels:](images/diagram_05_32-cls-rules--complete-list-from-ecma-335-b10e.png)
+![CLS Compliance Levels:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_05_32-cls-rules--complete-list-from-ecma-335-b10e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_05_32-cls-rules--complete-list-from-ecma-335-b10e.md)
 
 
 ### 3.3 CLS Compliance Detailed Rules Table
 
-![Table](images/table_10_33-cls-compliance-detailed-rules-table-21af.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_10_33-cls-compliance-detailed-rules-table-21af.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_10_33-cls-compliance-detailed-rules-table-21af.md)
 
 
 ### 3.4 CLS Compliance Comparison (.NET 1.0 → .NET 10)
 
-![2](images/table_11_34-cls-compliance-comparison-net-10--net-3596.png)
+![2](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_11_34-cls-compliance-comparison-net-10--net-3596.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_11_34-cls-compliance-comparison-net-10--net-3596.md)
 
@@ -1074,14 +1075,14 @@ namespace ModernClsLibrary
 
 ### 3.6 CLS Rule Reference — Complete ECMA-335 Table
 
-![Table](images/table_12_36-cls-rule-reference--complete-ecma-335-tab-2202.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_12_36-cls-rule-reference--complete-ecma-335-tab-2202.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_12_36-cls-rule-reference--complete-ecma-335-tab-2202.md)
 
 
 ### 3.7 Advancement Summary: CLS Evolution
 
-![Table](images/table_13_37-advancement-summary-cls-evolution-b669.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_13_37-advancement-summary-cls-evolution-b669.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_13_37-advancement-summary-cls-evolution-b669.md)
 
@@ -1095,7 +1096,7 @@ namespace ModernClsLibrary
 ```mermaid
 ```
 
-![4. Deep Dive: Just-In-Time (JIT) Compiler](images/diagram_06_41-jit-evolution-net-10--net-8--net-10-b0d5.png)
+![4. Deep Dive: Just-In-Time (JIT) Compiler](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_06_41-jit-evolution-net-10--net-8--net-10-b0d5.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_06_41-jit-evolution-net-10--net-8--net-10-b0d5.md)
 
@@ -1105,7 +1106,7 @@ namespace ModernClsLibrary
 ```mermaid
 ```
 
-![Diagram](images/diagram_07_42-net-10-jit-pipeline--complete-detailed-d-e441.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_07_42-net-10-jit-pipeline--complete-detailed-d-e441.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_07_42-net-10-jit-pipeline--complete-detailed-d-e441.md)
 
@@ -1591,7 +1592,7 @@ public class JITAdvancedOptimizations
 
 ### 4.5 JIT Performance Metrics Complete Table (.NET 1.0 vs .NET 10)
 
-![Table](images/table_14_45-jit-performance-metrics-complete-table-n-f6c0.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_14_45-jit-performance-metrics-complete-table-n-f6c0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_14_45-jit-performance-metrics-complete-table-n-f6c0.md)
 
@@ -1605,14 +1606,14 @@ public class JITAdvancedOptimizations
 ```mermaid
 ```
 
-![Startup](images/diagram_08_51-clr-component-architecture-net-10--comp-8efb.png)
+![Startup](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_08_51-clr-component-architecture-net-10--comp-8efb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_08_51-clr-component-architecture-net-10--comp-8efb.md)
 
 
 ### 5.2 GC Evolution Complete Timeline (Detailed)
 
-![Table](images/table_15_52-gc-evolution-complete-timeline-detailed-c451.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_15_52-gc-evolution-complete-timeline-detailed-c451.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_15_52-gc-evolution-complete-timeline-detailed-c451.md)
 
@@ -2003,14 +2004,14 @@ public unsafe class UnmanagedMemoryManager : IDisposable
 
 ### 5.4 GC Modes Complete Comparison (.NET 10)
 
-![Table](images/table_16_54-gc-modes-complete-comparison-net-10-a9e7.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_16_54-gc-modes-complete-comparison-net-10-a9e7.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_16_54-gc-modes-complete-comparison-net-10-a9e7.md)
 
 
 ### 5.5 CLR Advancement Complete Summary Table
 
-![Workstation (Interactive)](images/table_17_55-clr-advancement-complete-summary-table-a256.png)
+![Workstation (Interactive)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_17_55-clr-advancement-complete-summary-table-a256.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_17_55-clr-advancement-complete-summary-table-a256.md)
 
@@ -2021,7 +2022,7 @@ public unsafe class UnmanagedMemoryManager : IDisposable
 
 ### 6.1 Complete Runtime Comparison Matrix
 
-![GC.RegisterForFullGCNotification](images/table_18_61-complete-runtime-comparison-matrix-5692.png)
+![GC.RegisterForFullGCNotification](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/table_18_61-complete-runtime-comparison-matrix-5692.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/table_18_61-complete-runtime-comparison-matrix-5692.md)
 
@@ -2031,7 +2032,7 @@ public unsafe class UnmanagedMemoryManager : IDisposable
 ```mermaid
 ```
 
-![Required members](images/diagram_09_62-performance-benchmark-complete-table-net-1551.png)
+![Required members](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Assets/refs/heads/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/images/diagram_09_62-performance-benchmark-complete-table-net-1551.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/net-10-clr-cts-cls-jit-and-gc---the-silent-guardians-architectural-deep-dive/diagram_09_62-performance-benchmark-complete-table-net-1551.md)
 
