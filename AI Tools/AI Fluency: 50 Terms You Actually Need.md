@@ -2,7 +2,7 @@
 # AI Fluency: 50 Terms You Actually Need
 ## A practical reference for engineers, product managers, executives, and anyone who needs to speak AI fluently
 
-![AI Fluency: 50 Terms You Actually Need](<images/AI Fluency: 50 Terms You Actually Need.png>)
+![AI Fluency: 50 Terms You Actually Need](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/AI Fluency: 50 Terms You Actually Need.png>)
 ## Introduction
 
 Artificial intelligence has evolved from a research niche to a core business competency. But the field moves fast, and terminology often outpaces understanding. This handbook defines 50 essential AI terms across five categories:
@@ -19,7 +19,7 @@ Each entry includes a clear definition followed by a concrete use case. No fluff
 
 # Foundation
 
-![images/Foundation](images/Foundation.png)
+![https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Foundation](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Foundation.png)
 ## 1. AI (Artificial Intelligence)
 
 **Definition:**  
@@ -121,7 +121,7 @@ A vendor claims its new model outperforms GPT-4. A procurement team asks for ben
 ---
 
 # Memory and Reasoning
-![Memory & Reasoning](<images/Memory & Reasoning.png>)
+![Memory & Reasoning](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Memory & Reasoning.png>)
 ## 21. Short-Term Memory
 
 **Definition:**  
@@ -223,7 +223,7 @@ A user asks a model: "Who won the World Cup in 1942?" The model responds: "Brazi
 ---
 
 # Agent Architecture
-![Agent Architecture](<images/Agent Architecture.png>)
+![Agent Architecture](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Agent Architecture.png>)
 
 ## 11. AI Agent
 
@@ -326,7 +326,7 @@ A developer wants to build an agent that can browse the web, read emails, and up
 ---
 
 # Models and Methods
-![Models & Methods](<images/Models & Methods.png>)
+![Models & Methods](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Models & Methods.png>)
 
 ## 31. GPT (Generative Pre-trained Transformer)
 
@@ -429,7 +429,7 @@ A company deploys a customer support agent with this system prompt: "You are a s
 ---
 
 # Deployment and Safety
-![Deployment & Safety](<images/Deployment & Safety.png>)
+![Deployment & Safety](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/AI%20Tools/images/Deployment & Safety.png>)
 
 ## 41. Agentic Loop
 
