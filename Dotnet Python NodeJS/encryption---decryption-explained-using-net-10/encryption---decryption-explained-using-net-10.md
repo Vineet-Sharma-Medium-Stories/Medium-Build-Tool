@@ -2,7 +2,7 @@
 
 
 
-![Encryption - Decryption Explained using .NET 10](images/Encryption---Decryption-Explained-using-.NET-10.png)
+![Encryption - Decryption Explained using .NET 10](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/Encryption---Decryption-Explained-using-.NET-10.png)
 ## Introduction
 
 In today's digital landscape, encryption and decryption serve as the cornerstone of data security, transforming sensitive information into unreadable code that only authorized parties can access. Whether you're protecting user passwords, securing financial transactions, or safeguarding confidential communications, understanding cryptographic principles is essential for every developer. This story explores both traditional and modern encryption practices in .NET, from foundational concepts to cutting-edge advancements. We've updated this guide with .NET 10's revolutionary features—including post-quantum cryptography, hardware-accelerated operations, zero-knowledge proofs, and authenticated encryption—while preserving all original code examples. Whether you're maintaining legacy systems or building quantum-resistant applications, this comprehensive update bridges the gap between classic cryptographic patterns and the future of secure development in .NET 10.
@@ -13,7 +13,7 @@ Encryption is a process of converting information or data into a code to prevent
 ```mermaid
 ```
 
-![Introduction](images/diagram_01_encryption-is-a-process-of-converting-information-57cb.png)
+![Introduction](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_01_encryption-is-a-process-of-converting-information-57cb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_01_encryption-is-a-process-of-converting-information-57cb.md)
 
@@ -22,30 +22,24 @@ Encryption is a process of converting information or data into a code to prevent
    - **AES (Advanced Encryption Standard)**: Widely used symmetric encryption algorithm. It comes in different key sizes (128-bit, 192-bit, 256-bit) and is considered very secure.
    - **DES (Data Encryption Standard)**: An older symmetric key algorithm, now considered insecure for many applications due to its small key size.
    - **3DES (Triple DES)**: An improvement over DES, applying the DES algorithm three times to each data block for increased security.
-
 2. **Asymmetric Key Encryption**:
    - **RSA (Rivest-Shamir-Adleman)**: A widely used asymmetric encryption algorithm. It uses a pair of public and private keys for encryption and decryption.
    - **Elliptic Curve Cryptography (ECC)**: An asymmetric encryption algorithm based on the mathematics of elliptic curves. It provides strong security with shorter key lengths compared to RSA.
    - **Diffie-Hellman Key Exchange**: Used to securely exchange cryptographic keys over an insecure channel. It's often used in combination with other algorithms for secure communication.
-
 3. **Hash Functions**:
    - **SHA-256 (Secure Hash Algorithm 256-bit)**: A commonly used hash function that produces a fixed-size output (256 bits).
    - **MD5 (Message Digest Algorithm 5)**: An older hash function, now considered insecure for cryptographic purposes due to vulnerabilities.
-
 4. **Hybrid Encryption**:
    - Combining both symmetric and asymmetric encryption for improved security and efficiency. Often used in secure communication protocols.
 
-```mermaid
-```
 
-![Elliptic Curve Cryptography (ECC)](images/diagram_02_combining-both-symmetric-and-asymmetric-encrypti-0800.png)
+![Elliptic Curve Cryptography (ECC)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_02_combining-both-symmetric-and-asymmetric-encrypti-0800.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_02_combining-both-symmetric-and-asymmetric-encrypti-0800.md)
 
 
 5. **End-to-End Encryption**:
    - Ensures that data is encrypted on the sender's system and can only be decrypted by the intended recipient, preventing interception or eavesdropping.
-
 6. **Quantum Encryption**:
    - A field of study that explores cryptographic methods resistant to attacks by quantum computers, which have the potential to break many traditional encryption algorithms.
 
@@ -62,20 +56,17 @@ Encryption plays a crucial role in securing data, communications, and transactio
        // Set up the encryption algorithm parameters (key, IV, etc.)
    }
    ```
-
 2. **Initialize the Algorithm Parameters**:
    Set up the necessary parameters, such as the encryption key and initialization vector (IV).
    ```csharp
    aesAlg.Key = keyBytes; // Replace keyBytes with your actual key
    aesAlg.IV = ivBytes;   // Replace ivBytes with your actual IV
    ```
-
 3. **Create an Encryptor**:
    Use the symmetric algorithm instance to create an encryptor.
    ```csharp
    ICryptoTransform encryptor = aesAlg.CreateEncryptor();
    ```
-
 4. **Encrypt the Data**:
    Apply the encryptor to the plaintext data.
    ```csharp
@@ -93,13 +84,11 @@ Encryption plays a crucial role in securing data, communications, and transactio
        // Set up the encryption algorithm parameters (key, padding, etc.)
    }
    ```
-
 2. **Initialize the Algorithm Parameters**:
    Set up the necessary parameters, such as the public key.
    ```csharp
    rsaAlg.ImportRSAPublicKey(publicKeyBytes, out _); // Replace publicKeyBytes with your actual public key
    ```
-
 3. **Encrypt the Data**:
    Use the RSA algorithm instance to encrypt the data.
    ```csharp
@@ -139,10 +128,8 @@ class Program
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_03_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_03_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_03_untitled.md)
 
@@ -157,7 +144,7 @@ On the other hand, Decryption in .NET involves the process of transforming encry
 ```mermaid
 ```
 
-![What is Decryption](images/diagram_04_on-the-other-hand-decryption-in-net-involves-the-232d.png)
+![What is Decryption](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_04_on-the-other-hand-decryption-in-net-involves-the-232d.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_04_on-the-other-hand-decryption-in-net-involves-the-232d.md)
 
@@ -173,20 +160,17 @@ On the other hand, Decryption in .NET involves the process of transforming encry
        // Set up the encryption algorithm parameters (key, IV, etc.)
    }
    ```
-
 2. **Initialize the Algorithm Parameters**:
    Set up the necessary parameters, such as the encryption key and initialization vector (IV).
    ```csharp
    aesAlg.Key = keyBytes; // Replace keyBytes with your actual key
    aesAlg.IV = ivBytes;   // Replace ivBytes with your actual IV
    ```
-
 3. **Create a Decryptor**:
    Use the symmetric algorithm instance to create a decryptor.
    ```csharp
    ICryptoTransform decryptor = aesAlg.CreateDecryptor();
    ```
-
 4. **Decrypt the Data**:
    Apply the decryptor to the encrypted data.
    ```csharp
@@ -204,13 +188,11 @@ On the other hand, Decryption in .NET involves the process of transforming encry
        // Set up the encryption algorithm parameters (key, padding, etc.)
    }
    ```
-
 2. **Initialize the Algorithm Parameters**:
    Set up the necessary parameters, such as the private key.
    ```csharp
    rsaAlg.ImportRSAPrivateKey(privateKeyBytes, out _); // Replace privateKeyBytes with your actual private key
    ```
-
 3. **Decrypt the Data**:
    Use the RSA algorithm instance to decrypt the data.
    ```csharp
@@ -249,10 +231,8 @@ class Program
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_05_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_05_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_05_untitled.md)
 
@@ -266,7 +246,7 @@ Remember to handle key management securely, and use proper error handling to han
 ```mermaid
 ```
 
-![.NET 10 Cryptographic Architecture](images/diagram_06_net-10-cryptographic-architecture-e78e.png)
+![.NET 10 Cryptographic Architecture](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_06_net-10-cryptographic-architecture-e78e.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_06_net-10-cryptographic-architecture-e78e.md)
 
@@ -286,7 +266,7 @@ With the release of .NET 10, several significant advancements have been made to 
 ```mermaid
 ```
 
-![Simplified Key Management with `CryptographicKey` Class](images/diagram_07_5-post-quantum-cryptography-algorithms-cryst-3987.png)
+![Simplified Key Management with `CryptographicKey` Class](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_07_5-post-quantum-cryptography-algorithms-cryst-3987.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_07_5-post-quantum-cryptography-algorithms-cryst-3987.md)
 
@@ -490,10 +470,8 @@ class ModernEncryptionExample
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_08_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_08_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_08_untitled.md)
 
@@ -554,10 +532,8 @@ class PostQuantumCryptographyExample
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_09_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_09_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_09_untitled.md)
 
@@ -603,10 +579,8 @@ class ZeroKnowledgeProofExample
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_10_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_10_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_10_untitled.md)
 
@@ -663,10 +637,8 @@ class HardwareAcceleratedEncryption
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_11_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_11_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_11_untitled.md)
 
@@ -813,30 +785,24 @@ class CompleteProgram
 }
 ```
 
-```mermaid
-```
 
-![Diagram](images/diagram_12_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_12_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_12_untitled.md)
 
 
 ## Security Best Practices Comparison
 
-```mermaid
-```
 
-![Security Best Practices Comparison](images/diagram_13_security-best-practices-comparison-b894.png)
+![Security Best Practices Comparison](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_13_security-best-practices-comparison-b894.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_13_security-best-practices-comparison-b894.md)
 
 
 ## Encryption vs Decryption Flow Comparison
 
-```mermaid
-```
 
-![Encryption vs Decryption Flow Comparison](images/diagram_14_encryption-vs-decryption-flow-comparison-45cb.png)
+![Encryption vs Decryption Flow Comparison](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_14_encryption-vs-decryption-flow-comparison-45cb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_14_encryption-vs-decryption-flow-comparison-45cb.md)
 
@@ -847,10 +813,8 @@ By understanding and applying encryption and decryption correctly, developers ca
 
 ### .NET 10 Key Advancements Summary:
 
-```mermaid
-```
 
-![Conclusion](images/diagram_15_net-10-key-advancements-summary-a742.png)
+![Conclusion](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_15_net-10-key-advancements-summary-a742.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_15_net-10-key-advancements-summary-a742.md)
 
@@ -868,20 +832,16 @@ By understanding and applying encryption and decryption correctly, developers ca
 
 ### .NET 10 Cryptographic Performance Metrics
 
-```mermaid
-```
 
-![Hardware Acceleration](images/diagram_16_net-10-cryptographic-performance-metrics-6eef.png)
+![Hardware Acceleration](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_16_net-10-cryptographic-performance-metrics-6eef.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_16_net-10-cryptographic-performance-metrics-6eef.md)
 
 
 ### Migration Checklist from Legacy to .NET 10
 
-```mermaid
-```
 
-![Diagram](images/diagram_17_migration-checklist-from-legacy-to-net-10-4ddf.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_17_migration-checklist-from-legacy-to-net-10-4ddf.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_17_migration-checklist-from-legacy-to-net-10-4ddf.md)
 
@@ -892,10 +852,8 @@ As technology evolves, staying informed about advancements like quantum encrypti
 
 ## Quick Reference: Algorithm Selection Guide
 
-```mermaid
-```
 
-![Quick Reference: Algorithm Selection Guide](images/diagram_18_quick-reference-algorithm-selection-guide-4a03.png)
+![Quick Reference: Algorithm Selection Guide](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Dotnet%20Python%20NodeJS/encryption---decryption-explained-using-net-10/images/diagram_18_quick-reference-algorithm-selection-guide-4a03.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/encryption---decryption-explained-using-net-10/diagram_18_quick-reference-algorithm-selection-guide-4a03.md)
 
