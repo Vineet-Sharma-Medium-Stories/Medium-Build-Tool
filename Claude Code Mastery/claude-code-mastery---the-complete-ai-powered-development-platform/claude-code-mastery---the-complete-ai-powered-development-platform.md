@@ -2,7 +2,8 @@
 
 ## From Intelligent Memory to Enterprise-Grade Production Workflows
 
-![Claude Code Mastery - The Complete AI-Powered Development Platform](<images/Claude Code Mastery - The Complete AI-Powered Development Platform.png>)
+![Claude Code Mastery - The Complete AI-Powered Development Platform](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/Claude Code Mastery - The Complete AI-Powered Development Platform.png>)
+
 ### Introduction: The Next Evolution in AI-Assisted Development
 
 In the rapidly evolving landscape of software development, a new paradigm has emerged—one where artificial intelligence doesn't just assist but collaborates, learns, and creates alongside developers. Claude Code represents the vanguard of this transformation, standing as a revolutionary AI-native development tool that brings the power of Claude's advanced reasoning directly to your terminal and IDE.
@@ -14,7 +15,7 @@ This comprehensive series, "Claude Code Mastery," is your complete guide to mast
 ```mermaid
 ```
 
-![From Intelligent Memory to Enterprise-Grade Production Workflows](images/diagram_01_this-comprehensive-series-claude-code-mastery-a83c.png)
+![From Intelligent Memory to Enterprise-Grade Production Workflows](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/diagram_01_this-comprehensive-series-claude-code-mastery-a83c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_01_this-comprehensive-series-claude-code-mastery-a83c.md)
 
@@ -28,14 +29,14 @@ Claude Code isn't just another AI coding tool—it's a fundamental shift in how 
 ```mermaid
 ```
 
-![Why Claude Code Matters](images/diagram_02_claude-code-isnt-just-another-ai-coding-toolits-19e6.png)
+![Why Claude Code Matters](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/diagram_02_claude-code-isnt-just-another-ai-coding-toolits-19e6.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_02_claude-code-isnt-just-another-ai-coding-toolits-19e6.md)
 
 
 ### Key Benefits at a Glance
 
-![Table](images/table_01_key-benefits-at-a-glance.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/table_01_key-benefits-at-a-glance.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_01_key-benefits-at-a-glance.md)
 
@@ -146,7 +147,7 @@ kubernetes/deployments/
 ```mermaid
 ```
 
-![The Complete Learning Path](images/diagram_03_the-complete-learning-path.png)
+![The Complete Learning Path](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/diagram_03_the-complete-learning-path.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_03_the-complete-learning-path.md)
 
@@ -171,7 +172,7 @@ From the first terminal session to production deployment, this series covers the
 
 ## Who This Series Is For
 
-![Who This Series Is For](images/table_02_who-this-series-is-for.png)
+![Who This Series Is For](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/table_02_who-this-series-is-for.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_02_who-this-series-is-for.md)
 
@@ -201,14 +202,14 @@ By the end of this series, you'll be able to:
 ```mermaid
 ```
 
-![Story 2](images/diagram_04_by-the-end-of-this-series-youll-be-able-to-babb.png)
+![Story 2](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/diagram_04_by-the-end-of-this-series-youll-be-able-to-babb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_04_by-the-end-of-this-series-youll-be-able-to-babb.md)
 
 
 ### Time Investment
 
-![Table](images/table_03_time-investment.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/table_03_time-investment.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_03_time-investment.md)
 
@@ -270,7 +271,7 @@ As AI continues to evolve, tools like Claude Code will become increasingly centr
 ```mermaid
 ```
 
-![Start with Story 1 and work your way through each story](images/diagram_05_as-ai-continues-to-evolve-tools-like-claude-code-e8a9.png)
+![Start with Story 1 and work your way through each story](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/diagram_05_as-ai-continues-to-evolve-tools-like-claude-code-e8a9.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_05_as-ai-continues-to-evolve-tools-like-claude-code-e8a9.md)
 
@@ -279,7 +280,7 @@ As AI continues to evolve, tools like Claude Code will become increasingly centr
 
 ## Claude Code vs. Other AI Tools
 
-![Claude Code vs. Other AI Tools](images/table_04_claude-code-vs-other-ai-tools.png)
+![Claude Code vs. Other AI Tools](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/table_04_claude-code-vs-other-ai-tools.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_04_claude-code-vs-other-ai-tools.md)
 
@@ -318,7 +319,7 @@ claude
 
 ## Quick Reference: The 12 Features at a Glance
 
-![Let's build something amazing](images/table_05_quick-reference-the-12-features-at-a-glance-8f87.png)
+![Let's build something amazing](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-complete-ai-powered-development-platform/images/table_05_quick-reference-the-12-features-at-a-glance-8f87.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_05_quick-reference-the-12-features-at-a-glance-8f87.md)
 
