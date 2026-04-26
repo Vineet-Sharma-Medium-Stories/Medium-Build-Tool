@@ -1,7 +1,8 @@
 # Claude Code Mastery - The Complete AI-Powered Development Platform
 
 ## From Intelligent Memory to Enterprise-Grade Production Workflows
-![Claude Code Mastery - The Complete AI-Powered Development Platform](images/Claude-Code-Mastery---The-Complete-AI-Powered-Development-Platform.png)
+
+![Claude Code Mastery - The Complete AI-Powered Development Platform](<images/Claude Code Mastery - The Complete AI-Powered Development Platform.png>)
 ### Introduction: The Next Evolution in AI-Assisted Development
 
 In the rapidly evolving landscape of software development, a new paradigm has emerged—one where artificial intelligence doesn't just assist but collaborates, learns, and creates alongside developers. Claude Code represents the vanguard of this transformation, standing as a revolutionary AI-native development tool that brings the power of Claude's advanced reasoning directly to your terminal and IDE.
