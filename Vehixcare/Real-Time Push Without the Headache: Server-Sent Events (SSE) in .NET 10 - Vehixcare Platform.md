@@ -1,7 +1,7 @@
 # Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform
 ## How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns
 
-![Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform](<images/Real-Time Push SSE.png>)
+![Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/Real-Time Push SSE.png>)
 ### The Introduction: Why I Stopped Polling
 
 We’ve all been there. Your dashboard needs live updates — fleet tracking, notifications, service status. So you do what most developers do: You set up a `setInterval` in JavaScript that hits your API every 3 seconds.

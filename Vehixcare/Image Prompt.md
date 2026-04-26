@@ -263,3 +263,25 @@ White text on dark blue pill background.
 - No complex 3D, keep flat 2D with subtle gradients
 - Include a subtle watermark of "Vehixcare" in light cyan in background
 ```
+## Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10
+```
+Generate a technical architecture diagram / infographic in a clean, modern flat vector style. The overall tone is professional, cloud-native, and developer-focused. Use a muted dark blue (#1A2B4C) and teal (#0EA5E9) color palette with white text. The layout is a centralized vertical flowchart with clear component boxes, connected by arrows, representing a Server-Sent Events (SSE) pipeline in .NET 10.
+
+Title at the top (large, bold white text): "Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10"
+Subtitle directly below (smaller, teal colored text): "How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns"
+
+Center of the diagram (Vertical Scaling style):
+- Top Box: "Application Traffic & Load Components" with sub-items: Increased User Requests, Fleet Telemetry, 8,000 Concurrent Devices.
+- Middle Left (Input Arrow): "Eliminate Polling (96k req/min) -> SSE Stream"
+- Central Stack (Three tiered boxes labeled .NET 10):
+    - Box 1: "API Gateway / .NET 10 Controller" (Inside: SseResult<T>)
+    - Box 2 (Below): "Channel / Redis Backplane" (Inside: BoundedChannel)
+    - Box 3 (Below): "TelemetryIngestionService" (Inside: Azure Bus -> Vehicle Update)
+- Right side (Parallel to Central Stack): "Performance Impact" with an upward green arrow labeled "-40% CPU | -80% DB Connections".
+- Bottom Left Indicator: "NET • 8,150" (Same style as reference image).
+
+Footer Area:
+At the very bottom of the image, separate by a thin light gray horizontal line (#EEEEEE). On the left side, place a small blue LinkedIn "in" circle icon followed by the text "Vineet Sharma" and the URL "www.linkedin.com/in/vineet-sharma-architect/". On the right side, place a small dark green Medium "M" circle icon followed by the URL "https://mvineetsharma.medium.com/". Separate the two sections with a "|" symbol.
+
+Style constraints: No 3D renderings, strictly 2D infographic. Use rounded corners for all boxes. High resolution, suitable for Medium blog header (16:9 aspect ratio).
+```

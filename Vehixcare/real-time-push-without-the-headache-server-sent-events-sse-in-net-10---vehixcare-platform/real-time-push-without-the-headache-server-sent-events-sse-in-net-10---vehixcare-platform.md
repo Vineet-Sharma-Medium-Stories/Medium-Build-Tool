@@ -1,7 +1,7 @@
 # Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform
 ## How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns
 
-![Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform](images/Real-Time-Push-SSE.png)
+![Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/Real-Time-Push-SSE.png)
 ### The Introduction: Why I Stopped Polling
 
 We’ve all been there. Your dashboard needs live updates — fleet tracking, notifications, service status. So you do what most developers do: You set up a `setInterval` in JavaScript that hits your API every 3 seconds.
@@ -38,7 +38,7 @@ Key characteristics:
 - **Simplicity**: No special protocols — works with any HTTP server
 
 ### When SSE beats WebSockets at Vehixcare:
-![Media type](images/table_01_when-sse-beats-websockets-at-vehixcare-7a4c.png)
+![Media type](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/table_01_when-sse-beats-websockets-at-vehixcare-7a4c.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/table_01_when-sse-beats-websockets-at-vehixcare-7a4c.md)
 
@@ -261,7 +261,7 @@ Below is how the entire data flow works — from IoT devices in vehicles to the 
 ```mermaid
 ```
 
-![and mobile app](images/diagram_01_below-is-how-the-entire-data-flow-works--from-iot-e9b0.png)
+![and mobile app](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/diagram_01_below-is-how-the-entire-data-flow-works--from-iot-e9b0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/diagram_01_below-is-how-the-entire-data-flow-works--from-iot-e9b0.md)
 
@@ -514,7 +514,7 @@ const styles = StyleSheet.create({
 
 **React Native vs Web Differences**:
 
-![Background Handling](images/table_02_react-native-vs-web-differences-3397.png)
+![Background Handling](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/table_02_react-native-vs-web-differences-3397.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/table_02_react-native-vs-web-differences-3397.md)
 
@@ -604,7 +604,7 @@ After SSE:
 
 ## Chapter 8: Common Pitfalls & Fixes
 
-![Bottom line:](images/table_03_chapter-8-common-pitfalls--fixes-dd7b.png)
+![Bottom line:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/table_03_chapter-8-common-pitfalls--fixes-dd7b.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/table_03_chapter-8-common-pitfalls--fixes-dd7b.md)
 

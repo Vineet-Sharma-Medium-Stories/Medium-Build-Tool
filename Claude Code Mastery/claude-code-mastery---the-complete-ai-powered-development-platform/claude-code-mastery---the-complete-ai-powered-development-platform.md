@@ -1,7 +1,7 @@
 # Claude Code Mastery - The Complete AI-Powered Development Platform
 
 ## From Intelligent Memory to Enterprise-Grade Production Workflows
-![Claude Code Mastery - The Complete AI-Powered Development Platform](<images/Claude Code Mastery - The Complete AI-Powered Development Platform.png>)
+![Claude Code Mastery - The Complete AI-Powered Development Platform](images/Claude-Code-Mastery---The-Complete-AI-Powered-Development-Platform.png)
 ### Introduction: The Next Evolution in AI-Assisted Development
 
 In the rapidly evolving landscape of software development, a new paradigm has emerged—one where artificial intelligence doesn't just assist but collaborates, learns, and creates alongside developers. Claude Code represents the vanguard of this transformation, standing as a revolutionary AI-native development tool that brings the power of Claude's advanced reasoning directly to your terminal and IDE.
@@ -11,27 +11,12 @@ Unlike traditional AI coding assistants that merely complete lines of code, Clau
 This comprehensive series, "Claude Code Mastery," is your complete guide to mastering this revolutionary platform. Across four in-depth stories, we'll journey from foundational concepts to enterprise-scale production workflows, exploring every facet of Claude Code's capabilities and learning how to harness its full potential as your AI pair programmer.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-flowchart LR
- subgraph subGraph0["The Claude Code Journey"]
-        A["Story 1: The Memory &amp; Control Layer<br>CLAUDE.md · Permissions · Plan Mode · Checkpoints"]
-        B["Story 2: The Extension &amp; Integration Framework<br>Skills · Hooks · MCP · Plugins"]
-        C["Story 3: The Advanced Workflow Engine<br>Context Management · Slash Commands · Compaction · Subagents"]
-        D["Story 4: From Terminal to IDE<br>VS Code Integration · Real-World Project Workflow"]
-  end
-    A --> B
-    B --> C
-    C --> D
-
-    style A fill:#00A3FF,color:#fff
-    style B fill:#7C3AED,color:#fff
-    style C fill:#00FFFF,color:#000
-    style D fill:#00A3FF,color:#fff
 ```
+
+![From Intelligent Memory to Enterprise-Grade Production Workflows](images/diagram_01_this-comprehensive-series-claude-code-mastery-a83c.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_01_this-comprehensive-series-claude-code-mastery-a83c.md)
+
 
 ---
 
@@ -40,35 +25,19 @@ flowchart LR
 Claude Code isn't just another AI coding tool—it's a fundamental shift in how we interact with AI during development. Built on Anthropic's advanced Claude AI model and designed specifically for developers, Claude Code brings unprecedented reasoning capabilities, safety features, and workflow automation to the development process.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "Impact Metrics"
-        A[70% Faster Feature Development<br/>AI-Assisted Coding] --> D[Development Acceleration]
-        B[95% Fewer Security Incidents<br/>Intelligent Permissions] --> D
-        C[100% Recoverable<br/>Git Checkpoints] --> D
-        D --> E[Enterprise-Grade<br/>AI Development]
-    end
-    
-    style A fill:#00A3FF,color:#fff
-    style B fill:#7C3AED,color:#fff
-    style C fill:#00FFFF,color:#000
-    style E fill:#c8e6c9
 ```
+
+![Why Claude Code Matters](images/diagram_02_claude-code-isnt-just-another-ai-coding-toolits-19e6.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_02_claude-code-isnt-just-another-ai-coding-toolits-19e6.md)
+
 
 ### Key Benefits at a Glance
 
-| Benefit | Impact | How Claude Code Delivers |
-|---------|--------|--------------------------|
-| **Project Memory** | Consistent standards | CLAUDE.md files remember your rules, stack, and commands |
-| **Security Boundaries** | Zero security incidents | Granular read/write/execute permissions, whitelist/block tools |
-| **Surgical Precision** | No unwanted changes | Plan Mode reviews every action before execution |
-| **Risk-Free Exploration** | 100% recoverable | Automatic Git checkpoints, instant undo |
-| **Parallel Processing** | 4x faster complex tasks | Subagents handle multi-file features simultaneously |
-| **Token Optimization** | 95% context compression | Intelligent compaction preserves critical info |
+![Table](images/table_01_key-benefits-at-a-glance.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_01_key-benefits-at-a-glance.md)
+
 
 ---
 
@@ -174,37 +143,12 @@ kubernetes/deployments/
 ## The Complete Learning Path
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "Beginner Path"
-        A1[Install Claude Code] --> A2[Create CLAUDE.md]
-        A2 --> A3[Configure Permissions]
-        A3 --> A4[Master Checkpoints]
-    end
-    
-    subgraph "Intermediate Path"
-        B1[Create Skills] --> B2[Implement Hooks]
-        B2 --> B3[Connect MCP Servers]
-        B3 --> B4[Use Slash Commands]
-    end
-    
-    subgraph "Advanced Path"
-        C1[Spawn Subagents] --> C2[Compaction Strategies]
-        C2 --> C3[VS Code Integration]
-        C3 --> C4[Production Deployment]
-    end
-    
-    A4 --> B1
-    B4 --> C1
-    
-    style A1 fill:#00A3FF,color:#fff
-    style B1 fill:#7C3AED,color:#fff
-    style C1 fill:#00FFFF,color:#000
 ```
+
+![The Complete Learning Path](images/diagram_03_the-complete-learning-path.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_03_the-complete-learning-path.md)
+
 
 ---
 
@@ -226,13 +170,10 @@ From the first terminal session to production deployment, this series covers the
 
 ## Who This Series Is For
 
-| Audience | What You'll Gain |
-|----------|------------------|
-| **Individual Developers** | Master Claude Code to code faster, write better tests, and build features more efficiently with AI assistance |
-| **Team Leads** | Learn how to establish Claude Code best practices, configure team workflows, and ensure code quality with permissions and checkpoints |
-| **Engineering Managers** | Understand the ROI of AI-assisted development, security considerations, and enterprise adoption strategies |
-| **DevOps Engineers** | Learn to integrate Claude Code with CI/CD pipelines, MCP servers, and infrastructure automation |
-| **Open Source Contributors** | Use Claude Code for faster PR creation, documentation, and community collaboration with consistent standards |
+![Who This Series Is For](images/table_02_who-this-series-is-for.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_02_who-this-series-is-for.md)
+
 
 ---
 
@@ -257,43 +198,19 @@ From the first terminal session to production deployment, this series covers the
 By the end of this series, you'll be able to:
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-mindmap
-  root((Claude Code<br/>Mastery))
-    Memory & Control
-      Create project memory with CLAUDE.md
-      Configure granular permissions
-      Use Plan Mode for safety
-      Leverage Git checkpoints
-    Extension Framework
-      Build reusable Skills
-      Implement automated Hooks
-      Connect external MCP servers
-      Package and share Plugins
-    Advanced Workflow
-      Manage context intelligently
-      Create custom Slash Commands
-      Optimize tokens with Compaction
-      Orchestrate parallel Subagents
-    Production Ready
-      Integrate with VS Code
-      Build microservices
-      Set up CI/CD pipelines
-      Deploy with confidence
 ```
+
+![Story 2](images/diagram_04_by-the-end-of-this-series-youll-be-able-to-babb.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_04_by-the-end-of-this-series-youll-be-able-to-babb.md)
+
 
 ### Time Investment
 
-| Story | Estimated Reading Time | Hands-On Exercises |
-|-------|----------------------|-------------------|
-| Story 1: The Memory & Control Layer | 45-60 minutes | 6 exercises |
-| Story 2: The Extension & Integration Framework | 45-60 minutes | 5 exercises |
-| Story 3: The Advanced Workflow Engine | 60-90 minutes | 6 exercises |
-| Story 4: From Terminal to IDE | 60-90 minutes | 8 exercises |
+![Table](images/table_03_time-investment.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_03_time-investment.md)
+
 
 ---
 
@@ -350,38 +267,21 @@ claude
 As AI continues to evolve, tools like Claude Code will become increasingly central to how we build software. This series isn't just about learning a tool—it's about embracing a new way of working, where human creativity combines with AI capability to produce better software, faster, and with unprecedented safety.
 
 ```mermaid
----
-config:
-  layout: elk
-  theme: base
----
-graph LR
-    subgraph "The Evolution of AI Development"
-        A[AI Code Completion<br/>Line-by-Line] --> B[AI Pair Programming<br/>Collaborative]
-        B --> C[AI Development Platform<br/>Orchestrated]
-        C --> D[Human-AI Partnership<br/>True Collaboration]
-    end
-    
-    style A fill:#57606A,color:#fff
-    style B fill:#00A3FF,color:#fff
-    style C fill:#7C3AED,color:#fff
-    style D fill:#00FFFF,color:#000
 ```
+
+![Start with Story 1 and work your way through each story](images/diagram_05_as-ai-continues-to-evolve-tools-like-claude-code-e8a9.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/diagram_05_as-ai-continues-to-evolve-tools-like-claude-code-e8a9.md)
+
 
 ---
 
 ## Claude Code vs. Other AI Tools
 
-| Feature | Claude Code | Traditional AI Assistants |
-|---------|-------------|--------------------------|
-| **Project Memory** | ✅ CLAUDE.md persistent rules | ❌ No persistent memory |
-| **Security Boundaries** | ✅ Granular permissions | ❌ Limited control |
-| **Surgical Precision** | ✅ Plan Mode review | ❌ Immediate execution |
-| **Recoverability** | ✅ Git checkpoints | ❌ Manual undo only |
-| **Parallel Processing** | ✅ Subagents | ❌ Single-threaded |
-| **Token Optimization** | ✅ Intelligent compaction | ❌ Limited context |
-| **Extensibility** | ✅ Skills, Hooks, MCP, Plugins | ❌ Limited customization |
-| **IDE Integration** | ✅ Full VS Code support | ⚠️ Basic integration |
+![Claude Code vs. Other AI Tools](images/table_04_claude-code-vs-other-ai-tools.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_04_claude-code-vs-other-ai-tools.md)
+
 
 ---
 ## Series Navigation
@@ -417,20 +317,10 @@ claude
 
 ## Quick Reference: The 12 Features at a Glance
 
-| # | Feature | Purpose |
-|---|---------|---------|
-| 1 | **CLAUDE.md** | Project memory file with custom rules |
-| 2 | **Permissions** | Granular read/edit/execute controls |
-| 3 | **Plan Mode** | Review and approve actions before execution |
-| 4 | **Checkpoints** | Automatic Git snapshots for undo |
-| 5 | **Skills** | Reusable instruction sets |
-| 6 | **Hooks** | Automated event triggers |
-| 7 | **MCP** | External tool integration |
-| 8 | **Plugins** | Packaged extensions |
-| 9 | **Context Management** | Intelligent memory across sessions |
-| 10 | **Slash Commands** | Custom workflow shortcuts |
-| 11 | **Compaction** | Token optimization |
-| 12 | **Subagents** | Parallel task execution |
+![Let's build something amazing](images/table_05_quick-reference-the-12-features-at-a-glance-8f87.png)
+
+[View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-complete-ai-powered-development-platform/table_05_quick-reference-the-12-features-at-a-glance-8f87.md)
+
 
 ---
 
