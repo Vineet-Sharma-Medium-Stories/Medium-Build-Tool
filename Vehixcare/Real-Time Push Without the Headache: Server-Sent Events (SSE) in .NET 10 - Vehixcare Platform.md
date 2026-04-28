@@ -1,7 +1,9 @@
 # Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform
-## How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns
 
-![Real-Time Push Without the Headache: Server-Sent Events (SSE) in .NET 10 - Vehixcare Platform](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Vehixcare/real-time-push-without-the-headache-server-sent-events-sse-in-net-10---vehixcare-platform/images/Real-Time Push SSE.png>)
+### How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns
+
+![Real-Time Push SSE](images/Real-Time Push SSE.png)
+
 ### The Introduction: Why I Stopped Polling
 
 We’ve all been there. Your dashboard needs live updates — fleet tracking, notifications, service status. So you do what most developers do: You set up a `setInterval` in JavaScript that hits your API every 3 seconds.
@@ -17,37 +19,37 @@ We needed real-time streaming, but WebSockets felt like overkill — we don’t 
 Enter **Server-Sent Events (SSE)**.
 
 In this 20-minute read, you’ll learn:
+
 - How we implemented SSE in .NET 10 (yes, the brand new release)
 - The exact code for our GitLab monorepo: `https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API`
 - How we extended the same SSE stream to our **React Native mobile app** (repo: `https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-Mobile`)
 - A Mermaid diagram of the architecture
 - Performance metrics and pitfalls
 
-Let’s dive in.
-
----
+**Let’s dive in.**
 
 ## Chapter 1: What Exactly Are Server-Sent Events?
 
 SSE is a standard where a server can push data to a web client over a single HTTP connection. Unlike WebSockets, SSE is unidirectional (server → client) and speaks pure HTTP/1.1 or HTTP/2.
 
 Key characteristics:
+
 - **Media type**: `text/event-stream`
 - **Reconnection**: Browser automatically reconnects if the connection drops
 - **Event IDs**: Built-in resiliency with `Last-Event-ID` header
 - **Simplicity**: No special protocols — works with any HTTP server
 
 ### When SSE beats WebSockets at Vehixcare:
-| Use Case | SSE | WebSockets |
-|----------|-----|-------------|
-| Fleet GPS coordinate streaming | ✅ Perfect | Overkill |
-| Service reminders push | ✅ Simple | Too heavy |
-| Live maintenance alerts | ✅ Native | Works but complex |
-| Two-way chat | ❌ No | ✅ Yes |
+
+
+| Use Case                       | SSE        | WebSockets        |
+| ------------------------------ | ---------- | ----------------- |
+| Fleet GPS coordinate streaming | ✅ Perfect | Overkill          |
+| Service reminders push         | ✅ Simple  | Too heavy         |
+| Live maintenance alerts        | ✅ Native  | Works but complex |
+| Two-way chat                   | ❌ No      | ✅ Yes            |
 
 For 90% of our real-time needs, SSE was the elegant solution.
-
----
 
 ## Chapter 2: .NET 10 — What’s New for SSE?
 
@@ -75,9 +77,7 @@ await foreach (var message in sseStream)
 }
 ```
 
-But we’re getting ahead. Let’s see the actual implementation in our Vehixcare monorepo.
-
----
+**But we’re getting ahead. Let’s see the actual implementation in our Vehixcare monorepo.**
 
 ## Chapter 3: Implementation at Vehixcare Platform
 
@@ -195,7 +195,7 @@ public class VehicleStreamController : ControllerBase
     {
         Response.Headers.Append("Cache-Control", "no-cache");
         Response.Headers.Append("Content-Type", "text/event-stream");
-        
+  
         // .NET 10's built-in SSE serialization
         return new SseResult<VehicleStatusUpdate>(
             _notifier.Subscribe(cancellationToken),
@@ -214,7 +214,7 @@ id: 1702134567890-0
 
 ```
 
-Each message is double-newline separated.
+**Each message is double-newline separated.**
 
 ### Step 4: Simulating an Ingest Pipeline
 
@@ -254,8 +254,6 @@ builder.Services.AddSingleton<IVehicleStatusNotifier, VehicleStatusNotifier>();
 builder.Services.AddHostedService<TelemetryIngestionService>();
 ```
 
----
-
 ## Chapter 4: The Mermaid Diagram
 
 Below is how the entire data flow works — from IoT devices in vehicles to the browser dashboard **and mobile app**.
@@ -288,8 +286,6 @@ sequenceDiagram
     deactivate SSE
     Note over Browser,Mobile: Auto-reconnect if connection lost
 ```
-
----
 
 ## Chapter 5: The Frontend — React Dashboard (Web)
 
@@ -344,9 +340,7 @@ export function FleetDashboard() {
 }
 ```
 
-That’s it. No WebSocket upgrade, no Socket.IO, no signalR complexity for this use case.
-
----
+**That’s it. No WebSocket upgrade, no Socket.IO, no signalR co******mplexity for this use case.**
 
 ## Chapter 6: Extending to React Native Mobile App
 
@@ -393,7 +387,7 @@ export class SSEClient {
 
   async connect() {
     this.abortController = new AbortController();
-    
+  
     try {
       const response = await fetch(this.url, {
         headers: {
@@ -410,7 +404,7 @@ export class SSEClient {
       while (true) {
         const { done, value } = await reader!.read();
         if (done) break;
-        
+  
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split('\n\n');
         buffer = lines.pop() || '';
@@ -446,7 +440,7 @@ export class SSEClient {
 
   private scheduleReconnect() {
     if (this.reconnectAttempts >= this.maxReconnectAttempts) return;
-    
+  
     const delay = Math.min(30000, 1000 * Math.pow(2, this.reconnectAttempts));
     this.reconnectTimeout = BackgroundTimer.setTimeout(() => {
       this.reconnectAttempts++;
@@ -483,14 +477,14 @@ export function FleetMapScreen() {
 
   useEffect(() => {
     const client = new SSEClient('https://api.vehixcare.ai/api/v1/streams/vehicles');
-    
+  
     client.addEventListener('status_update', (update) => {
       setVehicles(prev => {
         const newMap = new Map(prev);
         newMap.set(update.vehicleId, update);
         return newMap;
       });
-      
+  
       // Show push notification for critical alerts
       if (update.status === 'alert') {
         showNotification(`⚠️ ${update.licensePlate} - High RPM alert!`);
@@ -537,18 +531,18 @@ const styles = StyleSheet.create({
 
 **React Native vs Web Differences**:
 
-| Aspect | Web (EventSource) | React Native (Custom fetch) |
-|--------|-------------------|-------------------------------|
-| Auto-reconnect | Built-in | Manual with exponential backoff |
-| Last-Event-ID | Automatic | Must store & send custom header |
-| Connection limit | 6 per domain | No hard limit (device-specific) |
-| Background behavior | Tab inactive throttles | Requires native module |
 
----
+| Aspect              | Web (EventSource)      | React Native (Custom fetch)     |
+| ------------------- | ---------------------- | ------------------------------- |
+| Auto-reconnect      | Built-in               | Manual with exponential backoff |
+| Last-Event-ID       | Automatic              | Must store & send custom header |
+| Connection limit    | 6 per domain           | No hard limit (device-specific) |
+| Background behavior | Tab inactive throttles | Requires native module          |
 
 ## Chapter 7: Production Lessons at Scale
 
 ### 7.1 Connection Management
+
 Each SSE connection holds a `CancellationToken` and a channel reader. Under .NET 10, `SseResult` automatically closes the response when the client disconnects.
 
 **But beware:** Unbounded channel + slow consumer = memory leak. We switched to:
@@ -563,6 +557,7 @@ var options = new BoundedChannelOptions(1000)
 That way, if a dashboard client lags, we drop old telemetry — better than crashing.
 
 ### 7.2 Authentication
+
 We protect the SSE endpoint with JWT passed as a query param (since EventSource doesn’t support custom headers easily):
 
 ```csharp
@@ -578,6 +573,7 @@ public IActionResult StreamVehicleStatus([FromQuery] string token, CancellationT
 **For React Native**, we send the token in the `Authorization` header (since we control the fetch).
 
 ### 7.3 Scaling Out
+
 SSE works with multiple server instances if you use a **backplane**. Vehixcare uses Redis pub/sub instead of an in-memory channel. The notifier implementation becomes:
 
 ```csharp
@@ -585,7 +581,7 @@ public class RedisVehicleStatusNotifier : IVehicleStatusNotifier
 {
     private readonly IConnectionMultiplexer _redis;
     private readonly ISubscriber _subscriber;
-    
+  
     public IAsyncEnumerable<VehicleStatusUpdate> Subscribe(CancellationToken ct)
     {
         var channel = Channel.CreateUnbounded<VehicleStatusUpdate>();
@@ -596,7 +592,7 @@ public class RedisVehicleStatusNotifier : IVehicleStatusNotifier
         });
         return channel.Reader.ReadAllAsync(ct);
     }
-    
+  
     public async Task PublishAsync(VehicleStatusUpdate update)
     {
         var json = JsonSerializer.Serialize(update);
@@ -610,6 +606,7 @@ Now any instance can push, and all connected clients receive.
 ### 7.4 Performance Results
 
 Before SSE (polling every 5s):
+
 - Requests/sec: ~1,600
 - CPU usage: 68% on 4-core server
 - Average latency: 210ms
@@ -617,6 +614,7 @@ Before SSE (polling every 5s):
 - Mobile battery drain (iOS): 12% per hour
 
 After SSE:
+
 - Requests/sec: 0 (only open connections)
 - CPU usage: 28%
 - Average latency: 12ms (first byte time)
@@ -625,24 +623,22 @@ After SSE:
 
 **Bottom line:** 40% lower server cost and real-time latency under 50ms.
 
----
-
 ## Chapter 8: Common Pitfalls & Fixes
 
-| Problem | Solution |
-|---------|----------|
-| Connection drops after 60s | Set `Response.Headers["Keep-Alive"] = "timeout=120"` and handle client reconnects via `Last-Event-ID` |
-| Memory grows unbounded | Use bounded channel with `DropOldest` |
-| Browser shows "pending" forever | Send a dummy `: heartbeat\n\n` comment every 30s |
-| .NET 10 preview bug: `SseResult` doesn’t flush | Workaround: `await Response.WriteAsync(": keepalive\n\n"); await Response.Body.FlushAsync();` |
-| React Native fetch stream hangs on Android | Add `react-native-fetch-blob` polyfill or use `XMLHttpRequest` |
-| Mobile app consumes too much data | Compress SSE payloads with gzip (`.NET 10` native compression) |
 
----
+| Problem                                        | Solution                                                                                             |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Connection drops after 60s                     | Set`Response.Headers["Keep-Alive"] = "timeout=120"` and handle client reconnects via `Last-Event-ID` |
+| Memory grows unbounded                         | Use bounded channel with`DropOldest`                                                                 |
+| Browser shows "pending" forever                | Send a dummy`: heartbeat\n\n` comment every 30s                                                      |
+| .NET 10 preview bug:`SseResult` doesn’t flush | Workaround:`await Response.WriteAsync(": keepalive\n\n"); await Response.Body.FlushAsync();`         |
+| React Native fetch stream hangs on Android     | Add`react-native-fetch-blob` polyfill or use `XMLHttpRequest`                                        |
+| Mobile app consumes too much data              | Compress SSE payloads with gzip (`.NET 10` native compression)                                       |
 
 ## Chapter 9: The .NET 10 Roadmap (from our preview)
 
 We’ve tested .NET 10 preview 2. A few things coming in RTM (Nov 2025):
+
 - Built-in **backpressure** in `SseResult` (respects `WriteAsync` cancellations)
 - **Native compression** for SSE streams (gzip per message)
 - **OpenTelemetry** integration — automatic spans for each event
@@ -659,39 +655,41 @@ await foreach (var update in _notifier.Subscribe(cancellationToken))
 
 But the new `SseResult` will handle this inline.
 
----
-
 ## Final Thoughts: Should You Use SSE at Vehixcare?
 
 **Yes, for:**
+
 - Live dashboards (web + mobile)
 - Progress updates (AI model inference status)
 - Real-time notifications
 - Fleet tracking
 
 **No, for:**
+
 - Multiplayer features (use WebSockets or SignalR)
 - Financial trading streams (use WebSocket with binary protocol)
 - Chat applications (bidirectional needed)
 
-We’ve open-sourced the SSE module in our GitLab monorepo:  
-👉 **API**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)  
+We’ve open-sourced the SSE module in our GitLab monorepo:
+👉 **API**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
 👉 **Mobile App**: [https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-Mobile](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-Mobile)
 
 The mobile app is built with React Native and uses the same SSE endpoint, with platform-specific optimizations for Android/iOS background handling.
 
 ### What’s next for Vehixcare?
+
 We’re combining SSE with .NET 10’s new `TimeProvider` to push predictive maintenance alerts before a vehicle breaks down. When the AI model predicts a 90% failure probability within 10 minutes, that event streams to the dashboard and mobile app instantly — with a push notification even if the app is in the background.
 
 Try the pattern. Start simple. Your servers — and your users — will thank you.
 
-
 *Vineet Sharma leads platform engineering at Vehixcare AI. Find him on GitLab: @mvineetsharma.*
 
 ---
+
 *� Questions? Drop a response - I read and reply to every comment.*
 *📌 Save this story to your reading list - it helps other engineers discover it.*
 **🔗 Follow me →**
+
 - [**Medium**](mvineetsharma.medium.com) - mvineetsharma.medium.com
 - [**LinkedIn**](www.linkedin.com/in/vineet-sharma-architect) -  www.linkedin.com/in/vineet-sharma-architect
 

@@ -29,8 +29,9 @@ Each part includes complete architectural diagrams, design pattern explanations,
 ### The Patterns We'll Master
 
 **Part 1: Foundational Communication Patterns (AWS)**
+
 1. **API Gateway** - The single entry point that protects and routes all client requests
-2. **Service Discovery** - How services find each other in a dynamic cloud environment  
+2. **Service Discovery** - How services find each other in a dynamic cloud environment
 3. **Load Balancing** - Distributing traffic for optimal performance and reliability
 4. **Circuit Breaker** - Preventing cascading failures when dependencies fail
 5. **Event-Driven Communication** - Asynchronous, decoupled service interaction
@@ -55,32 +56,32 @@ graph TB
     Client[External Client] --> CloudFront[Amazon CloudFront]
     CloudFront --> WAF[AWS WAF]
     WAF --> APIGW[Amazon API Gateway]
-    
+  
     subgraph "AWS Region - Primary (us-east-1)"
         APIGW --> Gateway[API Gateway Service<br/>.NET 10 / YARP<br/>on App Runner]
-        
+      
         Gateway --> OrderSvc[Order Service<br/>.NET 10 on ECS Fargate]
         Gateway --> PaymentSvc[Payment Service<br/>.NET 10 on Lambda]
         Gateway --> InventorySvc[Inventory Service<br/>.NET 10 on App Runner]
-        
+      
         OrderSvc --> OrderDB[(Amazon RDS Aurora<br/>PostgreSQL - Write)]
         OrderSvc --> OrderReadDB[(Amazon RDS Read Replica<br/>Aurora)]
-        
+      
         PaymentSvc --> PaymentDB[(Amazon DynamoDB)]
         InventorySvc --> InventoryDB[(Amazon RDS MySQL)]
-        
+      
         OrderSvc -.-> SQS[Amazon SQS<br/>Dead Letter Queue]
         OrderSvc -.-> SNS[Amazon SNS<br/>Topics]
         PaymentSvc -.-> SQS
         InventorySvc -.-> SQS
-        
+      
         subgraph "Service Mesh (AWS App Mesh)"
             OrderSvc --> Envoy[Envoy Sidecar]
             PaymentSvc --> Envoy2[Envoy Sidecar]
             InventorySvc --> Envoy3[Envoy Sidecar]
         end
     end
-    
+  
     subgraph "Observability"
         OrderSvc --> XRay[AWS X-Ray]
         PaymentSvc --> XRay
@@ -88,20 +89,20 @@ graph TB
         Gateway --> XRay
         XRay --> CW[Amazon CloudWatch]
     end
-    
+  
     subgraph "Security"
         APIGW --> SM[AWS Secrets Manager]
         OrderSvc --> SM
         PaymentSvc --> SM
         InventorySvc --> SM
     end
-    
+  
     subgraph "Scaling Infrastructure"
         OrderSvc --> ECS[Amazon ECS Fargate<br/>Auto-scaling 2-20 tasks]
         PaymentSvc --> Lambda[AWS Lambda<br/>Provisioned Concurrency]
         InventorySvc --> AppRunner[AWS App Runner<br/>Auto-scaling]
     end
-    
+  
     subgraph "Disaster Recovery - Secondary Region (us-west-2)"
         OrderSvc_DR[Order Service<br/>Standby]
         OrderDB_DR[(Aurora Global DB<br/>Secondary)]
@@ -110,18 +111,19 @@ graph TB
 
 ### Technology Stack Summary
 
-| Component | AWS Service | Justification |
-|-----------|-------------|---------------|
-| **Runtime** | .NET 10 on AWS Lambda/ECS | Native AOT support, minimal APIs |
-| **ORM** | EF Core 10 + Dapper | Compiled models, high-performance queries |
-| **API Gateway** | Amazon API Gateway + YARP | Managed service + custom flexibility |
-| **Service Mesh** | AWS App Mesh | Native AWS integration, Envoy proxies |
-| **Secrets** | AWS Secrets Manager | Automatic rotation, IAM integration |
-| **Database** | Amazon RDS Aurora + DynamoDB | Multi-AZ, global tables, serverless |
-| **Messaging** | Amazon SNS + SQS | Fully managed, FIFO, DLQ support |
-| **Container** | ECR + ECS Fargate + App Runner | Serverless containers, no cluster management |
-| **Monitoring** | AWS X-Ray + CloudWatch | Distributed tracing, metrics, logs |
-| **Compute** | ECS Fargate + Lambda + App Runner | Flexible compute options per workload |
+
+| Component        | AWS Service                       | Justification                                |
+| ---------------- | --------------------------------- | -------------------------------------------- |
+| **Runtime**      | .NET 10 on AWS Lambda/ECS         | Native AOT support, minimal APIs             |
+| **ORM**          | EF Core 10 + Dapper               | Compiled models, high-performance queries    |
+| **API Gateway**  | Amazon API Gateway + YARP         | Managed service + custom flexibility         |
+| **Service Mesh** | AWS App Mesh                      | Native AWS integration, Envoy proxies        |
+| **Secrets**      | AWS Secrets Manager               | Automatic rotation, IAM integration          |
+| **Database**     | Amazon RDS Aurora + DynamoDB      | Multi-AZ, global tables, serverless          |
+| **Messaging**    | Amazon SNS + SQS                  | Fully managed, FIFO, DLQ support             |
+| **Container**    | ECR + ECS Fargate + App Runner    | Serverless containers, no cluster management |
+| **Monitoring**   | AWS X-Ray + CloudWatch            | Distributed tracing, metrics, logs           |
+| **Compute**      | ECS Fargate + Lambda + App Runner | Flexible compute options per workload        |
 
 ### Design Principles Applied Throughout
 
@@ -149,6 +151,7 @@ CQRS separates read and write operations into different models, allowing each to
 **Definition:** CQRS is an architectural pattern that separates the operations that read data (queries) from the operations that write data (commands). This separation allows each side to use models optimized for its specific purpose.
 
 **Why it's essential:**
+
 - Read and write workloads often have different requirements
 - Queries can use denormalized data for better performance
 - Commands can enforce complex business rules
@@ -165,7 +168,7 @@ graph TB
     subgraph "Client"
         C[Client Application]
     end
-    
+  
     subgraph "Command Side - Write Model"
         C --> Command[Command Handler]
         Command --> Validation[Validation]
@@ -174,7 +177,7 @@ graph TB
         Domain --> Events[Domain Events]
         Events --> Bus[Event Bridge<br/>Event Bus]
     end
-    
+  
     subgraph "Read Side - Read Model"
         Bus --> Projection[Projection Handler<br/>Lambda]
         Projection --> ReadDB[(DynamoDB<br/>Denormalized)]
@@ -182,7 +185,7 @@ graph TB
         Query --> ReadDB
         Query --> DAX[DynamoDB DAX<br/>Cache]
     end
-    
+  
     subgraph "Sync Process"
         WriteDB -.-> DMS[AWS DMS<br/>Change Data Capture]
         DMS -.-> ReadDB
@@ -191,13 +194,14 @@ graph TB
 
 ### Database Options Comparison
 
-| Database | Write Perf | Read Perf | Consistency | Scaling | Best For |
-|----------|------------|-----------|-------------|---------|----------|
-| **Aurora PostgreSQL** | Good | Excellent | Strong | 128TB | Transactional writes, complex joins |
-| **Aurora MySQL** | Good | Excellent | Strong | 128TB | MySQL compatibility |
-| **DynamoDB** | Excellent | Excellent | Tunable | Unlimited | High-scale reads/writes, key-value |
-| **DynamoDB + DAX** | Excellent | Exceptional | Eventual | Unlimited | Read-heavy workloads, caching |
-| **RDS + Read Replicas** | Good | Very Good | Eventual | 64TB | Read scale-out, cost-effective |
+
+| Database                | Write Perf | Read Perf   | Consistency | Scaling   | Best For                            |
+| ----------------------- | ---------- | ----------- | ----------- | --------- | ----------------------------------- |
+| **Aurora PostgreSQL**   | Good       | Excellent   | Strong      | 128TB     | Transactional writes, complex joins |
+| **Aurora MySQL**        | Good       | Excellent   | Strong      | 128TB     | MySQL compatibility                 |
+| **DynamoDB**            | Excellent  | Excellent   | Tunable     | Unlimited | High-scale reads/writes, key-value  |
+| **DynamoDB + DAX**      | Excellent  | Exceptional | Eventual    | Unlimited | Read-heavy workloads, caching       |
+| **RDS + Read Replicas** | Good       | Very Good   | Eventual    | 64TB      | Read scale-out, cost-effective      |
 
 ### Design Patterns Applied
 
@@ -263,7 +267,7 @@ public class Order : AggregateRoot
 {
     private readonly List<OrderItem> _items = new();
     private readonly List<IDomainEvent> _domainEvents = new();
-    
+  
     public Guid Id { get; private set; }
     public string CustomerId { get; private set; }
     public DateTime CreatedAt { get; private set; }
@@ -273,17 +277,17 @@ public class Order : AggregateRoot
     public Address ShippingAddress { get; private set; }
     public PaymentInfo PaymentInfo { get; private set; }
     public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
-    
+  
     private Order() { } // EF Core
-    
+  
     public static Order Create(string customerId, List<OrderItem> items, Address shippingAddress)
     {
         if (string.IsNullOrWhiteSpace(customerId))
             throw new DomainException("Customer ID is required");
-            
+          
         if (!items.Any())
             throw new DomainException("Order must have at least one item");
-            
+          
         var order = new Order
         {
             Id = Guid.NewGuid(),
@@ -292,74 +296,74 @@ public class Order : AggregateRoot
             Status = OrderStatus.Pending,
             ShippingAddress = shippingAddress
         };
-        
+      
         order.AddItems(items);
         order.CalculateTotal();
-        
+      
         order.AddDomainEvent(new OrderCreatedDomainEvent(order.Id, customerId, order.TotalAmount));
-        
+      
         return order;
     }
-    
+  
     private void AddItems(List<OrderItem> items)
     {
         _items.AddRange(items);
     }
-    
+  
     private void CalculateTotal()
     {
         TotalAmount = _items.Sum(i => i.Quantity * i.UnitPrice);
     }
-    
+  
     public void AddPayment(PaymentInfo payment)
     {
         if (Status != OrderStatus.Pending)
             throw new DomainException("Can only add payment to pending orders");
-            
+          
         if (payment.Amount != TotalAmount)
             throw new DomainException($"Payment amount {payment.Amount} does not match order total {TotalAmount}");
-            
+          
         PaymentInfo = payment;
         Status = OrderStatus.Paid;
-        
+      
         AddDomainEvent(new OrderPaidDomainEvent(Id, payment.TransactionId));
     }
-    
+  
     public void Ship()
     {
         if (Status != OrderStatus.Paid)
             throw new DomainException("Can only ship paid orders");
-            
+          
         Status = OrderStatus.Shipped;
-        
+      
         AddDomainEvent(new OrderShippedDomainEvent(Id));
     }
-    
+  
     public void Deliver()
     {
         if (Status != OrderStatus.Shipped)
             throw new DomainException("Can only deliver shipped orders");
-            
+          
         Status = OrderStatus.Delivered;
-        
+      
         AddDomainEvent(new OrderDeliveredDomainEvent(Id));
     }
-    
+  
     public void Cancel(string reason)
     {
         if (Status == OrderStatus.Shipped || Status == OrderStatus.Delivered)
             throw new DomainException("Cannot cancel shipped or delivered orders");
-            
+          
         Status = OrderStatus.Cancelled;
-        
+      
         AddDomainEvent(new OrderCancelledDomainEvent(Id, reason));
     }
-    
+  
     private void AddDomainEvent(IDomainEvent domainEvent)
     {
         _domainEvents.Add(domainEvent);
     }
-    
+  
     public void ClearDomainEvents()
     {
         _domainEvents.Clear();
@@ -398,7 +402,7 @@ public class OrderRepository : IOrderRepository
 {
     private readonly WriteDbContext _context;
     private readonly ILogger<OrderRepository> _logger;
-    
+  
     public OrderRepository(
         WriteDbContext context,
         ILogger<OrderRepository> logger)
@@ -406,14 +410,14 @@ public class OrderRepository : IOrderRepository
         _context = context;
         _logger = logger;
     }
-    
+  
     public async Task<Order> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         return await _context.Orders
             .Include(o => o.Items)
             .FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
     }
-    
+  
     public async Task<IEnumerable<Order>> GetByCustomerAsync(string customerId, CancellationToken cancellationToken)
     {
         return await _context.Orders
@@ -422,18 +426,18 @@ public class OrderRepository : IOrderRepository
             .OrderByDescending(o => o.CreatedAt)
             .ToListAsync(cancellationToken);
     }
-    
+  
     public async Task AddAsync(Order order, CancellationToken cancellationToken)
     {
         await _context.Orders.AddAsync(order, cancellationToken);
     }
-    
+  
     public Task UpdateAsync(Order order, CancellationToken cancellationToken)
     {
         _context.Entry(order).State = EntityState.Modified;
         return Task.CompletedTask;
     }
-    
+  
     public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken)
     {
         return await _context.Orders.AnyAsync(o => o.Id == id, cancellationToken);
@@ -444,10 +448,10 @@ public class OrderRepository : IOrderRepository
 public class WriteDbContext : DbContext
 {
     public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options) { }
-    
+  
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
-    
+  
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Order>(entity =>
@@ -465,7 +469,7 @@ public class WriteDbContext : DbContext
             entity.Ignore(e => e.Items);
             entity.Ignore(e => e.DomainEvents);
         });
-        
+      
         modelBuilder.Entity<OrderItem>(entity =>
         {
             entity.ToTable("order_items");
@@ -493,7 +497,7 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
     private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<CreateOrderCommandHandler> _logger;
     private readonly IAmazonSimpleNotificationService _sns;
-    
+  
     public CreateOrderCommandHandler(
         IOrderRepository orderRepository,
         ICustomerRepository customerRepository,
@@ -513,7 +517,7 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
         _sns = sns;
         _logger = logger;
     }
-    
+  
     public async Task<OrderResult> HandleAsync(
         CreateOrderCommand command, 
         CancellationToken cancellationToken)
@@ -524,10 +528,10 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
         {
             throw new ValidationException(validationResult.Errors);
         }
-        
+      
         // 2. Begin transaction (Unit of Work)
         await _unitOfWork.BeginTransactionAsync(cancellationToken);
-        
+      
         try
         {
             // 3. Load aggregates (Repository pattern)
@@ -535,21 +539,21 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
                 command.CustomerId, cancellationToken);
             if (customer == null)
                 throw new CustomerNotFoundException(command.CustomerId);
-            
+          
             // 4. Convert DTOs to domain objects
             var items = command.Items.Select(i => 
                 new OrderItem(i.ProductId, i.ProductName, i.Quantity, i.UnitPrice)).ToList();
-            
+          
             var address = new Address(
                 command.ShippingAddress.Street,
                 command.ShippingAddress.City,
                 command.ShippingAddress.PostalCode,
                 command.ShippingAddress.Country
             );
-            
+          
             // 5. Create domain entity (Domain model with business logic)
             var order = Order.Create(command.CustomerId, items, address);
-            
+          
             // 6. Apply business rules - check inventory
             foreach (var item in order.Items)
             {
@@ -558,30 +562,30 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
                 {
                     throw new InsufficientStockException(item.ProductId, item.Quantity);
                 }
-                
+              
                 // Reserve stock
                 product.ReserveStock(item.Quantity);
                 await _productRepository.UpdateAsync(product, cancellationToken);
             }
-            
+          
             // 7. Save aggregate
             await _orderRepository.AddAsync(order, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
-            
+          
             // 8. Publish domain events to EventBridge
             foreach (var domainEvent in order.DomainEvents)
             {
                 await _eventPublisher.PublishAsync(domainEvent, cancellationToken);
             }
-            
+          
             // 9. Also publish to SNS for other subscribers
             await PublishToSnsAsync(order, cancellationToken);
-            
+          
             // 10. Commit transaction
             await _unitOfWork.CommitTransactionAsync(cancellationToken);
-            
+          
             _logger.LogInformation("Order {OrderId} created successfully", order.Id);
-            
+          
             // 11. Return result
             return new OrderResult(
                 order.Id,
@@ -604,7 +608,7 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
             order?.ClearDomainEvents();
         }
     }
-    
+  
     private async Task PublishToSnsAsync(Order order, CancellationToken cancellationToken)
     {
         var orderCreatedEvent = new
@@ -615,7 +619,7 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
             Items = order.Items.Select(i => new { i.ProductId, i.Quantity }),
             Timestamp = DateTime.UtcNow
         };
-        
+      
         var request = new PublishRequest
         {
             TopicArn = "arn:aws:sns:us-east-1:123456789012:order-events",
@@ -630,7 +634,7 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Ord
                 }
             }
         };
-        
+      
         await _sns.PublishAsync(request, cancellationToken);
     }
 }
@@ -715,7 +719,7 @@ public class DynamoDbOrderQueryHandler :
     private readonly ILogger<DynamoDbOrderQueryHandler> _logger;
     private readonly string _tableName;
     private readonly JsonSerializerOptions _jsonOptions;
-    
+  
     public DynamoDbOrderQueryHandler(
         IAmazonDynamoDB dynamoDb,
         IDAXClient daxClient,
@@ -731,14 +735,14 @@ public class DynamoDbOrderQueryHandler :
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
     }
-    
+  
     public async Task<OrderDetailDto> HandleAsync(
         GetOrderByIdQuery query, 
         CancellationToken cancellationToken)
     {
         // Try DAX cache first
         var cacheKey = $"ORDER#{query.OrderId}";
-        
+      
         var getItemRequest = new GetItemRequest
         {
             TableName = _tableName,
@@ -749,32 +753,32 @@ public class DynamoDbOrderQueryHandler :
             },
             ConsistentRead = false // Eventual consistency for reads
         };
-        
+      
         // Try DAX first (low latency)
         var response = await _daxClient.GetItemAsync(getItemRequest, cancellationToken);
-        
+      
         if (response.Item.Count > 0)
         {
             _logger.LogDebug("Cache hit for order {OrderId}", query.OrderId);
             return DeserializeOrder(response.Item);
         }
-        
+      
         _logger.LogDebug("Cache miss for order {OrderId}, querying DynamoDB", query.OrderId);
-        
+      
         // Fallback to DynamoDB
         response = await _dynamoDb.GetItemAsync(getItemRequest, cancellationToken);
-        
+      
         if (response.Item.Count == 0)
             return null;
-            
+          
         var order = DeserializeOrder(response.Item);
-        
+      
         // Store in DAX for next time
         await CacheOrderAsync(order, cancellationToken);
-        
+      
         return order;
     }
-    
+  
     public async Task<PagedResult<OrderSummaryDto>> HandleAsync(
         GetOrdersByCustomerQuery query,
         CancellationToken cancellationToken)
@@ -792,11 +796,11 @@ public class DynamoDbOrderQueryHandler :
             Limit = query.PageSize,
             ExclusiveStartKey = GetPaginationKey(query.Page)
         };
-        
+      
         var response = await _dynamoDb.QueryAsync(request, cancellationToken);
-        
+      
         var items = response.Items.Select(DeserializeSummary).ToList();
-        
+      
         return new PagedResult<OrderSummaryDto>
         {
             Items = items,
@@ -805,7 +809,7 @@ public class DynamoDbOrderQueryHandler :
             TotalCount = await GetTotalCountAsync(query.CustomerId, cancellationToken)
         };
     }
-    
+  
     private OrderDetailDto DeserializeOrder(Dictionary<string, AttributeValue> item)
     {
         return new OrderDetailDto
@@ -819,7 +823,7 @@ public class DynamoDbOrderQueryHandler :
             Items = DeserializeItems(item.GetValueOrDefault("Items")?.S ?? "[]")
         };
     }
-    
+  
     private OrderSummaryDto DeserializeSummary(Dictionary<string, AttributeValue> item)
     {
         return new OrderSummaryDto
@@ -835,25 +839,25 @@ public class DynamoDbOrderQueryHandler :
             IsDelivered = item["Status"].S == "Delivered"
         };
     }
-    
+  
     private List<OrderItemDto> DeserializeItems(string itemsJson)
     {
         return JsonSerializer.Deserialize<List<OrderItemDto>>(itemsJson, _jsonOptions);
     }
-    
+  
     private async Task CacheOrderAsync(OrderDetailDto order, CancellationToken cancellationToken)
     {
         try
         {
             var cacheKey = $"ORDER#{order.Id}";
             var item = SerializeOrder(order);
-            
+          
             var putRequest = new PutItemRequest
             {
                 TableName = _tableName,
                 Item = item
             };
-            
+          
             await _daxClient.PutItemAsync(putRequest, cancellationToken);
         }
         catch (Exception ex)
@@ -862,7 +866,7 @@ public class DynamoDbOrderQueryHandler :
             // Non-critical, continue
         }
     }
-    
+  
     private Dictionary<string, AttributeValue> SerializeOrder(OrderDetailDto order)
     {
         return new Dictionary<string, AttributeValue>
@@ -878,13 +882,13 @@ public class DynamoDbOrderQueryHandler :
             ["Items"] = new AttributeValue { S = JsonSerializer.Serialize(order.Items) }
         };
     }
-    
+  
     private Dictionary<string, AttributeValue> GetPaginationKey(int page)
     {
         // Implement pagination logic
         return null;
     }
-    
+  
     private async Task<int> GetTotalCountAsync(string customerId, CancellationToken cancellationToken)
     {
         var request = new QueryRequest
@@ -898,7 +902,7 @@ public class DynamoDbOrderQueryHandler :
             },
             Select = Select.COUNT
         };
-        
+      
         var response = await _dynamoDb.QueryAsync(request, cancellationToken);
         return response.Count;
     }
@@ -915,7 +919,7 @@ public class OrderProjectionHandler
     private readonly IAmazonSNS _sns;
     private readonly ILogger<OrderProjectionHandler> _logger;
     private readonly string _tableName;
-    
+  
     public OrderProjectionHandler()
     {
         _dynamoDb = new AmazonDynamoDBClient();
@@ -923,11 +927,11 @@ public class OrderProjectionHandler
         _logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger<OrderProjectionHandler>();
         _tableName = Environment.GetEnvironmentVariable("ORDERS_TABLE") ?? "Orders";
     }
-    
+  
     public async Task HandleAsync(OrderCreatedEvent @event, ILambdaContext context)
     {
         _logger.LogInformation("Projecting order {OrderId} to DynamoDB", @event.OrderId);
-        
+      
         // Create denormalized read model
         var orderDetail = new OrderDetailDto
         {
@@ -949,17 +953,17 @@ public class OrderProjectionHandler
                 }
             }
         };
-        
+      
         // Store in DynamoDB
         await StoreOrderDetailAsync(orderDetail);
-        
+      
         // Also store summary for list views
         await StoreOrderSummaryAsync(orderDetail);
-        
+      
         // Publish projection completed event
         await PublishProjectionCompletedAsync(@event.OrderId);
     }
-    
+  
     public async Task HandleAsync(OrderPaidDomainEvent @event, ILambdaContext context)
     {
         var updateRequest = new UpdateItemRequest
@@ -982,16 +986,16 @@ public class OrderProjectionHandler
                 [":paidAt"] = new AttributeValue { S = DateTime.UtcNow.ToString("o") }
             }
         };
-        
+      
         await _dynamoDb.UpdateItemAsync(updateRequest);
-        
+      
         // Add to status history
         await AddStatusHistoryAsync(@event.OrderId, "Paid", "Payment processed");
-        
+      
         // Update summary
         await UpdateOrderSummaryStatusAsync(@event.OrderId, "Paid");
     }
-    
+  
     private async Task StoreOrderDetailAsync(OrderDetailDto order)
     {
         var item = new Dictionary<string, AttributeValue>
@@ -1009,16 +1013,16 @@ public class OrderProjectionHandler
             ["StatusHistory"] = new AttributeValue { S = JsonSerializer.Serialize(order.StatusHistory) },
             ["TTL"] = new AttributeValue { N = DateTimeOffset.UtcNow.AddDays(90).ToUnixTimeSeconds().ToString() }
         };
-        
+      
         var request = new PutItemRequest
         {
             TableName = _tableName,
             Item = item
         };
-        
+      
         await _dynamoDb.PutItemAsync(request);
     }
-    
+  
     private async Task StoreOrderSummaryAsync(OrderDetailDto order)
     {
         var item = new Dictionary<string, AttributeValue>
@@ -1032,16 +1036,16 @@ public class OrderProjectionHandler
             ["ItemCount"] = new AttributeValue { N = order.Items.Count.ToString() },
             ["Status"] = new AttributeValue { S = order.Status }
         };
-        
+      
         var request = new PutItemRequest
         {
             TableName = _tableName,
             Item = item
         };
-        
+      
         await _dynamoDb.PutItemAsync(request);
     }
-    
+  
     private async Task AddStatusHistoryAsync(Guid orderId, string status, string note)
     {
         var getRequest = new GetItemRequest
@@ -1053,21 +1057,21 @@ public class OrderProjectionHandler
                 ["SK"] = new AttributeValue { S = "DETAIL" }
             }
         };
-        
+      
         var response = await _dynamoDb.GetItemAsync(getRequest);
-        
+      
         if (response.Item.Count > 0)
         {
             var historyJson = response.Item.GetValueOrDefault("StatusHistory")?.S ?? "[]";
             var history = JsonSerializer.Deserialize<List<StatusHistoryDto>>(historyJson);
-            
+          
             history.Add(new StatusHistoryDto
             {
                 Status = status,
                 ChangedAt = DateTime.UtcNow,
                 Note = note
             });
-            
+          
             var updateRequest = new UpdateItemRequest
             {
                 TableName = _tableName,
@@ -1082,23 +1086,23 @@ public class OrderProjectionHandler
                     [":history"] = new AttributeValue { S = JsonSerializer.Serialize(history) }
                 }
             };
-            
+          
             await _dynamoDb.UpdateItemAsync(updateRequest);
         }
     }
-    
+  
     private async Task UpdateOrderSummaryStatusAsync(Guid orderId, string status)
     {
         // Need to find all summaries for this order (could be multiple customers)
         // This is simplified - in production, you'd maintain an index
     }
-    
+  
     private async Task<string> GetCustomerNameAsync(string customerId)
     {
         // Call customer service or query customer table
         return "John Doe"; // Simplified
     }
-    
+  
     private async Task PublishProjectionCompletedAsync(Guid orderId)
     {
         var request = new PublishRequest
@@ -1107,7 +1111,7 @@ public class OrderProjectionHandler
             Message = JsonSerializer.Serialize(new { OrderId = orderId, Event = "ProjectionCompleted" }),
             Subject = "ProjectionCompleted"
         };
-        
+      
         await _sns.PublishAsync(request);
     }
 }
@@ -1347,6 +1351,7 @@ The Saga pattern manages distributed transactions across multiple microservices 
 **Definition:** A saga is a sequence of local transactions where each transaction updates data within a single service. If a transaction fails, the saga executes compensating transactions to undo the changes made by preceding transactions.
 
 **Why it's essential:**
+
 - Distributed transactions don't scale (2PC is slow)
 - Services must maintain consistency without distributed locks
 - Failures require coordinated rollback
@@ -1364,38 +1369,39 @@ graph TB
         SF[Step Function<br/>Saga Orchestrator]
         SF --> State[Execution State<br/>Stored in DynamoDB]
     end
-    
+  
     subgraph "Order Service"
         SF --> T1[Create Order<br/>Task]
         T1 --> C1[Compensation<br/>Cancel Order]
     end
-    
+  
     subgraph "Payment Service"
         SF --> T2[Process Payment<br/>Task]
         T2 --> C2[Compensation<br/>Refund Payment]
     end
-    
+  
     subgraph "Inventory Service"
         SF --> T3[Reserve Inventory<br/>Task]
         T3 --> C3[Compensation<br/>Release Inventory]
     end
-    
+  
     subgraph "Shipping Service"
         SF --> T4[Create Shipment<br/>Task]
         T4 --> C4[Compensation<br/>Cancel Shipment]
     end
-    
+  
     T1 --> T2 --> T3 --> T4
     C4 --> C3 --> C2 --> C1
 ```
 
 ### Saga Implementation Options
 
-| Pattern | Coordination | AWS Service | Best For |
-|---------|--------------|-------------|----------|
-| **Choreography** | Decentralized (events) | SNS + SQS | Simple workflows, fewer services |
-| **Orchestration** | Centralized orchestrator | Step Functions | Complex workflows, business processes |
-| **State Machine** | Visual workflow | Step Functions | Long-running processes, human approval |
+
+| Pattern           | Coordination             | AWS Service    | Best For                               |
+| ----------------- | ------------------------ | -------------- | -------------------------------------- |
+| **Choreography**  | Decentralized (events)   | SNS + SQS      | Simple workflows, fewer services       |
+| **Orchestration** | Centralized orchestrator | Step Functions | Complex workflows, business processes  |
+| **State Machine** | Visual workflow          | Step Functions | Long-running processes, human approval |
 
 ### Design Patterns Applied
 
@@ -1630,30 +1636,30 @@ public class ProcessPaymentFunction
     private readonly IAmazonDynamoDB _dynamoDb;
     private readonly IAmazonSNS _sns;
     private readonly ILogger<ProcessPaymentFunction> _logger;
-    
+  
     public ProcessPaymentFunction()
     {
         _dynamoDb = new AmazonDynamoDBClient();
         _sns = new AmazonSimpleNotificationServiceClient();
         _logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger<ProcessPaymentFunction>();
     }
-    
+  
     public async Task<PaymentResult> FunctionHandler(SagaInput input, ILambdaContext context)
     {
         _logger.LogInformation("Processing payment for saga {SagaId}, order {OrderId}", 
             input.SagaId, input.OrderId);
-        
+      
         try
         {
             // Store saga state
             await UpdateSagaStateAsync(input.SagaId, "ProcessPayment", "IN_PROGRESS");
-            
+          
             // Process payment (simulate)
             var paymentId = $"PAY-{Guid.NewGuid():N}";
-            
+          
             // Simulate payment processing
             await Task.Delay(500);
-            
+          
             var result = new PaymentResult
             {
                 Success = true,
@@ -1662,25 +1668,25 @@ public class ProcessPaymentFunction
                 SagaId = input.SagaId,
                 OrderId = input.OrderId
             };
-            
+          
             // Update saga state
             await UpdateSagaStateAsync(input.SagaId, "ProcessPayment", "COMPLETED", result);
-            
+          
             // Publish event
             await PublishEventAsync("PaymentProcessed", result);
-            
+          
             return result;
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Payment failed for saga {SagaId}", input.SagaId);
-            
+          
             await UpdateSagaStateAsync(input.SagaId, "ProcessPayment", "FAILED", null, ex.Message);
-            
+          
             throw;
         }
     }
-    
+  
     private async Task UpdateSagaStateAsync(string sagaId, string step, string status, object result = null, string error = null)
     {
         var updateExpression = "SET CurrentStep = :step, #status = :status, LastUpdated = :lastUpdated";
@@ -1690,7 +1696,7 @@ public class ProcessPaymentFunction
             [":status"] = new AttributeValue { S = status },
             [":lastUpdated"] = new AttributeValue { S = DateTime.UtcNow.ToString("o") }
         };
-        
+      
         if (result != null)
         {
             updateExpression += ", StepResults.#step = :result";
@@ -1699,13 +1705,13 @@ public class ProcessPaymentFunction
                 S = JsonSerializer.Serialize(result) 
             };
         }
-        
+      
         if (!string.IsNullOrEmpty(error))
         {
             updateExpression += ", Error = :error";
             expressionAttributeValues[":error"] = new AttributeValue { S = error };
         }
-        
+      
         var request = new UpdateItemRequest
         {
             TableName = Environment.GetEnvironmentVariable("SAGA_TABLE"),
@@ -1722,10 +1728,10 @@ public class ProcessPaymentFunction
             },
             ExpressionAttributeValues = expressionAttributeValues
         };
-        
+      
         await _dynamoDb.UpdateItemAsync(request);
     }
-    
+  
     private async Task PublishEventAsync(string eventType, object detail)
     {
         var request = new PublishRequest
@@ -1742,7 +1748,7 @@ public class ProcessPaymentFunction
                 }
             }
         };
-        
+      
         await _sns.PublishAsync(request);
     }
 }
@@ -1776,27 +1782,27 @@ public class RefundPaymentFunction
     private readonly IAmazonDynamoDB _dynamoDb;
     private readonly IAmazonSNS _sns;
     private readonly ILogger<RefundPaymentFunction> _logger;
-    
+  
     public RefundPaymentFunction()
     {
         _dynamoDb = new AmazonDynamoDBClient();
         _sns = new AmazonSimpleNotificationServiceClient();
         _logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger<RefundPaymentFunction>();
     }
-    
+  
     public async Task<CompensationResult> FunctionHandler(CompensationInput input, ILambdaContext context)
     {
         _logger.LogInformation("Processing refund for saga {SagaId}, payment {PaymentId}", 
             input.SagaId, input.PaymentId);
-        
+      
         try
         {
             // Process refund
             var refundId = $"REF-{Guid.NewGuid():N}";
-            
+          
             // Simulate refund processing
             await Task.Delay(300);
-            
+          
             var result = new CompensationResult
             {
                 Success = true,
@@ -1804,25 +1810,25 @@ public class RefundPaymentFunction
                 SagaId = input.SagaId,
                 Message = "Payment refunded successfully"
             };
-            
+          
             // Update saga state
             await UpdateSagaStateAsync(input.SagaId, "RefundPayment", "COMPLETED", result);
-            
+          
             // Publish event
             await PublishEventAsync("PaymentRefunded", result);
-            
+          
             return result;
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Refund failed for saga {SagaId}", input.SagaId);
-            
+          
             await UpdateSagaStateAsync(input.SagaId, "RefundPayment", "FAILED", null, ex.Message);
-            
+          
             throw;
         }
     }
-    
+  
     private async Task UpdateSagaStateAsync(string sagaId, string step, string status, object result = null, string error = null)
     {
         var request = new UpdateItemRequest
@@ -1844,10 +1850,10 @@ public class RefundPaymentFunction
                 [":lastUpdated"] = new AttributeValue { S = DateTime.UtcNow.ToString("o") }
             }
         };
-        
+      
         await _dynamoDb.UpdateItemAsync(request);
     }
-    
+  
     private async Task PublishEventAsync(string eventType, object detail)
     {
         var request = new PublishRequest
@@ -1856,7 +1862,7 @@ public class RefundPaymentFunction
             Message = JsonSerializer.Serialize(detail),
             Subject = eventType
         };
-        
+      
         await _sns.PublishAsync(request);
     }
 }
@@ -1888,7 +1894,7 @@ public class SagaOrchestratorClient
     private readonly ILogger<SagaOrchestratorClient> _logger;
     private readonly string _stateMachineArn;
     private readonly string _sagaTable;
-    
+  
     public SagaOrchestratorClient(
         IAmazonStepFunctions stepFunctions,
         IAmazonDynamoDB dynamoDb,
@@ -1901,13 +1907,13 @@ public class SagaOrchestratorClient
         _stateMachineArn = configuration["StepFunctions:OrderSagaArn"];
         _sagaTable = configuration["DynamoDB:SagaTable"] ?? "SagaStates";
     }
-    
+  
     public async Task<string> StartOrderSagaAsync(CreateOrderCommand command)
     {
         var sagaId = Guid.NewGuid().ToString();
-        
+      
         _logger.LogInformation("Starting saga {SagaId} for order", sagaId);
-        
+      
         // Create initial saga state
         var sagaData = new OrderSagaData
         {
@@ -1926,10 +1932,10 @@ public class SagaOrchestratorClient
             CorrelationId = Guid.NewGuid().ToString(),
             Status = SagaStatus.NotStarted.ToString()
         };
-        
+      
         // Save to DynamoDB
         await SaveSagaStateAsync(sagaData);
-        
+      
         // Start Step Function execution
         var input = new
         {
@@ -1939,22 +1945,22 @@ public class SagaOrchestratorClient
             totalAmount = sagaData.TotalAmount,
             items = sagaData.Items
         };
-        
+      
         var startRequest = new StartExecutionRequest
         {
             StateMachineArn = _stateMachineArn,
             Name = $"OrderSaga-{sagaId}",
             Input = JsonSerializer.Serialize(input)
         };
-        
+      
         var response = await _stepFunctions.StartExecutionAsync(startRequest);
-        
+      
         _logger.LogInformation("Started Step Function execution {ExecutionArn} for saga {SagaId}", 
             response.ExecutionArn, sagaId);
-        
+      
         return sagaId;
     }
-    
+  
     public async Task<OrderSagaData> GetSagaStatusAsync(string sagaId)
     {
         var request = new GetItemRequest
@@ -1966,19 +1972,19 @@ public class SagaOrchestratorClient
                 ["SK"] = new AttributeValue { S = "STATE" }
             }
         };
-        
+      
         var response = await _dynamoDb.GetItemAsync(request);
-        
+      
         if (response.Item.Count == 0)
             return null;
-            
+          
         return DeserializeSagaState(response.Item);
     }
-    
+  
     public async Task<IEnumerable<OrderSagaData>> GetStuckSagasAsync(TimeSpan olderThan)
     {
         var cutoffTime = DateTime.UtcNow.Subtract(olderThan);
-        
+      
         var request = new ScanRequest
         {
             TableName = _sagaTable,
@@ -1994,12 +2000,12 @@ public class SagaOrchestratorClient
                 [":cutoff"] = new AttributeValue { S = cutoffTime.ToString("o") }
             }
         };
-        
+      
         var response = await _dynamoDb.ScanAsync(request);
-        
+      
         return response.Items.Select(DeserializeSagaState);
     }
-    
+  
     private async Task SaveSagaStateAsync(OrderSagaData sagaData)
     {
         var item = new Dictionary<string, AttributeValue>
@@ -2016,31 +2022,31 @@ public class SagaOrchestratorClient
             ["CorrelationId"] = new AttributeValue { S = sagaData.CorrelationId },
             ["TTL"] = new AttributeValue { N = DateTimeOffset.UtcNow.AddDays(30).ToUnixTimeSeconds().ToString() }
         };
-        
+      
         if (sagaData.CompletedAt.HasValue)
         {
             item["CompletedAt"] = new AttributeValue { S = sagaData.CompletedAt.Value.ToString("o") };
         }
-        
+      
         if (sagaData.PaymentId != null)
         {
             item["PaymentId"] = new AttributeValue { S = sagaData.PaymentId };
         }
-        
+      
         if (sagaData.ShipmentId != null)
         {
             item["ShipmentId"] = new AttributeValue { S = sagaData.ShipmentId };
         }
-        
+      
         var request = new PutItemRequest
         {
             TableName = _sagaTable,
             Item = item
         };
-        
+      
         await _dynamoDb.PutItemAsync(request);
     }
-    
+  
     private OrderSagaData DeserializeSagaState(Dictionary<string, AttributeValue> item)
     {
         return new OrderSagaData
@@ -2359,6 +2365,7 @@ A service mesh is a dedicated infrastructure layer that handles service-to-servi
 **Definition:** A service mesh is a configurable infrastructure layer that manages communication between services using sidecar proxies. It provides capabilities like service discovery, load balancing, encryption, authentication, authorization, and observability without requiring changes to application code.
 
 **Why it's essential:**
+
 - Separates operational concerns from business logic
 - Provides consistent policies across all services
 - Enables mTLS encryption without code changes
@@ -2378,21 +2385,21 @@ graph TB
         EnvoyA[Envoy Sidecar]
         AppA --> EnvoyA
     end
-    
+  
     subgraph "ECS Task - Payment Service"
         AppB[Payment Service<br/>.NET 10]
         EnvoyB[Envoy Sidecar]
         AppB --> EnvoyB
     end
-    
+  
     subgraph "AWS App Mesh Control Plane"
         CP[App Mesh<br/>Control Plane]
         CP --> EnvoyA
         CP --> EnvoyB
     end
-    
+  
     EnvoyA == mTLS ==> EnvoyB
-    
+  
     subgraph "Service Mesh Features"
         Traffic[Traffic Management<br/>Routing, Canary, Timeouts]
         Security[Security/mTLS<br/>AuthZ, AuthN, Encryption]
@@ -2403,11 +2410,12 @@ graph TB
 
 ### AWS Service Mesh Options
 
-| Solution | Features | Complexity | Integration | Best For |
-|----------|----------|------------|-------------|----------|
-| **AWS App Mesh** | Envoy-based, native AWS integration | Medium | ECS, EKS, EC2 | AWS-native services |
-| **Istio on EKS** | Full-featured, multi-cluster | High | Kubernetes only | Complex multi-cluster |
-| **Linkerd on EKS** | Lightweight, fast | Medium | Kubernetes only | Simpler service mesh |
+
+| Solution           | Features                            | Complexity | Integration     | Best For              |
+| ------------------ | ----------------------------------- | ---------- | --------------- | --------------------- |
+| **AWS App Mesh**   | Envoy-based, native AWS integration | Medium     | ECS, EKS, EC2   | AWS-native services   |
+| **Istio on EKS**   | Full-featured, multi-cluster        | High       | Kubernetes only | Complex multi-cluster |
+| **Linkerd on EKS** | Lightweight, fast                   | Medium     | Kubernetes only | Simpler service mesh  |
 
 ### Design Patterns Applied
 
@@ -2731,7 +2739,7 @@ public class AppMeshServiceDiscovery
     private readonly IAmazonAppMesh _appMesh;
     private readonly ILogger<AppMeshServiceDiscovery> _logger;
     private readonly string _meshName;
-    
+  
     public AppMeshServiceDiscovery(
         IAmazonAppMesh appMesh,
         IConfiguration configuration,
@@ -2741,7 +2749,7 @@ public class AppMeshServiceDiscovery
         _logger = logger;
         _meshName = configuration["AppMesh:MeshName"] ?? "microservices-mesh";
     }
-    
+  
     public async Task<string> ResolveVirtualServiceAsync(string serviceName)
     {
         try
@@ -2751,12 +2759,12 @@ public class AppMeshServiceDiscovery
                 MeshName = _meshName,
                 VirtualServiceName = serviceName
             };
-            
+          
             var response = await _appMesh.DescribeVirtualServiceAsync(request);
-            
+          
             // Get provider details
             var provider = response.VirtualService.Spec.Provider;
-            
+          
             if (provider.VirtualNode != null)
             {
                 _logger.LogInformation("Service {ServiceName} resolved to VirtualNode {NodeName}", 
@@ -2769,7 +2777,7 @@ public class AppMeshServiceDiscovery
                     serviceName, provider.VirtualRouter.VirtualRouterName);
                 return $"http://{serviceName}:8080";
             }
-            
+          
             return null;
         }
         catch (Exception ex)
@@ -2828,22 +2836,22 @@ public class AppMeshOptions
 public class AppMeshTracingHandler : DelegatingHandler
 {
     private readonly ILogger<AppMeshTracingHandler> _logger;
-    
+  
     public AppMeshTracingHandler(ILogger<AppMeshTracingHandler> logger)
     {
         _logger = logger;
     }
-    
+  
     protected override async Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request, 
         CancellationToken cancellationToken)
     {
         // App Mesh automatically injects X-Ray tracing headers
         // The Envoy proxy handles trace propagation
-        
+      
         // Add custom App Mesh headers
         request.Headers.Add("x-amzn-trace-id", System.Diagnostics.Activity.Current?.Id);
-        
+      
         return await base.SendAsync(request, cancellationToken);
     }
 }
@@ -2871,6 +2879,7 @@ Distributed tracing tracks requests as they flow through multiple services, prov
 **Definition:** Distributed tracing is a method of monitoring applications built on microservices architecture by tracking a single request across all services it traverses. Each trace consists of spans representing individual operations, forming a tree structure that shows the complete path of a request.
 
 **Why it's essential:**
+
 - Understand request flow across service boundaries
 - Identify performance bottlenecks
 - Debug failures in complex distributed systems
@@ -2886,13 +2895,13 @@ Distributed tracing tracks requests as they flow through multiple services, prov
 ```mermaid
 graph TB
     Client[Client Request] --> APIGW[API Gateway<br/>Span 1: 245ms]
-    
+  
     APIGW --> Order[Order Service<br/>Span 2: 300ms]
     Order --> DB[(Aurora<br/>Span 3: 100ms)]
     Order --> Payment[Payment Service<br/>Span 4: 180ms]
     Payment --> Dynamo[(DynamoDB<br/>Span 5: 60ms)]
     Payment --> SQS[SQS<br/>Span 6: 45ms]
-    
+  
     subgraph "Trace ID: 1-5f3e4d2-1a2b3c4d5e6f7g8h"
         APIGW
         Order
@@ -2902,12 +2911,13 @@ graph TB
 
 ### AWS Observability Options
 
-| Service | Purpose | Features | Integration |
-|---------|---------|----------|-------------|
-| **AWS X-Ray** | Distributed tracing | Trace analysis, service maps, annotations | SDK, agents, Lambda |
-| **CloudWatch** | Metrics, logs, alarms | Dashboards, log analytics, anomaly detection | Agent, SDK, integrations |
-| **CloudWatch Logs** | Log aggregation | Centralized logging, Insights queries | Agent, Lambda, ECS |
-| **AWS Distro for OpenTelemetry** | Vendor-neutral instrumentation | OpenTelemetry collector, exporters | Multiple backends |
+
+| Service                          | Purpose                        | Features                                     | Integration              |
+| -------------------------------- | ------------------------------ | -------------------------------------------- | ------------------------ |
+| **AWS X-Ray**                    | Distributed tracing            | Trace analysis, service maps, annotations    | SDK, agents, Lambda      |
+| **CloudWatch**                   | Metrics, logs, alarms          | Dashboards, log analytics, anomaly detection | Agent, SDK, integrations |
+| **CloudWatch Logs**              | Log aggregation                | Centralized logging, Insights queries        | Agent, Lambda, ECS       |
+| **AWS Distro for OpenTelemetry** | Vendor-neutral instrumentation | OpenTelemetry collector, exporters           | Multiple backends        |
 
 ### Design Patterns Applied
 
@@ -2947,14 +2957,14 @@ app.UseXRay("OrderService");
 app.Use(async (context, next) =>
 {
     var segment = AWSXRayRecorder.Instance.GetEntity();
-    
+  
     if (segment != null)
     {
         // Add custom annotations
         segment.AddAnnotation("request.path", context.Request.Path);
         segment.AddAnnotation("request.method", context.Request.Method);
         segment.AddAnnotation("user.agent", context.Request.Headers["User-Agent"]);
-        
+      
         // Add metadata
         segment.AddMetadata("request", new
         {
@@ -2962,7 +2972,7 @@ app.Use(async (context, next) =>
             query = context.Request.QueryString.ToString()
         });
     }
-    
+  
     await next(context);
 });
 ```
@@ -2976,7 +2986,7 @@ public class OrderService
     private readonly IOrderRepository _orderRepository;
     private readonly IPaymentClient _paymentClient;
     private readonly ILogger<OrderService> _logger;
-    
+  
     public OrderService(
         IOrderRepository orderRepository,
         IPaymentClient paymentClient,
@@ -2986,45 +2996,45 @@ public class OrderService
         _paymentClient = paymentClient;
         _logger = logger;
     }
-    
+  
     public async Task<OrderResult> CreateOrderAsync(CreateOrderCommand command)
     {
         // Start a custom subsegment for the business operation
         AWSXRayRecorder.Instance.BeginSubsegment("CreateOrder");
-        
+      
         try
         {
             // Add annotations
             AWSXRayRecorder.Instance.AddAnnotation("order.customer", command.CustomerId);
             AWSXRayRecorder.Instance.AddAnnotation("order.items.count", command.Items.Count);
             AWSXRayRecorder.Instance.AddAnnotation("order.total", command.Items.Sum(i => i.Quantity * i.UnitPrice));
-            
+          
             // Validate order
             await ValidateOrderAsync(command);
-            
+          
             // Save to database with nested subsegment
             Order order;
             using (AWSXRayRecorder.Instance.BeginSubsegment("SaveOrder"))
             {
                 AWSXRayRecorder.Instance.AddAnnotation("db.operation", "insert");
-                
+              
                 var stopwatch = Stopwatch.StartNew();
                 order = await _orderRepository.CreateAsync(command);
                 stopwatch.Stop();
-                
+              
                 AWSXRayRecorder.Instance.AddMetadata("db", new
                 {
                     durationMs = stopwatch.ElapsedMilliseconds,
                     orderId = order.Id
                 });
             }
-            
+          
             // Call payment service
             using (AWSXRayRecorder.Instance.BeginSubsegment("ProcessPayment"))
             {
                 AWSXRayRecorder.Instance.AddAnnotation("payment.amount", order.TotalAmount);
                 AWSXRayRecorder.Instance.AddAnnotation("payment.method", command.PaymentMethod);
-                
+              
                 var stopwatch = Stopwatch.StartNew();
                 var paymentResult = await _paymentClient.ProcessPaymentAsync(new PaymentRequest
                 {
@@ -3033,18 +3043,18 @@ public class OrderService
                     CustomerId = command.CustomerId
                 });
                 stopwatch.Stop();
-                
+              
                 AWSXRayRecorder.Instance.AddAnnotation("payment.success", paymentResult.Success);
                 AWSXRayRecorder.Instance.AddAnnotation("payment.duration_ms", stopwatch.ElapsedMilliseconds);
-                
+              
                 if (!paymentResult.Success)
                 {
                     AWSXRayRecorder.Instance.AddException(new Exception("Payment failed"));
                 }
             }
-            
+          
             _logger.LogInformation("Order {OrderId} created successfully", order.Id);
-            
+          
             return new OrderResult { OrderId = order.Id, Success = true };
         }
         catch (Exception ex)
@@ -3058,7 +3068,7 @@ public class OrderService
             AWSXRayRecorder.Instance.EndSubsegment();
         }
     }
-    
+  
     private async Task ValidateOrderAsync(CreateOrderCommand command)
     {
         using (AWSXRayRecorder.Instance.BeginSubsegment("ValidateOrder"))
@@ -3083,11 +3093,11 @@ public class XRayEfCoreInterceptor : DbCommandInterceptor
         CancellationToken cancellationToken = default)
     {
         var segment = AWSXRayRecorder.Instance.GetEntity();
-        
+      
         if (segment != null)
         {
             using var subsegment = AWSXRayRecorder.Instance.BeginSubsegment("Database.Query");
-            
+          
             // Add SQL metadata
             subsegment.AddMetadata("sql", new
             {
@@ -3096,15 +3106,15 @@ public class XRayEfCoreInterceptor : DbCommandInterceptor
                     .ToDictionary(p => p.ParameterName, p => p.Value),
                 commandType = command.CommandType.ToString()
             });
-            
+          
             // Add annotation for query type
             var queryType = GetQueryType(command.CommandText);
             subsegment.AddAnnotation("db.query_type", queryType);
         }
-        
+      
         return base.ReaderExecutingAsync(command, eventData, result, cancellationToken);
     }
-    
+  
     public override async Task ReaderExecutedAsync(
         DbCommand command,
         CommandExecutedEventData eventData,
@@ -3112,7 +3122,7 @@ public class XRayEfCoreInterceptor : DbCommandInterceptor
         CancellationToken cancellationToken = default)
     {
         var segment = AWSXRayRecorder.Instance.GetEntity();
-        
+      
         if (segment != null)
         {
             var subsegment = segment.FindSubsegment("Database.Query");
@@ -3126,21 +3136,21 @@ public class XRayEfCoreInterceptor : DbCommandInterceptor
                 subsegment.End();
             }
         }
-        
+      
         await base.ReaderExecutedAsync(command, eventData, result, cancellationToken);
     }
-    
+  
     private string GetQueryType(string sql)
     {
         if (string.IsNullOrEmpty(sql)) return "Unknown";
-        
+      
         var trimmed = sql.TrimStart().ToUpperInvariant();
-        
+      
         if (trimmed.StartsWith("SELECT")) return "SELECT";
         if (trimmed.StartsWith("INSERT")) return "INSERT";
         if (trimmed.StartsWith("UPDATE")) return "UPDATE";
         if (trimmed.StartsWith("DELETE")) return "DELETE";
-        
+      
         return "Other";
     }
 }
@@ -3166,22 +3176,22 @@ public class XRaySqsMessageHandler : DelegatingHandler
         using (AWSXRayRecorder.Instance.BeginSubsegment("SQS"))
         {
             var segment = AWSXRayRecorder.Instance.GetEntity();
-            
+          
             // Add SQS-specific annotations
             AWSXRayRecorder.Instance.AddAnnotation("sqs.queue_url", request.RequestUri?.ToString());
             AWSXRayRecorder.Instance.AddAnnotation("sqs.operation", request.Method.Method);
-            
+          
             // Add trace header to message
             if (request.Content != null)
             {
                 var traceHeader = segment.ToHeader();
                 request.Headers.Add("X-Amzn-Trace-Id", traceHeader);
             }
-            
+          
             var response = await base.SendAsync(request, cancellationToken);
-            
+          
             AWSXRayRecorder.Instance.AddAnnotation("sqs.status_code", (int)response.StatusCode);
-            
+          
             return response;
         }
     }
@@ -3203,7 +3213,7 @@ public class XRaySqsConsumer : BackgroundService
     private readonly IEventHandler<OrderCreatedEvent> _handler;
     private readonly ILogger<XRaySqsConsumer> _logger;
     private readonly string _queueUrl;
-    
+  
     public XRaySqsConsumer(
         IAmazonSQS sqs,
         IAmazonXRay xray,
@@ -3217,7 +3227,7 @@ public class XRaySqsConsumer : BackgroundService
         _logger = logger;
         _queueUrl = configuration["AWS:SQS:OrderQueueUrl"];
     }
-    
+  
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var receiveRequest = new ReceiveMessageRequest
@@ -3227,34 +3237,34 @@ public class XRaySqsConsumer : BackgroundService
             WaitTimeSeconds = 20,
             MessageAttributeNames = new List<string> { "All" }
         };
-        
+      
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
                 var response = await _sqs.ReceiveMessageAsync(receiveRequest, stoppingToken);
-                
+              
                 foreach (var message in response.Messages)
                 {
                     // Extract trace header
                     var traceHeader = message.MessageAttributes
                         .GetValueOrDefault("X-Amzn-Trace-Id")?.StringValue;
-                    
+                  
                     // Start trace segment
                     var segment = AWSXRayRecorder.Instance.BeginSegment(
                         "ProcessMessage",
                         traceHeader: traceHeader);
-                    
+                  
                     try
                     {
                         segment.AddAnnotation("message.id", message.MessageId);
                         segment.AddAnnotation("queue", _queueUrl);
-                        
+                      
                         await ProcessMessageAsync(message, stoppingToken);
-                        
+                      
                         // Delete message after successful processing
                         await _sqs.DeleteMessageAsync(_queueUrl, message.ReceiptHandle, stoppingToken);
-                        
+                      
                         segment.MarkComplete();
                     }
                     catch (Exception ex)
@@ -3276,7 +3286,7 @@ public class XRaySqsConsumer : BackgroundService
             }
         }
     }
-    
+  
     private async Task ProcessMessageAsync(Message message, CancellationToken cancellationToken)
     {
         using (AWSXRayRecorder.Instance.BeginSubsegment("Deserialize"))
@@ -3285,7 +3295,7 @@ public class XRaySqsConsumer : BackgroundService
             AWSXRayRecorder.Instance.AddAnnotation("event.id", eventData.EventId);
             AWSXRayRecorder.Instance.AddAnnotation("event.type", "OrderCreated");
         }
-        
+      
         using (AWSXRayRecorder.Instance.BeginSubsegment("HandleEvent"))
         {
             var eventData = JsonSerializer.Deserialize<OrderCreatedEvent>(message.Body);
@@ -3495,6 +3505,7 @@ Containerization packages an application with its dependencies into a standardiz
 **Definition:** Containerization is the packaging of software code with its dependencies (libraries, frameworks, configuration files) into a single, lightweight executable unit called a container. Containers run consistently on any infrastructure, from a developer's laptop to production servers.
 
 **Why it's essential:**
+
 - Eliminates "it works on my machine" problems
 - Provides consistency across development, testing, and production
 - Enables microservices isolation and resource control
@@ -3515,14 +3526,14 @@ graph TB
         L3[System Layer<br/>Amazon Linux 2023]
         L4[Base Layer<br/>Container OS]
     end
-    
+  
     subgraph "Build Process"
         Source[Source Code] --> Build[Build Stage<br/>SDK Image]
         Build --> Test[Test Stage<br/>Run Unit Tests]
         Test --> Publish[Publish Stage<br/>dotnet publish]
         Publish --> Package[Package Image<br/>Docker build]
     end
-    
+  
     subgraph "Deployment Targets"
         Package --> Registry[ECR<br/>Private Registry]
         Registry --> ECS[ECS Fargate]
@@ -3534,12 +3545,13 @@ graph TB
 
 ### Container Registry Options
 
-| Registry | Features | Security | Geo-Replication | Cost |
-|----------|----------|----------|-----------------|------|
-| **Amazon ECR** | Vulnerability scanning, lifecycle policies | IAM integration, private | Cross-region replication | Pay per storage + data transfer |
-| **Docker Hub** | Public/private repos, automated builds | Basic | No | Free for public, paid for private |
-| **ECR Public** | Public container gallery | IAM | Global | Free |
-| **ECR Pull Through Cache** | Cache upstream registries | VPC endpoints | Regional | Pay per cached data |
+
+| Registry                   | Features                                   | Security                 | Geo-Replication          | Cost                              |
+| -------------------------- | ------------------------------------------ | ------------------------ | ------------------------ | --------------------------------- |
+| **Amazon ECR**             | Vulnerability scanning, lifecycle policies | IAM integration, private | Cross-region replication | Pay per storage + data transfer   |
+| **Docker Hub**             | Public/private repos, automated builds     | Basic                    | No                       | Free for public, paid for private |
+| **ECR Public**             | Public container gallery                   | IAM                      | Global                   | Free                              |
+| **ECR Pull Through Cache** | Cache upstream registries                  | VPC endpoints            | Regional                 | Pay per cached data               |
 
 ### Design Patterns Applied
 
@@ -4228,22 +4240,22 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     environment: production
-    
+  
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    
+  
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
-    
+  
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-    
+  
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
@@ -4253,13 +4265,13 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f OrderService/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-    
+  
     - name: Scan image for vulnerabilities
       run: |
         aws ecr start-image-scan \
           --repository-name ${{ env.ECR_REPOSITORY }} \
           --image-id imageTag=${{ github.sha }}
-        
+      
         # Wait for scan to complete
         while true; do
           SCAN_STATUS=$(aws ecr describe-image-scan-findings \
@@ -4267,35 +4279,35 @@ jobs:
             --image-id imageTag=${{ github.sha }} \
             --query 'imageScanStatus.status' \
             --output text)
-          
+        
           if [ "$SCAN_STATUS" = "COMPLETE" ]; then
             break
           fi
           sleep 10
         done
-        
+      
         # Check findings
         FINDINGS=$(aws ecr describe-image-scan-findings \
           --repository-name ${{ env.ECR_REPOSITORY }} \
           --image-id imageTag=${{ github.sha }} \
           --query 'imageScanFindings.findingSeverityCounts')
-        
+      
         echo "Scan findings: $FINDINGS"
-        
+      
         HIGH_COUNT=$(echo $FINDINGS | jq -r '.HIGH // 0')
         CRITICAL_COUNT=$(echo $FINDINGS | jq -r '.CRITICAL // 0')
-        
+      
         if [ "$HIGH_COUNT" -gt 0 ] || [ "$CRITICAL_COUNT" -gt 0 ]; then
           echo "❌ High or critical vulnerabilities found!"
           exit 1
         fi
-    
+  
     - name: Download task definition
       run: |
         aws ecs describe-task-definition \
           --task-definition ${{ env.ECS_TASK_DEFINITION }} \
           --query taskDefinition > task-definition.json
-    
+  
     - name: Fill in the new image ID in the task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
@@ -4303,7 +4315,7 @@ jobs:
         task-definition: task-definition.json
         container-name: order-service
         image: ${{ steps.build-image.outputs.image }}
-    
+  
     - name: Deploy to Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
@@ -4311,7 +4323,7 @@ jobs:
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
-    
+  
     - name: Run smoke tests
       run: |
         # Get service URL from ALB
@@ -4319,17 +4331,17 @@ jobs:
           --stack-name microservices-infrastructure \
           --query 'Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue' \
           --output text)
-        
+      
         curl -f https://$ALB_DNS/health
         curl -f https://$ALB_DNS/ready
-    
+  
     - name: Notify success
       if: success()
       run: |
         curl -X POST -H 'Content-type: application/json' \
           --data '{"text":"✅ Order Service deployed successfully"}' \
           ${{ secrets.SLACK_WEBHOOK }}
-    
+  
     - name: Notify failure
       if: failure()
       run: |
@@ -4367,6 +4379,7 @@ In this second part of the AWS series, we've implemented five advanced microserv
 10. **Containerization** - Consistent packaging with ECR and ECS Fargate
 
 Each pattern included:
+
 - Complete architectural diagrams using Mermaid
 - SOLID principle applications in .NET 10
 - AWS service integrations (Aurora, DynamoDB, Step Functions, App Mesh, X-Ray, ECR, ECS)
@@ -4377,18 +4390,19 @@ Each pattern included:
 
 ### Key Architectural Decisions Summary
 
-| Pattern | AWS Service | Key Benefits |
-|---------|-------------|--------------|
-| API Gateway | Amazon API Gateway + App Runner | Centralized security, routing, rate limiting |
-| Service Discovery | AWS Cloud Map | Dynamic service location |
-| Load Balancing | ALB + Global Accelerator | Global distribution, auto-scaling |
-| Circuit Breaker | Polly + CloudWatch | Resilience, failure isolation |
-| Event-Driven | SNS + SQS + Lambda | Decoupled communication, scalability |
-| CQRS | Aurora + DynamoDB | Optimized read/write performance |
-| Saga | Step Functions + DynamoDB | Distributed transaction management |
-| Service Mesh | AWS App Mesh | Zero-code infrastructure features |
-| Tracing | AWS X-Ray | End-to-end visibility |
-| Containerization | ECR + ECS Fargate | Consistent deployment, portability |
+
+| Pattern           | AWS Service                     | Key Benefits                                 |
+| ----------------- | ------------------------------- | -------------------------------------------- |
+| API Gateway       | Amazon API Gateway + App Runner | Centralized security, routing, rate limiting |
+| Service Discovery | AWS Cloud Map                   | Dynamic service location                     |
+| Load Balancing    | ALB + Global Accelerator        | Global distribution, auto-scaling            |
+| Circuit Breaker   | Polly + CloudWatch              | Resilience, failure isolation                |
+| Event-Driven      | SNS + SQS + Lambda              | Decoupled communication, scalability         |
+| CQRS              | Aurora + DynamoDB               | Optimized read/write performance             |
+| Saga              | Step Functions + DynamoDB       | Distributed transaction management           |
+| Service Mesh      | AWS App Mesh                    | Zero-code infrastructure features            |
+| Tracing           | AWS X-Ray                       | End-to-end visibility                        |
+| Containerization  | ECR + ECS Fargate               | Consistent deployment, portability           |
 
 ### Production Readiness Checklist
 
@@ -4405,20 +4419,21 @@ Before deploying to production, ensure:
 
 ### Azure vs AWS: Complete Comparison
 
-| Pattern | AWS Implementation | Azure Implementation |
-|---------|-------------------|----------------------|
-| API Gateway | Amazon API Gateway + App Runner | Azure API Management + Container Apps |
-| Service Discovery | AWS Cloud Map | Azure Container Apps DNS |
-| Load Balancing | ALB + Global Accelerator | Front Door + Application Gateway |
-| Circuit Breaker | Polly + CloudWatch | Polly + Application Insights |
-| Event-Driven | SNS + SQS + Lambda | Service Bus + Functions |
-| CQRS | Aurora + DynamoDB | SQL + Cosmos DB |
-| Saga | Step Functions + DynamoDB | Dapr + Service Bus |
-| Service Mesh | App Mesh + Envoy | Dapr on ACA |
-| Tracing | X-Ray | Application Insights |
-| Container | ECR + ECS Fargate | ACR + Container Apps |
-| Secrets | Secrets Manager | Key Vault |
-| Compute | Lambda, ECS, App Runner | Functions, Container Apps, App Service |
+
+| Pattern           | AWS Implementation              | Azure Implementation                   |
+| ----------------- | ------------------------------- | -------------------------------------- |
+| API Gateway       | Amazon API Gateway + App Runner | Azure API Management + Container Apps  |
+| Service Discovery | AWS Cloud Map                   | Azure Container Apps DNS               |
+| Load Balancing    | ALB + Global Accelerator        | Front Door + Application Gateway       |
+| Circuit Breaker   | Polly + CloudWatch              | Polly + Application Insights           |
+| Event-Driven      | SNS + SQS + Lambda              | Service Bus + Functions                |
+| CQRS              | Aurora + DynamoDB               | SQL + Cosmos DB                        |
+| Saga              | Step Functions + DynamoDB       | Dapr + Service Bus                     |
+| Service Mesh      | App Mesh + Envoy                | Dapr on ACA                            |
+| Tracing           | X-Ray                           | Application Insights                   |
+| Container         | ECR + ECS Fargate               | ACR + Container Apps                   |
+| Secrets           | Secrets Manager                 | Key Vault                              |
+| Compute           | Lambda, ECS, App Runner         | Functions, Container Apps, App Service |
 
 ### Next Steps
 

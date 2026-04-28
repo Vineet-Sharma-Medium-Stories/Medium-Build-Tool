@@ -2,7 +2,8 @@
 
 ### A deep dive into project memory, security boundaries, surgical precision with Plan Mode, and the safety net of automatic Git snapshots.
 
-![The Memory & Control Layer](images/The-Memory-Control-Layer.png)
+![The Memory & Control Layer](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/The-Memory-Control-Layer.png)
+
 
 # Introduction: The Foundation of Safe AI-Assisted Development
 
@@ -15,7 +16,7 @@ Let's explore how these features work together to create an AI pair programmer t
 ```mermaid
 ```
 
-![[CLAUDE.md](http://CLAUDE.md), Permissions, Plan Mode, and Checkpoints](images/diagram_01_lets-explore-how-these-features-work-together-to-75b8.png)
+![[CLAUDE.md](http://CLAUDE.md), Permissions, Plan Mode, and Checkpoints](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_01_lets-explore-how-these-features-work-together-to-75b8.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_01_lets-explore-how-these-features-work-together-to-75b8.md)
 
@@ -40,7 +41,7 @@ CLAUDE.md is a special file that Claude reads at the start of every session. Thi
 ```mermaid
 ```
 
-![[4. From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow](#)](images/diagram_02_how-claudemd-works.png)
+![[4. From Terminal to IDE: Complete VS Code Integration & Real-World Project Workflow](#)](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_02_how-claudemd-works.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_02_how-claudemd-works.md)
 
@@ -413,7 +414,7 @@ class ProductService:
 ```mermaid
 ```
 
-![Notice how Claude automatically:](images/diagram_03_followed-the-file-structure-from-claudemd-c7eb.png)
+![Notice how Claude automatically:](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_03_followed-the-file-structure-from-claudemd-c7eb.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_03_followed-the-file-structure-from-claudemd-c7eb.md)
 
@@ -429,7 +430,7 @@ Permissions let you control exactly what Claude can access, modify, or execute. 
 ```mermaid
 ```
 
-![Feature 2: Permissions — Defining the Security Boundary](images/diagram_04_permission-architecture.png)
+![Feature 2: Permissions — Defining the Security Boundary](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_04_permission-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_04_permission-architecture.md)
 
@@ -657,7 +658,7 @@ Plan Mode transforms Claude from an autonomous agent into a collaborative archit
 ```mermaid
 ```
 
-![Feature 3: Plan Mode — Surgical Precision Before Action](images/diagram_05_plan-mode-workflow.png)
+![Feature 3: Plan Mode — Surgical Precision Before Action](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_05_plan-mode-workflow.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_05_plan-mode-workflow.md)
 
@@ -985,7 +986,7 @@ alembic revision --autogenerate -m "Create users table"
 ### API Endpoints Summary
 
 
-![Table](images/table_01_api-endpoints-summary.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/table_01_api-endpoints-summary.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/table_01_api-endpoints-summary.md)
 
@@ -1317,7 +1318,7 @@ Checkpoints create automatic Git snapshots before any significant operation, let
 ```mermaid
 ```
 
-![Feature 4: Checkpoints — The Time Machine](images/diagram_06_checkpoint-system-architecture.png)
+![Feature 4: Checkpoints — The Time Machine](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_06_checkpoint-system-architecture.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_06_checkpoint-system-architecture.md)
 
@@ -1325,7 +1326,7 @@ Checkpoints create automatic Git snapshots before any significant operation, let
 ```mermaid
 ```
 
-![Diagram](images/diagram_07_untitled.png)
+![Diagram](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_07_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_07_untitled.md)
 
@@ -1514,7 +1515,7 @@ Let's walk through a complete workflow using all four features together:
 ```mermaid
 ```
 
-![Putting It All Together: Complete Workflow](images/diagram_08_lets-walk-through-a-complete-workflow-using-all-f-a8f0.png)
+![Putting It All Together: Complete Workflow](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_08_lets-walk-through-a-complete-workflow-using-all-f-a8f0.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_08_lets-walk-through-a-complete-workflow-using-all-f-a8f0.md)
 
@@ -1655,13 +1656,13 @@ These four features transform Claude Code from a helpful but potentially dangero
 ```mermaid
 ```
 
-![Summary: The Safety Foundation](images/diagram_09_these-four-features-transform-claude-code-from-a-h-5d16.png)
+![Summary: The Safety Foundation](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_09_these-four-features-transform-claude-code-from-a-h-5d16.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_09_these-four-features-transform-claude-code-from-a-h-5d16.md)
 
 
 
-![Table](images/table_02_untitled.png)
+![Table](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/table_02_untitled.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/table_02_untitled.md)
 
@@ -1694,7 +1695,7 @@ claude                    # Auto-loads CLAUDE.md from current directory
 ```mermaid
 ```
 
-![Checkpoints](images/diagram_10_complete-workflow-diagram.png)
+![Checkpoints](https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Claude%20Code%20Mastery/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/images/diagram_10_complete-workflow-diagram.png)
 
 [View Source](https://github.com/Vineet-Sharma-Medium-Stories/Medium-Assets/blob/main/claude-code-mastery---the-memory--control-layer-claudemd-permissions-plan-mode-and-checkpoints/diagram_10_complete-workflow-diagram.md)
 
