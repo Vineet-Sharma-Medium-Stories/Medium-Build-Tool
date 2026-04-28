@@ -2,7 +2,7 @@
 
 ### How Vehixcare Platform eliminated polling and cut server costs by 40% using modern SSE patterns
 
-![Real-Time Push SSE](images/Real-Time Push SSE.png)
+![Real-Time Push SSE](<images/Real-Time Push SSE.png>)
 
 ### The Introduction: Why I Stopped Polling
 
@@ -256,7 +256,7 @@ builder.Services.AddHostedService<TelemetryIngestionService>();
 
 ## Chapter 4: The Mermaid Diagram
 
-Below is how the entire data flow works — from IoT devices in vehicles to the browser dashboard **and mobile app**.
+Below is how the entire data flow works — from IoT devices in vehicles to the browser dashboard **and mobile app**. 
 
 ```mermaid
 sequenceDiagram

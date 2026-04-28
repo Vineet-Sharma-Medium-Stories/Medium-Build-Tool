@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories Directory</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        h1 {
+            color: #1a1a2e;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 12px;
+            margin: 4px 0;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s;
+        }
+        li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #0d6efd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .folder {
+            color: #f39c12;
+        }
+        .file {
+            color: #27ae60;
+        }
+        .back {
+            background: #e9ecef;
+            margin-bottom: 20px;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>📂 Stories Directory</h1>
+    <div id="content">Loading...</div>
+
+    <script>
+        // Get current path from URL
+        const currentPath = window.location.pathname.replace('/static/markup.html', '').replace(/^\//, '');
+        
+        async function loadDirectory() {
+            try {
+                const response = await fetch(`/sp/${currentPath}`);
+                const html = await response.text();
+                
+                // Parse the directory listing from Apache/Nginx style
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const pre = doc.querySelector('pre');
+                
+                if (pre) {
+                    const lines = pre.textContent.split('\n');
+                    let items = [];
+                    
+                    for (let line of lines) {
+                        // Extract links from directory listing
+                        const linkMatch = line.match(/<a href="([^"]+)">([^<]+)<\/a>/);
+                        if (linkMatch) {
+                            const href = linkMatch[1];
+                            const name = linkMatch[2];
+                            const isDir = line.includes('DIR') || href.endsWith('/');
+                            
+                            items.push(`<li>
+                                <a href="/sp/${currentPath}/${href}">
+                                    ${isDir ? '📁' : '📄'} ${name}
+                                </a>
+                            </li>`);
+                        }
+                    }
+                    
+                    if (items.length > 0) {
+                        document.getElementById('content').innerHTML = `
+                            ${currentPath ? `<div class="back"><a href="/sp">← Back to root</a></div>` : ''}
+                            <ul>${items.join('')}</ul>
+                        `;
+                    } else {
+                        document.getElementById('content').innerHTML = '<p>No files found</p>';
+                    }
+                } else {
+                    // If it's a file, redirect to view it
+                    window.location.href = `/view/${currentPath}`;
+                }
+            } catch (error) {
+                document.getElementById('content').innerHTML = '<p>Error loading directory</p>';
+            }
+        }
+        
+        loadDirectory();
+    </script>
+</body>
+</html>
