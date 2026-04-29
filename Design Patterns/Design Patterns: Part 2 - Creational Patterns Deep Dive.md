@@ -1,15 +1,13 @@
 # Design Patterns: Part 2 - Creational Patterns Deep Dive
-## How Spotify Creates Its Universe (The .NET 10 Way)
+## Singleton, Factory, Abstract Factory, Builder, and Prototype—implemented with .NET 10, Reactive Programming, Entity Framework Core, and SPAP<T> patterns. Real Spotify code that's production-ready.
 
----
 
 **Subtitle:**
-Singleton, Factory, Abstract Factory, Builder, and Prototype—implemented with .NET 10, Reactive Programming, Entity Framework Core, and SPAP<T> patterns. Real Spotify code that's production-ready.
 
 **Keywords:**
 Creational Patterns, .NET 10, C# 13, Reactive Programming, Entity Framework Core, SPAP<T>, Singleton Pattern, Factory Pattern, Abstract Factory Pattern, Builder Pattern, Prototype Pattern, Spotify system design
 
----
+![Design Patterns: Part 2 - Creational Patterns Deep Dive](<images/Design Patterns: Part 2 - Creational Patterns Deep Dive.png>)
 
 ## Introduction: Why .NET 10 Changes the Game
 
@@ -32,7 +30,7 @@ Why .NET 10? Because Spotify needs:
 
 Let's rebuild Spotify's object creation layer the right way—with modern .NET.
 
----
+
 
 ## Pattern 1: Singleton Pattern
 *"There Can Be Only One"*
@@ -70,10 +68,14 @@ classDiagram
     class PlaybackService {
         +StartPlaybackAsync() Task
     }
+    class Subject~T~ {
+        <<generic>>
+    }
     
     IAudioPlayer <|.. AudioPlayer : implements
     AudioPlayer <-- PlaybackService : uses
     AudioPlayer ..> Subject~T~ : uses
+
 ```
 
 ### The Code
@@ -279,7 +281,7 @@ public class NowPlayingBar : IDisposable
 - **Testability:** Interface-based design allows mocking
 - **Resource Efficiency:** Single audio hardware context, single buffer pool
 
----
+
 
 ## Pattern 2: Factory Method Pattern
 *"Let the Subclasses Decide"*
@@ -336,6 +338,7 @@ classDiagram
     ContentFactory <|-- SongFactory
     ContentFactory <|-- PodcastFactory
     MusicPlayer --> ContentFactory : uses
+
 ```
 
 ### The Code
@@ -736,7 +739,7 @@ public class SpotifyApi
 - **EF Core 10:** Complex types and TPT inheritance for clean domain models
 - **Records:** Immutable DTOs prevent accidental modifications
 
----
+
 
 ## Pattern 3: Abstract Factory Pattern
 *"Factories of Factories"*
@@ -774,26 +777,58 @@ classDiagram
         +CreatePaymentProcessor() RupeeProcessor
         +CreateLicensingService() IndiaLicensingService
     }
-    class IText { <<interface>> }
-    class IButton { <<interface>> }
-    class IPaymentProcessor { <<interface>> }
-    class ILicensingService { <<interface>> }
+    class IText {
+        <<interface>>
+    }
+    class IButton {
+        <<interface>>
+    }
+    class IPaymentProcessor {
+        <<interface>>
+    }
+    class ILicensingService {
+        <<interface>>
+    }
+    class EnglishText {
+        <<concrete>>
+    }
+    class HindiText {
+        <<concrete>>
+    }
+    class USButton {
+        <<concrete>>
+    }
+    class IndiaButton {
+        <<concrete>>
+    }
+    class USDollarProcessor {
+        <<concrete>>
+    }
+    class RupeeProcessor {
+        <<concrete>>
+    }
+    class USLicensingService {
+        <<concrete>>
+    }
+    class IndiaLicensingService {
+        <<concrete>>
+    }
     class SpotifyApp {
         -IRegionFactory _factory
         +InitializeUI()
         +ProcessPayment()
     }
     
-    IRegionFactory <|.. USFactory
-    IRegionFactory <|.. IndiaFactory
-    IText <|-- EnglishText
-    IText <|-- HindiText
-    IButton <|-- USButton
-    IButton <|-- IndiaButton
-    IPaymentProcessor <|-- USDollarProcessor
-    IPaymentProcessor <|-- RupeeProcessor
-    ILicensingService <|-- USLicensingService
-    ILicensingService <|-- IndiaLicensingService
+    IRegionFactory <|.. USFactory : implements
+    IRegionFactory <|.. IndiaFactory : implements
+    IText <|-- EnglishText : implements
+    IText <|-- HindiText : implements
+    IButton <|-- USButton : implements
+    IButton <|-- IndiaButton : implements
+    IPaymentProcessor <|-- USDollarProcessor : implements
+    IPaymentProcessor <|-- RupeeProcessor : implements
+    ILicensingService <|-- USLicensingService : implements
+    ILicensingService <|-- IndiaLicensingService : implements
     SpotifyApp --> IRegionFactory : uses
 ```
 
@@ -1409,7 +1444,7 @@ public static class StringExtensions
 - **Event Streams:** Payment processors expose reactive streams for real-time UI updates
 - **Testability:** Each family can be tested independently
 
----
+
 
 ## Pattern 4: Builder Pattern
 *"Constructing Complex Objects Step by Step"*
@@ -1456,6 +1491,7 @@ classDiagram
     
     PlaylistBuilder --> Playlist : creates
     PlaylistService --> PlaylistBuilder : uses
+
 ```
 
 ### The Code
@@ -2123,7 +2159,7 @@ public class BuilderPatternDemo
 - **EF Core Integration:** Seamless with DbContext for persistence
 - **No Constructor Explosion:** 2 required params vs. potential 10+ constructor parameters
 
----
+
 
 ## Pattern 5: Prototype Pattern
 *"Clone Yourself"*
@@ -2159,7 +2195,7 @@ classDiagram
         +CreateBlendAsync(string user1Id, string user2Id) Task~UserTasteProfile~
     }
     class TasteProfilePool {
-        -Channel~UserTasteProfile~ _pool
+        -Channel _pool
         +RentAsync() ValueTask~PooledProfile~
         +Return(UserTasteProfile profile)
     }
@@ -2644,7 +2680,7 @@ public class MockDistributedCache : IDistributedCache
 - **Memory Efficiency:** Pooling reduces GC pressure
 - **Thread Safety:** Concurrent collections and channels handle high concurrency
 
----
+
 
 ## Conclusion: Choosing the Right Creational Pattern in .NET 10
 
@@ -2676,7 +2712,7 @@ Creational patterns in .NET 10 are not about avoiding `new`. They are about **ma
 
 In Part 3, we'll explore how Spotify composes these objects into larger structures using **Structural Patterns** with .NET 10's latest features.
 
----
+
 
 **Coming Up in Part 3:**
 *Structural Patterns Deep Dive: How Spotify Composes Its Features (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy) with .NET 10*
@@ -2685,3 +2721,13 @@ In Part 3, we'll explore how Spotify composes these objects into larger structur
 *Behavioral Patterns Deep Dive: How Spotify's Objects Communicate (Observer, Strategy, Command, State, Chain of Responsibility, Template Method, Visitor) with .NET 10*
 
 ---
+
+*Coming soon! Want it sooner? Let me know with a clap or comment below*
+
+*� Questions? Drop a response - I read and reply to every comment.**📌 Save this story to your reading list - it helps other engineers discover it.*🔗 Follow me →
+
+**Medium** - mvineetsharma.medium.com
+
+**LinkedIn** - linkedin.com/in/vineet-sharma-architect
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*

@@ -1,6 +1,6 @@
-# EF Core: JSON Complex Types, LeftJoin & ExecuteUpdate - C# 14 & .NET 10 - Part 1
+# EF Core: JSON Complex Types, LeftJoin & ExecuteUpdate - C# 14 & .NET 10 Upgrade Journey - 1
 
-### explore flexible schemas by mapping structs directly to JSON columns with full LINQ support, achieving up to 42% faster queries
+### Explore flexible schemas by mapping structs directly to JSON columns with full LINQ support, achieving up to 42% faster queries
 ![C# 14 & .NET 10 Upgrade Journey/images/EF Core: JSON Complex Types](<images/EF Core: JSON Complex Types.png>)
 
 ## 🔷 EF Core: The Data Access Revolution in .NET 10

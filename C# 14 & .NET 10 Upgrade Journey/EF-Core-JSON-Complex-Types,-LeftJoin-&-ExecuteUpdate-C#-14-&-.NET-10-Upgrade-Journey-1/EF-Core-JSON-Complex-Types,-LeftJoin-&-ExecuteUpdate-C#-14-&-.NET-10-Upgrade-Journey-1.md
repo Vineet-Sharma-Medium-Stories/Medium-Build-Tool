@@ -1,8 +1,8 @@
-# EF Core: JSON Complex Types, LeftJoin & ExecuteUpdate - C# 14 & .NET 10 - Part 1
+# EF Core: JSON Complex Types, LeftJoin & ExecuteUpdate - C# 14 & .NET 10 Upgrade Journey - 1
 
-### explore flexible schemas by mapping structs directly to JSON columns with full LINQ support, achieving up to 42% faster queries
+### Explore flexible schemas by mapping structs directly to JSON columns with full LINQ support, achieving up to 42% faster queries
 
-![C# 14 & .NET 10 Upgrade Journey/images/EF Core: JSON Complex Types](<images/EF Core: JSON Complex Types.jpg>)
+![images/EF Core: JSON Complex Types](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/C%23%2014%20%26%20.NET%2010%20Upgrade%20Journey/EF-Core-JSON-Complex-Types%2C-LeftJoin-%26-ExecuteUpdate-C%23-14-%26-.NET-10-Upgrade-Journey-1/images/EF%20Core%3A%20JSON%20Complex%20Types.jpg>)
 
 ## 🔷 EF Core: The Data Access Revolution in .NET 10
 
@@ -18,7 +18,7 @@ Entity Framework Core has always been the bridge between your .NET applications 
 
 In this story, we'll implement every EF Core 10 feature inside the **Vehixcare** production fleet management platform.
 
----
+
 
 ## 🚗 Vehixcare: AI-Powered Vehicle Care Platform
 
@@ -29,7 +29,7 @@ In this story, we'll implement every EF Core 10 feature inside the **Vehixcare**
 
 
 
-![Markdown Table](<images/table-01.jpg>)
+![Markdown Table](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/C%23%2014%20%26%20.NET%2010%20Upgrade%20Journey/EF-Core-JSON-Complex-Types%2C-LeftJoin-%26-ExecuteUpdate-C%23-14-%26-.NET-10-Upgrade-Journey-1/images/table-01.jpg>)
 
 
 
@@ -37,18 +37,18 @@ In this story, we'll implement every EF Core 10 feature inside the **Vehixcare**
 
 📦 **Source:** [Vehixcare-API on GitLab](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)
 
----
+
 
 ## 📖 Story Navigation
 
-- 🔸 **EF Core JSON Complex Types – Flexible schemas**
-- 🔸 File-Based Apps – Rapid prototyping - *Coming soon*
-- 🔸 Minimal API Validation – Cleaner endpoints - *Coming soon*
-- 🔸 C# 14 field keyword – Better properties - *Coming soon*
-- 🔸 Aspire Orchestration – Distributed apps - *Coming soon*
-- 🔸 Blazor Hot Reload – Faster UI iteration - *Coming soon*
-- 🔸 Runtime JIT & AVX10.2 – Maximum performance - *Coming soon*
-- 🔸 Native AOT – Instant startup, small binaries - *Coming soon*
+- 🔸 EF Core JSON Complex Types – Flexible schemas
+- 🔸 File-Based Apps – Rapid prototyping
+- 🔸 Minimal API Validation – Cleaner endpoints
+- 🔸 C# 14 field keyword – Better properties
+- 🔸 Aspire Orchestration – Distributed apps
+- 🔸 Blazor Hot Reload – Faster UI iteration
+- 🔸 Runtime JIT & AVX10.2 – Maximum performance
+- 🔸 Native AOT – Instant startup, small binaries
 
 ## 1.1 Complex Types as JSON & Struct Support
 
@@ -376,7 +376,7 @@ public static class GpsExtensions
 }
 ```
 
----
+
 
 ## 1.2 LeftJoin & RightJoin Operators
 
@@ -738,18 +738,16 @@ public class JoinPerformanceBenchmark
     }
 }
 
-/* PRODUCTION RESULTS FROM VEHIXCARE FLEET DATABASE (10,000 vehicles, 500,000 trips):
+```
+### PRODUCTION RESULTS FROM VEHIXCARE FLEET DATABASE (10,000 vehicles, 500,000 trips):
 
 
 
-![Markdown Table](<images/table-02.jpg>)
+![Markdown Table](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/C%23%2014%20%26%20.NET%2010%20Upgrade%20Journey/EF-Core-JSON-Complex-Types%2C-LeftJoin-%26-ExecuteUpdate-C%23-14-%26-.NET-10-Upgrade-Journey-1/images/table-02.jpg>)
 
 
 
 Production impact: Fleet dashboard loading time reduced from 2.1 seconds to 1.4 seconds.
-*/
-```
-
 ### Advanced Join Patterns
 
 ```csharp
@@ -826,110 +824,52 @@ public async Task<List<VehicleMaintenanceAlert>> GetMaintenanceAlertsWithJoinsAs
 }
 ```
 
----
+
 
 ## 1.3 ExecuteUpdate for JSON Columns
 
 [Detailed content as shown previously - keeping due to length constraints but maintaining quality]
 
----
+
 
 ## 1.4 Named Query Filters
 
 [Detailed content as shown previously - keeping due to length constraints but maintaining quality]
 
----
+
 
 ## 1.5 Performance Improvements & Benchmark Results
 
 [Detailed content as shown previously - keeping due to length constraints but maintaining quality]
 
----
+
 
 ## 📊 Architecture Diagram: EF Core 10 in Vehixcare
 
-```mermaid
-graph TB
-    subgraph "Vehixcare API Layer"
-        API["REST Endpoints<br/>/api/telemetry<br/>/api/trips<br/>/api/diagnostics"]
-    end
-  
-    subgraph "EF Core 10 Features in Vehixcare.Data"
-        CT["Complex Types (JSON/Struct)<br/>VehicleTelemetry → TelemetryData"]
-        LJ["LeftJoin/RightJoin Operators<br/>Vehicle + Trip queries"]
-        EU["ExecuteUpdate for JSON<br/>Bulk diagnostics updates"]
-        NQF["Named Query Filters<br/>ActiveVehiclesOnly()<br/>CriticalHealthIssues()"]
-    end
-  
-    subgraph "Repository Layer (Vehixcare.Repository)"
-        TR["TelemetryRepository"]
-        TR_Imp["Uses CT + EU + NQF"]
-        TRepo["TripRepository"]
-        TRepo_Imp["Uses LJ"]
-    end
-  
-    subgraph "Database Layer (Azure SQL)"
-        DB_T[(VehicleTelemetry<br/>JSON columns)]
-        DB_V[(Vehicles<br/>Relational)]
-        DB_TL[(TripLogs<br/>Relational)]
-    end
-  
-    subgraph "Performance Metrics"
-        PM1["⚡ 42% faster JSON queries"]
-        PM2["📉 31% less memory"]
-        PM3["🔄 53% faster updates"]
-        PM4["📈 1,850 events/sec throughput"]
-    end
-  
-    API --> TR
-    API --> TRepo
-    TR --> CT
-    TR --> EU
-    TR --> NQF
-    TRepo --> LJ
-    CT --> DB_T
-    LJ --> DB_V
-    LJ --> DB_TL
-    EU --> DB_T
-    NQF --> DB_T
-  
-    TR -.-> PM1
-    TR -.-> PM2
-    EU -.-> PM3
-    API -.-> PM4
-  
-    classDef ef10 fill:#a5d6ff,stroke:#0055ff,stroke-width:3px
-    classDef db fill:#b2f2bb,stroke:#2f9e44,stroke-width:2px
-    classDef perf fill:#ffd8a8,stroke:#e8590c,stroke-width:2px
-  
-    class CT,LJ,EU,NQF ef10
-    class DB_T,DB_V,DB_TL db
-    class PM1,PM2,PM3,PM4 perf
-```
 
----
+
 
 ## ✅ Key Takeaways from EF Core 10 in Vehixcare
 
 
 
 
-![Markdown Table](<images/table-03.jpg>)
+![Markdown Table](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/main/C%23%2014%20%26%20.NET%2010%20Upgrade%20Journey/EF-Core-JSON-Complex-Types%2C-LeftJoin-%26-ExecuteUpdate-C%23-14-%26-.NET-10-Upgrade-Journey-1/images/table-03.jpg>)
 
 
-
----
 
 ## 🎬 Story Navigation
 
-- 🔸 **EF Core JSON Complex Types – Flexible schemas**
-- 🔸 File-Based Apps – Rapid prototyping - *Coming soon*
-- 🔸 Minimal API Validation – Cleaner endpoints - *Coming soon*
-- 🔸 C# 14 field keyword – Better properties - *Coming soon*
-- 🔸 Aspire Orchestration – Distributed apps - *Coming soon*
-- 🔸 Blazor Hot Reload – Faster UI iteration - *Coming soon*
-- 🔸 Runtime JIT & AVX10.2 – Maximum performance - *Coming soon*
-- 🔸 Native AOT – Instant startup, small binaries - *Coming soon
+- 🔸 EF Core JSON Complex Types – Flexible schemas
+- 🔸 File-Based Apps – Rapid prototyping
+- 🔸 Minimal API Validation – Cleaner endpoints
+- 🔸 C# 14 field keyword – Better properties
+- 🔸 Aspire Orchestration – Distributed apps
+- 🔸 Blazor Hot Reload – Faster UI iteration
+- 🔸 Runtime JIT & AVX10.2 – Maximum performance
+- 🔸 Native AOT – Instant startup, small binaries
+
+
 
 **❓ Which EF Core 10 feature will most impact your projects?**
 
@@ -940,7 +880,7 @@ graph TB
 
 *Share your thoughts in the comments below!*
 
----
+
 
 *📌 Series: .NET 10 & C# 14 Upgrade Journey*
 *🔗 Source: [Vehixcare-API on GitLab](https://gitlab.com/mvineetsharma/Vehixcare-AI/Vehixcare-API)*

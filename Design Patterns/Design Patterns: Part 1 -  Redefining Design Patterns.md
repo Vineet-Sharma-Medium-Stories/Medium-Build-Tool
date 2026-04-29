@@ -707,7 +707,6 @@ In **Part 2: Creational Patterns Deep Dive**, we'll explore:
 
 All implemented with .NET 10's latest features, reactive programming, and production-ready code.
 
----
 
 **Coming Up in Part 2:**
 *Creational Patterns Deep Dive: How Spotify Creates Its Universe (Singleton, Factory, Abstract Factory, Builder, Prototype) with .NET 10*
@@ -719,3 +718,13 @@ All implemented with .NET 10's latest features, reactive programming, and produc
 *Behavioral Patterns Deep Dive: How Spotify's Objects Communicate (Observer, Strategy, Command, State, Chain of Responsibility, Template Method, Visitor) with .NET 10*
 
 ---
+
+*Coming soon! Want it sooner? Let me know with a clap or comment below*
+
+*� Questions? Drop a response - I read and reply to every comment.**📌 Save this story to your reading list - it helps other engineers discover it.*🔗 Follow me →
+
+**Medium** - mvineetsharma.medium.com
+
+**LinkedIn** - linkedin.com/in/vineet-sharma-architect
+
+*In-depth .NET, Node.js, Python, Cloud Architecture, and System Design. New articles weekly*
