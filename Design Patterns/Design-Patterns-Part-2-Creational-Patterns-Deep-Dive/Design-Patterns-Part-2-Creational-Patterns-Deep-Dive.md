@@ -7,7 +7,7 @@
 **Keywords:**
 Creational Patterns, .NET 10, C# 13, Reactive Programming, Entity Framework Core, SPAP<T>, Singleton Pattern, Factory Pattern, Abstract Factory Pattern, Builder Pattern, Prototype Pattern, Spotify system design
 
-![Design Patterns: Part 2 - Creational Patterns Deep Dive](<images/Design Patterns: Part 2 - Creational Patterns Deep Dive.png>)
+![Design Patterns: Part 2 - Creational Patterns Deep Dive](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/Design%20Patterns%3A%20Part%202%20-%20Creational%20Patterns%20Deep%20Dive.jpg>)
 
 ## Introduction: Why .NET 10 Changes the Game
 
@@ -51,7 +51,7 @@ In modern .NET, we have better options than the classic double-check locking:
 
 
 
-![Mermaid Diagram](<images/diagram-01.jpg>)
+![Mermaid Diagram](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/diagram-01.jpg>)
 
 
 
@@ -280,7 +280,7 @@ Modern .NET features:
 
 
 
-![Mermaid Diagram](<images/diagram-02.jpg>)
+![Mermaid Diagram](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/diagram-02.jpg>)
 
 
 
@@ -704,7 +704,7 @@ Modern .NET features:
 
 
 
-![Mermaid Diagram](<images/diagram-03.jpg>)
+![Mermaid Diagram](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/diagram-03.jpg>)
 
 
 
@@ -1342,7 +1342,7 @@ Modern .NET features:
 
 
 
-![Mermaid Diagram](<images/diagram-04.jpg>)
+![Mermaid Diagram](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/diagram-04.jpg>)
 
 
 
@@ -2033,7 +2033,7 @@ Modern .NET features:
 
 
 
-![Mermaid Diagram](<images/diagram-05.jpg>)
+![Mermaid Diagram](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/diagram-05.jpg>)
 
 
 
@@ -2518,7 +2518,7 @@ public class MockDistributedCache : IDistributedCache
 
 
 
-![Markdown Table](<images/table-01.jpg>)
+![Markdown Table](<https://raw.githubusercontent.com/Vineet-Sharma-Medium-Stories/Medium-Build-Tool/refs/heads/main/Design%20Patterns/Design-Patterns-Part-2-Creational-Patterns-Deep-Dive/images/table-01.jpg>)
 
 
 
@@ -2553,7 +2553,8 @@ In Part 3, we'll explore how Spotify composes these objects into larger structur
 
 *Coming soon! Want it sooner? Let me know with a clap or comment below*
 
-*� Questions? Drop a response - I read and reply to every comment.**📌 Save this story to your reading list - it helps other engineers discover it.*🔗 Follow me →
+*� Questions? Drop a response - I read and reply to every comment.
+**📌 Save this story to your reading list - it helps other engineers discover it.*🔗 Follow me →
 
 **Medium** - mvineetsharma.medium.com
 
